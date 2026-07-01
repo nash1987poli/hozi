@@ -72,6 +72,23 @@
   .drv .v{font-family:var(--serif);font-weight:700;font-size:18px}
   .drv .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
   .brief{background:#FFFDF8;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 12px;margin-top:12px;font-size:13.5px}
+  .backlink{background:none;border:0;color:var(--green);font:600 13px var(--sans);cursor:pointer;padding:0 0 8px;display:flex;align-items:center;gap:5px}
+  /* hero statement band */
+  .statement{display:flex;align-items:center;gap:22px;background:linear-gradient(90deg,#FFF6F2,var(--card));
+    border:1px solid var(--line);border-left:6px solid var(--red);border-radius:14px;padding:16px 24px;margin:18px 0 2px}
+  .statement .big{font-family:var(--serif);font-weight:700;font-size:clamp(40px,6vw,58px);color:var(--red);line-height:.85;flex:none}
+  .statement .txt{font-family:var(--serif);font-size:clamp(15px,2vw,19px);color:var(--ink);line-height:1.3}
+  .statement .txt b{color:var(--red)}
+  /* watch list */
+  .watchhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+  .watch{display:flex;flex-direction:column;max-height:560px;overflow:auto}
+  .wrow{display:grid;grid-template-columns:16px 1fr 66px 26px;gap:9px;align-items:center;padding:6px 6px;border-radius:8px;cursor:pointer;border-bottom:1px solid #f0e9dc}
+  .wrow:hover{background:var(--cream)}
+  .wrow .rk{color:var(--muted);font-family:var(--serif);font-weight:700;font-size:12px}
+  .wrow .nm{font-size:13px;line-height:1.15} .wrow .nm span{color:var(--muted);font-size:11px}
+  .wbar{height:15px;background:#efe7d8;border-radius:4px;overflow:hidden}
+  .wbar i{display:block;height:100%}
+  .wval{font-family:var(--serif);font-weight:700;font-size:13px;text-align:right}
 
   /* planner */
   .planner{background:var(--ink);color:#F3EEE4;border-radius:18px;padding:26px;margin-top:22px}
@@ -120,6 +137,7 @@
   <p data-i18n="p0">Hozi forecasts where maize food-security risk is heading, district by district, then helps
   responders get the most from the resources they already have. Drag the timeline to watch the season unfold;
   use the Response Planner to see where early action protects the most people.</p>
+  <div class="statement" id="statement"></div>
   <div class="kpis" id="kpis"></div>
   <div class="note" id="kpinote" data-i18n="kpinote" style="margin-top:8px"></div>
 </div></div>
@@ -199,6 +217,7 @@ const D=window.HOZI; const M={ '2026-01':'January','2026-02':'February','2026-03
  '2026-05':'May','2026-06':'June','2026-07':'July','2026-08':'August','2026-09':'September'};
 const MONTHKEYS=['2026-01','2026-02','2026-03','2026-04','2026-05','2026-06','2026-07','2026-08','2026-09'];
 const districts=D.districts.filter(d=>d.timeline && d.timeline.length>=9);
+const ZWE=[[31.191,-22.252],[30.66,-22.152],[30.323,-22.272],[29.839,-22.102],[29.432,-22.091],[28.795,-21.639],[28.021,-21.486],[27.727,-20.852],[27.725,-20.499],[27.297,-20.392],[26.165,-19.293],[25.85,-18.714],[25.649,-18.536],[25.264,-17.737],[26.382,-17.846],[26.707,-17.961],[27.044,-17.938],[27.598,-17.291],[28.468,-16.468],[28.826,-16.39],[28.947,-16.043],[29.517,-15.645],[30.274,-15.508],[30.339,-15.881],[31.173,-15.861],[31.636,-16.072],[31.852,-16.319],[32.328,-16.392],[32.848,-16.713],[32.85,-17.979],[32.655,-18.672],[32.612,-19.419],[32.773,-19.716],[32.66,-20.304],[32.509,-20.395],[32.245,-21.116],[31.191,-22.252]];
 
 /* color scale red<-amber<-green over ~[30,85] */
 function col(v){
@@ -224,7 +243,10 @@ function riskAt(d, idx){
   return base;
 }
 function renderMap(){
-  const svg=$('#map'); const maxN=1; let s='';
+  const svg=$('#map'); let s='';
+  // Zimbabwe national outline (drawn behind the district bubbles)
+  s+=`<path d="${ZWE.map(([lo,la],i)=>{const[x,y]=proj(la,lo);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}).join(' ')} Z" `
+   + `fill="#FBF7EF" stroke="#C7B9A2" stroke-width="1.6" stroke-linejoin="round"/>`;
   districts.forEach(d=>{
     const[x,y]=proj(d.lat,d.lon); const v=riskAt(d,monthIdx);
     const r=12; const isProj=d.timeline[monthIdx].proj;
@@ -263,6 +285,23 @@ function kpis(){
   ].map(k=>`<div class="kpi"><div class="n ${k.c}">${k.n}</div><div class="l">${k.l}</div></div>`).join('');
   $('#kpinote').textContent=`Based on ${n.n_districts} districts of staple-crop signals, Jan–Jun 2026, projected to September.`;
 }
+function fillStatement(){
+  const n=D.national;
+  $('#statement').innerHTML=`<div class="big">${n.high_sep}</div>
+    <div class="txt">of ${n.n_districts} districts are projected to slide into <b>HIGH food-security risk by September</b> — without early action. Hozi shows where to act first.</div>`;
+}
+function renderWatchList(){
+  const ranked=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk);
+  const rows=ranked.map((d,i)=>{const sep=d.timeline[8].risk;
+    return `<div class="wrow" data-d="${d.district}">
+      <div class="rk">${i+1}</div>
+      <div class="nm">${d.district}<br><span>${d.province}</span></div>
+      <div class="wbar"><i style="width:${Math.max(6,sep)}%;background:${col(sep)}"></i></div>
+      <div class="wval" style="color:${bandCol(sep)}">${Math.round(sep)}</div></div>`;}).join('');
+  $('#side').innerHTML=`<div class="watchhead"><h3 style="font-size:18px">Districts to watch</h3>`
+    +`<span class="note">by projected September risk · tap any</span></div><div class="watch">${rows}</div>`;
+  document.querySelectorAll('#side .wrow').forEach(r=>r.addEventListener('click',()=>selectDistrict(r.dataset.d)));
+}
 
 /* district drilldown */
 function selectDistrict(name){
@@ -271,6 +310,7 @@ function selectDistrict(name){
   const spark=sparkline(d.timeline);
   const supp=d.support?`<div class="brief"><b>Response note.</b> A support package here could lower the September outlook by about <b>${d.support.reduction}</b> points (to ${Math.round(d.support.supported_sep)}), because it is ${dr.irrigation<35?'poorly irrigated':'moderately irrigated'} and drying fast.</div>`:'';
   $('#side').innerHTML=`<div class="dd">
+    <button class="backlink" onclick="renderWatchList()">&larr; All districts</button>
     <div class="prov">${d.province}</div><h4>${d.district}</h4>
     <span class="ddband" style="background:${bandCol(sepR)}">${b} risk by September · ${Math.round(sepR)}</span>
     <div class="spark">${spark}</div>
@@ -361,7 +401,7 @@ function lang(l){
 $$('.lng button').forEach(b=>b.addEventListener('click',()=>lang(b.dataset.lang)));
 
 /* init */
-kpis(); setMonth(5); renderBuys(); updatePlanner(0);
+kpis(); fillStatement(); renderWatchList(); setMonth(5); renderBuys(); updatePlanner(0);
 </script>
 </body>
 </html>
