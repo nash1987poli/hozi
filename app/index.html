@@ -89,6 +89,22 @@
   .wbar{height:15px;background:#efe7d8;border-radius:4px;overflow:hidden}
   .wbar i{display:block;height:100%}
   .wval{font-family:var(--serif);font-weight:700;font-size:13px;text-align:right}
+  /* data pipeline */
+  .pipeline{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-top:22px}
+  .pipeline h2{font-size:clamp(20px,2.6vw,26px);margin:4px 0 4px}
+  .pipeline .plead{color:var(--ink2);max-width:82ch;font-size:14px;margin-bottom:14px}
+  .sources{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:760px){.sources{grid-template-columns:repeat(2,1fr)}}
+  .src{background:var(--cream);border:1px solid var(--line);border-radius:11px;padding:11px 9px;text-align:center}
+  .src .ic{font-size:22px;line-height:1}
+  .src b{display:block;font-size:12px;margin-top:5px;color:var(--ink)}
+  .src small{display:block;color:var(--muted);font-size:10px;line-height:1.25;margin-top:2px}
+  .flowarrow{text-align:center;color:var(--gold);font-size:18px;font-weight:700;margin:9px 0 8px;letter-spacing:.3em}
+  .engine-bar{background:var(--green);color:#fff;border-radius:12px;padding:13px;text-align:center}
+  .engine-bar b{font-family:var(--serif);font-size:18px} .engine-bar small{color:#CDE7DA;font-size:12px;display:block;margin-top:2px}
+  .outcome-bar{background:var(--ink);color:#F3EEE4;border-radius:12px;padding:12px;text-align:center;margin-top:0}
+  .outcome-bar b{font-family:var(--serif);font-size:16px} .outcome-bar small{color:#B9B0A2;font-size:11.5px;display:block;margin-top:2px}
+  .pnote{font-size:12px;color:var(--muted);margin-top:10px}
 
   /* planner */
   .planner{background:var(--ink);color:#F3EEE4;border-radius:18px;padding:26px;margin-top:22px}
@@ -192,6 +208,25 @@
         <div class="buys" id="buys"></div>
       </div>
     </div>
+  </div>
+
+  <div class="pipeline">
+    <div class="kicker" data-i18n="dpk">Live-ready data pipeline</div>
+    <h2 data-i18n="dph">Where the data comes from</h2>
+    <p class="plead" data-i18n="dpp">Hozi doesn't invent data — it reads trusted signals from the bodies that already own them, and each owner keeps control of its own data. <b>This prototype runs on POTRAZ sample data; the engine is built to plug the live feeds below straight in.</b></p>
+    <div class="sources">
+      <div class="src"><div class="ic">🌧️</div><b>Rainfall</b><small>Met Services · TAMSAT / CHIRPS</small></div>
+      <div class="src"><div class="ic">🛰️</div><b>Vegetation</b><small>NASA · Copernicus · FAO ASIS</small></div>
+      <div class="src"><div class="ic">🌱</div><b>Crops · pests · inputs</b><small>Agritex / Min. of Agriculture</small></div>
+      <div class="src"><div class="ic">💵</div><b>Market prices</b><small>GMB · ZMX · e-Mukambo</small></div>
+      <div class="src"><div class="ic">💬</div><b>Ground truth</b><small>District officers (WhatsApp)</small></div>
+      <div class="src"><div class="ic">🗄️</div><b>National platform</b><small>Project Pangolin</small></div>
+    </div>
+    <div class="flowarrow">▼</div>
+    <div class="engine-bar"><b>The Hozi engine</b><small data-i18n="dpe">clean &amp; standardise · score risk · forecast · plan the response</small></div>
+    <div class="flowarrow">▼</div>
+    <div class="outcome-bar"><b data-i18n="dpo">Planners &amp; responders</b><small>national map · districts-to-watch · Response Planner · local-language briefs</small></div>
+    <p class="pnote" data-i18n="dpn">Data stays with its owners; Hozi reads only the agreed signals through secure connections — no one hands over control of their data.</p>
   </div>
 
   <div class="method">
@@ -391,7 +426,12 @@ const SN={ mast:"Injini Yekufanotarira Chikafu cheNyika", k0:"POTRAZ AI4I 2026 �
  mt1:"<b>Modhi yakajeka.</b> Njodzi musanganiswa wemvura, uswa, zvipfukuto, nekudiridza — hapana black box.",
  mt2:"<b>Yakaongororwa.</b> Chiyero cheHozi chinoenderana nechimwe chiyero pa<b>r = 0.81</b>.",
  mt3:"<b>Kufanotarira, kwete kuvuka.</b> Zvifanotariro zvine muganhu wechivimbo — rubatsiro rwekusarudza, kwete chokwadi chakakwana.",
- mt4:"<b>Data yemuenzaniso.</b> Muenzaniso uyu unoshandisa data yePOTRAZ. Injini yakagadzirirwa data chaiyo." };
+ mt4:"<b>Data yemuenzaniso.</b> Muenzaniso uyu unoshandisa data yePOTRAZ. Injini yakagadzirirwa data chaiyo.",
+ dpk:"Nzira yedata yakagadzirira live", dph:"Data inobva kupi",
+ dpp:"Hozi haigadziri data — inoverenga zviratidzo kubva kumasangano ane data iwayo, uye muridzi wega wega anochengeta data yake. <b>Muenzaniso uyu unoshandisa data yePOTRAZ; injini yakagadzirirwa kubatanidza live feeds dziri pazasi.</b>",
+ dpe:"gadzirisa · yera njodzi · fanotarira · ronga rubatsiro",
+ dpo:"Varongi nevabatsiri",
+ dpn:"Data inogara nevaridzi vayo; Hozi inongoverenga zviratidzo zvakatenderwa — hapana anopa umwe simba pamusoro pedata yake." };
 const base={};
 function lang(l){
   $$('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(base[k]===undefined)base[k]=el.innerHTML;
