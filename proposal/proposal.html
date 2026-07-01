@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Hozi — Solution Proposal</title>
+<style>
+  @page { size: A4; margin: 0; }
+  *{ box-sizing:border-box; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  :root{
+    --green:#1E6B4F; --green2:#14543E; --gold:#D89B2E; --ink:#1A1714; --ink2:#43403A;
+    --muted:#7C746A; --line:#E2D9C9; --paper:#FFFFFF; --cream:#FAF6EE;
+    --serif:"Georgia","Iowan Old Style","Times New Roman",serif;
+    --sans:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  }
+  html,body{ font-family:var(--sans); color:var(--ink); font-size:9.7pt; line-height:1.38; }
+  .page{ width:210mm; height:277mm; overflow:hidden; padding:12mm 16mm; position:relative; background:var(--paper); }
+  h1,h2,h3,.disp{ font-family:var(--serif); }
+  .kicker{ font-weight:700; text-transform:uppercase; letter-spacing:.14em; font-size:7.6pt; color:var(--green); }
+  .gold{ color:var(--gold); } .gn{ color:var(--green); }
+  p{ margin-bottom:7px; color:var(--ink2); }
+  strong{ color:var(--ink); }
+  .hair{ height:1px; background:var(--line); margin:10px 0; }
+
+  /* ---------- COVER ---------- */
+  .cover{ background:var(--ink); color:#F3EEE4; display:flex; flex-direction:column; }
+  .cover .top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .cover .flag{ display:flex; height:7px; width:64px; border-radius:2px; overflow:hidden; }
+  .cover .flag i{ flex:1; }
+  .cover .badge{ text-align:right; font-size:7.8pt; color:#B9B0A2; line-height:1.5; }
+  .cover .mid{ margin-top:auto; margin-bottom:auto; }
+  .logocard{ background:#fff; border-radius:14px; padding:22px 20px 18px; width:118mm; text-align:center;
+             box-shadow:0 10px 40px rgba(0,0,0,.3); }
+  .logocard img{ width:84mm; display:block; margin:0 auto; }
+  .cover .sub{ font-family:var(--serif); font-size:18pt; color:#EDE6D8; margin-top:22px; font-style:italic; }
+  .cover .tag{ margin-top:8px; font-size:11pt; color:var(--gold); font-weight:600; }
+  .cover .lede{ margin-top:15px; max-width:140mm; font-size:10.4pt; color:#CFC7B8; line-height:1.55; }
+  .cover .lede b{ color:#fff; }
+  .cover .foot{ display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid #3A3630; padding-top:13px; }
+  .cover .foot div{ font-size:8.4pt; color:#B9B0A2; line-height:1.6; }
+  .cover .foot b{ color:#fff; }
+
+  /* ---------- CONTENT ---------- */
+  .ph{ display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:12px; }
+  .ph .nm{ font-family:var(--serif); font-weight:700; font-size:11pt; }
+  .ph .nm .dot{ color:var(--green); }
+  .ph .pg{ font-size:7.8pt; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+  h2.sec{ font-size:16.5pt; line-height:1.08; margin:2px 0 3px; letter-spacing:-.01em; }
+  .lead{ font-size:10.2pt; color:var(--ink2); margin-bottom:9px; }
+  .cols{ display:flex; gap:14px; } .cols > div{ flex:1; }
+  h3.sub{ font-family:var(--sans); font-size:8.2pt; text-transform:uppercase; letter-spacing:.09em; color:var(--green); margin:10px 0 5px; font-weight:700; }
+  ul{ margin:0 0 7px 15px; } li{ margin-bottom:4px; color:var(--ink2); }
+
+  .stats{ display:flex; gap:9px; margin:10px 0; }
+  .stat{ flex:1; background:var(--cream); border:1px solid var(--line); border-radius:8px; padding:9px 11px; }
+  .stat .n{ font-family:var(--serif); font-weight:700; font-size:20pt; line-height:1; color:var(--green); }
+  .stat .n.bad{ color:#B23A2E; } .stat .n.gold{ color:var(--gold); }
+  .stat .l{ font-size:7.4pt; color:var(--muted); margin-top:5px; line-height:1.3; text-transform:uppercase; letter-spacing:.04em; }
+
+  .hero-feat{ background:var(--green); color:#fff; border-radius:10px; padding:13px 15px; margin:10px 0; }
+  .hero-feat .tagline{ font-size:7.6pt; text-transform:uppercase; letter-spacing:.12em; color:#BFE3D3; font-weight:700; }
+  .hero-feat h3{ font-size:14pt; margin:3px 0 5px; color:#fff; }
+  .hero-feat p{ color:#E6F0EB; margin:0; font-size:9.5pt; }
+
+  .callout{ background:var(--cream); border-left:3px solid var(--gold); border-radius:0 7px 7px 0; padding:9px 12px; margin:9px 0; font-size:9.5pt; }
+  .callout b{ color:var(--ink); }
+
+  table.t{ width:100%; border-collapse:collapse; font-size:8.7pt; margin:5px 0 3px; }
+  table.t th{ text-align:left; background:var(--green); color:#fff; padding:5px 8px; font-size:8pt; font-weight:600; }
+  table.t td{ padding:5px 8px; border-bottom:1px solid var(--line); color:var(--ink2); vertical-align:top; }
+  table.t tr:nth-child(even) td{ background:#FBF8F2; }
+
+  .flow{ display:flex; gap:6px; margin:8px 0; }
+  .flow .step{ flex:1; background:#fff; border:1px solid var(--line); border-top:3px solid var(--green); border-radius:7px; padding:7px 8px; }
+  .flow .step.key{ border-top-color:var(--gold); background:#FFFDF8; }
+  .flow .step .num{ font-family:var(--serif); font-weight:700; color:var(--gold); font-size:10.5pt; }
+  .flow .step .t{ font-weight:700; font-size:8.4pt; margin:2px 0 3px; color:var(--ink); }
+  .flow .step .d{ font-size:7.5pt; color:var(--muted); line-height:1.28; }
+
+  .feat{ margin-bottom:7px; } .feat .h{ font-weight:700; color:var(--ink); font-size:9.4pt; }
+  .feat .h b{ color:var(--green); }
+
+  .foot2{ position:absolute; bottom:8mm; left:16mm; right:16mm; display:flex; justify-content:space-between;
+          border-top:1px solid var(--line); padding-top:6px; font-size:7.3pt; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<section class="page cover">
+  <div class="top">
+    <div class="flag"><i style="background:#1E6B4F"></i><i style="background:#D89B2E"></i><i style="background:#B23A2E"></i><i style="background:#111"></i></div>
+    <div class="badge">
+      POTRAZ AI for Impact (AI4I) Challenge 2026<br>
+      Development Track &nbsp;·&nbsp; Environment, Climate &amp; Sustainability<br>
+      Solution Proposal
+    </div>
+  </div>
+  <div class="mid">
+    <div class="logocard"><img src="logo.jpg" alt="Hozi — National Food Security Foresight Engine" /></div>
+    <div class="sub">See the hunger coming — and act in time.</div>
+    <div class="tag">Fill the granary before the drought.</div>
+    <p class="lede"><b>The first Zimbabwean-owned food-security foresight engine.</b> Hozi forecasts where
+    hunger is heading, district by district, then helps planners <b>get the most from the resources they
+    already have</b> — so early action reaches the right places in time. Sovereign, open, and built at home.</p>
+  </div>
+  <div class="foot">
+    <div><b>Submitted by</b><br>Curious Inq — AI-powered creative studio, Harare<br>
+      Nash Barara · Product &amp; Design Lead &nbsp;|&nbsp; [Technical Lead] &nbsp;|&nbsp; [Food-Security Advisor]</div>
+    <div style="text-align:right"><b>June 2026</b><br>Zimbabwe<br>Open-source · built locally</div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 — PROBLEM & SOLUTION ============ -->
+<section class="page">
+  <div class="ph"><div class="nm">Hozi<span class="dot">.</span></div><div class="pg">Solution Proposal · 02</div></div>
+
+  <span class="kicker">The problem</span>
+  <h2 class="sec">We see the hunger coming. We just see it too late to act in time.</h2>
+  <p class="lead">Almost every year, parts of Zimbabwe slide into food shortage when the rains fail and
+  harvests fall short. The tragedy is rarely that no one saw it coming. It is that the warning arrives too
+  late, buried in slow seasonal reports produced outside the country — after the season is already lost and
+  the moment for early action has passed.</p>
+  <p>Planners are then left to stretch limited resources across many struggling districts with no quick,
+  shared way to see where action would do the most good. The result is help that arrives late, and in the
+  wrong order.</p>
+
+  <div class="hair"></div>
+
+  <span class="kicker">The solution</span>
+  <h2 class="sec">Hozi — from early warning to a ready plan.</h2>
+  <p class="lead">Hozi does two things no seasonal report does. First, it <strong>forecasts</strong> where
+  food risk is heading over the next one to three months, for every district. Then it helps responders
+  <strong>plan</strong>: enter the resources already set aside, and Hozi shows where that effort protects
+  the most people and hectares — so existing budgets go further.</p>
+
+  <h3 class="sub">Who it is for — and how it respects their authority</h3>
+  <p>Hozi is a decision-support tool for the people who plan the response — the Ministry of Lands &amp;
+  Agriculture, food-security and civil-protection officers, ZimVAC, and relief NGOs. <strong>It supports
+  existing decision-makers and processes; it informs, it does not decide or override.</strong> Hozi never
+  sets budgets and never tells government how to spend. The planner is always in control.</p>
+
+  <h3 class="sub">How it works — five clear steps</h3>
+  <div class="flow">
+    <div class="step"><div class="num">1</div><div class="t">Read signals</div><div class="d">Rainfall, vegetation, pests, irrigation &amp; input access, district by district.</div></div>
+    <div class="step"><div class="num">2</div><div class="t">Score risk</div><div class="d">A transparent, explainable food-security risk score (0–100) per district.</div></div>
+    <div class="step"><div class="num">3</div><div class="t">Look ahead</div><div class="d">Project the trend 1–3 months forward with an honest confidence range.</div></div>
+    <div class="step key"><div class="num">4</div><div class="t">Test plans</div><div class="d">Enter existing resources and compare where they protect the most people.</div></div>
+    <div class="step"><div class="num">5</div><div class="t">Explain</div><div class="d">Plain-language alerts on a clear map, in English &amp; local languages.</div></div>
+  </div>
+
+  <div class="callout"><b>In one line:</b> the world's tools tell Zimbabwe what will happen. Hozi helps our
+  own responders <b>act on it in time, with the resources they already have</b> — interactively, and ours.</div>
+
+  <div class="foot2"><span>Hozi · National Food-Security Foresight Engine</span><span>POTRAZ AI4I 2026 · Curious Inq</span></div>
+</section>
+
+<!-- ============ PAGE 3 — TECHNICAL + INNOVATION ============ -->
+<section class="page">
+  <div class="ph"><div class="nm">Hozi<span class="dot">.</span></div><div class="pg">Solution Proposal · 03</div></div>
+
+  <span class="kicker">Technical specification</span>
+  <h2 class="sec">A transparent engine — not a black box.</h2>
+  <div class="cols">
+    <div>
+      <h3 class="sub">How it is built</h3>
+      <ul>
+        <li><strong>Data layer:</strong> district climate, crop &amp; market signals (rainfall, NDVI vegetation, pests, irrigation, input access, prices, yields).</li>
+        <li><strong>Risk engine:</strong> a clear weighted model giving a 0–100 food-security risk per district.</li>
+        <li><strong>Forecast:</strong> seasonal trend projection 1–3 months ahead, with a widening confidence band.</li>
+        <li><strong>Response planner:</strong> for a given level of resources, ranks where action reduces the most risk.</li>
+        <li><strong>Interface:</strong> a web map — time-slider, district drill-down, what-if planner — on a normal browser.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub">Proven against the data</h3>
+      <div class="stats"><div class="stat"><div class="n">0.81</div><div class="l">Match between Hozi's risk score and an independent agricultural risk index</div></div></div>
+      <p style="font-size:9pt">A strong match means the model reflects real conditions — it is not guessing.
+      From there, Hozi projects the same well-understood seasonal trend forward and is honest about
+      uncertainty.</p>
+    </div>
+  </div>
+
+  <div class="hero-feat">
+    <div class="tagline">The feature that sets Hozi apart</div>
+    <h3>The Response Planner — make every committed dollar count</h3>
+    <p>Enter the resources already allocated for the season and Hozi shows where that effort protects the
+    most people per dollar, and in what order. Global tools forecast hunger; Hozi helps our own responders
+    turn an existing budget into the most lives protected — without ever setting that budget.</p>
+  </div>
+
+  <span class="kicker">Innovative features</span>
+  <div class="cols">
+    <div>
+      <div class="feat"><div class="h"><b>From warning to a plan.</b></div>It turns a forecast into a fundable, comparable response.</div>
+      <div class="feat"><div class="h"><b>Sovereign &amp; open.</b></div>The first Zimbabwean-owned food-security engine — open-source, not a foreign black box.</div>
+      <div class="feat"><div class="h"><b>Speaks our languages.</b></div>Early-warning briefs in English, chiShona &amp; isiNdebele for the last mile.</div>
+    </div>
+    <div>
+      <div class="feat"><div class="h"><b>Honest by design.</b></div>It shows its workings and states what it cannot know — trust over overclaiming.</div>
+      <div class="feat"><div class="h"><b>Locally fed.</b></div>District officers can report ground truth that foreign satellites cannot see.</div>
+      <div class="feat"><div class="h"><b>One engine, many hazards.</b></div>The same system extends to floods and disease — a national disaster-warning seed.</div>
+    </div>
+  </div>
+
+  <div class="callout" style="border-color:var(--green)"><b>Responsible AI:</b> Hozi is decision-support, not
+  an oracle. It keeps a human expert in the loop, shows its reasoning, and is honest about uncertainty —
+  in line with the ethics of the National AI Strategy.</div>
+
+  <div class="foot2"><span>Hozi · National Food-Security Foresight Engine</span><span>POTRAZ AI4I 2026 · Curious Inq</span></div>
+</section>
+
+<!-- ============ PAGE 4 — BENEFITS, ALIGNMENT, TEAM ============ -->
+<section class="page">
+  <div class="ph"><div class="nm">Hozi<span class="dot">.</span></div><div class="pg">Solution Proposal · 04</div></div>
+
+  <span class="kicker">Projected benefits</span>
+  <h2 class="sec">Every $1 of early action saves $7. Hozi helps find it in time.</h2>
+  <p class="lead">The World Food Programme estimates anticipatory action returns at least seven-to-one. The
+  hard part is acting early and in the right order. In a working test on national sample data, Hozi flagged
+  a sharp seasonal rise in risk and showed where existing effort would pay off most.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n bad">0 → 19</div><div class="l">Districts (of 20) projected into high risk by September without early action</div></div>
+    <div class="stat"><div class="n gold">7×</div><div class="l">Return on every dollar of timely, well-targeted early action (WFP)</div></div>
+    <div class="stat"><div class="n">3 mo.</div><div class="l">Earlier warning than a typical seasonal report cycle</div></div>
+  </div>
+  <ul>
+    <li><strong>Fewer hungry families:</strong> seed, irrigation and relief move <em>before</em> the harvest fails, not after.</li>
+    <li><strong>Existing budgets go further:</strong> the same resources are guided to where they cut the most risk.</li>
+    <li><strong>One shared truth:</strong> ministries, NGOs and donors plan from the same live picture, not competing reports.</li>
+  </ul>
+
+  <div class="hair"></div>
+  <div class="cols">
+    <div>
+      <span class="kicker">National alignment</span>
+      <h3 class="sub" style="margin-top:5px">How Hozi advances the National AI Strategy</h3>
+      <ul>
+        <li>Delivers the Strategy's <strong>Year-1 Food Security</strong> priority.</li>
+        <li>Builds the <strong>"AI disaster-warning system"</strong> the Strategy explicitly calls for.</li>
+        <li>Supports <strong>Pillar 3</strong> (AI for service delivery &amp; decision-making).</li>
+        <li>An analytics layer for the national data platform (<strong>Project Pangolin</strong>).</li>
+        <li>Embodies <strong>sovereignty, local language &amp; responsible AI</strong>.</li>
+      </ul>
+    </div>
+    <div>
+      <span class="kicker">Why us</span>
+      <h3 class="sub" style="margin-top:5px">A rare blend</h3>
+      <p>Curious Inq pairs senior design and storytelling with applied AI. Most technical entries are
+      powerful but unreadable; most beautiful ones are thin. Hozi is both — a serious engine a Minister
+      can understand in thirty seconds.</p>
+      <table class="t">
+        <tr><th>Stage</th><th>Owner</th></tr>
+        <tr><td>Product, design, narrative</td><td>Nash Barara</td></tr>
+        <tr><td>Engine &amp; deployment</td><td>[Technical Lead]</td></tr>
+        <tr><td>Domain validation</td><td>[Food-Security Advisor]</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="hair"></div>
+  <span class="kicker">Roadmap</span>
+  <p style="margin-top:4px"><strong>Now:</strong> working engine + national map + response planner on sample
+  data. &nbsp;<strong>3 months:</strong> live rainfall/satellite feeds, all staple crops, pilot with one
+  ministry or NGO. &nbsp;<strong>12 months:</strong> national roll-out, local-language alerts to district
+  officers, multi-hazard expansion, integration with Project Pangolin.</p>
+
+  <div class="callout"><b>Hozi does not replace the experts, and it does not set budgets.</b> It gives our own
+  planners a head start — turning scattered numbers into a clear plan, early enough to act, so fewer
+  families go hungry.</div>
+
+  <div class="foot2"><span>Hozi · "Fill the granary before the drought."</span><span>POTRAZ AI4I 2026 · Curious Inq · Harare</span></div>
+</section>
+
+</body>
+</html>
