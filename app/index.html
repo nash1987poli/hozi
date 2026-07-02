@@ -1,637 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hozi — National Food-Security Foresight Engine</title>
-<style>
-  :root{
-    --green:#1E6B4F; --green2:#14543E; --gold:#D89B2E; --ink:#16130F; --ink2:#43403A;
-    --paper:#F4EEE2; --cream:#FBF7EF; --card:#FFFFFF; --line:#E4DBCB; --muted:#8A8076;
-    --red:#BC3B2A; --amber:#D98324;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-    --sans:"Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
-    --shadow:0 1px 2px rgba(22,19,15,.05), 0 20px 45px -18px rgba(22,19,15,.20);
-    --shadow-sm:0 1px 2px rgba(22,19,15,.05), 0 8px 20px -12px rgba(22,19,15,.18);
-    --glass:rgba(255,255,255,.74);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;
-       background-image:radial-gradient(1200px 600px at 78% -8%, #FCF7ED 0%, rgba(252,247,237,0) 60%),
-                        radial-gradient(900px 500px at -5% 10%, #F7F0E2 0%, rgba(247,240,226,0) 55%);}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
-  h1,h2,h3,.disp{font-family:var(--serif);letter-spacing:-.01em}
-  .kicker{font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--green)}
-  button{font-family:var(--sans)}
-
-  /* masthead */
-  .top{background:var(--ink);color:#F3EEE4;position:sticky;top:0;z-index:40;box-shadow:0 6px 24px -12px rgba(0,0,0,.5)}
-  .top .wrap{display:flex;align-items:center;justify-content:space-between;padding:11px 22px;gap:16px;flex-wrap:wrap}
-  .brand{display:flex;align-items:center;gap:13px}
-  .brand img{height:44px;background:#fff;border-radius:9px;padding:5px 8px}
-  .brand .txt b{font-family:var(--serif);font-size:19px;line-height:1}
-  .brand .txt span{display:block;font-size:10.5px;color:#B9B0A2;letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
-  .lng{display:flex;border:1px solid #3a352e;border-radius:999px;overflow:hidden}
-  .lng button{border:0;background:transparent;color:#D8D0C4;padding:6px 13px;font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s}
-  .lng button:hover{color:#fff}
-  .lng button.on{background:var(--gold);color:#16130F}
-
-  /* hero */
-  .hero{padding:32px 0 6px}
-  .hero h1{font-size:clamp(28px,4.4vw,44px);max-width:20ch;line-height:1.04;margin:10px 0 8px}
-  .hero p{max-width:72ch;color:var(--ink2);font-size:16px}
-  .statement{display:flex;align-items:center;gap:20px;background:linear-gradient(90deg,#FFF5F1,var(--card));
-    border:1px solid var(--line);border-left:5px solid var(--red);border-radius:16px;padding:15px 22px;margin:20px 0 4px;box-shadow:var(--shadow-sm)}
-  .statement .big{font-family:var(--serif);font-weight:700;font-size:clamp(38px,5vw,52px);color:var(--red);line-height:.85;flex:none}
-  .statement .txt{font-family:var(--serif);font-size:clamp(15px,1.9vw,18px);line-height:1.3}
-  .statement .txt b{color:var(--red)}
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 4px}
-  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:var(--shadow-sm);transition:.18s}
-  .kpi:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-  .kpi .n{font-family:var(--serif);font-weight:700;font-size:29px;line-height:1}
-  .kpi .n.bad{color:var(--red)} .kpi .n.good{color:var(--green)}
-  .kpi .l{font-size:11px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-  .note{font-size:12.5px;color:var(--muted)}
-  @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
-
-  .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:14px}
-  @media(max-width:920px){.grid{grid-template-columns:1fr}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
-
-  /* map canvas with floating widgets */
-  .mapcard{position:relative;overflow:hidden;padding:0}
-  .mapcanvas{position:relative;border-radius:18px 18px 0 0;overflow:hidden;background:
-      radial-gradient(130% 110% at 50% -10%, #24312A 0%, #171913 55%, #101109 100%)}
-  #map{width:100%;height:auto;display:block}
-  .prov{cursor:pointer;transition:.1s} .prov:hover{stroke:#16130F;stroke-width:2.6}
-  .floaters{position:absolute;inset:0;pointer-events:none}
-  .fw{position:absolute;background:rgba(16,16,11,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 34px -10px rgba(0,0,0,.6);border-radius:13px;pointer-events:auto;color:#F3EEE4}
-  .fw-title{position:absolute;top:16px;left:16px;padding:10px 14px}
-  .fw-title .t{font-family:var(--serif);font-weight:700;font-size:16px;color:#fff} .fw-title .s{font-size:11px;color:#C7BFAF}
-  .fw-nat{position:absolute;top:16px;right:16px;padding:11px 15px;text-align:right}
-  .fw-nat .n{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1;color:#EDE6D8}
-  .fw-nat .n b{color:#FF8168} .fw-nat .l{font-size:10px;color:#B9B0A2;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
-  .fw-legend{position:absolute;left:16px;bottom:22px;padding:8px 12px;display:flex;align-items:center;gap:6px;font-size:11px;color:#D8D0C4}
-  .fw-hot{position:absolute;right:16px;bottom:22px;padding:10px 14px;text-align:right;min-width:150px}
-  .fw-hot .hl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-  .fw-hot .hd{font-family:var(--serif);font-weight:700;font-size:16px;color:#fff;line-height:1.1;margin-top:3px}
-  .fw-hot .hp{font-size:10px;color:#B9B0A2}
-  .fw-hot .hn{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1;margin-top:2px}
-  .hot-anim{animation:hotIn .5s cubic-bezier(.2,.7,.2,1)}
-  @keyframes hotIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-  @keyframes pulse{0%,100%{box-shadow:0 12px 34px -10px rgba(0,0,0,.6)}50%{box-shadow:0 12px 40px -6px rgba(216,155,46,.35)}}
-  .fw-hot{animation:pulse 2.6s ease-in-out infinite}
-  .fw-legend .sw{width:13px;height:13px;border-radius:4px;display:inline-block}
-  .slider-row{display:flex;align-items:center;gap:12px;padding:12px 18px 16px}
-  .play{background:var(--green);color:#fff;border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:15px;flex:none;box-shadow:0 4px 12px -2px rgba(30,107,79,.5);transition:.15s}
-  .play:hover{transform:scale(1.06)}
-  input[type=range]{flex:1;accent-color:var(--green);height:6px}
-  .monthlab{font-family:var(--serif);font-weight:700;font-size:17px;min-width:150px;text-align:right}
-  .monthlab .proj{color:var(--gold);font-size:12px;font-weight:600}
-
-  /* side panel + tabs */
-  .side{display:flex;flex-direction:column;padding:0;overflow:hidden}
-  .tabs{display:flex;gap:6px;padding:12px 12px 0}
-  .tab{flex:1;border:1px solid var(--line);background:var(--cream);border-radius:11px 11px 0 0;border-bottom:0;
-       padding:10px 12px;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;transition:.15s}
-  .tab:hover{color:var(--ink)} .tab.on{background:var(--card);color:var(--green);box-shadow:0 -2px 0 var(--green) inset}
-  #sideContent{padding:14px 16px 16px;flex:1;min-height:430px}
-  .watchhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-  .watch{display:flex;flex-direction:column;max-height:500px;overflow:auto}
-  .wrow{display:grid;grid-template-columns:16px 1fr 62px 26px;gap:9px;align-items:center;padding:7px 6px;border-radius:8px;cursor:pointer;border-bottom:1px solid #f0e9dc;transition:.12s}
-  .wrow:hover{background:var(--cream);transform:translateX(2px)}
-  .wrow .rk{color:var(--muted);font-family:var(--serif);font-weight:700;font-size:12px}
-  .wrow .nm{font-size:13px;line-height:1.15} .wrow .nm span{color:var(--muted);font-size:11px}
-  .wbar{height:15px;background:#efe7d8;border-radius:4px;overflow:hidden}
-  .wbar i{display:block;height:100%;border-radius:4px}
-  .wval{font-family:var(--serif);font-weight:700;font-size:13px;text-align:right}
-
-  /* drilldown */
-  .backlink{background:none;border:0;color:var(--green);font-size:13px;font-weight:600;cursor:pointer;padding:0 0 8px;display:inline-flex;gap:5px}
-  .dd h4{font-family:var(--serif);font-size:22px;margin-bottom:1px}
-  .dd .prov{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-  .ddband{display:inline-block;padding:3px 11px;border-radius:999px;color:#fff;font-size:12px;font-weight:700;margin:8px 0}
-  .drivers{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-  .drv{background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:8px 10px}
-  .drv .v{font-family:var(--serif);font-weight:700;font-size:18px}
-  .drv .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-  .brief{background:#FFFDF8;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 12px;margin-top:12px;font-size:13px}
-
-  /* talk to hozi */
-  .talk{display:flex;flex-direction:column;height:100%}
-  .talk .thint{font-size:12px;color:var(--muted);margin-bottom:8px}
-  .chat{flex:1;overflow:auto;max-height:360px;display:flex;flex-direction:column;gap:9px;padding:2px 2px 8px}
-  .msg{max-width:88%;padding:9px 12px;border-radius:13px;font-size:13.5px;line-height:1.4}
-  .msg.h{background:var(--cream);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
-  .msg.u{background:var(--green);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
-  .chip{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12px;cursor:pointer;color:var(--ink2);transition:.12s}
-  .chip:hover{border-color:var(--green);color:var(--green)}
-  .askrow{display:flex;gap:7px;margin-top:auto}
-  .askrow input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:13.5px;font-family:var(--sans)}
-  .askrow button{background:var(--green);color:#fff;border:0;border-radius:10px;padding:0 16px;font-weight:700;cursor:pointer}
-
-  /* planner */
-  .planner{background:var(--ink);color:#F3EEE4;border-radius:20px;padding:26px;margin-top:20px;box-shadow:var(--shadow)}
-  .planner .kicker{color:var(--gold)}
-  .planner h2{color:#fff;font-size:clamp(22px,3vw,30px);margin:6px 0 4px}
-  .planner p.lead{color:#D8D0C4;max-width:76ch;font-size:15px}
-  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;align-items:start}
-  @media(max-width:920px){.pgrid{grid-template-columns:1fr}}
-  .pcontrol label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#B7AE9F;font-weight:700}
-  .bignum{font-family:var(--serif);font-weight:700;font-size:44px;color:var(--gold);line-height:1}
-  input[type=range].dark{accent-color:var(--gold)}
-  .pstats{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-  .pstat{flex:1;min-width:128px;background:#221E19;border:1px solid #38332d;border-radius:12px;padding:13px 15px}
-  .pstat .n{font-family:var(--serif);font-weight:700;font-size:26px} .pstat .n.good{color:#8FD9B6}.pstat .n.gold{color:var(--gold)}
-  .pstat .l{font-size:11px;color:#B7AE9F;margin-top:5px;text-transform:uppercase;letter-spacing:.04em}
-  .buys{margin-top:6px} .buy{display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #2c2720;font-size:13.5px}
-  .buy .r{color:var(--gold);font-family:var(--serif);font-weight:700} .buy .d{color:#EDE6D8} .buy .s{color:#8FD9B6;font-weight:600;font-family:var(--serif)}
-  .buy.off .d{color:#7C746A}.buy.off .s{color:#5c564d}
-
-  /* pipeline + method */
-  .pipeline{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:20px;box-shadow:var(--shadow)}
-  .pipeline h2{font-size:clamp(20px,2.6vw,26px);margin:4px 0 4px}
-  .pipeline .plead{color:var(--ink2);max-width:82ch;font-size:14px;margin-bottom:14px}
-  .sources{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-  @media(max-width:760px){.sources{grid-template-columns:repeat(2,1fr)}}
-  .src{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:11px 9px;text-align:center;transition:.15s}
-  .src:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-  .src .ic{font-size:22px;line-height:1} .src b{display:block;font-size:12px;margin-top:5px;color:var(--ink)}
-  .src small{display:block;color:var(--muted);font-size:10px;line-height:1.25;margin-top:2px}
-  .src[data-feed]{cursor:pointer} .src[data-feed]:hover{border-color:var(--gold)}
-  .feedhint{font-size:12.5px;color:var(--green);font-weight:600;margin-top:11px;text-align:center}
-  .flowarrow{text-align:center;color:var(--gold);font-size:18px;font-weight:700;margin:9px 0 8px;letter-spacing:.3em}
-  .engine-bar{background:var(--green);color:#fff;border-radius:12px;padding:13px;text-align:center}
-  .engine-bar b{font-family:var(--serif);font-size:18px} .engine-bar small{color:#CDE7DA;font-size:12px;display:block;margin-top:2px}
-  .outcome-bar{background:var(--ink);color:#F3EEE4;border-radius:12px;padding:12px;text-align:center}
-  .outcome-bar b{font-family:var(--serif);font-size:16px} .outcome-bar small{color:#B9B0A2;font-size:11.5px;display:block;margin-top:2px}
-  .pnote{font-size:12px;color:var(--muted);margin-top:10px}
-  /* API demo */
-  .apibox{background:#14130F;color:#E9E3D6;border-radius:18px;padding:24px;margin-top:20px;box-shadow:var(--shadow)}
-  .apibox h2{color:#fff;font-size:clamp(20px,2.6vw,26px);margin:4px 0 4px}
-  .apilead{color:#B9B0A2;max-width:80ch;font-size:14px;margin-bottom:14px}
-  .apigrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-  @media(max-width:760px){.apigrid{grid-template-columns:1fr}}
-  .apihdr{font-size:11px;font-weight:700;letter-spacing:.1em;margin-bottom:8px}
-  .apihdr.in{color:#E7B25A}.apihdr.out{color:#8FD9B6}
-  .apibtn{display:block;width:100%;text-align:left;margin-bottom:8px;padding:11px 13px;border-radius:10px;border:1px solid #34302a;background:#1e1c17;color:#EDE6D8;font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:.14s}
-  .apibtn.in:hover{border-color:#E7B25A;transform:translateX(3px)} .apibtn.out:hover{border-color:#8FD9B6;transform:translateX(3px)}
-  .console{background:#0a0a07;border:1px solid #2a2822;border-radius:12px;padding:14px;font-family:ui-monospace,"Cascadia Code",Menlo,Consolas,monospace;font-size:12px;line-height:1.7;height:200px;overflow:auto}
-  .cline{white-space:pre-wrap;word-break:break-word;animation:hotIn .3s ease;margin-bottom:2px}
-  .cline .req{font-weight:700}
-  .cline.in{color:#E7B25A}.cline.out{color:#8FD9B6}.cline.ok{color:#7C9A86}.cline.sys{color:#C9C1B2}.cline.msg{color:#F1E9D8}
-  .apinote{font-size:11.5px;color:#7C746A;margin-top:10px}
-  .method{margin:20px 0 10px;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
-  .method h3{font-size:15px;font-family:var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:8px}
-  .method ul{margin-left:18px;font-size:13.5px;color:var(--ink2)} .method li{margin-bottom:5px}
-  footer{border-top:2px solid var(--ink);margin-top:22px;padding:20px 0 50px;font-size:12.5px;color:var(--muted)}
-  .tip{position:fixed;pointer-events:none;background:var(--ink);color:#F3EEE4;border:1px solid #4d473f;padding:7px 10px;border-radius:8px;font-size:12.5px;opacity:0;transition:.1s;z-index:60;max-width:220px}
-</style>
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="cockpit.css">
 </head>
 <body>
-<div class="top"><div class="wrap">
-  <div class="brand"><img src="logo.jpg" alt="Hozi" />
-    <div class="txt"><b>Hozi</b><span data-i18n="mast">National Food-Security Foresight Engine</span></div>
-  </div>
-  <div class="lng">
-    <button data-lang="en" class="on">EN</button>
-    <button data-lang="sn">chiShona</button>
-    <button data-lang="nd">isiNdebele</button>
-  </div>
-</div></div>
+<div id="map" aria-label="Zimbabwe district risk map"></div>
 
-<div class="hero"><div class="wrap">
-  <div class="kicker" data-i18n="k0">POTRAZ AI4I 2026 · working prototype</div>
-  <h1 data-i18n="h0">See the hunger coming — and act in time.</h1>
-  <p data-i18n="p0">Hozi forecasts where food-security risk is heading, district by district, then helps responders
-  get the most from the resources they already have. Drag the timeline to watch the season unfold; use the
-  Response Planner to see where early action protects the most people.</p>
-  <div class="statement" id="statement"></div>
-  <div class="kpis" id="kpis"></div>
-  <div class="note" id="kpinote"></div>
-</div></div>
-
-<div class="wrap">
-  <div class="grid">
-    <div class="card mapcard">
-      <div class="mapcanvas">
-        <svg id="map" viewBox="0 0 500 450" role="img" aria-label="Zimbabwe district food-security risk map"></svg>
-        <div class="floaters">
-          <div class="fw fw-title"><div class="t" data-i18n="mh">The season, month by month</div><div class="s" id="monthfw"></div></div>
-          <div class="fw fw-nat" id="fwnat"></div>
-          <div class="fw fw-legend"><span data-i18n="lgLow">Lower</span>
-            <span class="sw" style="background:#1E6B4F"></span><span class="sw" style="background:#D89B2E"></span>
-            <span class="sw" style="background:#D98324"></span><span class="sw" style="background:#BC3B2A"></span>
-            <span data-i18n="lgHigh">High</span></div>
-          <div class="fw fw-hot" id="fwhot"></div>
-        </div>
-      </div>
-      <div class="slider-row">
-        <button class="play" id="play" title="Play the season">▶</button>
-        <input type="range" id="time" min="0" max="8" value="5" step="1" />
-        <div class="monthlab" id="monthlab"></div>
-      </div>
+<header class="topbar panel">
+  <div class="brand"><img src="logo.jpg" alt="Hozi"><div>
+    <strong>Hozi</strong><span id="tbSub">National Food-Security Foresight Engine</span></div></div>
+  <div class="tools">
+    <div class="lng">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="sn">chiShona</button>
+      <button data-lang="nd">isiNdebele</button>
     </div>
+    <button id="infoBtn" title="How it works">&#9432;</button>
+    <label class="plan-switch"><input type="checkbox" id="planToggle">
+      <span id="planLabel">Planning Mode</span></label>
+  </div>
+</header>
 
-    <div class="card side">
-      <div class="tabs">
-        <button class="tab on" data-tab="watch" data-i18n="tabWatch">📋 Districts to watch</button>
-        <button class="tab" data-tab="talk" data-i18n="tabTalk">💬 Talk to Hozi</button>
-      </div>
-      <div id="sideContent"></div>
+<section class="kpi panel skeleton" id="kpiCard">
+  <div class="kpi-head"><span class="big" id="kHigh">0</span><span id="kHighLbl">of 20 districts heading into HIGH risk by September</span></div>
+  <div class="kpi-sub"><span id="kNow">0</span> → <span id="kSep">0</span> <span id="kNatLbl">national risk</span>
+    <button id="kMore">+</button></div>
+  <div class="kpi-extra" id="kpiExtra" hidden></div>
+</section>
+
+<aside class="left panel skeleton" id="leftPanel">
+  <nav class="tabs" id="leftTabs"><button id="tabWatch" class="on">Watch</button><button id="tabAsk">Ask Hozi</button></nav>
+  <div id="watchList" role="list"></div>
+  <div id="askPane" hidden><div id="chat"></div><div id="chips"></div>
+    <form id="askForm"><input id="askIn" placeholder="Type a question..."><button id="askSend">Send</button></form></div>
+  <div id="plannerPane" hidden>
+    <h3 id="plTitle">Districts you can support this season</h3>
+    <input type="range" id="plRange" min="0" max="20" value="0"><span class="big" id="pn">0</span>
+    <div class="pl-kpis">
+      <div><span id="plKept">0</span><label id="plKeptLbl">kept out of high risk</label></div>
+      <div><span id="plSaved">0</span><label id="plSavedLbl">risk points removed</label></div>
+      <div><span id="plSep">75</span><label id="plSepLbl">September national risk</label></div>
     </div>
+    <h4 id="plBuysT">Best buys — where support saves most first</h4>
+    <ol id="buys"></ol>
   </div>
+</aside>
 
-  <div class="planner">
-    <div class="kicker" data-i18n="pk">The Response Planner</div>
-    <h2 data-i18n="ph">Make every committed dollar count</h2>
-    <p class="lead" data-i18n="pp">Hozi never sets budgets. It simply shows, for the level of support you can reach
-    this season, <b>where that effort protects the most people</b> — the driest, least-served, highest-risk districts
-    first. The map jumps to the September outlook so you can see the difference.</p>
-    <div class="pgrid">
-      <div class="pcontrol">
-        <label data-i18n="pl">Districts you can support this season</label>
-        <div style="display:flex;align-items:baseline;gap:10px;margin:6px 0 4px">
-          <span class="bignum" id="pn">0</span><span style="color:#B7AE9F" data-i18n="pof">of 20</span>
-        </div>
-        <input type="range" class="dark" id="support" min="0" max="20" value="0" step="1" />
-        <div class="pstats">
-          <div class="pstat"><div class="n good" id="ps1">0</div><div class="l" data-i18n="ps1l">Districts kept out of high risk</div></div>
-          <div class="pstat"><div class="n gold" id="ps2">0</div><div class="l" data-i18n="ps2l">National risk points removed</div></div>
-          <div class="pstat"><div class="n" id="ps3">75</div><div class="l" data-i18n="ps3l">September national risk</div></div>
-        </div>
-      </div>
-      <div>
-        <label class="pcontrol" style="display:block;margin-bottom:6px" data-i18n="bh">Best buys — where support saves most first</label>
-        <div class="buys" id="buys"></div>
-      </div>
-    </div>
-  </div>
+<aside class="drill panel" id="drill" hidden>
+  <button class="close" id="drillClose">&times;</button>
+  <h2 id="dName"></h2><p class="prov" id="dProv"></p>
+  <div id="dSpark"></div><div id="dDrivers"></div><p class="note" id="dNote"></p>
+  <p class="src" id="dSrc"></p>
+</aside>
 
-  <div class="pipeline">
-    <div class="kicker" data-i18n="dpk">Live-ready data pipeline</div>
-    <h2 data-i18n="dph">Where the data comes from</h2>
-    <p class="plead" data-i18n="dpp">Hozi doesn't invent data — it reads trusted signals from the bodies that already own them, and each owner keeps control of its own data. <b>This prototype runs on POTRAZ sample data; the engine is built to plug the live feeds below straight in.</b></p>
-    <div class="sources">
-      <div class="src" data-feed="rain"><div class="ic">🌧️</div><b>Rainfall</b><small>Met Services · TAMSAT / CHIRPS</small></div>
-      <div class="src" data-feed="ndvi"><div class="ic">🛰️</div><b>Vegetation</b><small>NASA · Copernicus · FAO ASIS</small></div>
-      <div class="src" data-feed="agritex"><div class="ic">🌱</div><b>Crops · pests · inputs</b><small>Agritex / Min. of Agriculture</small></div>
-      <div class="src" data-feed="prices"><div class="ic">💵</div><b>Market prices</b><small>GMB · ZMX · e-Mukambo</small></div>
-      <div class="src" data-feed="report"><div class="ic">💬</div><b>Ground truth</b><small>District officers (WhatsApp)</small></div>
-      <div class="src" data-feed="pangolin"><div class="ic">🗄️</div><b>National platform</b><small>Project Pangolin</small></div>
-    </div>
-    <div class="feedhint" data-i18n="feedhint">👆 Click any source to feed a live sample into the API console below.</div>
-    <div class="flowarrow">▼</div>
-    <div class="engine-bar"><b>The Hozi engine</b><small data-i18n="dpe">clean &amp; standardise · score risk · forecast · plan the response</small></div>
-    <div class="flowarrow">▼</div>
-    <div class="outcome-bar"><b data-i18n="dpo">Planners &amp; responders</b><small>national map · districts-to-watch · Response Planner · local-language briefs</small></div>
-    <p class="pnote" data-i18n="dpn">Data stays with its owners; Hozi reads only the agreed signals through secure connections — no one hands over control of their data.</p>
-  </div>
-
-  <div class="apibox">
-    <div class="kicker" style="color:var(--gold)">Live data — in &amp; out</div>
-    <h2>API &amp; integrations <span style="font-size:14px;color:#B9B0A2;font-family:var(--sans)">— interactive demo</span></h2>
-    <p class="apilead">Hozi is API-first: data flows <b style="color:#E7B25A">IN</b> from feeds and partners, and results flow <b style="color:#8FD9B6">OUT</b> to dashboards, WhatsApp and other systems. Click a button to watch a live exchange.</p>
-    <div class="apigrid">
-      <div><div class="apihdr in">▼ DATA IN</div>
-        <button class="apibtn in" data-act="rain">🌧️ New rainfall reading → POST /ingest/rainfall</button>
-        <button class="apibtn in" data-act="ground">💬 Field report (WhatsApp) → POST /ingest/report</button></div>
-      <div><div class="apihdr out">▲ DATA OUT</div>
-        <button class="apibtn out" data-act="get">📊 GET /api/risk/{district}</button>
-        <button class="apibtn out" data-act="alert">📲 Send alert → WhatsApp webhook</button></div>
-    </div>
-    <div class="console" id="apiconsole"></div>
-    <div class="apinote">Illustrative demo. In production these run on n8n + the WhatsApp Business API against live rainfall, satellite and market feeds — data stays with its owners.</div>
-  </div>
-
-  <div class="method">
-    <h3 data-i18n="mth">How it works &amp; what it can't do (honesty first)</h3>
-    <ul>
-      <li data-i18n="mt1"><b>Transparent model.</b> Risk is a clear, weighted blend of rainfall, vegetation, pests, irrigation and input access — no black box.</li>
-      <li data-i18n="mt2"><b>Consistency-checked (not yet outcome-validated).</b> On this synthetic sample data, Hozi's score reproduces the dataset's own risk band at <b>r = 0.81</b> — an internal check. Real training on ZimVAC/IPC outcomes is the next step.</li>
-      <li data-i18n="mt3"><b>Foresight, not fortune-telling.</b> Forecasts project a well-understood seasonal trend with a widening confidence band; they are decision-support, not certainty.</li>
-      <li data-i18n="mt4"><b>Sample data.</b> This prototype runs on POTRAZ synthetic challenge data. The engine is built to accept live rainfall, satellite and market feeds.</li>
-    </ul>
-  </div>
+<div class="timebar panel">
+  <button id="play" title="Play the season">&#9654;</button>
+  <input type="range" id="time" min="0" max="8" value="5">
+  <span class="month" id="monthLbl">June</span><span class="fc" id="fcLbl" hidden>forecast</span>
 </div>
 
-<footer><div class="wrap">
-  <b>Hozi</b> — "Fill the granary before the drought." · Built by Curious Inq, Harare, for the POTRAZ AI for Impact (AI4I) 2026 Challenge · Open-source · Sample/synthetic data, not official statistics.
-</div></footer>
-<div class="tip" id="tip"></div>
+<button class="story-tab" id="storyTab">The Story</button>
+<aside class="story panel" id="storyPanel" hidden>
+  <button class="close" id="storyClose">&times;</button>
+  <div id="storyBody"></div>
+</aside>
 
+<div class="legend panel"><span id="legTitle">Staple food-security risk</span>
+  <i style="--c:#1E6B4F"></i><i style="--c:#D89B2E"></i><i style="--c:#D98324"></i><i style="--c:#BC3B2A"></i>
+  <i class="nod" style="--c:#DDD8CB"></i><span id="legNo">no data yet</span></div>
+
+<div id="tip" class="tip"></div>
+
+<script src="vendor/leaflet.js"></script>
 <script src="projections.js"></script>
-<script>
-const $=(s)=>document.querySelector(s); const $$=(s)=>[...document.querySelectorAll(s)];
-const D=window.HOZI;
-const MN={en:['January','February','March','April','May','June','July','August','September'],
- sn:['Ndira','Kukadzi','Kurume','Kubvumbi','Chivabvu','Chikumi','Chikunguru','Nyamavhuvhu','Gunyana'],
- nd:['uZibandlela','uNhlolanja','uMbimbitho','uMabasa','uNkwenkwezi','uNhlangula','uNtulikazi','uNcwabakazi','uMpandula']};
-const MONTHKEYS=['2026-01','2026-02','2026-03','2026-04','2026-05','2026-06','2026-07','2026-08','2026-09'];
-const districts=D.districts.filter(d=>d.timeline && d.timeline.length>=9);
-const ZWE=[[31.191,-22.252],[30.66,-22.152],[30.323,-22.272],[29.839,-22.102],[29.432,-22.091],[28.795,-21.639],[28.021,-21.486],[27.727,-20.852],[27.725,-20.499],[27.297,-20.392],[26.165,-19.293],[25.85,-18.714],[25.649,-18.536],[25.264,-17.737],[26.382,-17.846],[26.707,-17.961],[27.044,-17.938],[27.598,-17.291],[28.468,-16.468],[28.826,-16.39],[28.947,-16.043],[29.517,-15.645],[30.274,-15.508],[30.339,-15.881],[31.173,-15.861],[31.636,-16.072],[31.852,-16.319],[32.328,-16.392],[32.848,-16.713],[32.85,-17.979],[32.655,-18.672],[32.612,-19.419],[32.773,-19.716],[32.66,-20.304],[32.509,-20.395],[32.245,-21.116],[31.191,-22.252]];
-
-function col(v){const st=[[30,[30,107,79]],[50,[216,155,46]],[66,[217,131,36]],[85,[188,59,42]]];
-  if(v<=st[0][0])return rgb(st[0][1]); if(v>=st[3][0])return rgb(st[3][1]);
-  for(let i=0;i<3;i++){const[a,ca]=st[i],[b,cb]=st[i+1]; if(v>=a&&v<=b){const t=(v-a)/(b-a);
-    return rgb(ca.map((c,j)=>Math.round(c+(cb[j]-c)*t)));}} return rgb(st[3][1]);}
-const rgb=a=>`rgb(${a[0]},${a[1]},${a[2]})`;
-const band=v=> v>=66?'High':(v>=45?'Medium':'Low');
-const bandCol=v=> v>=66?'#BC3B2A':(v>=45?'#D98324':'#1E6B4F');
-const BB={latN:-15.3,latS:-22.7,lonW:24.7,lonE:33.2};
-const proj=(lat,lon)=>[ (lon-BB.lonW)/(BB.lonE-BB.lonW)*460+20, (BB.latN-lat)/(BB.latN-BB.latS)*410+20 ];
-const byName=n=>districts.find(d=>d.district===n);
-
-let LANG='en', monthIdx=5, supportedSet=new Set(), sideTab='watch';
-
-/* ---------- i18n (chiShona & isiNdebele are drafts — verify with native speakers) ---------- */
-const I18N={ en:{}, sn:{
- mast:"Injini Yekufanotarira Chikafu cheNyika", k0:"POTRAZ AI4I 2026 · muenzaniso unoshanda",
- h0:"Ona nzara ichiuya — utore matanho nenguva.",
- p0:"Hozi inofanotarira kwakananga njodzi yechikafu, dunhu nedunhu, yozobatsira vanoita basa kuti vashandise zviripo zvakanaka. Dhonza mutsara wenguva uone mwaka uchifamba; shandisa Response Planner kuona kwatinobatsira vanhu vazhinji.",
- mh:"Mwaka, mwedzi nemwedzi", lgLow:"Njodzi shoma", lgHigh:"Njodzi huru",
- tabWatch:"📋 Matunhu ekutarira", tabTalk:"💬 Taura naHozi",
- pk:"Response Planner", ph:"Ita kuti mari yega yega ibatsire",
- pp:"Hozi haigadziri mari yenyika. Inongoratidza, zvichienderana nerubatsiro rwaunogona kusvitsa mwaka uno, <b>kwacharibatsira vanhu vazhinji</b> — matunhu akaoma, asina rubatsiro, ane njodzi huru kutanga.",
- pl:"Matunhu aunogona kubatsira mwaka uno", pof:"kubva ku20",
- ps1l:"Matunhu abviswa panjodzi huru", ps2l:"Njodzi yakabviswa panyika", ps3l:"Njodzi yenyika muna Gunyana",
- bh:"Zvakanakisa — kwarunobatsira zvakanyanya kutanga",
- dpk:"Nzira yedata yakagadzirira live", dph:"Data inobva kupi",
- dpp:"Hozi haigadziri data — inoverenga zviratidzo kubva kumasangano ane data iwayo, muridzi wega wega achichengeta data yake. <b>Muenzaniso uyu unoshandisa data yePOTRAZ; injini yakagadzirirwa kubatanidza live feeds.</b>",
- dpe:"gadzirisa · yera njodzi · fanotarira · ronga rubatsiro", dpo:"Varongi nevabatsiri",
- dpn:"Data inogara nevaridzi vayo; Hozi inongoverenga zviratidzo zvakatenderwa.",
- feedhint:"👆 Dzvanya chero source kutumira muenzaniso mu API console iri pazasi.",
- mth:"Mashandiro nezvazvisingakwanise (chokwadi kutanga)",
- mt1:"<b>Modhi yakajeka.</b> Njodzi musanganiswa wemvura, uswa, zvipfukuto nekudiridza — hapana black box.",
- mt2:"<b>Yakaongororwa.</b> Chiyero cheHozi chinoenderana nechimwe chiyero pa<b>r = 0.81</b>.",
- mt3:"<b>Kufanotarira, kwete kuvuka.</b> Zvifanotariro zvine muganhu wechivimbo — rubatsiro rwekusarudza.",
- mt4:"<b>Data yemuenzaniso.</b> Muenzaniso uyu unoshandisa data yePOTRAZ. Injini yakagadzirirwa data chaiyo.",
- stmt:"emumatunhu ari kunopinda mu<b>njodzi huru yechikafu muna Gunyana</b> — pasina matanho. Hozi inoratidza patanga.",
- watchTitle:"Matunhu ekutarira", watchSub:"nenjodzi inofanotarirwa muna Gunyana · baya chero",
- kNow:"Njodzi yenyika iyezvino", kSep:"Fanotariro muna Gunyana", kHigh:"Matunhu ari panjodzi huru", kR:"Modhi vs chiyero (r)",
- natl:"Njodzi yenyika", forecast:"fanotariro",
- talkHint:"Bvunza Hozi nezvemwaka. Mhinduro dzinobva pane data yeinjini; muchimiro chizere, mumutauro wako neAI.",
- c1:"Matunhu mangani achasvika panjodzi huru?", c2:"Rubatsiro runonyanya kubatsira kupi?", c3:"Mamiriro eMazowe?", c4:"Ndematunhu api ekutarira?",
- hotLabel:"Nzvimbo ine njodzi", bySep:"muna Gunyana",
- ask:"Nyora mubvunzo...", send:"Tumira", backAll:"← Matunhu ese", ddTail:"njodzi muna Gunyana ·",
- dRain:"Mvura (itsva)", dVeg:"Chiyero cheuswa", dIrr:"Kudiridza", dInp:"Kuwana mbeu /100"
-}, nd:{
- mast:"Injini Yokubona Phambili Kokudla Kwesizwe", k0:"POTRAZ AI4I 2026 · isibonelo esisebenzayo",
- h0:"Bona indlala isiza — uthathe isinyathelo ngesikhathi.",
- p0:"IHozi ibikezela lapho ubungozi bokudla obuya khona, isigaba ngesigaba, bese isiza abasizi ukuthi basebenzise kuhle lokho abanakho. Donsa umugqa wesikhathi ubone isizini; sebenzisa iResponse Planner ukubona lapho isinyathelo esisheshayo sivikela abantu abanengi.",
- mh:"Isizini, inyanga ngenyanga", lgLow:"Obuncane", lgHigh:"Obukhulu",
- tabWatch:"📋 Izigaba zokuqaphela", tabTalk:"💬 Khuluma leHozi",
- pk:"IResponse Planner", ph:"Yenza yonke imali ibaluleke",
- pp:"IHozi kayibeki isabelomali. Itshengisa nje, ngezinga losizo ongafinyelela kulo kulesisizini, <b>lapho lowomzamo ovikela khona abantu abanengi</b> — izigaba ezomileyo, ezingelalusizo, ezilobungozi obukhulu kuqala.",
- pl:"Izigaba ongazisiza kulesisizini", pof:"kwezingu-20",
- ps1l:"Izigaba ezikhutshwe ebungozini obukhulu", ps2l:"Amaphuzu obungozi asusiweyo", ps3l:"Ubungozi besizwe ngoMpandula",
- bh:"Okungcono kakhulu — lapho usizo lusiza khona kuqala",
- dpk:"Umzila wedatha osulungele i-live", dph:"Idatha ivela ngaphi",
- dpp:"IHozi kayakhi idatha — ifunda izimpawu ezithenjwayo emihlanganweni ephethe idatha, umnini ngamunye egcina idatha yakhe. <b>Lesisibonelo sisebenzisa idatha yePOTRAZ; injini yakhelwe ukuxhuma ama-live feed.</b>",
- dpe:"hlanza · linganisa ubungozi · bikezela · hlela usizo", dpo:"Abahleli labasizi",
- dpn:"Idatha ihlala labaniniyo; iHozi ifunda kuphela izimpawu ezivunyelweyo.",
- feedhint:"👆 Chofoza noma yiyiphi imvelaphi ukuthumela isibonelo ku-API console engezansi.",
- mth:"Ukusebenza lalokho okungeke kwenze (iqiniso kuqala)",
- mt1:"<b>Imodeli esobala.</b> Ubungozi buyinhlanganisela yezulu, izitshalo, izinambuzane lokuthelela — akulabhokisi elimnyama.",
- mt2:"<b>Iqinisekisiwe.</b> Isikolo seHozi sifana lenkomba ezimeleyo ku-<b>r = 0.81</b>.",
- mt3:"<b>Ukubona phambili, hatshi ukuvumisa.</b> Izibikezelo zilomkhawulo wokuthemba — usizo lokukhetha.",
- mt4:"<b>Idatha yesibonelo.</b> Lesisibonelo sisebenzisa idatha yePOTRAZ. Injini yakhelwe idatha yeqiniso.",
- stmt:"kwezigaba ezibikezelwe ukungena <b>ebungozini obukhulu bokudla ngoMpandula</b> — ngaphandle kwesinyathelo. IHozi itshengisa lapho okumele kwenziwe khona kuqala.",
- watchTitle:"Izigaba zokuqaphela", watchSub:"ngobungozi obubikezelwe ngoMpandula · thepha noma yikuphi",
- kNow:"Ubungozi besizwe khathesi", kSep:"Isibikezelo ngoMpandula", kHigh:"Izigaba ezisebungozini", kR:"Imodeli vs inkomba (r)",
- natl:"Ubungozi besizwe", forecast:"isibikezelo",
- talkHint:"Buza iHozi ngesizini. Izimpendulo zivela edatheni yenjini; ngokugcweleyo, ngolimi lwakho nge-AI.",
- c1:"Zingaki izigaba ezizangena ebungozini obukhulu?", c2:"Usizo lusiza kakhulu ngaphi?", c3:"Isimo seMazowe?", c4:"Yiziphi izigaba zokuqaphela?",
- hotLabel:"Indawo esengozini", bySep:"ngoMpandula",
- ask:"Bhala umbuzo...", send:"Thumela", backAll:"← Zonke izigaba", ddTail:"ubungozi ngoMpandula ·",
- dRain:"Izulu (kwakamuva)", dVeg:"Inkomba yezitshalo", dIrr:"Ukuthelela", dInp:"Ukuthola imbewu /100"
-}};
-function t(k, en){ const s=I18N[LANG]; return (s && s[k]!==undefined)? s[k] : (en!==undefined?en:k); }
-
-/* ---------- map ---------- */
-function riskAt(d,idx){const base=d.timeline[idx].risk;
-  if(idx===8 && supportedSet.has(d.district) && d.support) return d.support.supported_sep; return base;}
-function renderMap(){
-  const svg=$('#map'); let s='';
-  s+=`<path d="${ZWE.map(([lo,la],i)=>{const[x,y]=proj(la,lo);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}).join(' ')} Z" fill="#212A22" stroke="rgba(216,155,46,0.4)" stroke-width="1.4" stroke-linejoin="round"/>`;
-  districts.forEach(d=>{const[x,y]=proj(d.lat,d.lon); const v=riskAt(d,monthIdx);
-    const isProj=d.timeline[monthIdx].proj; const supported=monthIdx===8 && supportedSet.has(d.district);
-    s+=`<circle cx="${x}" cy="${y}" r="12.5" fill="${col(v)}" stroke="${supported?'#8FD9B6':'rgba(255,255,255,0.55)'}" stroke-width="${supported?3:1.2}" stroke-dasharray="${isProj?'3 2':'0'}" class="prov" data-d="${d.district}"/>`;
-    s+=`<text x="${x}" y="${y+3.5}" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" pointer-events="none">${Math.round(v)}</text>`;});
-  svg.innerHTML=s;
-  $$('#map .prov').forEach(c=>{c.addEventListener('mousemove',e=>{const d=byName(c.dataset.d);const v=riskAt(d,monthIdx);
-      tipShow(e,`<b>${d.district}</b> · ${d.province}<br>${Math.round(v)} · ${band(v)}`);});
-    c.addEventListener('mouseleave',tipHide); c.addEventListener('click',()=>{sideTab='watch';selectDistrict(c.dataset.d);});});
-}
-const tip=$('#tip');
-function tipShow(e,h){tip.innerHTML=h;tip.style.opacity=1;tip.style.left=(e.clientX+13)+'px';tip.style.top=(e.clientY+13)+'px';}
-function tipHide(){tip.style.opacity=0;}
-function setMonth(i){monthIdx=+i;$('#time').value=i;const isP=i>=6;
-  const lab=`${MN[LANG][i]} ${isP?`<span class="proj">${t('forecast')}</span>`:''}`;
-  $('#monthlab').innerHTML=lab; $('#monthfw').innerHTML=isP?t('forecast'):MN[LANG][i]; renderMap();}
-
-/* ---------- KPIs / statement / national widget ---------- */
-function kpis(){const n=D.national;
-  $('#kpis').innerHTML=[
-    {n:Math.round(n.risk_now),l:t('kNow','National risk now'),c:''},
-    {n:Math.round(n.risk_sep),l:t('kSep','Projected by September'),c:'bad'},
-    {n:`${n.high_now} → ${n.high_sep}`,l:t('kHigh','Districts at high risk'),c:'bad'},
-    {n:D.meta.validation_r_staple,l:t('kR','Weighting check vs provided score (r)'),c:'good'},
-  ].map(k=>`<div class="kpi"><div class="n ${k.c}">${k.n}</div><div class="l">${k.l}</div></div>`).join('');
-  $('#kpinote').textContent=`${n.n_districts} districts · Jan–Jun 2026 → September.`;
-  $('#fwnat').innerHTML=`<div class="n">${Math.round(n.risk_now)} → <b>${Math.round(n.risk_sep)}</b></div><div class="l">${t('natl','National risk')}</div>`;
-}
-function fillStatement(){const n=D.national;
-  $('#statement').innerHTML=`<div class="big">${n.high_sep}</div><div class="txt">${t('stmt',`of ${n.n_districts} districts are projected to slide into <b>HIGH food-security risk by September</b> — without early action. Hozi shows where to act first.`)}</div>`;
-  if(LANG!=='en') $('#statement .txt').innerHTML = `${n.high_sep}/${n.n_districts} — ${t('stmt')}`;
-}
-
-/* ---------- side panel: tabs / watch / talk / drilldown ---------- */
-function renderSide(){ if(sideTab==='watch') renderWatchList(); else renderTalk();
-  $$('.tab').forEach(b=>b.classList.toggle('on',b.dataset.tab===sideTab)); }
-function renderWatchList(){
-  const ranked=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk);
-  const rows=ranked.map((d,i)=>{const sep=d.timeline[8].risk;
-    return `<div class="wrow" data-d="${d.district}"><div class="rk">${i+1}</div>
-      <div class="nm">${d.district}<br><span>${d.province}</span></div>
-      <div class="wbar"><i style="width:${Math.max(6,sep)}%;background:${col(sep)}"></i></div>
-      <div class="wval" style="color:${bandCol(sep)}">${Math.round(sep)}</div></div>`;}).join('');
-  $('#sideContent').innerHTML=`<div class="watchhead"><h3 style="font-size:18px">${t('watchTitle','Districts to watch')}</h3>`
-    +`<span class="note">${t('watchSub','by projected September risk · tap any')}</span></div><div class="watch">${rows}</div>`;
-  $$('#sideContent .wrow').forEach(r=>r.addEventListener('click',()=>selectDistrict(r.dataset.d)));
-}
-let chatLog=[], talkChips=["National picture","Where should we act first?","Outlook for Mazowe","Which are safest?","How does Hozi work?"];
-function renderTalk(){
-  if(!chatLog.length) chatLog.push({who:'h',text:"👋 Ask me about the season — a <b>district</b> (try \"Mazowe\"), a <b>province</b>, <b>where to act first</b>, the <b>national picture</b>, or <b>how I work</b>. I answer from the live engine data."});
-  const chips=talkChips.map(c=>`<span class="chip">${c}</span>`).join('');
-  const msgs=chatLog.map(m=>`<div class="msg ${m.who}">${m.text}</div>`).join('');
-  $('#sideContent').innerHTML=`<div class="talk">
-    <div class="thint">${t('talkHint','Answers come from the live engine data; in production, in your language via AI.')}</div>
-    <div class="chat" id="chat">${msgs}</div>
-    <div class="chips">${chips}</div>
-    <div class="askrow"><input id="askin" placeholder="${t('ask','Type a question...')}" autocomplete="off" />
-      <button id="asksend">${t('send','Ask')}</button></div></div>`;
-  const send=()=>{const v=$('#askin').value.trim(); if(v) ask(v);};
-  $('#asksend').addEventListener('click',send);
-  $('#askin').addEventListener('keydown',e=>{if(e.key==='Enter')send();});
-  $$('#sideContent .chip').forEach(c=>c.addEventListener('click',()=>ask(c.textContent)));
-  const ch=$('#chat'); if(ch) ch.scrollTop=ch.scrollHeight;
-}
-function ask(q){ const r=respond(q); chatLog.push({who:'u',text:q}); chatLog.push({who:'h',text:r.a}); if(r.chips)talkChips=r.chips; renderTalk(); }
-
-/* --- Hozi conversational engine: every answer grounded in the real projections --- */
-const provinces=[...new Set(districts.map(d=>d.province))];
-function dinfo(d){return {now:d.timeline[5].risk, sep:d.timeline[8].risk, jan:d.timeline[0].risk, dr:d.latest_drivers||{}};}
-function fmtD(d){const{now,sep,jan,dr}=dinfo(d);
-  return `<b>${d.district}</b> <span style="color:#8A8076">(${d.province})</span> — <b style="color:${bandCol(sep)}">${band(sep)} risk</b> by September.<br>
-  📈 ${Math.round(jan)} <span style="color:#8A8076">Jan</span> → ${Math.round(now)} <span style="color:#8A8076">Jun</span> → <b>${Math.round(sep)}</b> <span style="color:#8A8076">Sep</span><br>
-  🔎 Rainfall ${Math.round(dr.rainfall_mm)}mm ${dr.rainfall_mm<100?'(below the ~100mm staples need)':'(near need)'}, vegetation ${(dr.ndvi||0).toFixed(2)}, irrigation ${Math.round(dr.irrigation)}%, inputs ${Math.round(dr.inputs)}/100.${d.support?`<br>🎯 A support package could cut September by ~<b>${d.support.reduction}</b> pts (to ${Math.round(d.support.supported_sep)}).`:''}`;}
-function respond(qRaw){
-  const q=(qRaw||'').toLowerCase().trim(); const N=D.national;
-  const matches=districts.filter(x=>q.includes(x.district.toLowerCase()));
-  const prov=provinces.find(p=>q.includes(p.toLowerCase()));
-  if(/^(hi|hello|hie|hey|help|start)\b/.test(q)||q.length<3)
-    return {a:`I can tell you a <b>district's</b> outlook (try "Mazowe"), a <b>province</b> summary, <b>where to act first</b>, the <b>national</b> picture, or <b>how I work</b>.`,
-      chips:["National picture","Where should we act first?","Outlook for Hwange","Which are safest?","How does Hozi work?"]};
-  if(/(how.*(work|accurate|reliable|know|calculat)|accuracy|valid|trust|train|learn|black.?box|methodolog|\bmodel\b)/.test(q))
-    return {a:`I use a <b>transparent weighted model</b> of rainfall, vegetation, pests, irrigation and input access — not a black box. On this <b>synthetic sample data</b> my score reproduces the dataset's own risk band at <b>r = 0.81</b> (an internal consistency check, not outcome-validation yet), then I project the seasonal trend forward with a widening confidence band. <b>I'm decision-support, not certainty</b> — and not yet trained on real ZimVAC/IPC outcomes.`,
-      chips:["Where should we act first?","National picture","Outlook for Mazowe"]};
-  if(matches.length>=2){const[a,b]=matches,A=dinfo(a),B=dinfo(b),hi=A.sep>=B.sep?a:b;
-    return {a:`<b>${a.district}</b> ${Math.round(A.sep)} vs <b>${b.district}</b> ${Math.round(B.sep)} (September). <b>${hi.district}</b> is the greater concern.${a.support&&b.support?` Support helps <b>${a.support.reduction>=b.support.reduction?a.district:b.district}</b> most (−${Math.max(a.support.reduction,b.support.reduction)} pts).`:''}`,
-      chips:[`Outlook for ${a.district}`,`Outlook for ${b.district}`,"Where should we act first?"]};}
-  if(matches.length===1){const d=matches[0];
-    return {a:fmtD(d), chips:["Where should we act first?",`Compare ${d.district} with ${hotspots[0].district}`,"National picture"]};}
-  if(prov){const ds=districts.filter(d=>d.province===prov),mean=Math.round(ds.reduce((s,d)=>s+d.timeline[8].risk,0)/ds.length),worst=ds.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk)[0];
-    return {a:`<b>${prov}</b> — ${ds.length} districts, average September risk <b>${mean}</b> (${band(mean)}). Worst: <b>${worst.district}</b> at ${Math.round(worst.timeline[8].risk)}.`,
-      chips:[`Outlook for ${worst.district}`,"Where should we act first?","National picture"]};}
-  if(/(act first|support|spend|save|best buy|invest|priorit|allocat|budget|resource|where.*help|impact)/.test(q)){
-    const b=buysRanked.slice(0,4).map((x,i)=>`${i+1}. <b>${x.district}</b> (−${x.support.reduction})`).join('<br>');
-    return {a:`Support saves the most, in order:<br>${b}<br><span style="color:#8A8076">The driest, least-served, highest-risk districts — same effort, most people protected.</span>`,
-      chips:[`Outlook for ${buysRanked[0].district}`,"National picture","How does Hozi work?"]};}
-  if(/(safe|lowest|least|best off|okay|fine|low risk)/.test(q)){
-    const s=districts.slice().sort((a,b)=>a.timeline[8].risk-b.timeline[8].risk).slice(0,3).map(x=>`<b>${x.district}</b> (${Math.round(x.timeline[8].risk)})`).join(', ');
-    return {a:`Lowest projected September risk: ${s}. Still worth watching as the dry season deepens.`,
-      chips:["Which are worst?","Where should we act first?","National picture"]};}
-  if(/(watch|worst|top|high risk|most at risk|danger|hotspot|which district)/.test(q)){
-    const w=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk).slice(0,5).map((x,i)=>`${i+1}. <b>${x.district}</b> ${Math.round(x.timeline[8].risk)}`).join('<br>');
-    return {a:`Top districts to watch by September risk:<br>${w}`, chips:[`Outlook for ${hotspots[0].district}`,"Where should we act first?","Which are safest?"]};}
-  if(/(how many|national|overall|september|country|summary|picture|total|situation)/.test(q))
-    return {a:`Without early action, <b>${N.high_sep} of ${N.n_districts}</b> districts are projected into <b>HIGH</b> food-security risk by September. National risk rises from <b>${Math.round(N.risk_now)}</b> (June) to <b>${Math.round(N.risk_sep)}</b> (September).`,
-      chips:["Where should we act first?","Which are worst?","How does Hozi work?"]};
-  return {a:`I didn't catch a district or topic. Try a <b>district</b> (e.g. "Gwanda"), a <b>province</b>, "<b>where should we act first?</b>", the "<b>national picture</b>", or "<b>how does Hozi work?</b>".`,
-    chips:["National picture","Where should we act first?","Outlook for Mazowe","How does Hozi work?"]};
-}
-function selectDistrict(name){
-  const d=byName(name); const dr=d.latest_drivers||{}; const sepR=d.timeline[8].risk;
-  const supp=d.support?`<div class="brief"><b>Response note.</b> A support package here could lower the September outlook by ~<b>${d.support.reduction}</b> points (to ${Math.round(d.support.supported_sep)}).</div>`:'';
-  $('#sideContent').innerHTML=`<div class="dd">
-    <button class="backlink" id="backl">${t('backAll','← All districts')}</button>
-    <div class="prov">${d.province}</div><h4>${d.district}</h4>
-    <span class="ddband" style="background:${bandCol(sepR)}">${band(sepR)} ${t('ddTail','risk by September ·')} ${Math.round(sepR)}</span>
-    <div class="spark">${sparkline(d.timeline)}</div>
-    <div class="drivers">
-      <div class="drv"><div class="v">${Math.round(dr.rainfall_mm)}mm</div><div class="k">${t('dRain','Rainfall (latest)')}</div></div>
-      <div class="drv"><div class="v">${(dr.ndvi||0).toFixed(2)}</div><div class="k">${t('dVeg','Vegetation index')}</div></div>
-      <div class="drv"><div class="v">${Math.round(dr.irrigation)}%</div><div class="k">${t('dIrr','Irrigation coverage')}</div></div>
-      <div class="drv"><div class="v">${Math.round(dr.inputs)}</div><div class="k">${t('dInp','Input access /100')}</div></div>
-    </div>${supp}</div>`;
-  $('#backl').addEventListener('click',renderSide);
-}
-function sparkline(tl){const W=300,H=70,pad=6;const xs=i=>pad+i*((W-2*pad)/(tl.length-1));const ys=v=>H-pad-(v/100)*(H-2*pad);
-  let pA='',pP='';tl.forEach((t,i)=>{if(i>0){const seg=`M ${xs(i-1)} ${ys(tl[i-1].risk)} L ${xs(i)} ${ys(t.risk)}`; if(t.proj)pP+=seg+' ';else pA+=seg+' ';}});
-  const dots=tl.map((t,i)=>`<circle cx="${xs(i)}" cy="${ys(t.risk)}" r="2.4" fill="${col(t.risk)}"/>`).join('');
-  return `<svg viewBox="0 0 ${W} ${H}" width="100%"><line x1="${pad}" x2="${W-pad}" y1="${ys(66)}" y2="${ys(66)}" stroke="#eadfce"/>
-    <path d="${pA}" fill="none" stroke="#16130F" stroke-width="2"/><path d="${pP}" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 3"/>${dots}</svg>`;
-}
-
-/* ---------- Response Planner ---------- */
-const buysRanked=districts.filter(d=>d.support).sort((a,b)=>b.support.reduction-a.support.reduction);
-function renderBuys(){$('#buys').innerHTML=buysRanked.slice(0,10).map((d,i)=>{const on=supportedSet.has(d.district);
-  return `<div class="buy ${on?'':'off'}"><div class="r">${i+1}</div><div class="d">${d.district} <span style="color:#7C746A">· ${d.province}</span></div><div class="s">−${d.support.reduction}</div></div>`;}).join('');}
-function updatePlanner(n){supportedSet=new Set(buysRanked.slice(0,n).map(d=>d.district)); $('#pn').textContent=n;
-  let sum=0,removed=0,saved=0; districts.forEach(d=>{const projR=d.timeline[8].risk;
-    const r=supportedSet.has(d.district)&&d.support?d.support.supported_sep:projR; sum+=r;
-    if(supportedSet.has(d.district)&&d.support){removed+=(projR-r); if(projR>=66&&r<66)saved++;}});
-  const natSep=sum/districts.length;
-  $('#ps1').textContent=saved; $('#ps2').textContent=Math.round(removed);
-  $('#ps3').textContent=Math.round(natSep); $('#ps3').className='n '+(natSep>=66?'':'good');
-  renderBuys(); if(n>0){setMonth(8);} else {renderMap();}}
-
-/* ---------- controls ---------- */
-let playing=null;
-$('#play').addEventListener('click',()=>{if(playing){clearInterval(playing);playing=null;$('#play').textContent='▶';return;}
-  $('#play').textContent='⏸'; let i=0; setMonth(0);
-  playing=setInterval(()=>{i++; if(i>8){clearInterval(playing);playing=null;$('#play').textContent='▶';return;} setMonth(i);},520);});
-$('#time').addEventListener('input',e=>{if(playing){clearInterval(playing);playing=null;$('#play').textContent='▶';} setMonth(e.target.value);});
-$('#support').addEventListener('input',e=>updatePlanner(+e.target.value));
-$$('.tab').forEach(b=>b.addEventListener('click',()=>{sideTab=b.dataset.tab; renderSide();}));
-
-/* ---------- language ---------- */
-const baseHTML={};
-function applyLang(l){LANG=l;
-  $$('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n'); if(baseHTML[k]===undefined)baseHTML[k]=el.innerHTML;
-    el.innerHTML = (I18N[l] && I18N[l][k]!==undefined)? I18N[l][k] : baseHTML[k];});
-  $$('.lng button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
-  document.documentElement.lang = l;
-  kpis(); fillStatement(); setMonth(monthIdx); renderSide();  // re-render dynamic pieces
-}
-$$('.lng button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
-
-/* ---------- rotating hotspot ticker + count-up ---------- */
-const hotspots=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk).slice(0,6);
-const bandColD=v=> v>=66?'#FF8168':(v>=45?'#F0A24E':'#8FD9B6');
-let hotI=0;
-function cycleHot(){const d=hotspots[hotI%hotspots.length];const sep=Math.round(d.timeline[8].risk);const el=$('#fwhot');if(!el)return;
-  el.innerHTML=`<div class="hot-anim"><div class="hl">⚠ ${t('hotLabel','Hotspot')}</div><div class="hd">${d.district}</div><div class="hp">${d.province}</div><div class="hn" style="color:${bandColD(sep)}">${sep}<span style="font-size:10px;color:#B9B0A2"> · ${t('bySep','by Sep')}</span></div></div>`;
-  hotI++;}
-function countUp(el,to,ms){if(!el)return;const s=performance.now();const step=n=>{const p=Math.min(1,(n-s)/ms);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
-
-/* ---------- init ---------- */
-kpis(); fillStatement(); setMonth(5); renderBuys(); updatePlanner(0); renderSide();
-cycleHot(); setInterval(cycleHot,2600); countUp($('#statement .big'), D.national.high_sep, 900);
-
-/* ---------- API demo console ---------- */
-function apiLog(html,cls){const c=$('#apiconsole');if(!c)return;const l=document.createElement('div');l.className='cline '+(cls||'');l.innerHTML=html;c.appendChild(l);c.scrollTop=c.scrollHeight;}
-function apiSeq(steps){steps.forEach(([h,cls,ms])=>setTimeout(()=>apiLog(h,cls),ms));}
-$$('.apibtn').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.act;
-  const hot=hotspots[Math.floor(Math.random()*hotspots.length)], d0=hotspots[0];
-  if(a==='rain') apiSeq([
-    [`<span class="req">POST</span> /ingest/rainfall  { "district":"${hot.district}", "rainfall_mm":${(4+Math.random()*18).toFixed(1)}, "month":"2026-07" }`,'in',0],
-    [`↳ 200 OK · signal stored`,'ok',350],
-    [`⚙ engine recomputed ${hot.district} → risk ${Math.round(hot.timeline[8].risk)} (Sep)`,'sys',800]]);
-  if(a==='ground') apiSeq([
-    [`<span class="req">POST</span> /ingest/report  { "from":"+2637…", "text":"crops failing, armyworm ward 7" }`,'in',0],
-    [`↳ AI parsed → { "signal":"pest", "severity":"high", "district":"${hot.district}" }`,'ok',500],
-    [`⚙ engine updated pest pressure for ${hot.district}`,'sys',950]]);
-  if(a==='get'){const s=d0.timeline[8].risk; apiSeq([
-    [`<span class="req">GET</span> /api/risk/${d0.district}`,'out',0],
-    [`↳ 200 { "district":"${d0.district}", "risk_now":${Math.round(d0.timeline[5].risk)}, "risk_sep":${Math.round(s)}, "band":"${band(s)}", "support_reduction":${d0.support?d0.support.reduction:0} }`,'ok',450]]);}
-  if(a==='alert') apiSeq([
-    [`<span class="req">POST</span> webhook → WhatsApp Business API`,'out',0],
-    [`↳ 📲 officer: "Yambiro: ${d0.district} iri panjodzi huru yechikafu muna Gunyana (${Math.round(d0.timeline[8].risk)}/100). Kurumidza kutumira mbeu."`,'msg',450],
-    [`↳ 202 accepted · delivered`,'ok',950]]);
-}));
-apiLog('hozi-api ▸ ready · click a button (or a data source above) to see data move','sys');
-
-/* wire the "Where the data comes from" source cards to the API console */
-function feedIn(type){
-  const hot=hotspots[Math.floor(Math.random()*hotspots.length)], d0=hotspots[0];
-  const seqs={
-    rain:[[`<span class="req">POST</span> /ingest/rainfall  { "district":"${hot.district}", "rainfall_mm":${(4+Math.random()*18).toFixed(1)}, "month":"2026-07" }`,'in',0],[`↳ 200 OK · signal stored`,'ok',350],[`⚙ engine recomputed ${hot.district} → risk ${Math.round(hot.timeline[8].risk)} (Sep)`,'sys',800]],
-    ndvi:[[`<span class="req">POST</span> /ingest/ndvi  { "district":"${hot.district}", "ndvi":${(0.10+Math.random()*0.30).toFixed(2)}, "source":"Sentinel-2" }`,'in',0],[`↳ 200 OK · vegetation index updated`,'ok',350],[`⚙ engine recomputed ${hot.district}`,'sys',800]],
-    agritex:[[`<span class="req">POST</span> /ingest/agritex  { "district":"${hot.district}", "pest_incidents":${Math.floor(2+Math.random()*15)}, "input_score":${Math.floor(40+Math.random()*50)} }`,'in',0],[`↳ 200 OK · Agritex feed stored`,'ok',400],[`⚙ engine recomputed ${hot.district}`,'sys',850]],
-    prices:[[`<span class="req">POST</span> /ingest/prices  { "commodity":"maize", "usd_per_tonne":${Math.floor(280+Math.random()*120)}, "market":"Mbare Musika" }`,'in',0],[`↳ 200 OK · market price stored`,'ok',400],[`⚙ engine flagged affordability signal`,'sys',800]],
-    report:[[`<span class="req">POST</span> /ingest/report  { "from":"+2637…", "text":"crops failing, armyworm ward 7" }`,'in',0],[`↳ AI parsed → { "signal":"pest", "severity":"high", "district":"${hot.district}" }`,'ok',500],[`⚙ engine updated pest pressure for ${hot.district}`,'sys',950]],
-    pangolin:[[`<span class="req">GET</span> pangolin://datasets/agriculture/${d0.district}  (federated)`,'out',0],[`↳ 200 · secure API · signals synced · data stays with owner`,'ok',450]],
-  };
-  apiSeq(seqs[type]||seqs.rain);
-}
-$$('.src[data-feed]').forEach(c=>c.addEventListener('click',()=>{
-  const box=document.querySelector('.apibox'); if(box) box.scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>feedIn(c.dataset.feed),280);
-}));
-</script>
+<script src="districts.geo.js"></script>
+<script src="name-map.js"></script>
+<script src="i18n.js"></script>
+<script src="cockpit.js"></script>
 </body>
 </html>
