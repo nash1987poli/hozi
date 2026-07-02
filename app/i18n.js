@@ -42,7 +42,15 @@ window.HOZI_I18N = { en:{}, sn:{
  kHighLbl:"pamatunhu 20 ari kunopinda munjodzi HURU muna Gunyana",
  howT:"Mashandiro", honestT:"Mashandiro nezvazvisingakwanise (chokwadi kutanga)",
  kSrc:"data yemuenzaniso yePOTRAZ",
- m0:"Ndira",m1:"Kukadzi",m2:"Kurume",m3:"Kubvumbi",m4:"Chivabvu",m5:"Chikumi",m6:"Chikunguru",m7:"Nyamavhuvhu",m8:"Gunyana"
+ m0:"Ndira",m1:"Kukadzi",m2:"Kurume",m3:"Kubvumbi",m4:"Chivabvu",m5:"Chikumi",m6:"Chikunguru",m7:"Nyamavhuvhu",m8:"Gunyana",
+ // NEW welcome + rail strings (drafts)
+ wF1:"<b>Kufanotarira</b> — ona mwaka uchifamba, mwedzi nemwedzi, nemuganhu wechivimbo wakajeka.",
+ wF2:"<b>Nzira Yekuronga</b> — nerubatsiro rwaunogona kusvitsa mwaka uno, ona kwarunodzivirira vanhu vazhinji kutanga.",
+ wF3:"<b>Bvunza Hozi</b> — mhinduro mumutauro wako, dzichibva pauverengi hweinjini chaihwo.",
+ wEnter:"Pinda muImba yeMabasa", wDont:"Usaratidze zvakare",
+ domFood:"Chikafu nekuchengeteka kwacho", domFloods:"Mafashamu", domDisease:"Zvirwere",
+ domWater:"Mvura", domMarkets:"Misika",
+ domNext:"Injini imwe chete, chikamu chinotevera — ona Nyaya"
 }, nd:{
  mast:"Injini Yokubona Phambili Kokudla Kwesizwe", k0:"POTRAZ AI4I 2026 · isibonelo esisebenzayo",
  h0:"Bona indlala isiza — uthathe isinyathelo ngesikhathi.",
@@ -85,7 +93,15 @@ window.HOZI_I18N = { en:{}, sn:{
  kHighLbl:"kwezigaba ezingu-20 ezingena ebungozini obuKHULU ngoMpandula",
  howT:"Ukusebenza", honestT:"Ukusebenza lalokho okungeke kwenze (iqiniso kuqala)",
  kSrc:"idatha yesibonelo yePOTRAZ",
- m0:"uZibandlela",m1:"uNhlolanja",m2:"uMbimbitho",m3:"uMabasa",m4:"uNkwenkwezi",m5:"uNhlangula",m6:"uNtulikazi",m7:"uNcwabakazi",m8:"uMpandula"
+ m0:"uZibandlela",m1:"uNhlolanja",m2:"uMbimbitho",m3:"uMabasa",m4:"uNkwenkwezi",m5:"uNhlangula",m6:"uNtulikazi",m7:"uNcwabakazi",m8:"uMpandula",
+ // NEW welcome + rail strings (drafts)
+ wF1:"<b>Ukubona phambili</b> — buka isizini isembuleka, inyanga ngenyanga, lomkhawulo wokuthemba osobala.",
+ wF2:"<b>Indlela Yokuhlela</b> — ngosizo ongafinyelela kulo kulesisizini, bona lapho oluvikela khona abantu abanengi kuqala.",
+ wF3:"<b>Buza iHozi</b> — izimpendulo ngolimi lwakho, zisekelwe ezinombolweni zenjini uqobo.",
+ wEnter:"Ngena eKamelweni Lomsebenzi", wDont:"Ungabonisi futhi",
+ domFood:"Ukudla lokuvikeleka kwakho", domFloods:"Izikhukhula", domDisease:"Imikhuhlane",
+ domWater:"Amanzi", domMarkets:"Izimakethe",
+ domNext:"Injini eyodwa, isigaba esilandelayo — bona Indaba"
 }};
 window.hoziT = function(k, en){ const s=window.HOZI_I18N[window.HOZI_LANG||'en'];
   return (s && s[k]!==undefined) ? s[k] : (en!==undefined?en:k); };

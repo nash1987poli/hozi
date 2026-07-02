@@ -63,7 +63,26 @@
   <span class="month" id="monthLbl">June</span><span class="fc" id="fcLbl" hidden>forecast</span>
 </div>
 
-<button class="story-tab" id="storyTab">The Story</button>
+<nav class="rail panel" id="rail" aria-label="Hozi platform domains">
+  <button class="on" id="railFood" title="Food security">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21V7"/><path d="M12 7c0-2.5 1.8-4 4-4 0 2.5-1.8 4-4 4z"/><path d="M12 11c0-2.5-1.8-4-4-4 0 2.5 1.8 4 4 4z"/><path d="M12 15c0-2.5 1.8-4 4-4 0 2.5-1.8 4-4 4z"/><circle cx="12" cy="4.2" r="1.1" fill="currentColor" stroke="none"/></svg>
+  </button>
+  <button class="future" id="railFloods" title="Floods">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 13a4.5 4.5 0 1 1 .8-8.9A5 5 0 0 1 17.5 6 3.8 3.8 0 0 1 17 13z"/><path d="M8 16.5l-1 3M12.5 16.5l-1 3M17 16.5l-1 3"/></svg>
+  </button>
+  <button class="future" id="railDisease" title="Disease">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="5.2"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.5 1.5M18 6l-1.5 1.5M6 18l1.5-1.5M18 18l-1.5-1.5"/><circle cx="10.5" cy="11" r=".9" fill="currentColor" stroke="none"/><circle cx="13.8" cy="13.2" r=".9" fill="currentColor" stroke="none"/></svg>
+  </button>
+  <button class="future" id="railWater" title="Water">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3.5s5.5 6.2 5.5 10a5.5 5.5 0 1 1-11 0c0-3.8 5.5-10 5.5-10z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2 2.4"/></svg>
+  </button>
+  <button class="future" id="railMarkets" title="Markets">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 20V10M9.3 20v-7M14.6 20V9M20 20V5"/><path d="M4 7.5C7 7.5 9 4.5 12 4.5" opacity=".55"/></svg>
+  </button>
+  <button id="storyTab" title="The Story">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 6.5C10.5 5 8.5 4.5 5 4.5v13c3.5 0 5.5.5 7 2 1.5-1.5 3.5-2 7-2v-13c-3.5 0-5.5.5-7 2z"/><path d="M12 6.5v13"/></svg>
+  </button>
+</nav>
 <aside class="story panel" id="storyPanel" hidden>
   <button class="close" id="storyClose">&times;</button>
   <div id="storyBody"></div>
@@ -74,6 +93,24 @@
   <i class="nod" style="--c:#DDD8CB"></i><span id="legNo">no data yet</span></div>
 
 <div id="tip" class="tip"></div>
+
+<div id="welcome" class="welcome" hidden>
+  <div class="wcard">
+    <img src="logo.jpg" alt="Hozi" class="wlogo">
+    <h1 id="wTitle">See the hunger coming — and act in time.</h1>
+    <p id="wIntro"></p>
+    <ul class="wfeat">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span id="wF1"></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 19.5L9 8l4 7 3-4 4 8.5z"/><path d="M3.5 19.5h17"/></svg><span id="wF2"></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4.5 5.5h15v10h-9l-4 3.5v-3.5h-2z"/><path d="M8.5 9.5h7M8.5 12h4.5"/></svg><span id="wF3"></span></li>
+    </ul>
+    <p class="whonest" id="wHonest"></p>
+    <div class="wactions">
+      <button id="wEnter">Enter the Operations Room</button>
+      <label><input type="checkbox" id="wDont"> <span id="wDontLbl">Don't show again</span></label>
+    </div>
+  </div>
+</div>
 
 <script src="vendor/leaflet.js"></script>
 <script src="projections.js"></script>

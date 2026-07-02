@@ -234,7 +234,7 @@ $('#askForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#askIn
 /* ---- story panel ---- */
 function renderStory(){ $('#storyBody').innerHTML=
   `<h1>${t('h0','See the hunger coming — and act in time.')}</h1>
-   <p>${t('p0','Hozi forecasts where staple food-security risk (maize-led, with sorghum and groundnuts) is heading, district by district, then helps responders get the most from the resources they already have. Drag the timeline to watch the season unfold; use Planning Mode to see where early action protects the most people.')}</p>
+   <p>${t('p0','Hozi forecasts where food-security risk across Zimbabwe\'s crops is heading, district by district, then helps responders get the most from the resources they already have. Drag the timeline to watch the season unfold; use Planning Mode to see where early action protects the most people.')}</p>
    <h3>${t('honestT',"How it works & what it can't do (honesty first)")}</h3>
    <ul><li>${t('mt1','<b>Transparent model.</b> Risk is a clear, weighted blend of rainfall, vegetation, pests, irrigation and input access — no black box.')}</li>
    <li>${t('mt2',"<b>Consistency-checked.</b> Hozi's risk score matches an independent agricultural risk index at <b>r = 0.81</b> on this data.")}</li>
@@ -258,7 +258,19 @@ function applyLang(l){ window.HOZI_LANG=l; try{localStorage.setItem('hozi-lang',
   document.documentElement.lang=l;
   $('#tbSub').textContent=t('mast','National Food-Security Foresight Engine');
   $('#planLabel').textContent=t('planMode','Planning Mode');
-  $('#storyTab').textContent=t('story','The Story');
+  $('#storyTab').title=t('story','The Story');
+  $('#railFood').title=t('domFood','Food security');
+  [['railFloods','domFloods','Floods'],['railDisease','domDisease','Disease'],
+   ['railWater','domWater','Water'],['railMarkets','domMarkets','Markets']]
+    .forEach(([id,k,en])=>$('#'+id).title=t(k,en));
+  $('#wTitle').textContent=t('h0','See the hunger coming — and act in time.');
+  $('#wIntro').textContent=t('p0','Hozi forecasts where food-security risk across Zimbabwe\'s crops is heading, district by district, then helps responders get the most from the resources they already have.');
+  $('#wF1').innerHTML=t('wF1','<b>Foresight</b> — watch the season unfold, month by month, with an honest confidence band.');
+  $('#wF2').innerHTML=t('wF2','<b>Planning Mode</b> — for the support you can reach this season, see where it protects the most people first.');
+  $('#wF3').innerHTML=t('wF3',"<b>Ask Hozi</b> — answers in your language, grounded in the engine's own numbers.");
+  $('#wHonest').innerHTML=t('mt4','<b>Sample data.</b> This prototype runs on POTRAZ synthetic challenge data. The engine is built to accept live rainfall, satellite and market feeds.');
+  $('#wEnter').textContent=t('wEnter','Enter the Operations Room');
+  $('#wDontLbl').textContent=t('wDont',"Don't show again");
   $('#legTitle').textContent=t('legendTitle','Staple food-security risk');
   $('#legNo').textContent=t('legendNo','no data yet');
   $('#tabWatch').textContent=t('tabWatch','Watch').replace('📋 ','');
@@ -283,6 +295,22 @@ function readURL(){ const p=new URLSearchParams(location.search);
   if(p.get('mode')==='plan'){$('#planToggle').checked=true;$('#planToggle').dispatchEvent(new Event('change'));}
   if(p.get('district')&&byName[p.get('district')])selectDistrict(p.get('district')); }
 
+/* ---- domain rail (platform roadmap) + welcome ---- */
+$$('#rail button.future').forEach(b=>{
+  const show=e=>tipShow(e,`<b>${b.title}</b><br>${t('domNext','Same engine, next module — see The Story')}`);
+  b.addEventListener('mouseenter',show);
+  b.addEventListener('mousemove',e=>tipMove(e));
+  b.addEventListener('mouseleave',tipHide);
+  b.addEventListener('click',show);
+});
+function initWelcome(){
+  let seen=null; try{seen=localStorage.getItem('hozi-welcome');}catch(e){}
+  if(!seen && !location.search) $('#welcome').hidden=false;
+  $('#wEnter').addEventListener('click',()=>{
+    if($('#wDont').checked){try{localStorage.setItem('hozi-welcome','1');}catch(e){}}
+    $('#welcome').hidden=true; });
+}
+
 /* ---- fallback + boot ---- */
 function fallbackDots(){ districts.forEach(d=>{const mk=L.circleMarker([d.lat,d.lon],{radius:10,
     fillColor:col(riskAt(d,monthIdx)),fillOpacity:.9,color:'#7d7668',weight:1}).addTo(map);
@@ -297,6 +325,7 @@ function boot(){
     else { fallbackDots(); }
   }catch(err){ console.error('Hozi boot:',err); fallbackDots(); }
   renderWatch(); renderKPIs(); updatePlanner(0); setMonth(5);
+  initWelcome();
   readURL();
   booted=true; syncURL();
   document.body.classList.add('ready');

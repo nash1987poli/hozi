@@ -20,9 +20,9 @@
 
 ---
 
-Hozi is the **first Zimbabwean-owned food-security foresight engine.** It forecasts where staple
-food-security risk (maize-led, with sorghum and groundnuts) is heading — district by district — then
-helps responders **get the most from the resources they already have**, so early action reaches the
+Hozi is the **first Zimbabwean-owned food-security foresight engine.** It forecasts where
+food-security risk across Zimbabwe's crops is heading — district by district — then helps
+responders **get the most from the resources they already have**, so early action reaches the
 right places *in time*.
 
 Built for the **POTRAZ AI for Impact (AI4I) 2026 Challenge** (Development track), Hozi turns a wall of
