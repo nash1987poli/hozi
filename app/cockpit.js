@@ -234,7 +234,7 @@ $('#askForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#askIn
 /* ---- story panel ---- */
 function renderStory(){ $('#storyBody').innerHTML=
   `<h1>${t('h0','See the hunger coming — and act in time.')}</h1>
-   <p>${t('p0','Hozi forecasts where maize food-security risk is heading, district by district, then helps responders get the most from the resources they already have. Drag the timeline to watch the season unfold; use Planning Mode to see where early action protects the most people.')}</p>
+   <p>${t('p0','Hozi forecasts where staple food-security risk (maize-led, with sorghum and groundnuts) is heading, district by district, then helps responders get the most from the resources they already have. Drag the timeline to watch the season unfold; use Planning Mode to see where early action protects the most people.')}</p>
    <h3>${t('honestT',"How it works & what it can't do (honesty first)")}</h3>
    <ul><li>${t('mt1','<b>Transparent model.</b> Risk is a clear, weighted blend of rainfall, vegetation, pests, irrigation and input access — no black box.')}</li>
    <li>${t('mt2',"<b>Consistency-checked.</b> Hozi's risk score matches an independent agricultural risk index at <b>r = 0.81</b> on this data.")}</li>
