@@ -11,7 +11,7 @@
 *See the hunger coming — and act in time.*
 
 ![status](https://img.shields.io/badge/status-working%20prototype-1E6B4F)
-![validation](https://img.shields.io/badge/model%20validation-r%3D0.81-D89B2E)
+![weighting check](https://img.shields.io/badge/weighting%20check-r%3D0.81-D89B2E)
 ![stack](https://img.shields.io/badge/stack-python%20%2B%20vanilla%20JS-16130F)
 ![license](https://img.shields.io/badge/license-MIT-1E6B4F)
 ![built in](https://img.shields.io/badge/built%20in-Zimbabwe%20%F0%9F%87%BF%F0%9F%87%BC-D89B2E)
@@ -70,8 +70,10 @@ data (CSV / live feeds)  →  engine.py  →  projections.js  →  app (index.ht
 
 1. **Transparent risk model** — a clear, weighted blend of rainfall deficit, vegetation (NDVI), pests,
    irrigation and input access. No black box; every number is traceable.
-2. **Validation** — Hozi's risk score matches an **independent agricultural risk index at r = 0.81** on the
-   challenge data, so the model reflects real conditions before it projects anything.
+2. **Consistency check (not yet outcome-validation)** — on the *synthetic* challenge data, Hozi's score
+   reproduces the dataset's **own** risk band at **r = 0.81** — an internal check that the weighting is
+   coherent. Real training/validation on **ZimVAC/IPC outcomes** is the documented next step
+   (see [`docs/DATA-SOURCES-forkA.md`](docs/DATA-SOURCES-forkA.md) and [`engine/train.py`](engine/train.py)).
 3. **Forecast** — projects the well-understood seasonal trend 1–3 months ahead with a *widening confidence
    band*. Foresight, not fortune-telling.
 4. **Response Planner** — a support package reduces risk most where irrigation is low and the district is

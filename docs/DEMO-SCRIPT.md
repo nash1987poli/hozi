@@ -43,7 +43,8 @@ Speak these lines, click in this order. ~90 seconds. This is your safety net.
 
 ## Part 3 — Judge Q&A cheat-sheet
 
-- **"How accurate is it?"** — "It validates at r=0.81 against an independent risk index, so the model reflects real conditions. The forecast projects a known seasonal trend with an honest confidence band — decision-support, not certainty."
+- **"How accurate is it?"** — "Honestly: it's a transparent weighted model. On the synthetic sample data it reproduces the dataset's own risk band at r=0.81 — a consistency check, not outcome-validation yet. We've already located the real ZimVAC/IPC data to train and validate it properly — that's our nowcasting roadmap. It's decision-support, not certainty."
+- **"Is it machine learning / does it learn?"** — "Not yet — today it's a transparent, hand-weighted model, deliberately auditable. The repo ships `engine/train.py` and real ZimVAC labels so it can be trained on measured outcomes (HungerMap-style) once we assemble the matching feature history. We're honest that that's the next step, not a done deal."
 - **"Isn't this just WFP HungerMap?"** — "HungerMap monitors, country-level, globally. Hozi is district-level, Zimbabwean-owned, and it *plans* — it tells you where to act, which HungerMap doesn't."
 - **"Where does the data come from?"** — (point to the pipeline) "Met Services, satellites, Agritex, markets, district officers — and Project Pangolin long-term. Owners keep control."
 - **"Are you telling government how to spend?"** — "No. Hozi never sets budgets. It helps officials stretch resources they've already been given, and defend their own decisions."

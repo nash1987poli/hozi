@@ -53,13 +53,13 @@ for.
 
 | Domain | Signals it reads | Decision it supports | Status |
 |---|---|---|---|
-| **🌾 Food security** | rainfall, vegetation (NDVI), pests, irrigation, inputs, prices | where to send seed / irrigation / relief | **LIVE · validated (r=0.81)** |
+| **🌾 Food security** | rainfall, vegetation (NDVI), pests, irrigation, inputs, prices | where to send seed / irrigation / relief | **LIVE · calibrated (r=0.81)** |
 | **🌊 Floods & disaster** | rainfall intensity, river levels, terrain, forecasts | where to pre-position / evacuate | Next |
 | **🦟 Disease outbreaks** | case reports, water/sanitation, mobility, climate | where to send health teams / supplies | Next |
 | **💧 Water & drought** | dam levels, rainfall, demand, boreholes | where to ration / drill / truck water | Roadmap |
 | **📈 Markets & prices** | farmgate & retail prices, supply, currency | where prices threaten access to food | Roadmap |
 
-**Food security is the flagship** — built, working, and validated — because it is the Strategy's
+**Food security is the flagship** — built and working — because it is the Strategy's
 Year-1 theme and the clearest public-value story. The others are the deliberate architecture, not
 vapourware: each is the same engine pointed at a new set of signals.
 
@@ -67,12 +67,36 @@ vapourware: each is the same engine pointed at a new set of signals.
 
 1. **Transparent risk model.** A clear, weighted blend of the drivers — no black box. Every number
    is traceable and explainable. *This transparency is the moat.*
-2. **Validation.** On the challenge data, Hozi's risk score matches an independent agricultural risk
-   index at **r = 0.81** — the model reflects real conditions before it projects anything.
+2. **Consistency check (not yet outcome validation).** On the *synthetic* challenge data, Hozi's
+   weighted score reproduces the dataset's **own provided** risk band at **r = 0.81** — an internal
+   check that the weighting is coherent. It is **not** validation against a real food-security
+   outcome (that requires ZimVAC/IPC labels + a trained model — see *Path to nowcasting* below).
 3. **Forecast.** Projects the well-understood seasonal trend 1–3 months ahead with a *widening*
    confidence band. Foresight, not fortune-telling.
 4. **Response Planner.** A support package reduces risk most where irrigation is low and the district
    is dry and high-risk, so "best buys" are genuinely differentiated and defensible.
+
+## 4a. Path to nowcasting — from indicator scorer to trained model (Fork A)
+
+Today Hozi is an **indicator scorer** (Fork B): a transparent, *hand-weighted* model. The gold
+standard (WFP HungerMap) is **supervised on outcomes** (Fork A): it *learns* the indicator→outcome
+relationship from real, measured food-insecurity labels, then predicts the outcome where no survey
+ran. Hozi's credible, funded runway to that:
+
+1. **Get the outcome labels — they exist and are public.** **ZimVAC/ZimLAC** Rural Livelihoods
+   Assessments (annual, 2009–2025; e.g. 2025 peak: Kariba 57.6%, Marondera 1%, ~15% nationally) and
+   **FEWS NET / IPC** (monthly, via API). Indexed in `docs/DATA-SOURCES-forkA.md`; a real seed of
+   labels is already in `data/outcome_labels_2025_zimlac.csv`.
+2. **Assemble a training panel.** Join real per-district features (rainfall/NDVI/prices from
+   FEWS NET and satellites) to those labels, by district and period.
+3. **Train + validate honestly.** `engine/train.py` (already in the repo) learns the weights via
+   supervised regression, **holds out whole districts**, and reports error on districts it never
+   saw — real validation, replacing today's internal consistency check.
+4. **Nowcast + forecast.** Predict outcomes where no survey exists, and project forward.
+
+Crucially, **the map, Response Planner and API do not change** — only the scoring brain upgrades
+from hand-weighted to learned. Transparency is kept as a *feature*: the mature system is a learned
+model **plus** the explainable breakdown that conservative institutions trust.
 
 ## 5. The AI layer — used only where AI is strong
 
@@ -168,7 +192,7 @@ Open-core and lean:
 ## 13. Roadmap — from flagship to platform
 
 - **Now (prototype):** food-security engine + national map + Response Planner + data pipeline, on
-  sample data. Open-source, validated at r=0.81.
+  sample data. Open-source; weighting consistency-checked at r=0.81 (not yet outcome-validated).
 - **3 months:** live rainfall / satellite / market feeds; all staple crops; chiShona & isiNdebele
   briefs and WhatsApp alerts; pilot with one ministry or NGO.
 - **12 months:** national roll-out; **floods & disease modules**; ground-truth loop; full Project
@@ -187,7 +211,7 @@ first two new hazard modules — moving Hozi from a validated prototype to a nat
 
 | Risk | Mitigation |
 |---|---|
-| Prototype uses synthetic data | Engine built for live feeds; validated method; honest about it |
+| Prototype uses synthetic data | Engine built for live feeds; transparent method; real Fork A label sources already found (ZimVAC/IPC) |
 | "Predicts the future" over-claim | Framed as foresight + confidence bands; limitations panel is a feature |
 | Adoption vs existing foreign tools | Sovereign, prescriptive, local-language — serves the state directly |
 | One-person capacity | n8n automation + open-source contributors + Curious Inq delivery |

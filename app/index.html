@@ -307,7 +307,7 @@
     <h3 data-i18n="mth">How it works &amp; what it can't do (honesty first)</h3>
     <ul>
       <li data-i18n="mt1"><b>Transparent model.</b> Risk is a clear, weighted blend of rainfall, vegetation, pests, irrigation and input access — no black box.</li>
-      <li data-i18n="mt2"><b>Validated.</b> Hozi's risk score matches an independent agricultural risk index at <b>r = 0.81</b> on this data.</li>
+      <li data-i18n="mt2"><b>Consistency-checked (not yet outcome-validated).</b> On this synthetic sample data, Hozi's score reproduces the dataset's own risk band at <b>r = 0.81</b> — an internal check. Real training on ZimVAC/IPC outcomes is the next step.</li>
       <li data-i18n="mt3"><b>Foresight, not fortune-telling.</b> Forecasts project a well-understood seasonal trend with a widening confidence band; they are decision-support, not certainty.</li>
       <li data-i18n="mt4"><b>Sample data.</b> This prototype runs on POTRAZ synthetic challenge data. The engine is built to accept live rainfall, satellite and market feeds.</li>
     </ul>
@@ -433,7 +433,7 @@ function kpis(){const n=D.national;
     {n:Math.round(n.risk_now),l:t('kNow','National risk now'),c:''},
     {n:Math.round(n.risk_sep),l:t('kSep','Projected by September'),c:'bad'},
     {n:`${n.high_now} → ${n.high_sep}`,l:t('kHigh','Districts at high risk'),c:'bad'},
-    {n:D.meta.validation_r_staple,l:t('kR','Model vs independent index (r)'),c:'good'},
+    {n:D.meta.validation_r_staple,l:t('kR','Weighting check vs provided score (r)'),c:'good'},
   ].map(k=>`<div class="kpi"><div class="n ${k.c}">${k.n}</div><div class="l">${k.l}</div></div>`).join('');
   $('#kpinote').textContent=`${n.n_districts} districts · Jan–Jun 2026 → September.`;
   $('#fwnat').innerHTML=`<div class="n">${Math.round(n.risk_now)} → <b>${Math.round(n.risk_sep)}</b></div><div class="l">${t('natl','National risk')}</div>`;
