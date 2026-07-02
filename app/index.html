@@ -160,6 +160,8 @@
   .src:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
   .src .ic{font-size:22px;line-height:1} .src b{display:block;font-size:12px;margin-top:5px;color:var(--ink)}
   .src small{display:block;color:var(--muted);font-size:10px;line-height:1.25;margin-top:2px}
+  .src[data-feed]{cursor:pointer} .src[data-feed]:hover{border-color:var(--gold)}
+  .feedhint{font-size:12.5px;color:var(--green);font-weight:600;margin-top:11px;text-align:center}
   .flowarrow{text-align:center;color:var(--gold);font-size:18px;font-weight:700;margin:9px 0 8px;letter-spacing:.3em}
   .engine-bar{background:var(--green);color:#fff;border-radius:12px;padding:13px;text-align:center}
   .engine-bar b{font-family:var(--serif);font-size:18px} .engine-bar small{color:#CDE7DA;font-size:12px;display:block;margin-top:2px}
@@ -273,13 +275,14 @@
     <h2 data-i18n="dph">Where the data comes from</h2>
     <p class="plead" data-i18n="dpp">Hozi doesn't invent data — it reads trusted signals from the bodies that already own them, and each owner keeps control of its own data. <b>This prototype runs on POTRAZ sample data; the engine is built to plug the live feeds below straight in.</b></p>
     <div class="sources">
-      <div class="src"><div class="ic">🌧️</div><b>Rainfall</b><small>Met Services · TAMSAT / CHIRPS</small></div>
-      <div class="src"><div class="ic">🛰️</div><b>Vegetation</b><small>NASA · Copernicus · FAO ASIS</small></div>
-      <div class="src"><div class="ic">🌱</div><b>Crops · pests · inputs</b><small>Agritex / Min. of Agriculture</small></div>
-      <div class="src"><div class="ic">💵</div><b>Market prices</b><small>GMB · ZMX · e-Mukambo</small></div>
-      <div class="src"><div class="ic">💬</div><b>Ground truth</b><small>District officers (WhatsApp)</small></div>
-      <div class="src"><div class="ic">🗄️</div><b>National platform</b><small>Project Pangolin</small></div>
+      <div class="src" data-feed="rain"><div class="ic">🌧️</div><b>Rainfall</b><small>Met Services · TAMSAT / CHIRPS</small></div>
+      <div class="src" data-feed="ndvi"><div class="ic">🛰️</div><b>Vegetation</b><small>NASA · Copernicus · FAO ASIS</small></div>
+      <div class="src" data-feed="agritex"><div class="ic">🌱</div><b>Crops · pests · inputs</b><small>Agritex / Min. of Agriculture</small></div>
+      <div class="src" data-feed="prices"><div class="ic">💵</div><b>Market prices</b><small>GMB · ZMX · e-Mukambo</small></div>
+      <div class="src" data-feed="report"><div class="ic">💬</div><b>Ground truth</b><small>District officers (WhatsApp)</small></div>
+      <div class="src" data-feed="pangolin"><div class="ic">🗄️</div><b>National platform</b><small>Project Pangolin</small></div>
     </div>
+    <div class="feedhint" data-i18n="feedhint">👆 Click any source to feed a live sample into the API console below.</div>
     <div class="flowarrow">▼</div>
     <div class="engine-bar"><b>The Hozi engine</b><small data-i18n="dpe">clean &amp; standardise · score risk · forecast · plan the response</small></div>
     <div class="flowarrow">▼</div>
@@ -359,6 +362,7 @@ const I18N={ en:{}, sn:{
  dpp:"Hozi haigadziri data — inoverenga zviratidzo kubva kumasangano ane data iwayo, muridzi wega wega achichengeta data yake. <b>Muenzaniso uyu unoshandisa data yePOTRAZ; injini yakagadzirirwa kubatanidza live feeds.</b>",
  dpe:"gadzirisa · yera njodzi · fanotarira · ronga rubatsiro", dpo:"Varongi nevabatsiri",
  dpn:"Data inogara nevaridzi vayo; Hozi inongoverenga zviratidzo zvakatenderwa.",
+ feedhint:"👆 Dzvanya chero source kutumira muenzaniso mu API console iri pazasi.",
  mth:"Mashandiro nezvazvisingakwanise (chokwadi kutanga)",
  mt1:"<b>Modhi yakajeka.</b> Njodzi musanganiswa wemvura, uswa, zvipfukuto nekudiridza — hapana black box.",
  mt2:"<b>Yakaongororwa.</b> Chiyero cheHozi chinoenderana nechimwe chiyero pa<b>r = 0.81</b>.",
@@ -388,6 +392,7 @@ const I18N={ en:{}, sn:{
  dpp:"IHozi kayakhi idatha — ifunda izimpawu ezithenjwayo emihlanganweni ephethe idatha, umnini ngamunye egcina idatha yakhe. <b>Lesisibonelo sisebenzisa idatha yePOTRAZ; injini yakhelwe ukuxhuma ama-live feed.</b>",
  dpe:"hlanza · linganisa ubungozi · bikezela · hlela usizo", dpo:"Abahleli labasizi",
  dpn:"Idatha ihlala labaniniyo; iHozi ifunda kuphela izimpawu ezivunyelweyo.",
+ feedhint:"👆 Chofoza noma yiyiphi imvelaphi ukuthumela isibonelo ku-API console engezansi.",
  mth:"Ukusebenza lalokho okungeke kwenze (iqiniso kuqala)",
  mt1:"<b>Imodeli esobala.</b> Ubungozi buyinhlanganisela yezulu, izitshalo, izinambuzane lokuthelela — akulabhokisi elimnyama.",
  mt2:"<b>Iqinisekisiwe.</b> Isikolo seHozi sifana lenkomba ezimeleyo ku-<b>r = 0.81</b>.",
@@ -608,7 +613,25 @@ $$('.apibtn').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.act;
     [`↳ 📲 officer: "Yambiro: ${d0.district} iri panjodzi huru yechikafu muna Gunyana (${Math.round(d0.timeline[8].risk)}/100). Kurumidza kutumira mbeu."`,'msg',450],
     [`↳ 202 accepted · delivered`,'ok',950]]);
 }));
-apiLog('hozi-api ▸ ready · click a button to see data move','sys');
+apiLog('hozi-api ▸ ready · click a button (or a data source above) to see data move','sys');
+
+/* wire the "Where the data comes from" source cards to the API console */
+function feedIn(type){
+  const hot=hotspots[Math.floor(Math.random()*hotspots.length)], d0=hotspots[0];
+  const seqs={
+    rain:[[`<span class="req">POST</span> /ingest/rainfall  { "district":"${hot.district}", "rainfall_mm":${(4+Math.random()*18).toFixed(1)}, "month":"2026-07" }`,'in',0],[`↳ 200 OK · signal stored`,'ok',350],[`⚙ engine recomputed ${hot.district} → risk ${Math.round(hot.timeline[8].risk)} (Sep)`,'sys',800]],
+    ndvi:[[`<span class="req">POST</span> /ingest/ndvi  { "district":"${hot.district}", "ndvi":${(0.10+Math.random()*0.30).toFixed(2)}, "source":"Sentinel-2" }`,'in',0],[`↳ 200 OK · vegetation index updated`,'ok',350],[`⚙ engine recomputed ${hot.district}`,'sys',800]],
+    agritex:[[`<span class="req">POST</span> /ingest/agritex  { "district":"${hot.district}", "pest_incidents":${Math.floor(2+Math.random()*15)}, "input_score":${Math.floor(40+Math.random()*50)} }`,'in',0],[`↳ 200 OK · Agritex feed stored`,'ok',400],[`⚙ engine recomputed ${hot.district}`,'sys',850]],
+    prices:[[`<span class="req">POST</span> /ingest/prices  { "commodity":"maize", "usd_per_tonne":${Math.floor(280+Math.random()*120)}, "market":"Mbare Musika" }`,'in',0],[`↳ 200 OK · market price stored`,'ok',400],[`⚙ engine flagged affordability signal`,'sys',800]],
+    report:[[`<span class="req">POST</span> /ingest/report  { "from":"+2637…", "text":"crops failing, armyworm ward 7" }`,'in',0],[`↳ AI parsed → { "signal":"pest", "severity":"high", "district":"${hot.district}" }`,'ok',500],[`⚙ engine updated pest pressure for ${hot.district}`,'sys',950]],
+    pangolin:[[`<span class="req">GET</span> pangolin://datasets/agriculture/${d0.district}  (federated)`,'out',0],[`↳ 200 · secure API · signals synced · data stays with owner`,'ok',450]],
+  };
+  apiSeq(seqs[type]||seqs.rain);
+}
+$$('.src[data-feed]').forEach(c=>c.addEventListener('click',()=>{
+  const box=document.querySelector('.apibox'); if(box) box.scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(()=>feedIn(c.dataset.feed),280);
+}));
 </script>
 </body>
 </html>
