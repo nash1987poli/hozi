@@ -19,7 +19,8 @@ const band=v=> v>=66?'High':(v>=45?'Medium':'Low');
 const bandCol=v=> v>=66?'#BC3B2A':(v>=45?'#D98324':'#1E6B4F');
 function riskAt(d,idx){const base=d.timeline[idx].risk;
   if(idx===8 && supportedSet.has(d.district) && d.support) return d.support.supported_sep; return base;}
-function countUp(el,to,ms){if(!el)return;const s=performance.now();const step=n=>{const p=Math.min(1,(n-s)/ms);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
+function countUp(el,to,ms){if(!el)return;const s=performance.now();const step=n=>{const p=Math.min(1,(n-s)/ms);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);
+  setTimeout(()=>{el.textContent=Math.round(to);},ms+150);} // guarantee final value even if rAF is throttled (background tab)
 
 /* ---- map ---- */
 const map=L.map('map',{zoomControl:false}).setView([-19.0,29.8],7);
