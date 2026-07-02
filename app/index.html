@@ -60,19 +60,28 @@
 
   /* map canvas with floating widgets */
   .mapcard{position:relative;overflow:hidden;padding:0}
-  .mapcanvas{position:relative;background:
-      radial-gradient(120% 120% at 50% 0%, #FFFDF9 0%, #F3ECDD 100%);border-radius:18px}
+  .mapcanvas{position:relative;border-radius:18px 18px 0 0;overflow:hidden;background:
+      radial-gradient(130% 110% at 50% -10%, #24312A 0%, #171913 55%, #101109 100%)}
   #map{width:100%;height:auto;display:block}
   .prov{cursor:pointer;transition:.1s} .prov:hover{stroke:#16130F;stroke-width:2.6}
   .floaters{position:absolute;inset:0;pointer-events:none}
-  .fw{position:absolute;background:var(--glass);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
-      border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 24px -10px rgba(22,19,15,.3);border-radius:13px;pointer-events:auto}
+  .fw{position:absolute;background:rgba(16,16,11,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 34px -10px rgba(0,0,0,.6);border-radius:13px;pointer-events:auto;color:#F3EEE4}
   .fw-title{position:absolute;top:16px;left:16px;padding:10px 14px}
-  .fw-title .t{font-family:var(--serif);font-weight:700;font-size:16px} .fw-title .s{font-size:11px;color:var(--muted)}
+  .fw-title .t{font-family:var(--serif);font-weight:700;font-size:16px;color:#fff} .fw-title .s{font-size:11px;color:#C7BFAF}
   .fw-nat{position:absolute;top:16px;right:16px;padding:11px 15px;text-align:right}
-  .fw-nat .n{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1}
-  .fw-nat .n b{color:var(--red)} .fw-nat .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
-  .fw-legend{position:absolute;left:16px;bottom:64px;padding:8px 12px;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink2)}
+  .fw-nat .n{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1;color:#EDE6D8}
+  .fw-nat .n b{color:#FF8168} .fw-nat .l{font-size:10px;color:#B9B0A2;text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+  .fw-legend{position:absolute;left:16px;bottom:22px;padding:8px 12px;display:flex;align-items:center;gap:6px;font-size:11px;color:#D8D0C4}
+  .fw-hot{position:absolute;right:16px;bottom:22px;padding:10px 14px;text-align:right;min-width:150px}
+  .fw-hot .hl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .fw-hot .hd{font-family:var(--serif);font-weight:700;font-size:16px;color:#fff;line-height:1.1;margin-top:3px}
+  .fw-hot .hp{font-size:10px;color:#B9B0A2}
+  .fw-hot .hn{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1;margin-top:2px}
+  .hot-anim{animation:hotIn .5s cubic-bezier(.2,.7,.2,1)}
+  @keyframes hotIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{box-shadow:0 12px 34px -10px rgba(0,0,0,.6)}50%{box-shadow:0 12px 40px -6px rgba(216,155,46,.35)}}
+  .fw-hot{animation:pulse 2.6s ease-in-out infinite}
   .fw-legend .sw{width:13px;height:13px;border-radius:4px;display:inline-block}
   .slider-row{display:flex;align-items:center;gap:12px;padding:12px 18px 16px}
   .play{background:var(--green);color:#fff;border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:15px;flex:none;box-shadow:0 4px 12px -2px rgba(30,107,79,.5);transition:.15s}
@@ -157,6 +166,21 @@
   .outcome-bar{background:var(--ink);color:#F3EEE4;border-radius:12px;padding:12px;text-align:center}
   .outcome-bar b{font-family:var(--serif);font-size:16px} .outcome-bar small{color:#B9B0A2;font-size:11.5px;display:block;margin-top:2px}
   .pnote{font-size:12px;color:var(--muted);margin-top:10px}
+  /* API demo */
+  .apibox{background:#14130F;color:#E9E3D6;border-radius:18px;padding:24px;margin-top:20px;box-shadow:var(--shadow)}
+  .apibox h2{color:#fff;font-size:clamp(20px,2.6vw,26px);margin:4px 0 4px}
+  .apilead{color:#B9B0A2;max-width:80ch;font-size:14px;margin-bottom:14px}
+  .apigrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  @media(max-width:760px){.apigrid{grid-template-columns:1fr}}
+  .apihdr{font-size:11px;font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+  .apihdr.in{color:#E7B25A}.apihdr.out{color:#8FD9B6}
+  .apibtn{display:block;width:100%;text-align:left;margin-bottom:8px;padding:11px 13px;border-radius:10px;border:1px solid #34302a;background:#1e1c17;color:#EDE6D8;font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:.14s}
+  .apibtn.in:hover{border-color:#E7B25A;transform:translateX(3px)} .apibtn.out:hover{border-color:#8FD9B6;transform:translateX(3px)}
+  .console{background:#0a0a07;border:1px solid #2a2822;border-radius:12px;padding:14px;font-family:ui-monospace,"Cascadia Code",Menlo,Consolas,monospace;font-size:12px;line-height:1.7;height:200px;overflow:auto}
+  .cline{white-space:pre-wrap;word-break:break-word;animation:hotIn .3s ease;margin-bottom:2px}
+  .cline .req{font-weight:700}
+  .cline.in{color:#E7B25A}.cline.out{color:#8FD9B6}.cline.ok{color:#7C9A86}.cline.sys{color:#C9C1B2}.cline.msg{color:#F1E9D8}
+  .apinote{font-size:11.5px;color:#7C746A;margin-top:10px}
   .method{margin:20px 0 10px;background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
   .method h3{font-size:15px;font-family:var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:8px}
   .method ul{margin-left:18px;font-size:13.5px;color:var(--ink2)} .method li{margin-bottom:5px}
@@ -199,6 +223,7 @@
             <span class="sw" style="background:#1E6B4F"></span><span class="sw" style="background:#D89B2E"></span>
             <span class="sw" style="background:#D98324"></span><span class="sw" style="background:#BC3B2A"></span>
             <span data-i18n="lgHigh">High</span></div>
+          <div class="fw fw-hot" id="fwhot"></div>
         </div>
       </div>
       <div class="slider-row">
@@ -260,6 +285,22 @@
     <div class="flowarrow">▼</div>
     <div class="outcome-bar"><b data-i18n="dpo">Planners &amp; responders</b><small>national map · districts-to-watch · Response Planner · local-language briefs</small></div>
     <p class="pnote" data-i18n="dpn">Data stays with its owners; Hozi reads only the agreed signals through secure connections — no one hands over control of their data.</p>
+  </div>
+
+  <div class="apibox">
+    <div class="kicker" style="color:var(--gold)">Live data — in &amp; out</div>
+    <h2>API &amp; integrations <span style="font-size:14px;color:#B9B0A2;font-family:var(--sans)">— interactive demo</span></h2>
+    <p class="apilead">Hozi is API-first: data flows <b style="color:#E7B25A">IN</b> from feeds and partners, and results flow <b style="color:#8FD9B6">OUT</b> to dashboards, WhatsApp and other systems. Click a button to watch a live exchange.</p>
+    <div class="apigrid">
+      <div><div class="apihdr in">▼ DATA IN</div>
+        <button class="apibtn in" data-act="rain">🌧️ New rainfall reading → POST /ingest/rainfall</button>
+        <button class="apibtn in" data-act="ground">💬 Field report (WhatsApp) → POST /ingest/report</button></div>
+      <div><div class="apihdr out">▲ DATA OUT</div>
+        <button class="apibtn out" data-act="get">📊 GET /api/risk/{district}</button>
+        <button class="apibtn out" data-act="alert">📲 Send alert → WhatsApp webhook</button></div>
+    </div>
+    <div class="console" id="apiconsole"></div>
+    <div class="apinote">Illustrative demo. In production these run on n8n + the WhatsApp Business API against live rainfall, satellite and market feeds — data stays with its owners.</div>
   </div>
 
   <div class="method">
@@ -329,6 +370,7 @@ const I18N={ en:{}, sn:{
  natl:"Njodzi yenyika", forecast:"fanotariro",
  talkHint:"Bvunza Hozi nezvemwaka. Mhinduro dzinobva pane data yeinjini; muchimiro chizere, mumutauro wako neAI.",
  c1:"Matunhu mangani achasvika panjodzi huru?", c2:"Rubatsiro runonyanya kubatsira kupi?", c3:"Mamiriro eMazowe?", c4:"Ndematunhu api ekutarira?",
+ hotLabel:"Nzvimbo ine njodzi", bySep:"muna Gunyana",
  ask:"Nyora mubvunzo...", send:"Tumira", backAll:"← Matunhu ese", ddTail:"njodzi muna Gunyana ·",
  dRain:"Mvura (itsva)", dVeg:"Chiyero cheuswa", dIrr:"Kudiridza", dInp:"Kuwana mbeu /100"
 }, nd:{
@@ -357,6 +399,7 @@ const I18N={ en:{}, sn:{
  natl:"Ubungozi besizwe", forecast:"isibikezelo",
  talkHint:"Buza iHozi ngesizini. Izimpendulo zivela edatheni yenjini; ngokugcweleyo, ngolimi lwakho nge-AI.",
  c1:"Zingaki izigaba ezizangena ebungozini obukhulu?", c2:"Usizo lusiza kakhulu ngaphi?", c3:"Isimo seMazowe?", c4:"Yiziphi izigaba zokuqaphela?",
+ hotLabel:"Indawo esengozini", bySep:"ngoMpandula",
  ask:"Bhala umbuzo...", send:"Thumela", backAll:"← Zonke izigaba", ddTail:"ubungozi ngoMpandula ·",
  dRain:"Izulu (kwakamuva)", dVeg:"Inkomba yezitshalo", dIrr:"Ukuthelela", dInp:"Ukuthola imbewu /100"
 }};
@@ -367,10 +410,10 @@ function riskAt(d,idx){const base=d.timeline[idx].risk;
   if(idx===8 && supportedSet.has(d.district) && d.support) return d.support.supported_sep; return base;}
 function renderMap(){
   const svg=$('#map'); let s='';
-  s+=`<path d="${ZWE.map(([lo,la],i)=>{const[x,y]=proj(la,lo);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}).join(' ')} Z" fill="#FBF7EF" stroke="#C7B9A2" stroke-width="1.6" stroke-linejoin="round"/>`;
+  s+=`<path d="${ZWE.map(([lo,la],i)=>{const[x,y]=proj(la,lo);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}).join(' ')} Z" fill="#212A22" stroke="rgba(216,155,46,0.4)" stroke-width="1.4" stroke-linejoin="round"/>`;
   districts.forEach(d=>{const[x,y]=proj(d.lat,d.lon); const v=riskAt(d,monthIdx);
     const isProj=d.timeline[monthIdx].proj; const supported=monthIdx===8 && supportedSet.has(d.district);
-    s+=`<circle cx="${x}" cy="${y}" r="12" fill="${col(v)}" fill-opacity="0.92" stroke="${supported?'#8FD9B6':'#16130F'}" stroke-width="${supported?3:1.1}" stroke-dasharray="${isProj?'3 2':'0'}" class="prov" data-d="${d.district}"/>`;
+    s+=`<circle cx="${x}" cy="${y}" r="12.5" fill="${col(v)}" stroke="${supported?'#8FD9B6':'rgba(255,255,255,0.55)'}" stroke-width="${supported?3:1.2}" stroke-dasharray="${isProj?'3 2':'0'}" class="prov" data-d="${d.district}"/>`;
     s+=`<text x="${x}" y="${y+3.5}" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" pointer-events="none">${Math.round(v)}</text>`;});
   svg.innerHTML=s;
   $$('#map .prov').forEach(c=>{c.addEventListener('mousemove',e=>{const d=byName(c.dataset.d);const v=riskAt(d,monthIdx);
@@ -414,37 +457,66 @@ function renderWatchList(){
     +`<span class="note">${t('watchSub','by projected September risk · tap any')}</span></div><div class="watch">${rows}</div>`;
   $$('#sideContent .wrow').forEach(r=>r.addEventListener('click',()=>selectDistrict(r.dataset.d)));
 }
-let chatLog=[];
+let chatLog=[], talkChips=["National picture","Where should we act first?","Outlook for Mazowe","Which are safest?","How does Hozi work?"];
 function renderTalk(){
-  const chips=[t('c1'),t('c2'),t('c3'),t('c4')].map(c=>`<span class="chip">${c}</span>`).join('');
+  if(!chatLog.length) chatLog.push({who:'h',text:"👋 Ask me about the season — a <b>district</b> (try \"Mazowe\"), a <b>province</b>, <b>where to act first</b>, the <b>national picture</b>, or <b>how I work</b>. I answer from the live engine data."});
+  const chips=talkChips.map(c=>`<span class="chip">${c}</span>`).join('');
   const msgs=chatLog.map(m=>`<div class="msg ${m.who}">${m.text}</div>`).join('');
   $('#sideContent').innerHTML=`<div class="talk">
-    <div class="thint">${t('talkHint','Ask Hozi about the season. Answers come from the live engine data; in production, in your language via AI.')}</div>
+    <div class="thint">${t('talkHint','Answers come from the live engine data; in production, in your language via AI.')}</div>
     <div class="chat" id="chat">${msgs}</div>
     <div class="chips">${chips}</div>
-    <div class="askrow"><input id="askin" placeholder="${t('ask','Type a question...')}" />
+    <div class="askrow"><input id="askin" placeholder="${t('ask','Type a question...')}" autocomplete="off" />
       <button id="asksend">${t('send','Ask')}</button></div></div>`;
-  const send=()=>{const v=$('#askin').value.trim(); if(!v)return; ask(v); $('#askin').value='';};
+  const send=()=>{const v=$('#askin').value.trim(); if(v) ask(v);};
   $('#asksend').addEventListener('click',send);
   $('#askin').addEventListener('keydown',e=>{if(e.key==='Enter')send();});
   $$('#sideContent .chip').forEach(c=>c.addEventListener('click',()=>ask(c.textContent)));
   const ch=$('#chat'); if(ch) ch.scrollTop=ch.scrollHeight;
 }
-function ask(q){ chatLog.push({who:'u',text:q}); chatLog.push({who:'h',text:hoziAnswer(q)}); renderTalk(); }
-function hoziAnswer(q){
-  const t2=q.toLowerCase();
-  const d=districts.find(x=>t2.includes(x.district.toLowerCase()));
-  if(d){const sep=d.timeline[8].risk,now=d.timeline[5].risk,dr=d.latest_drivers||{};
-    return `<b>${d.district}</b> (${d.province}) sits at ${Math.round(now)} today and is projected to reach <b>${Math.round(sep)} — ${band(sep)} risk</b> by September.${d.support?` A support package could lower that by ~${d.support.reduction} points.`:''} Drivers: rainfall ${Math.round(dr.rainfall_mm)}mm, irrigation ${Math.round(dr.irrigation)}%.`;}
-  if(/(how many|high risk|september|national|overall)/.test(t2))
-    return `Without early action, <b>${D.national.high_sep} of ${D.national.n_districts}</b> districts are projected into HIGH risk by September (national risk ${Math.round(D.national.risk_now)} → ${Math.round(D.national.risk_sep)}).`;
-  if(/(support|spend|save|best|first|invest|priorit|act)/.test(t2)){
-    const b=buysRanked.slice(0,3).map(x=>`${x.district} (−${x.support.reduction})`).join(', ');
-    return `Support saves the most first in <b>${b}</b> — the driest, least-served, highest-risk districts, where the same effort protects the most people.`;}
-  if(/(watch|worst|top|most at risk|which)/.test(t2)){
-    const w=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk).slice(0,3).map(x=>`${x.district} (${Math.round(x.timeline[8].risk)})`).join(', ');
-    return `Top districts to watch by September risk: <b>${w}</b>.`;}
-  return `I can answer about any district's outlook, the national picture, or where support saves the most. Try a suggested question above.`;
+function ask(q){ const r=respond(q); chatLog.push({who:'u',text:q}); chatLog.push({who:'h',text:r.a}); if(r.chips)talkChips=r.chips; renderTalk(); }
+
+/* --- Hozi conversational engine: every answer grounded in the real projections --- */
+const provinces=[...new Set(districts.map(d=>d.province))];
+function dinfo(d){return {now:d.timeline[5].risk, sep:d.timeline[8].risk, jan:d.timeline[0].risk, dr:d.latest_drivers||{}};}
+function fmtD(d){const{now,sep,jan,dr}=dinfo(d);
+  return `<b>${d.district}</b> <span style="color:#8A8076">(${d.province})</span> — <b style="color:${bandCol(sep)}">${band(sep)} risk</b> by September.<br>
+  📈 ${Math.round(jan)} <span style="color:#8A8076">Jan</span> → ${Math.round(now)} <span style="color:#8A8076">Jun</span> → <b>${Math.round(sep)}</b> <span style="color:#8A8076">Sep</span><br>
+  🔎 Rainfall ${Math.round(dr.rainfall_mm)}mm ${dr.rainfall_mm<100?'(below the ~100mm staples need)':'(near need)'}, vegetation ${(dr.ndvi||0).toFixed(2)}, irrigation ${Math.round(dr.irrigation)}%, inputs ${Math.round(dr.inputs)}/100.${d.support?`<br>🎯 A support package could cut September by ~<b>${d.support.reduction}</b> pts (to ${Math.round(d.support.supported_sep)}).`:''}`;}
+function respond(qRaw){
+  const q=(qRaw||'').toLowerCase().trim(); const N=D.national;
+  const matches=districts.filter(x=>q.includes(x.district.toLowerCase()));
+  const prov=provinces.find(p=>q.includes(p.toLowerCase()));
+  if(/^(hi|hello|hie|hey|help|start)\b/.test(q)||q.length<3)
+    return {a:`I can tell you a <b>district's</b> outlook (try "Mazowe"), a <b>province</b> summary, <b>where to act first</b>, the <b>national</b> picture, or <b>how I work</b>.`,
+      chips:["National picture","Where should we act first?","Outlook for Hwange","Which are safest?","How does Hozi work?"]};
+  if(/(how.*(work|accurate|reliable|know|calculat)|accuracy|valid|trust|train|learn|black.?box|methodolog|\bmodel\b)/.test(q))
+    return {a:`I use a <b>transparent weighted model</b> of rainfall, vegetation, pests, irrigation and input access — not a black box. On this <b>synthetic sample data</b> my score reproduces the dataset's own risk band at <b>r = 0.81</b> (an internal consistency check, not outcome-validation yet), then I project the seasonal trend forward with a widening confidence band. <b>I'm decision-support, not certainty</b> — and not yet trained on real ZimVAC/IPC outcomes.`,
+      chips:["Where should we act first?","National picture","Outlook for Mazowe"]};
+  if(matches.length>=2){const[a,b]=matches,A=dinfo(a),B=dinfo(b),hi=A.sep>=B.sep?a:b;
+    return {a:`<b>${a.district}</b> ${Math.round(A.sep)} vs <b>${b.district}</b> ${Math.round(B.sep)} (September). <b>${hi.district}</b> is the greater concern.${a.support&&b.support?` Support helps <b>${a.support.reduction>=b.support.reduction?a.district:b.district}</b> most (−${Math.max(a.support.reduction,b.support.reduction)} pts).`:''}`,
+      chips:[`Outlook for ${a.district}`,`Outlook for ${b.district}`,"Where should we act first?"]};}
+  if(matches.length===1){const d=matches[0];
+    return {a:fmtD(d), chips:["Where should we act first?",`Compare ${d.district} with ${hotspots[0].district}`,"National picture"]};}
+  if(prov){const ds=districts.filter(d=>d.province===prov),mean=Math.round(ds.reduce((s,d)=>s+d.timeline[8].risk,0)/ds.length),worst=ds.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk)[0];
+    return {a:`<b>${prov}</b> — ${ds.length} districts, average September risk <b>${mean}</b> (${band(mean)}). Worst: <b>${worst.district}</b> at ${Math.round(worst.timeline[8].risk)}.`,
+      chips:[`Outlook for ${worst.district}`,"Where should we act first?","National picture"]};}
+  if(/(act first|support|spend|save|best buy|invest|priorit|allocat|budget|resource|where.*help|impact)/.test(q)){
+    const b=buysRanked.slice(0,4).map((x,i)=>`${i+1}. <b>${x.district}</b> (−${x.support.reduction})`).join('<br>');
+    return {a:`Support saves the most, in order:<br>${b}<br><span style="color:#8A8076">The driest, least-served, highest-risk districts — same effort, most people protected.</span>`,
+      chips:[`Outlook for ${buysRanked[0].district}`,"National picture","How does Hozi work?"]};}
+  if(/(safe|lowest|least|best off|okay|fine|low risk)/.test(q)){
+    const s=districts.slice().sort((a,b)=>a.timeline[8].risk-b.timeline[8].risk).slice(0,3).map(x=>`<b>${x.district}</b> (${Math.round(x.timeline[8].risk)})`).join(', ');
+    return {a:`Lowest projected September risk: ${s}. Still worth watching as the dry season deepens.`,
+      chips:["Which are worst?","Where should we act first?","National picture"]};}
+  if(/(watch|worst|top|high risk|most at risk|danger|hotspot|which district)/.test(q)){
+    const w=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk).slice(0,5).map((x,i)=>`${i+1}. <b>${x.district}</b> ${Math.round(x.timeline[8].risk)}`).join('<br>');
+    return {a:`Top districts to watch by September risk:<br>${w}`, chips:[`Outlook for ${hotspots[0].district}`,"Where should we act first?","Which are safest?"]};}
+  if(/(how many|national|overall|september|country|summary|picture|total|situation)/.test(q))
+    return {a:`Without early action, <b>${N.high_sep} of ${N.n_districts}</b> districts are projected into <b>HIGH</b> food-security risk by September. National risk rises from <b>${Math.round(N.risk_now)}</b> (June) to <b>${Math.round(N.risk_sep)}</b> (September).`,
+      chips:["Where should we act first?","Which are worst?","How does Hozi work?"]};
+  return {a:`I didn't catch a district or topic. Try a <b>district</b> (e.g. "Gwanda"), a <b>province</b>, "<b>where should we act first?</b>", the "<b>national picture</b>", or "<b>how does Hozi work?</b>".`,
+    chips:["National picture","Where should we act first?","Outlook for Mazowe","How does Hozi work?"]};
 }
 function selectDistrict(name){
   const d=byName(name); const dr=d.latest_drivers||{}; const sepR=d.timeline[8].risk;
@@ -502,8 +574,41 @@ function applyLang(l){LANG=l;
 }
 $$('.lng button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
 
+/* ---------- rotating hotspot ticker + count-up ---------- */
+const hotspots=districts.slice().sort((a,b)=>b.timeline[8].risk-a.timeline[8].risk).slice(0,6);
+const bandColD=v=> v>=66?'#FF8168':(v>=45?'#F0A24E':'#8FD9B6');
+let hotI=0;
+function cycleHot(){const d=hotspots[hotI%hotspots.length];const sep=Math.round(d.timeline[8].risk);const el=$('#fwhot');if(!el)return;
+  el.innerHTML=`<div class="hot-anim"><div class="hl">⚠ ${t('hotLabel','Hotspot')}</div><div class="hd">${d.district}</div><div class="hp">${d.province}</div><div class="hn" style="color:${bandColD(sep)}">${sep}<span style="font-size:10px;color:#B9B0A2"> · ${t('bySep','by Sep')}</span></div></div>`;
+  hotI++;}
+function countUp(el,to,ms){if(!el)return;const s=performance.now();const step=n=>{const p=Math.min(1,(n-s)/ms);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
+
 /* ---------- init ---------- */
 kpis(); fillStatement(); setMonth(5); renderBuys(); updatePlanner(0); renderSide();
+cycleHot(); setInterval(cycleHot,2600); countUp($('#statement .big'), D.national.high_sep, 900);
+
+/* ---------- API demo console ---------- */
+function apiLog(html,cls){const c=$('#apiconsole');if(!c)return;const l=document.createElement('div');l.className='cline '+(cls||'');l.innerHTML=html;c.appendChild(l);c.scrollTop=c.scrollHeight;}
+function apiSeq(steps){steps.forEach(([h,cls,ms])=>setTimeout(()=>apiLog(h,cls),ms));}
+$$('.apibtn').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.act;
+  const hot=hotspots[Math.floor(Math.random()*hotspots.length)], d0=hotspots[0];
+  if(a==='rain') apiSeq([
+    [`<span class="req">POST</span> /ingest/rainfall  { "district":"${hot.district}", "rainfall_mm":${(4+Math.random()*18).toFixed(1)}, "month":"2026-07" }`,'in',0],
+    [`↳ 200 OK · signal stored`,'ok',350],
+    [`⚙ engine recomputed ${hot.district} → risk ${Math.round(hot.timeline[8].risk)} (Sep)`,'sys',800]]);
+  if(a==='ground') apiSeq([
+    [`<span class="req">POST</span> /ingest/report  { "from":"+2637…", "text":"crops failing, armyworm ward 7" }`,'in',0],
+    [`↳ AI parsed → { "signal":"pest", "severity":"high", "district":"${hot.district}" }`,'ok',500],
+    [`⚙ engine updated pest pressure for ${hot.district}`,'sys',950]]);
+  if(a==='get'){const s=d0.timeline[8].risk; apiSeq([
+    [`<span class="req">GET</span> /api/risk/${d0.district}`,'out',0],
+    [`↳ 200 { "district":"${d0.district}", "risk_now":${Math.round(d0.timeline[5].risk)}, "risk_sep":${Math.round(s)}, "band":"${band(s)}", "support_reduction":${d0.support?d0.support.reduction:0} }`,'ok',450]]);}
+  if(a==='alert') apiSeq([
+    [`<span class="req">POST</span> webhook → WhatsApp Business API`,'out',0],
+    [`↳ 📲 officer: "Yambiro: ${d0.district} iri panjodzi huru yechikafu muna Gunyana (${Math.round(d0.timeline[8].risk)}/100). Kurumidza kutumira mbeu."`,'msg',450],
+    [`↳ 202 accepted · delivered`,'ok',950]]);
+}));
+apiLog('hozi-api ▸ ready · click a button to see data move','sys');
 </script>
 </body>
 </html>
