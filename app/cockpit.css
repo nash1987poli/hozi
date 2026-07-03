@@ -4,6 +4,7 @@
   --shadow:0 2px 14px rgba(22,19,15,.12); --r:10px;
 }
 *{box-sizing:border-box} html,body{height:100%;margin:0}
+[hidden]{display:none!important} /* explicit display values must never defeat the hidden attribute */
 body{font:14px/1.45 Georgia,'Times New Roman',serif;color:var(--ink);background:var(--cream)}
 #map{position:fixed;inset:0;background:var(--cream)}
 /* no tile filters: CSS filters over the tile pane freeze the renderer on some GPUs */
