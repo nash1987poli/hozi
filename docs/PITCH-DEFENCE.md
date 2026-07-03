@@ -24,7 +24,10 @@ Hard questions judges are likely to ask, with 30-second spoken answers.
 > and already indexed in our repo — we've even seeded the 2025 ZimVAC labels. The training script
 > exists today; it needs the panel of real features joined to it.
 
-**Backup fact:** `docs/DATA-SOURCES-forkA.md` indexes the label sources; `data/outcome_labels_2025_zimlac.csv` is a real seed; `engine/train.py` is in the repo.
+**Backup fact:** we've already run the first pass — `engine/train_real.py` trains on 232 real observations
+(IPC Phase 3+ outcomes × CHIRPS district rainfall, 2019–2020) with leave-one-district-out validation:
+r = 0.48, mean error 8.5pp vs a 10.1pp naive baseline. Early, honest, and real — vegetation and market
+features are the documented next step.
 
 ## 3. "What does r = 0.81 actually mean?"
 
