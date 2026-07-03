@@ -58,9 +58,11 @@ function buildMap(){
     urbanMarkers[name]=mk;});
   map.fitBounds(geoLayer.getBounds(),{padding:[40,40]});
 }
+function pulseClass(name,ly){ const el=ly.getElement&&ly.getElement(); if(!el)return;
+  el.classList.toggle('pulse', !!byName[name] && riskAt(byName[name],monthIdx)>=66); }
 function repaint(){
-  Object.entries(polyByDistrict).forEach(([n,ly])=>ly.setStyle(styleFor(n)));
-  Object.entries(urbanMarkers).forEach(([n,mk])=>mk.setStyle({fillColor:col(riskAt(byName[n],monthIdx))}));
+  Object.entries(polyByDistrict).forEach(([n,ly])=>{ly.setStyle(styleFor(n));pulseClass(n,ly);});
+  Object.entries(urbanMarkers).forEach(([n,mk])=>{mk.setStyle({fillColor:col(riskAt(byName[n],monthIdx))});pulseClass(n,mk);});
   if(planMode) paintBuys();
 }
 function tipHTML(model,geoTitle){
@@ -311,9 +313,12 @@ $$('#rail button.future').forEach(b=>{
 function initWelcome(){
   let seen=null; try{seen=localStorage.getItem('hozi-welcome');}catch(e){}
   if(!seen && !location.search) $('#welcome').hidden=false;
-  $('#wEnter').addEventListener('click',()=>{
+  const dismiss=()=>{
     if($('#wDont').checked){try{localStorage.setItem('hozi-welcome','1');}catch(e){}}
-    $('#welcome').hidden=true; });
+    $('#welcome').hidden=true; };
+  $('#wEnter').addEventListener('click',dismiss);
+  $('#welcome').addEventListener('click',e=>{if(e.target===$('#welcome'))dismiss();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#welcome').hidden)dismiss();});
 }
 
 /* ---- fallback + boot ---- */

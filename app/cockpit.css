@@ -6,7 +6,7 @@
 *{box-sizing:border-box} html,body{height:100%;margin:0}
 body{font:14px/1.45 Georgia,'Times New Roman',serif;color:var(--ink);background:var(--cream)}
 #map{position:fixed;inset:0;background:var(--cream)}
-.leaflet-tile-pane{filter:sepia(.25) saturate(.7) brightness(1.04)} /* warm Hozi tint */
+/* no tile filters: CSS filters over the tile pane freeze the renderer on some GPUs */
 .panel{position:fixed;background:var(--paper);border:1px solid var(--line);
   border-radius:var(--r);box-shadow:var(--shadow);z-index:800}
 .topbar{top:12px;left:12px;right:12px;display:flex;justify-content:space-between;
@@ -100,9 +100,13 @@ body.plan{--paper:#221D16;--cream:#16130F;--ink:#F7F3EA;--line:#3A3327;--mut:#B7
 body.plan{color:var(--ink)}
 body.plan .panel{background:var(--paper);border-color:var(--line)}
 body.plan #map{background:#16130F}
-body.plan .leaflet-tile-pane{filter:grayscale(.5) brightness(.35) sepia(.3)}
+body.plan .leaflet-tile-pane{opacity:.22} /* cheap darkening, no GPU filter */
 body.plan .plan-switch{color:var(--amber)}
 body.plan .tabs button.on{background:var(--amber);color:#16130F}
 body.plan .story-tab{background:var(--amber);color:#16130F}
-body,.panel,#map,.leaflet-tile-pane{transition:background .4s,filter .4s,color .4s}
+body,.panel,#map{transition:background .4s,color .4s}
+.leaflet-tile-pane{transition:opacity .4s}
+/* pulse for districts already in HIGH risk at the selected month */
+@keyframes hozipulse{0%,100%{fill-opacity:.8;stroke-opacity:1}50%{fill-opacity:.4;stroke-opacity:.55}}
+path.pulse{animation:hozipulse 1.7s ease-in-out infinite}
 @media (max-width:900px){ .drill{width:86vw} .left{width:230px} .kpi{width:230px} }
