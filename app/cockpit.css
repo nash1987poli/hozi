@@ -51,8 +51,8 @@ body.plan .rail button.on{background:var(--amber);color:#16130F}
 .timebar .fc{font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em}
 #play{width:34px;height:34px;border-radius:50%;border:none;background:var(--green);color:#fff;cursor:pointer}
 #time{flex:1}
-.welcome{position:fixed;inset:0;z-index:1000;background:rgba(22,19,15,.55);
-  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px)}
+.welcome{position:fixed;inset:0;z-index:1000;background:rgba(22,19,15,.62);
+  display:flex;align-items:center;justify-content:center}
 .wcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
   width:min(560px,92vw);max-height:88vh;overflow-y:auto;padding:30px 34px}
 .wlogo{height:44px;border-radius:8px}
