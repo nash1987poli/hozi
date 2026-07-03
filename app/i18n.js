@@ -51,6 +51,12 @@ window.HOZI_I18N = { en:{}, sn:{
  domFood:"Chikafu nekuchengeteka kwacho", domFloods:"Mafashamu", domDisease:"Zvirwere",
  domWater:"Mvura", domMarkets:"Misika",
  domNext:"Injini imwe chete, chikamu chinotevera — ona Nyaya",
+ domStNext:"CHIKAMU CHINOTEVERA", domStRoad:"PAGWARA REMBERI",
+ domFloodsD:"Inoverenga simba remvura, mwero wenzizi nemamiriro enzvimbo kubatsira kusarudza kwekugadzirira nekubvisa vanhu kutanga.",
+ domDiseaseD:"Inoverenga mishumo yezvirwere, mvura neutsanana, nekufamba kwevanhu kubatsira kusarudza kwekutumira zvikwata zveutano kutanga.",
+ domWaterD:"Inoverenga mwero wemadhamu, mvura inonaya, kudiwa kwemvura nezvibhorani kubatsira kusarudza kwekuganhurira, kuchera kana kutakura mvura kutanga.",
+ domMarketsD:"Inoverenga mitengo yekumunda neyemuzvitoro, kuwanikwa kwezvinhu nemari kuona kunokanganisa kuwana chikafu.",
+ domHonest:"Injini imwe chete yakaratidzwa — yakanangiswa kuzviratidzo zvitsva. Zvichitevera chikamu chekutanga chechikafu.",
  ivT:"Matanho ekutanga anokurudzirwa",
  ivBy:"Zvakanyorwa neAI kubva padata reinjini — zvekuongororwa nemuronga, kwete murairo."
 }, nd:{
@@ -104,6 +110,12 @@ window.HOZI_I18N = { en:{}, sn:{
  domFood:"Ukudla lokuvikeleka kwakho", domFloods:"Izikhukhula", domDisease:"Imikhuhlane",
  domWater:"Amanzi", domMarkets:"Izimakethe",
  domNext:"Injini eyodwa, isigaba esilandelayo — bona Indaba",
+ domStNext:"ISIGABA ESILANDELAYO", domStRoad:"KUHLELO LWAPHAMBILI",
+ domFloodsD:"Ifunda amandla ezulu, amazinga emifula lesimo somhlaba ukusiza ukukhetha lapho okumele kulungiselelwe khona lokukhutshwa kwabantu kuqala.",
+ domDiseaseD:"Ifunda imibiko yemikhuhlane, amanzi lenhlanzeko, lokuhamba kwabantu ukusiza ukukhetha lapho okumele kuthunyelwe khona amaqembu ezempilakahle kuqala.",
+ domWaterD:"Ifunda amazinga amadamu, izulu, isidingo samanzi lezibhorani ukusiza ukukhetha lapho okumele kulinganiselwe, kugejwe kumbe kuthuthwe amanzi kuqala.",
+ domMarketsD:"Ifunda intengo zasemasimini lezasezitolo, ukutholakala kwempahla lemali ukubona lapho intengo zisongela khona ukuthola ukudla.",
+ domHonest:"Injini eyodwa efakazelweyo — iqondiswe ezimpawini ezintsha. Izalandela isigaba sokuqala sokudla.",
  ivT:"Izinyathelo zokuqala ezinconywayo",
  ivBy:"Kubhalwe yi-AI kusukela kudatha yenjini — okokubuyekezwa ngumhleli, hatshi umlayo."
 }};

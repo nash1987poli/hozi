@@ -303,13 +303,33 @@ function readURL(){ const p=new URLSearchParams(location.search);
   if(p.get('district')&&byName[p.get('district')])selectDistrict(p.get('district')); }
 
 /* ---- domain rail (platform roadmap) + welcome ---- */
-$$('#rail button.future').forEach(b=>{
-  const show=e=>tipShow(e,`<b>${b.title}</b><br>${t('domNext','Same engine, next module — see The Story')}`);
-  b.addEventListener('mouseenter',show);
+const DOMAINS={
+  railFloods:{k:'domFloods',en:'Floods',dk:'domFloodsD',
+    den:'Reads rainfall intensity, river levels and terrain to help decide where to pre-position supplies and evacuate first.',st:'next'},
+  railDisease:{k:'domDisease',en:'Disease',dk:'domDiseaseD',
+    den:'Reads case reports, water & sanitation and mobility signals to help decide where to send health teams and supplies first.',st:'next'},
+  railWater:{k:'domWater',en:'Water',dk:'domWaterD',
+    den:'Reads dam levels, rainfall, demand and borehole data to help decide where to ration, drill or truck water first.',st:'roadmap'},
+  railMarkets:{k:'domMarkets',en:'Markets',dk:'domMarketsD',
+    den:'Reads farmgate and retail prices, supply and currency signals to spot where prices threaten access to food.',st:'roadmap'}
+};
+function openDomain(id){ const d=DOMAINS[id];
+  $('#storyBody').innerHTML=
+   `<h1>${t(d.k,d.en)}</h1>
+    <p><span style="background:var(--amber);color:#16130F;border-radius:12px;padding:2px 12px;font-size:12px;font-weight:bold">
+      ${d.st==='next'?t('domStNext','NEXT MODULE'):t('domStRoad','ON THE ROADMAP')}</span></p>
+    <p>${t(d.dk,d.den)}</p>
+    <p style="color:var(--mut)">${t('domHonest','Same proven engine — pointed at new signals. Scheduled after the food-security flagship. Every national crisis follows the same pattern: signals → transparent risk score → forecast → Response Planner.')}</p>`;
+  $('#storyPanel').hidden=false; }
+Object.keys(DOMAINS).forEach(id=>{ const b=$('#'+id);
+  b.addEventListener('mouseenter',e=>tipShow(e,`<b>${b.title}</b><br>${t('domNext','Same engine, next module — click to learn more')}`));
   b.addEventListener('mousemove',e=>tipMove(e));
   b.addEventListener('mouseleave',tipHide);
-  b.addEventListener('click',show);
+  b.addEventListener('click',()=>{tipHide();openDomain(id);});
 });
+$('#railFood').addEventListener('click',()=>{ // home: national food view
+  $('#storyPanel').hidden=true; $('#drill').hidden=true; selected=null;
+  if(geoLayer) map.flyToBounds(geoLayer.getBounds(),{padding:[40,40],duration:.8}); syncURL(); });
 function initWelcome(){
   let seen=null; try{seen=localStorage.getItem('hozi-welcome');}catch(e){}
   if(!seen && !location.search) $('#welcome').hidden=false;
