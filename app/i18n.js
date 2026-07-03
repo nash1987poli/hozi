@@ -50,7 +50,9 @@ window.HOZI_I18N = { en:{}, sn:{
  wEnter:"Pinda muImba yeMabasa", wDont:"Usaratidze zvakare",
  domFood:"Chikafu nekuchengeteka kwacho", domFloods:"Mafashamu", domDisease:"Zvirwere",
  domWater:"Mvura", domMarkets:"Misika",
- domNext:"Injini imwe chete, chikamu chinotevera — ona Nyaya"
+ domNext:"Injini imwe chete, chikamu chinotevera — ona Nyaya",
+ ivT:"Matanho ekutanga anokurudzirwa",
+ ivBy:"Zvakanyorwa neAI kubva padata reinjini — zvekuongororwa nemuronga, kwete murairo."
 }, nd:{
  mast:"Injini Yokubona Phambili Kokudla Kwesizwe", k0:"POTRAZ AI4I 2026 · isibonelo esisebenzayo",
  h0:"Bona indlala isiza — uthathe isinyathelo ngesikhathi.",
@@ -101,7 +103,9 @@ window.HOZI_I18N = { en:{}, sn:{
  wEnter:"Ngena eKamelweni Lomsebenzi", wDont:"Ungabonisi futhi",
  domFood:"Ukudla lokuvikeleka kwakho", domFloods:"Izikhukhula", domDisease:"Imikhuhlane",
  domWater:"Amanzi", domMarkets:"Izimakethe",
- domNext:"Injini eyodwa, isigaba esilandelayo — bona Indaba"
+ domNext:"Injini eyodwa, isigaba esilandelayo — bona Indaba",
+ ivT:"Izinyathelo zokuqala ezinconywayo",
+ ivBy:"Kubhalwe yi-AI kusukela kudatha yenjini — okokubuyekezwa ngumhleli, hatshi umlayo."
 }};
 window.hoziT = function(k, en){ const s=window.HOZI_I18N[window.HOZI_LANG||'en'];
   return (s && s[k]!==undefined) ? s[k] : (en!==undefined?en:k); };

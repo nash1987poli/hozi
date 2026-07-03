@@ -117,6 +117,11 @@ function selectDistrict(name){ const d=byName[name]; if(!d)return; selected=name
     <div class="bar"><i style="width:${Math.max(2,Math.min(100,v))}%;background:var(--green)"></i></div><small>${txt}${u}</small></div>`).join('');
   $('#dNote').textContent=(sepR>=66)?t('warnHigh','Early-warning: projected HIGH risk by September without early action.')
     :t('warnWatch','On the watch list — trajectory rising into the dry season.');
+  const briefs=window.HOZI_BRIEFS&&window.HOZI_BRIEFS[name];
+  const br=briefs&&(briefs[window.HOZI_LANG]||briefs.en);
+  $('#dPlaybook').innerHTML=br?`<h3 style="margin:14px 0 6px">${t('ivT','Recommended early actions')}</h3>`+
+    br.bullets.map(b=>`<div class="row"><b style="width:96px;flex:none;font-size:12px">${b.dept}</b><small>${b.action}</small></div>`).join('')+
+    `<p style="color:var(--mut);font-size:11px;font-style:italic;margin:6px 0 0">${br.note} · ${t('ivBy','Drafted by AI from the engine\'s risk data — for planner review, not instruction.')}</p>`:'';
   $('#dSrc').textContent=`${D.meta.source} · Jan–Jun ${t('observed','observed')}, Jul–Sep ${t('forecast','forecast')}`;
   $('#drill').hidden=false; syncURL();
 }
