@@ -26,6 +26,9 @@ body{font:14px/1.45 Georgia,'Times New Roman',serif;color:var(--ink);background:
 .rail svg{width:22px;height:22px}
 .rail button.on{background:var(--green);color:#fff}
 .rail button.future{color:var(--mut);opacity:.7}
+.rail button.future.on{background:var(--amber);color:#16130F;opacity:1}
+.rail button#storyTab.on{background:var(--ink);color:var(--cream)}
+.rail button{transition:background .25s,color .25s,opacity .25s}
 .rail button:hover{background:var(--cream)} .rail button.on:hover{background:var(--green)}
 body.plan .rail button.on{background:var(--amber);color:#16130F}
 .kpi{top:74px;left:66px;width:270px;padding:14px}

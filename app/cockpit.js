@@ -250,9 +250,9 @@ function renderStory(){ $('#storyBody').innerHTML=
    <h3>${t('dph','Where the data comes from')}</h3>
    <p>${t('dpp','Hozi does not invent data — it reads trusted signals from the bodies that already own them, and each owner keeps control of its own data. <b>This prototype runs on POTRAZ sample data; the engine is built to plug live feeds straight in.</b>')}</p>
    <p style="color:var(--mut);font-size:12px">Hozi — "${t('h0','Fill the granary before the drought.')}" · Curious Inq, Harare · POTRAZ AI4I 2026 · MIT open-source</p>`;}
-$('#storyTab').addEventListener('click',()=>{$('#storyPanel').hidden=false; renderStory();});
-$('#infoBtn').addEventListener('click',()=>{$('#storyPanel').hidden=false; renderStory();});
-$('#storyClose').addEventListener('click',()=>$('#storyPanel').hidden=true);
+$('#storyTab').addEventListener('click',()=>{setRailActive('storyTab');$('#storyPanel').hidden=false; renderStory();});
+$('#infoBtn').addEventListener('click',()=>{setRailActive('storyTab');$('#storyPanel').hidden=false; renderStory();});
+$('#storyClose').addEventListener('click',()=>{$('#storyPanel').hidden=true; setRailActive('railFood');});
 
 /* ---- URL state + language ---- */
 let booted=false;
@@ -313,7 +313,8 @@ const DOMAINS={
   railMarkets:{k:'domMarkets',en:'Markets',dk:'domMarketsD',
     den:'Reads farmgate and retail prices, supply and currency signals to spot where prices threaten access to food.',st:'roadmap'}
 };
-function openDomain(id){ const d=DOMAINS[id];
+function setRailActive(id){ $$('#rail button').forEach(b=>b.classList.toggle('on',b.id===id)); }
+function openDomain(id){ const d=DOMAINS[id]; setRailActive(id);
   $('#storyBody').innerHTML=
    `<h1>${t(d.k,d.en)}</h1>
     <p><span style="background:var(--amber);color:#16130F;border-radius:12px;padding:2px 12px;font-size:12px;font-weight:bold">
@@ -328,6 +329,7 @@ Object.keys(DOMAINS).forEach(id=>{ const b=$('#'+id);
   b.addEventListener('click',()=>{tipHide();openDomain(id);});
 });
 $('#railFood').addEventListener('click',()=>{ // home: national food view
+  setRailActive('railFood');
   $('#storyPanel').hidden=true; $('#drill').hidden=true; selected=null;
   if(geoLayer) map.flyToBounds(geoLayer.getBounds(),{padding:[40,40],duration:.8}); syncURL(); });
 function initWelcome(){
