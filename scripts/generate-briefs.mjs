@@ -44,7 +44,7 @@ async function callClaude(prompt) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: { "x-api-key": API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-    body: JSON.stringify({ model: MODEL, max_tokens: 2000, system: SYSTEM,
+    body: JSON.stringify({ model: MODEL, max_tokens: 4000, system: SYSTEM,
       messages: [{ role: "user", content: prompt }] })
   });
   if (!res.ok) throw new Error(`API ${res.status}: ${await res.text()}`);
@@ -58,9 +58,11 @@ const out = existsSync("app/briefs.js")
 
 let usage = 0;
 for (const d of districts) {
+  if (out[d.district] && !only) { console.log(`${d.district} ... already done, skipping`); continue; }
   process.stdout.write(`${d.district} ... `);
   try {
-    const text = await callClaude(districtPrompt(d));
+    let text = await callClaude(districtPrompt(d));
+    text = text.replace(/^```(json)?/,'').replace(/```$/,'').trim();
     out[d.district] = JSON.parse(text);
     console.log("ok");
   } catch (e) { console.log("FAILED:", e.message); }
