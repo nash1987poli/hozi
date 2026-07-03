@@ -231,5 +231,1314 @@ window.HOZI_BRIEFS={
    ],
    "note": "Isilinganiso sengozi seChitungwiza senyuka ngokuqhubekayo kusukela ngo-Ephireli, sifikele ku-71.7 ngo-Ncwabakazi 2026, futhi sidinga izenzo zokuqala ezihlanganiswayo manje; nokho, lesi sibikezelo asinakwazi ukuziba izinguquko ezingalindelekile zenqubomgomo, ukufika kwezinsiza zocwaningo, noma izehlo zemvula ezingahluka kakhulu kuya kolwazi lwamanje lwe-21.1 mm ngenyanga."
   }
+ },
+ "Bulawayo Central": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal sub-seasonal rainfall outlook for Bulawayo Central covering March–September 2026, flagging that current recorded rainfall of 15.9 mm/month is only 15.9% of the ~100 mm/month staple-crop requirement. Share updates monthly with Agritex and the Ministry of Lands & Agriculture to anchor replanning cycles."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers immediately to assess the 6 recorded pest incidents and map spread risk given the depressed vegetation index of 0.33 (against a healthy benchmark of 0.70). Prioritise the 66.1% of farming households outside irrigation coverage, recommending drought-tolerant short-season varieties and integrated pest management protocols ahead of the April–May risk escalation window (risk scores 43.4 and 48.0)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an emergency audit of irrigation infrastructure serving the 33.9% of currently covered area in Bulawayo Central. Identify feasible expansion points that could bring additional hectares under water access before July 2026, when the forecast risk score reaches 63.8. Submit a costed rehabilitation plan to the Ministry of Lands & Agriculture by end of February 2026."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves in Bulawayo Central depots calibrated to the projected September 2026 peak risk score of 73.2 (or 64.7 if the full support package is applied). Given the input availability index of only 63.7/100, initiate procurement of seed and fertiliser for subsidised distribution no later than March 2026 to prevent further supply deterioration as risk accelerates through Q2."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate a pre-crisis caseload review for existing social-protection recipients in Bulawayo Central, cross-referenced against the risk trajectory rising from 35.0 in March to 73.2 in September 2026. Model the caseload expansion needed if the 8.5-point risk reduction from the support package is not fully realised, and table a contingency budget request with the Rural District Council by April 2026."
+    }
+   ],
+   "note": "The risk trajectory for Bulawayo Central is steep and accelerating — nine months of lead time remain before the September 2026 peak — but this forecast cannot account for sudden macroeconomic shocks, disease outbreaks, or mid-season rainfall reversals that could compress or widen the 8.5-point support-package benefit."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Buritai gwaro rehurongwa hwemvura yemwaka weMarch kusvika September 2026 muBulawayo Central, uchinyevera kuti mvura inobva yave 15.9 mm pazuva rimwe nerimwe — iyi ndiyo 15.9% chete yemvura inodikanwa (~100 mm) pakukura kwechikafu. Rondedzera mashoko aya kuna Agritex neHurumende yeMinda neMurimo gore negore."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vashandi vezvekurima kuti vaongorore matambudziko matanhatu (6) emakasha akonyorwa, vachienzanisa neiyo vegetation index iri pasi — 0.33 pazvinodikanwa 0.70. Tarisa kunyanya avo 66.1% vasina mvura yekudiridza, vachikurudzirwa kushandisa mbeu dzinoshingirira kwedzimambo nenzira dzekurwisa makasha zvisati zvakurumidzira kukwira kwenjodzi munaApril–May (43.4 na 48.0)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ita ongororo yekukurumidza yemisasa yekudiridza inoshanda muBulawayo Central — iyo iri kushanda kune 33.9% yenzvimbo chete. Tsvaga nzvimbo dzinogona kuwedzerwa mvura zvisati zasvika Chikunguru 2026, apo njodzi inotarisirwa kusvika pa63.8. Gadzirira zano remari rekugadzirisa nokuita muBazi reMinda neMurimo pave pasina kupfuura Kukadzi 2026."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Isa zvinhu zvekudya munzvimbo dzeGMB muBulawayo Central zvakaenzana nenjodzi yatakodzera muna September 2026 — 73.2 (kana 64.7 kana rubatsiro rwose rwaiswa). Nekuti zvinhu zvekurima zviri pasi — 63.7/100 — tanga kutenga mbeu nesafure yekugoverwa pakuripa kwakaderera usati wapfuura Kurume 2026."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Ongorora rondedzero yevanhu vanogamuchira rubatsiro rweHurumende muBulawayo Central, uchienzanisa nenjodzi inokura kubva pa35.0 muna Kurume kusvika pa73.2 muna Gunyana 2026. Gadzirira chirongwa chekuengedza vanhu vanogamuchira rubatsiro kana rubatsiro rwe8.5 pamwero rwusina kuwanikwa, uye isa chikumbiro chemari kuna Rural District Council mukupera kwaApril 2026."
+    }
+   ],
+   "note": "Njodzi muBulawayo Central inokura nekukurumidza — mwedzi mipfumbamwe ichisara kusvikira pakukwira kwaSeptember 2026 — asi wungano uyu haungakwanisi kutaura nezve kushomeka kwemari, zvirwere, kana kuchinja kwemvura pakati pemwaka zvinogona kuchinja mwero werubatsiro rwe8.5."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isiqeshana esisemthethweni sohlelo lwezimvula zeBulawayo Central esisebenza ukusuka ngoMarch kuze kube nguSeptember 2026, ukhombise ukuthi izimvula ezirekhodiwe zingama-15.9 mm ngenyanga — okuyiyi-15.9% kuphela kwezimvula eziyadingwa (~100 mm) ukuze izitshalo zikhule. Bika lezi zilwimi kuAgritex laseNhlanhlayezwe yaMasimu njalo ngenyanga."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela abasebenzi bezolimo ukuhlola izigameko eziyisithupha (6) zamatshalo azirekhodiwe, baqhathanise futhi nomthamo wezitshalo osehlile — 0.33 uma kuqhathaniswa ne-0.70 ekunene. Gxila kakhulu kubalimi abangama-66.1% abangatholi amanzi okunisela, ubacebise ukuthi basebenzise imbewu engakhathali ngokoma kanye nezindlela zokumelana nezinambuzane ngaphambi kokwenyuka kokungozi ngo-April–May (43.4 le-48.0)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Yenza uhlaziyo lwasebusika lwesinqe sokunisela eBulawayo Central — okumanje kusebenzela inqaba ye-33.9% kuphela. Thola izindawo lapho amanzi angandiswa khona ngaphambi kukaJulayi 2026, lapho inani lokungozi libikezelwa ukufinyelela ku-63.8. Faka uhlelo lwezindleko zokuvuselelwa eNhlanhlayezwe yaMasimu ngaphambi kokuphelwa kukaNhlolanja 2026."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Beka iziphuzo zokudla ezindaweni zeGMB eBulawayo Central, kulingana nenani lokungozi elibikezelwa ngoSeptember 2026 — 73.2 (noma 64.7 uma iphakeji yonke yokusekela isetshenziswa). Njengoba izinto zezolimo ziyi-63.7/100 kuphela, qala ukuthenga imbewu lomanyolo azosabalaliswa ngentengo eyehliselwe ngaphambi kokudlula kuMarch 2026."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukubuyekeza uhlu lwabantu abamukela usizo lukahulumende eBulawayo Central, uqhathanise nendlela yokungozi enyukela kusuka ku-35.0 ngoMarch iya ku-73.2 ngoSeptember 2026. Lungisa uhlelo lokukhulisa uhlu lwabantu abadingayo uma inciphiso ye-8.5 yemaphuzu ingafinyelelwa, futhi faka isicelo sezimali sesilokhu eRural District Council ngaphambi kokuphelwa kukaApril 2026."
+    }
+   ],
+   "note": "Ukungozi eBulawayo Central kunyuka ngokushesha — kusele izinyanga eziyisishiyagalolunye ngaphambi kwesiqongo ngoSeptember 2026 — kodwa lesi sibikezelo asikwazi ukwazi ngezinguquko ezikhulu zezekhono, izifo, noma ukuguquka kwezimvula phakathi komzamo, okungase kuphazamise noma kukhulise inzuzo ye-8.5 yemaphuzu yokusekela."
+  }
+ },
+ "Bulawayo North": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level seasonal outlook update for Bulawayo North immediately, highlighting that recorded rainfall of 12.7mm/month is approximately 87% below the ~100mm/month staple-crop requirement. This should inform planting and contingency decisions through to September 2026, when risk is forecast to reach 79.8."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an urgent audit of the 44.6% irrigation coverage in Bulawayo North to identify infrastructure gaps preventing expansion. With vegetation index at 0.16 against a healthy benchmark of ~0.70, supplemental irrigation is the most direct lever available; findings should be escalated to the Ministry of Lands & Agriculture by end of February 2026 when risk crosses 34.9."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to address the 10 recorded pest incidents before the March–April window (risk 35.3–43.6), prioritising fields with the lowest vegetation cover. Simultaneously, work to close the input availability gap, currently scored at 68.6/100, by coordinating with registered agro-dealers to pre-position seed and fertiliser ahead of any remaining planting opportunities."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves within accessible storage points serving Bulawayo North in anticipation of the risk trajectory reaching 70.1 by July 2026 and 79.8 by September 2026. Procurement planning should begin no later than April 2026 (risk 43.6) to avoid competing with district-level shortfalls elsewhere."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Initiate early registration and verification of vulnerable households in Bulawayo North for potential social protection scale-up, noting that the full support package is modelled to reduce the September 2026 peak risk from 79.8 to 71.8 — an 8-point improvement — meaning significant residual risk remains and safety-net coverage must be sized accordingly."
+    }
+   ],
+   "note": "The risk trajectory for Bulawayo North is steep and accelerating, rising from 0 in January to a forecast 79.8 by September 2026; however, the model cannot account for mid-season rainfall recoveries, off-model humanitarian responses, or changes in household coping capacity that may alter actual food-security outcomes."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yekunaya kwemvura munhapwa yeBulawayo North inofanira kushandiswa pakarepo, ichizivisa kuti mvura inonayiwa iri pa 12.7mm/mwedzi — inopfuura 87% pasi pe ~100mm inodikanwa nechikafu — uye kuti njodzi inofungidzirwa kusvika pa 79.8 muna Gunyana 2026."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ongorora nekukurumidza kuti sei coverage yekudiridza iri pa 44.6% mudunhu reBulawayo North, nekuti chiratidzo chevegitation chiri pa 0.16 (chinofanira kuva ~0.70). Zvawanikwa zviiswe pamberi peMinistry of Lands & Agriculture vasati vapfuura mwedzi waFebruary 2026, apo njodzi ichasvika pa 34.9."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vadzidzisi veminda kuti vaite basa pazviitiko zvegunguo gumi (10) zvakonyorwa vasati vapfuura nguva yaMarch–April (njodzi 35.3–43.6). Pamwe chete, shanda nema agro-dealers kuti zvikurumbiro nezvirimwa zvibvire dzimba vasati vadarika nguva yokudyara, nekuti zvikurumbiro zvakawana chete 68.6/100."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Gadzirira kuchengetedza zviyo muenhewe dzinoshanda Bulawayo North, uchiziva kuti njodzi inoenda kusvika 70.1 muna Chikunguru 2026 uye 79.8 muna Gunyana 2026. Kuronga kwekutenga kunofanira kutangwa mwedzi waApril 2026 (njodzi 43.6) kuti zvinongedze misoro yemumwe munhapwa."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kunyora uye kusimbisa mhuri dzirikunetseka muBulawayo North kubva zvino, uchiziva kuti package yekubatsira inobuditsa njodzi yaNyamavhuvhu 2026 kubva 79.8 kuenda 71.8 — shanduko ye8 — asi njodzi inoramba iri yepakarepo, saka zvibatsiro zvekuchengetedza zvinodiwa zvivakidzwe maererano nezveruzivo irworwu."
+    }
+   ],
+   "note": "Njodzi yeBulawayo North inokwira nekukurumidza, kubva pa0 muna Ndira kuenda pa79.8 muna Gunyana 2026 sezvinofungidzirwa; asi modeli haikwanisi kuziva kana mvura yakawanda ichauya pakati pemwaka, kubatsirwa kusingaonekwi, kana kuti masimba emhuri ekuzvimiririra achachinja."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isaziso senhlalo yesimo sezulu eBulawayo North ngokushesha, sikhombisa ukuthi imvula eyamukelekayo ingama-12.7mm/inyanga — malunga nama-87% ngaphansi kwe-~100mm edingakalayo ukuze izilimo zikhule — futhi ukuthi ingozi ibikezelwa ukufikelela ku-79.8 ngoSepthemba 2026."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Phenyisisa ngokushesha isikhundla sokulethwa kwamanzi ensimini esiyisi-44.6% eBulawayo North. Ngoba inkomba yezitshalo ingama-0.16 (ehlelwe ku-~0.70 ngenhlalakahle), ukuhlinzekwa ngokulethwa kwamanzi kuwukusetshenziswa okuqondile okutholakala; imiphumela kumele ifakwe phambi kweMnyango WezaMhlabathi neZolimo ngaphambi kwaFebruary 2026, lapho ingozi ifinyelela ku-34.9."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela izingcitshi zokulima ukuze zibhekane nezigameko eziyishumi (10) ezikhona zamagciwane ngaphambi kwesikhathi sikaMashi–Ephreli (ingozi 35.3–43.6). Kanjalo, sebenzisana nabo abathengisa izinto zokulima ukuze imbewu nomanyolo kwenziwe kube khona ngaphambi kwesikhathi, njengoba ukutholakala kwezinto zokulima kufanele ku-68.6/100."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Lungisa iziphatho zokudla okuyisimiso ezindaweni zokugcina ezikhonza eBulawayo North, uqaphela ukuthi ingozi ibikeza ukufikelela ku-70.1 ngoJulayi 2026 naku-79.8 ngoSepthemba 2026. Ukuhlelwa kokuthenga kumele kuqalwe ngoEphreli 2026 (ingozi ku-43.6) ukugwema ukuncintisana nazo izithangami zamanye amasigodi."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukubhalisa nokuqinisekisa imindeni esentengweni eBulawayo North manje ukuze amaphakeji okusizwa anande, uqaphela ukuthi iphakeji yokusekela egcwele ibikezela ukwehlukanisa ingozi eSepthemba 2026 kusuka ku-79.8 ukuya ku-71.8 — ukwehla kwamaphuzu ayisishiyagalombili — okusho ukuthi ingozi enkulu isasele futhi ukuvikelwa kwabantu kumele kube khona ngokwemfanelo."
+    }
+   ],
+   "note": "Umkhondo wengozi eBulawayo North uyenyuka ngokushesha, usuka ku-0 ngoJanuwari uya ku-79.8 ngoSepthemba 2026 njengokubikezelwa; kodwa imodeli ayikwazi ukukhombisa ukubuya kwemvula emasontweni aphakathi, usizo olungabikwanga olukhona, noma izinguquko emandleni emindeni ukumelana nezimo."
+  }
+ },
+ "Mutare": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level agroclimate advisory for Mutare covering February–September 2026, highlighting that recorded rainfall of 9.1 mm/month is critically below the ~100 mm/month threshold required by staple crops. This advisory should anchor all downstream planning decisions and be shared formally with Agritex and the Ministry of Lands & Agriculture by end of January 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to conduct a rapid crop-condition assessment across Mutare's wards, cross-referencing the vegetation index reading of 0.33 against the healthy benchmark of 0.70. With input availability scored at only 60.7/100 and 7 recorded pest incidents, officers should prioritise identification of pest hotspots and coordinate with the Ministry of Lands & Agriculture to fast-track input restocking to close the 39.3-point availability gap before the April–May risk window (36.9–49.7)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an immediate audit of irrigation infrastructure in Mutare, where current coverage stands at 31.7%. Given that rainfall is running at less than one-tenth of crop requirements, expanding functional irrigation access — even incrementally — is the single highest-leverage physical intervention available. ZINWA should identify schemes that can be brought to operational status before April 2026 and report rehabilitation cost estimates to the District Development Fund for co-funding consideration."
+    },
+    {
+     "dept": "District Development Fund (DDF)",
+     "action": "Prioritise emergency allocation of labour and equipment resources toward rural water and irrigation rehabilitation works in Mutare, coordinating with ZINWA's infrastructure audit findings. The model indicates that a full support-package implementation can reduce the September 2026 risk score from 79.4 to 69.2 — a 10.2-point reduction — and DDF's infrastructure mobilisation capacity is a critical enabler of that outcome. Commence procurement and logistics planning no later than February 2026 to avoid lead-time losses."
+    },
+    {
+     "dept": "Grain Marketing Board (GMB) & Ministry of Public Service, Labour & Social Welfare",
+     "action": "Begin pre-positioning of strategic grain reserves accessible to Mutare, in anticipation of the risk trajectory rising from 36.9 in April to 79.4 by September 2026. The Ministry of Public Service, Labour & Social Welfare should simultaneously review eligibility lists for social protection transfers in Mutare's most affected wards, ensuring that distribution mechanisms are tested and ready before the June–July window (53.7–67.4) when household coping capacity is likely to be severely strained."
+    }
+   ],
+   "note": "The risk trajectory for Mutare is steep and accelerating — rising from 15.0 in March to 79.4 by September 2026 — making early action in January–February critical; however, the model cannot account for mid-season rainfall recovery events or supply-chain disruptions that may alter actual household food access outcomes on the ground."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yekunaya kwemvura muMutare inonyanya kutya: 9.1 mm pamwedzi chete, ipo mbesa dzinoda anoda 100 mm. Nyika ino yepamhepo inofanira kuburitswa uye kutumirwa kuAgritex neMinistry of Lands & Agriculture musati mapera January 2026, kuti varongi vose vabatane pamazano ekuchengetedza zvokudya."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Vatariri vezvemurima vanofanira kuenda kumadera ose eMutare kuongorora mamiriro ezvirimwa, vachishandisa index yevashure vemiti inoratidzika pa0.33 — pasi kwehutano hwa0.70. Zvikwereti zvakawana chete 60.7/100 uye nhamba yezvikonzero zvemapere ndeye 7; saka vatariri vanofanira kumhanya kutsvaga nzvimbo dzine matambudziko ekupeswa kweminda uye kubatsira kushanda nekukurumidza kuchinja zvinhu."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "ZINWA inofanira kuita ongororo yakakurumidza yesimbi dzemvura dzokushandisa murimo muMutare, uko kupurwa kwemvura kwakangogara pa31.7%. Mvura inayo iri pasi zvikuru — inosvika chikamu chimwe chete pamagumi gumi — nekudaro kuwedzera zvinhu zvekudiridza ndiko kunonyanya kubatsira. Mharidzo yekubhadhara kudzoreredza simbi idzi inofanira kutumirwa kuDDF musati mapera March 2026."
+    },
+    {
+     "dept": "District Development Fund (DDF)",
+     "action": "DDF inokurudzirwa kukurumidza kubvumidza mari nemari yekusimudza zvinhu zvemvura neminda yekudiridza muMutare, ichishandira pamwe neZINWA. Chirongwa chese chekubatsira chinogona kudzikisa njodzi yaSeptember kubva pa79.4 kusvika pa69.2 — kuderedzwa kwa10.2 — uye DDF ine basa guru mukuita izvozvo. Gadziriro dzekutengesa zvinhu dzifambire mberi musati mapera February 2026."
+    },
+    {
+     "dept": "Grain Marketing Board (GMB) & Ministry of Public Service, Labour & Social Welfare",
+     "action": "GMB inofanira kutanga kuchengeta zviyo zvekuchengetedzwa muMutare nekukurumidza, sezvo njodzi ichikwira kubva pa36.9 muna April kusvika pa79.4 muna September 2026. Panguva imwe cheteyo, Ministry of Public Service, Labour & Social Welfare inofanira kuona mirairo yevakabatikana kuitira kuti rubatsiro rwevanhu rusvike nguva dzakakodzera — kunyanya pakati paJune naJuly (53.7–67.4)."
+    }
+   ],
+   "note": "Njodzi muMutare inokura nekukurumidza — kubva pa15.0 muna March kusvika pa79.4 muna September 2026 — uye zvirongwa zvekutanga zvakakurumidza muna January–February zvakakosha kwazvo; zvisinei, iyo modeli haigoni kutaura nezve mvura inogona kuuya pakati pemwaka kana zviitiko zvimwe zvingachinja mamiriro ezvokudya mudzimba."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "IMeteorological Services Department kufanele ikhiphe isaziso semunyaka wezimo lomkhathi eMutare, igcizelela ukuthi izinga lemvula elibhaliswe ngu-9.1 mm ngenyanga lingaphansi kakhulu uma liqathaniswa ne-100 mm edingwa yizilimo ezibalulekileyo. Isaziso lesi kufanele sithunyelwe ku-Agritex nakuMinistry of Lands & Agriculture ngaphambi kokuphelela kukaJanuary 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Izikhulu ze-Agritex kufanele ziye emawadini eMutare ukuyochunuluza isimo sezilimo, zisebenzisa inkomba yokukhula kwemithi ethi 0.33 — kude le kwamazinga aphilayo angu-0.70. Ngoba ukutholakala kwezinsiza kukuma ku-60.7/100 futhi kukhona izigameko ezingu-7 zezihlahlakazane, izikhulu kufanele zikhawulelele ukutsekelana nezindawo ezinenkinga futhi zisebenzisane neMinistry of Lands & Agriculture ukusheshisa ukutholakala kwezinsiza."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "I-ZINWA kufanele yenze uhlaziyo lwangemuva lwezo zinhlaka zokuphalaza amanzi eMutare, lapho ukufinyelela kokuphalaza kumanje kumi ku-31.7% kuphela. Njengoba imvula imi ngaphansi kakhulu — ingafinyeleli isithupha esisodwa kwishumi — ukwandisa ukuphalaza kwamanzi kusizo olubucayi. I-ZINWA kufanele ibike amanani okwakhiwa kabusha ku-DDF ngaphambi kokuphela kukaMarch 2026."
+    },
+    {
+     "dept": "District Development Fund (DDF)",
+     "action": "I-DDF ikhuthazwa ukuba isheshise ukuphakela izimali nabasebenzi bezokwakha amanzi nokuphalaza eMutare, isebenzisana ne-ZINWA. Imodeli ibonisa ukuthi iphakeji yesekelo ephelele inganciphisa inani lengozi ngo-Septhemba kusuka ku-79.4 kuya ku-69.2 — ukwehla kuka-10.2 — futhi i-DDF inendima ebalulekile kulokhu. Ukuhlelwa kokuthenga kufanele kuqale ngaphambi kokuphela kukaFebruary 2026."
+    },
+    {
+     "dept": "Grain Marketing Board (GMB) & Ministry of Public Service, Labour & Social Welfare",
+     "action": "I-GMB kufanele iqale ukuqoqela izakhiwo zokudla ezivikelekile ezingafinyelela eMutare, njengoba ingozi ikhula kusuka ku-36.9 ngo-Ephreli iya ku-79.4 ngo-Septhemba 2026. Ngesikhathi esifanayo, iMinistry of Public Service, Labour & Social Welfare kufanele ihlole izinhla zabasukelana usizo, ukuze izinhlelo zokuphana zibe sekulungile ngaphambi kweJuni-Julayi (53.7–67.4), lapho amakhaya ecatshangwa ukuthi azoba nzima."
+    }
+   ],
+   "note": "Umkhondo wengozi eMutare uyakhula ngokushesha — usuka ku-15.0 ngo-Mashi uya ku-79.4 ngo-Septhemba 2026 — okukhomba ukuthi ukuphazamiseka kwamanje ngoJanuary–February kubaluleke kakhulu; kodwa-ke, imodeli ayikwazi ukubona ngemvula engabuya phakathi komnyaka noma izingqinamba zomthamo ezingantshintshanisa imiphumela yangempela yokudla emakhaya."
+  }
+ },
+ "Chipinge": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level seasonal outlook advisory for Chipinge immediately, highlighting that current rainfall of 16.5 mm/month is approximately 83.5 mm below the staple-crop threshold of ~100 mm/month. Share updated dekadal forecasts with Agritex and Ministry of Lands & Agriculture by end of January 2026 to inform planting and irrigation scheduling decisions before the risk score escalates from its current 3.2 toward the projected 31.2 by March."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to Chipinge wards to assess the 3 recorded pest incidents and current vegetation index of 0.28 against the healthy benchmark of 0.70. Prioritise farmer advisory sessions on drought-tolerant variety substitution and integrated pest management. Given input availability of only 59.8 out of 100, coordinate with Ministry of Lands & Agriculture to fast-track input distribution before the April risk threshold of 41.3 renders late planting unviable."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an urgent audit of the 30.1% irrigation coverage in Chipinge to identify schemes with spare capacity that can be brought into full operation before the May–June window when risk scores are projected at 47.3–51.5. Prepare a district irrigation utilisation report for Ministry of Lands & Agriculture by end of February 2026, when the risk score is forecast to reach 23.1, so that infrastructure rehabilitation can be scoped and funded in time."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves in Chipinge ahead of the July–September period when forecast risk scores rise to 64.0–73.2. Coordinate with DDF on road-accessibility assessments for remote wards to ensure delivery logistics are confirmed before the August forecast score of 69.5. Note that the full support package, if activated, is projected to reduce the September risk score from 73.2 to 64.2, implying a residual gap that reserve stocks must partially cover."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate contingency planning for expanded social protection transfers in Chipinge, targeting the most food-insecure households, timed to scale up between June and September 2026 as the risk score climbs from 51.5 to a projected 73.2. Coordinate with Rural District Council to update beneficiary registers by March 2026 (risk score 31.2) so that household-level targeting is completed before risk enters the high-severity range above 60 in July."
+    }
+   ],
+   "note": "The risk trajectory for Chipinge is steep and continuous, reaching a forecast high of 73.2 by September 2026, and even the full support package reduces this only to 64.2, signalling that interventions must begin in January to be effective; however, this forecast cannot account for mid-season rainfall recovery events, changes in pest spread rates, or shifts in household coping capacity that field monitoring may reveal."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Buritsa inotarisika yemvura mudunhu reChipinge nekukurumidza, ichiratidzira kuti mvura yazvino iri pamwero we 16.5 mm pagore, inoshaikwa 83.5 mm pakuwana chikamu chinodikanwa ne~100 mm pamwedzi kuti zvirimwa zvikure. Tuma mashoko emakore ekupera kwa dekadha kuAgritex neMusurudziro weHurumende weNyika neZemo nekupera kwaJanuari 2026, pamberi pemo wenjodzi usati wakwira kubva pa 3.2 kusvika 31.2 muna Kurume."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vatariri veminda kuChipinge kuti vaongorore matambudziko matatu emakunguo akarekodhwa uye ndekisi yeminda ye 0.28 pamwe chete neyeratidziro yeufumi ye 0.70. Ipa varimi mazano ekusarudza mbeu dzinobwinya panguva yeziya uye nzira dzekurwisa makunguo. Nekuti zvinhu zvirimo chete pa 59.8 pamakirogramu 100, batana neMusurudziro weNyika uye Zemo kuti zvinhu zvisvike varimi pamberi pemwedzi waKubvumbi, unoforesitwa kune njodzi dze 41.3."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ita ongororo yakakurumidza yemvura inopinzwa muminda (30.1%) muChipinge kuti uwane nzvimbo dzinogona kupiwa mvura yakawanda pamberi pemwedzi waMay kunaChikumi, apo mwero wenjodzi unoforesitwa kusvika pa 47.3 kusvika 51.5. Gadzira mushumo wedunhu wekushandiswa kwemvura kumushandi weNyika uye Zemo nekupera kwaFebruary 2026, apo mwero wenjodzi unoforesitwa kusvika pa 23.1."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Isa zvinhu zvekudya zvakachengeterwa muChipinge pamberi pemwedzi waChikunguru kunaGunyana, apo mwero wenjodzi unoforesitwa kukwira kubva pa 64.0 kusvika 73.2. Batana neDDF paongororo yemigwagwa kumisha inosvikika nematambudziko, kuitira kuti zvinhu zvikwanise kusvikiswa. Ongorora kuti pakati chete nesupport package yose, mwero wenjodzi waGunyana unoforesitwa kudzikira kubva pa 73.2 kusvika 64.2, zvinoreva kuti zvinhu zvekudya zvakachengeterwa zvichakwanisa kupfidza chikamu chinosara."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kuronga kuenderera mberi kwekupa mari yebatsiro kumhuri dziri pachisero chekungarirwa nenzara muChipinge, uchironga kuwedzera pakati paChikumi naGunyana 2026, apo mwero wenjodzi unokwira kubva pa 51.5 kusvika 73.2. Batana neRural District Council kuti wavavaraise rejisite yevanobatsirwa muna Kurume 2026, mwero wenjodzi uchiforesitwa pa 31.2, kuitira kuti kutarisisa kwemhuri kupere mwero wenjodzi usati wapinda panhamba dzine ngozi dzakakura dzekupfuura 60 muChikunguru."
+    }
+   ],
+   "note": "Njodzi muChipinge inokwira kakawanda uye inoenderera, ichiforesitwa kusvika pa 73.2 muna Gunyana 2026, uye kunyange nesupport package yose mwero unodzikorwa kusvika pa 64.2 chete, izvo zvinoreva kuti zviito zvinofanira kutanga muna Januari kuti zvishande; asi foresiti iyi haigoni kutaura nezve mvura ingawana pakati pemwaka, kuchinja kwekukura kwemakunguo, kana kusimba kwemhuri pakubatsirana zvinogona kuonekwa nehushumiri hwesango."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isixwayiso sezulu esifanele isifunda seChipinge ngokushesha, sibonisa ukuthi izulu langalesi sikhathi limi ku-16.5 mm ngenyanga, okusho ukuthi kuswela i-83.5 mm ukufinyelela isidingo sezitshalo esiku-~100 mm ngenyanga. Thumela imibiko yezulu yesikwelede se-dekadha ku-Agritex leNyanga ye-Lands & Agriculture ekupheleni kukaJanuwari 2026, umthente wengozi ungakaphakami kusuka ku-3.2 uye ku-31.2 ngoMashi."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela izisebenzi zezeluleko zezolimo eChipinge ukuyobheka izigameko ezintathu zamagciwane ezirekhodiweyo kanye nendeks yemifula engu-0.28 uma iqhathaniswa nesilinganiso esiphilileyo sika-0.70. Nika abalimi izeluleko mayelana nokukhetha imbewu ezibekezelela ukoma kanye nokulalelana nezinambuzane. Njengoba ukutholakala kwezidingo kulinganiselwa ku-59.8 kwezigu-100, xhumana leNyanga ye-Lands & Agriculture ukuqinisekisa ukusakazwa kwezidingo ngaphambi kwaNdasa lapho umthente wengozi uforesitelwe ku-41.3."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Qhuba uhlaziyo olusheshayo lwezinhlelo zokuphisha amangwevu eChipinge, okuyimfanelo ka-30.1%, ukuthola izinhlelo ezilamandla angaphezulu ukuze zisebenze ngokugcwele ngaphambi kwesikhathi sikaZibandlela-Nhlangulana lapho umthente wengozi uforesitelwe ku-47.3 kuya ku-51.5. Lungisa umbiko wesifunda wokusetshenziswa kwezinhlelo zokuphisha ku-Nyanga ye-Lands & Agriculture ngaphambi kokuphelela kukaFebruwari 2026, lapho umthente wengozi uforesitelwe ku-23.1."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Beka ukudla okugcinelweyo kwezimo ezikhulu eChipinge ngaphambi kwesikhathi sikaJulayi-Septhemba lapho umthente wengozi uforesitelwe ukuphakama kusuka ku-64.0 uye ku-73.2. Xhumana le-DDF ngokuhlola izindlela zokufika emizini ekude ukuqinisekisa ukuthunywa kokulethwa kwezidingo. Qaphela ukuthi iphakheji yesekelo ephelele uma isetshenziswa iforesitelwe ukwehlisa umthente weSepthemba kusuka ku-73.2 uye ku-64.2, okusho ukuthi iziphutha eziseleyo kumele zibotshelwe ngokwengeziwe ngokudla okugcinelweyo."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala uhlelo lwezinhlelo zokwelekelela imizi ehluphekayo kakhulu endabeni yokudla eChipinge, ulungiselela ukukhulisa phakathi kukaJuni noSepthemba 2026 lapho umthente wengozi uphakama kusuka ku-51.5 uye ku-73.2. Xhumana le-Rural District Council ukuhlaziya amarejistra abanikazi ngaphambi kukaZibandlela 2026 lapho umthente wengozi uforesitelwe ku-31.2, ukuze ukuqondwa kwemizi kwenziwe ngaphambi kokuba ingozi ingene emkhawulweni omkhulu weNgozi ophezu kuka-60 ngoJulayi."
+    }
+   ],
+   "note": "Umthente wengozi eChipinge uyanda ngokusheshayo futhi uqhubeka, uforesitelwe ukufinyelela ku-73.2 ngoSepthemba 2026, futhi ngisho nephakheji yesekelo ephelele yehlisa lo mthente kuphela ku-64.2, okusho ukuthi izinyathelo kufanele ziqale ngoJanuwari ukuze zisebenze; kodwa le-foresiti ayikwazi ukubhekana nezehlo zokubuyela kwezulu phakathi nomzamo, izinguquko emazingeni okusakazeka kwamagciwane, noma amandla emizi okumelana nenkinga angabekwa obala ukukhangela kwenkundla."
+  }
+ },
+ "Bindura": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level seasonal outlook update for Bindura immediately, highlighting that monthly rainfall of 18.4mm is critically below the ~100mm staple-crop requirement. Share updated forecasts with Agritex and Ministry of Lands & Agriculture by end of January 2026 to inform planting and input decisions before the risk index reaches 42.5 in April."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to conduct field assessments across Bindura wards, prioritising the 70.9% of farmland outside irrigation coverage. Given a vegetation index of only 0.26 against a healthy benchmark of 0.70, and 7 recorded pest incidents, officers should verify crop stress levels and co-ordinate with the Ministry of Lands & Agriculture on targeted input support, noting that input availability is currently only 59.2 out of 100."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Review and report on the utilisation and rehabilitation potential of existing irrigation infrastructure in Bindura, where coverage stands at 29.1%. A targeted expansion or rehabilitation plan submitted to the Ministry of Lands & Agriculture before March 2026 could help offset the rainfall deficit and partially moderate the risk trajectory, which is forecast to reach 70.8 by August 2026."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves at GMB depots serving Bindura District in advance of the June–September 2026 high-risk window, when the index is forecast to climb from 53.8 to 74.8. Coordinate logistics planning with DDF to ensure road access remains viable for distribution during this period."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate early registration of vulnerable households in Bindura for social protection programming before the risk index crosses 53.8 in June 2026. Note that full application of the available support package is modelled to reduce the September risk score from 74.8 to 65.6, a reduction of 9.2 points — making timely enrolment critical to realising that benefit."
+    }
+   ],
+   "note": "The risk trajectory for Bindura is steep and accelerating from March onward, warranting early action before June 2026; however, the forecast cannot account for unexpected mid-season rainfall recovery, supply chain disruptions, or changes in household coping capacity that may alter actual outcomes on the ground."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budai nhume yemamiriro ekunaya kwemvura muBindura nekukurumidza, ichiratidza kuti mvura iri kunaya inongova 18.4mm pamwedzi, zvichienzaniswa ne~100mm inodikanwa nechikafu. Rondedzero itsva ipwe Agritex neMinistry of Lands & Agriculture pekupera kwaJanuari 2026 kuti isabatike nguva yokurima isati yasvika pagomba rekutarisirwa ra42.5 muna Kubvumbi."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vashandi vezveminda muBindura kunoona mamiriro eminda, vachiongorora 70.9% yeminda isina mvura yekudiridza. Dindi revhu (vegetation index) iri pa0.26 chete, zvichienzaniswa ne0.70 yekunaka, uye pave nezvikunguru 7 zvakanyorwa. Vashandi ngavaone kuti zvimera zvakuvara zvakadii uye vaite musangano neMinistry of Lands & Agriculture pamusoro pemidziyo, ipo painowanikwa pa59.2 chete pane 100."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ongorora uye ubudise mushumo pamusoro pekugona kwekugadzirisa zvekudiridza muBindura, uko kunosvika pa29.1% chete. Chirongwa chekuwedzera kana kugadzirisa zvakagadzirirwa chiiswe kuMinistry of Lands & Agriculture musati masvika Kurume 2026, kuti zvibatsire pakuderera kwemvura uye kutepfedza kukwira kwechiitiko chenjodzi, icho chataririswa kusvika pa70.8 muna Nyamavhuvhu 2026."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Gadzirira kuisa zviyo zvechikafu zvakakwana ku GMB muBindura musati masvika nguva yegoho reJune–Gunyana 2026, apo chiitiko chenjodzi chataririswa kukwira kubva pa53.8 kusvika pa74.8. Rongerana DDF kuti migwagwa iripo ibvumire kuendesa zvekudya nenguva."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kubherekedza mhuri dziri pangozi muBindura dzichigamuchira rubatsiro rwehurumende musati mabvisa chiitiko chenjodzi chasvika pa53.8 muna Chikumi 2026. Zvakatorwa semhedzisiro inoratidzika, kushandiswa kwepakisi yekubatsira kwakakwana kunogona kuderedza chiitiko chaGunyana kubva pa74.8 kusvika pa65.6, kuderera kwema9.2 — saka kunyoresa nguva inobatsira kugamuchira pamhedzisiro iyi."
+    }
+   ],
+   "note": "Njodzi muBindura inokwira nekukurumidza kubva muna Kurume, saka zviito zvekutanga zvinodikanwa musati masvika Chikumi 2026; asi chiporofita hachigoni kutaura nezvekukwira kwemvura zvisingatarisirwi pakati pemwaka, kuputsika kwesupply chain, kana kushanduka kwekukwanisa kwemhuri kurwisa njodzi."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isaziso sesifunda esithinta izimo lemvula eBindura ngokushesha, sikhombisa ukuthi imvula yenyanga ingu-18.4mm iphantsi kakhulu uma kuqathaniswa le-~100mm edingwa yizilimo ezibalulekiyo. Imininingwane entsha kufanele iphiwe i-Agritex leMinistry of Lands & Agriculture ekupheleni kukaNhlolanja 2026 ukuze izinqumo zokutshala lesezokufakwa zithathwe ngaphambi kokuba inkomba yengozi ifinyelele ku-42.5 ngoMbasa."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela izisebenzi zombuso ezikhangele ezolimo eBindura ukuyokwenza ukuhlola emindle, beqondisa kakhulu ku-70.9% yomhlabathi ongafiki emanzini okunisela. Inkomba yemifino ingaka-0.26 nje uma kuqathaniswa ne-0.70 ephilileyo, njalo kukhona izigameko zokulimala kwezilimo ezingu-7 ezibhalwe phansi. Izisebenzi kufanele zihlole inqondo yokulimala kwezilimo futhi zihlanganyele leMinistry of Lands & Agriculture mayelana lezinto zezolimo, njengoba ukutholakala kwazo kukhona ku-59.2 kuphela ku-100."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Phonontsela futhi ukhiphe umbiko ngokusebenza nokungaphinda kusebenze kwezakhiwo zokunisela eBindura, lapho ukugqabezwa kufika ku-29.1% nje. Uhlelo lokwelula kumbe ukulungisa lolu hlaka oluzakwethulwa eMinistry of Lands & Agriculture ngaphambi kukaMashi 2026 lungasiza ukubhekana lokulahlekelwa yimvula njalo lubuyise ithempisi yokwanda kwengozi, ebikeziwe ukuthi izafinyelela ku-70.8 ngo-Agasti 2026."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Lungisa ukubeka irizeva yamabele eBindura emazitolo e-GMB ngaphambi kwezikhathi ezingozi phakathi kukaJuni loSepthemba 2026, lapho inkomba yengozi ibikeziwe ukuphakama kusuka ku-53.8 iye ku-74.8. Hlela izinto zezokuthutha leDDF ukuqinisekisa ukuthi imigwaqo izasebenza kahle ngesikhathi sokuhambisa ukudla."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukubhalisela imindeni esengozini eBindura yohlelo lokuvikelwa kwezenhlalakahle ngaphambi kokuba inkomba yengozi iwele u-53.3 ngoJuni 2026. Kuqaphelekile ukuthi ukusetshenziswa kwephakeji losekelo olukhona kubikeziwe ukuthi kuzanciphisa inkomba yengozi yaSepthemba kusuka ku-74.8 iye ku-65.6, ukuncipha kuka-9.2 — ngakho ukubhalisa ngesikhathi kubalulekile ukuze lolu lusizo lukwazi ukusebenza."
+    }
+   ],
+   "note": "Ingozi eBindura iyakhula ngokushesha kusukela ngoMashi, okusho ukuthi izenzo zokuqala ziyadingeka ngaphambi kukaJuni 2026; kodwa ibikezelo alikwazi ukuqagela ukubuya kwemvula okunga-lindwa phakathi kwesizini, ukuphazamiseka kwemikhiqizo, noma ukuguquka emandleni emindeni ukubhekana lengozi."
+  }
+ },
+ "Marondera": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal sub-seasonal rainfall outlook for Marondera covering February–September 2026, flagging the current 13.4 mm/month average against the ~100 mm/month staple-crop requirement. This outlook should be shared directly with Agritex district offices by end of January 2026 to anchor all downstream planning."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy field officers to conduct an accelerated crop-condition assessment across Marondera wards, prioritising areas where the vegetation index has fallen to 0.21 against a healthy benchmark of ~0.70. Findings should inform a ward-level input redistribution map, given that input availability is currently scored at 64.7/100, meaning roughly one-third of demand is unmet."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves in Marondera depots ahead of the May–June window, when the risk score is projected to cross 45.6 and climb to 57.6. Forward procurement should account for the gap between current input availability (64.7/100) and full coverage, as reduced planting now will translate directly into reduced local supply by mid-year."
+    },
+    {
+     "dept": "DDF (District Development Fund)",
+     "action": "Prioritise maintenance and expansion of irrigation infrastructure in Marondera to close the gap from the current 49% irrigation coverage. Even marginal gains in irrigated area would partially offset the rainfall deficit of approximately 86.6 mm/month below crop requirements, and would complement the modelled 7.3-point risk reduction achievable through the full support package."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate early social-protection planning for Marondera based on the trajectory showing risk rising from 30.9 in April to 74.8 by September 2026. Begin household vulnerability registration in the highest-risk wards now, so that cash or food transfers can be scaled without administrative delay once the June–July threshold (57.6–64.7) is reached. Note that the full support package is projected to lower the September risk score from 74.8 to 67.5, meaning significant residual risk remains even under an optimistic intervention scenario."
+    }
+   ],
+   "note": "The escalating risk trajectory from 2.8 in January to a forecast 74.8 by September 2026 warrants early action before May, but the model cannot account for unexpected mid-season rainfall events, changes in pest pressure beyond the current 14 recorded incidents, or delays in national budget allocation that could affect the 7.3-point support-package effect."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yekunaya kwemvura muMarondera kubva Kukadzi kusvika Gunyana 2026 ibude semararamiro epamutemo, ichiratidza kuti mvura iri kuwa 13.4 mm pamwedzi uyezve zvirimwa zvinoda anenge 100 mm pamwedzi. Mashoko aya ngaatumirwe makisi eAgritex mudunhu pakupera kwaJanuary 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vakuru veminda kunoongororwa mamiriro ezvirimwa mumaWadi ese eMarondera, zvichitangira nzvimbo idzo vegetation index yadzikerwa kusvika pa 0.21, panguva iyo 0.70 iri nhamba yakanaka. Mhedzisiro iyi isabatsire kugoverwa kwezviwanikwa, sezvo zviriwa pazasi pa 64.7/100 zvichiratidza kuti anenge chikamu chimwe chete chechitatu chezvaunzwa hazvisati zvawanikwa."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Gadzirira kuisa zviyo zvenguva dzemhambudziko muzvitoro zveMarondera musati masvika Chivabvu–Chikumi, apo nhamba yengozi inofungidzirwa kukwira kubva pa 45.6 kusvika pa 57.6. Kutengwa kwezviyo kwakarongwa kufanire kubatanidza kusawirirana pakati pezviriwa (64.7/100) nekuda kwemunda wese."
+    },
+    {
+     "dept": "DDF (District Development Fund)",
+     "action": "Tanga kusimudza nekugadzirisa masisitimu ekudiridza munhapwa muMarondera kuti coverage ikwire kubva pa 49% yazvino. Kuwedzera kushoma kumwe kwenzvimbo dzinodiridza kunobatsira kupindura kushomeka kwemvura ye 86.6 mm pamwedzi, uye kunobatsirane nekudzikiswa kwengozi nezvipoints 7.3 kunofungidzirwa muchirongwa chose chekubatsira."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kuronga hurongwa hwekuchengetedza vanhu vasina simba muMarondera, uchivimba nemumhanzi wengozi unokwira kubva pa 30.9 muna Kubvumbi kusvika pa 74.8 muna Gunyana 2026. Nyoresa mhuri dziri pangozi kumaWadi akakomba iye zvino, kuti rubatsiro rwezvokudya kana remari rwugone kupiwa pasina kunonoka Chikumi–Chikunguru (57.6–64.7). Chirongwa chose chekubatsira chinofungidzirwa kudzikisa nhamba yeGunyana kubva pa 74.8 kusvika pa 67.5, zvichireva kuti ngozi huru ichiri kuripo."
+    }
+   ],
+   "note": "Kukwira kwengozi kubva pa 2.8 muna January kusvika pa 74.8 muna Gunyana 2026 kunoda zviitwa zvisati masvika Chivabvu, asi modeli haikwanisi kufungidzira mvura isingatarisirwe panguva yepakati pegore, shanduko dzehuwandu hwezvidutu zvepfumvudza kupfuura nhamba yezvitikanga 14 zvanyorwa, kana kufuridzirwa kwemishumo inogona kubata mhedzisiro yechirongwa chekubatsira."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isiphrofetho esibekiweyo semthethosikazi samazinga ezimvula eMarondera sisekele isikhathi esisukela ngoFebruwari kuya ngoSepthemba 2026, sichaza ukuthi izimvula zikuma ku-13.4 mm ngenyanga kuyilapho izitshalo eziyisidingo zidinga malunga ne-100 mm ngenyanga. Lezi zindaba kufanele zithumelwe emahhovisini e-Agritex edistrikini ngasekupheleni kukaJanuwari 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela izisebenzi zasemaphandleni ukuyophenyisisa isimo sezitshalo kumaWadi wonke eMarondera, kugxilwe ezindaweni lapho i-vegetation index yehlele ku-0.21 uma kuqhathaniswa nebenchmark enempilo engu-~0.70. Imiphumela kufanele isekele ukusabalaliswa kwezinsiza, njengoba ukutholakala kwezinsiza kusokola ku-64.7/100, okukhombisa ukuthi cishe ingxenye eyodwa kwezintathu yezidingo ayikahlangabezwani nazo."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Lungisa ukufaka iziphala zezokudla ezindaweni zokugcinela eMarondera ngaphambi kwesikhathi sikaMeyi–Juni, lapho isikali sengozi sibikezelwa ukuthi sizokhuphuka kusuka ku-45.6 kuya ku-57.6. Ukuthenga kwangaphambili kufanele kubhekelele ubukhulu besikhala phakathi kokutholakala kwezinsiza (64.7/100) nokufezekiswa okuphelele."
+    },
+    {
+     "dept": "DDF (District Development Fund)",
+     "action": "Nikeza phambili ukulungisa nokukhulisa ingqalasizinda yokunisela eMarondera ukuze ukusileleka okukhona ku-49% kwengqalasizinda yokunisela kunciphe. Nokukhula okuncane ezindaweni eziniselwayo kuzosiza ukuphendula ukushiyiwa kwemvula okulinganiselwa ku-86.6 mm ngenyanga ngaphansi kwezidingo, futhi kuzohambisana nokwehla kwamaphuzu ayisikhombisa nesigamu (7.3) okubhekiselwe kuyona uma iphakeji yesekelo yenziwa ngokuphelele."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukuhlelela ngaphambili ukuvikelwa kwabantu abasengozini eMarondera, usebenzisa inselele ebonakalayo yengozi ekhuphuka kusuka ku-30.9 ngo-Ephreli kuya ku-74.8 ngoSepthemba 2026. Qala ukubhaliswa kwemindeni esengozini emaWardini anomasiqophasiqopha manje, ukuze usizo lwezokudla noma lwemali lunganikezwa ngaphandle kokulibala uma izinga likaJuni–Julayi (57.6–64.7) lifikelwa. Iphakeji yesekelo ephelele ibikezelwa ukunyisa amaphuzu eSepthemba kusuka ku-74.8 kuya ku-67.5, okukhombisa ukuthi ingozi enkulu isalokhu ikhona ngisho nangaphansi kwesimo esikhuthazayo sokuthi ukungenelela kuzosebenza."
+    }
+   ],
+   "note": "Ukwanda kwebala lengozi kusuka ku-2.8 ngoJanuwari kuya ku-74.8 okubikezelwa ngoSepthemba 2026 kudinga ukwenziwa kwezinto ngaphambi kukaMeyi, kepha imodeli ayikwazi ukubona izimvula ezingalindelekile phakathi esikhathini, izinguquko engcupheni yezinambuzane ngaphezu kwezigameko eziyi-14 ezirekhodiwe, noma izinhlehlela ekwabelweni kwesabelomali sombuso ezingathinta umphumela wamaphuzu ayisikhombisa nesigamu webhubhesi yesekelo."
+  }
+ },
+ "Murehwa": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-specific seasonal outlook for Murehwa covering February–September 2026, flagging the rainfall deficit of 20.8mm/month against the ~100mm staple-crop requirement. This outlook should be disseminated to Agritex ward officers and Rural District Council planners no later than end-January 2026 to inform input and contingency pre-positioning decisions."
+    },
+    {
+     "dept": "Agritex (Department of Agricultural Technical and Extension Services)",
+     "action": "Given a vegetation index of 0.27 against a healthy benchmark of ~0.70 and only 61.2/100 input availability, deploy extension officers across all wards in Murehwa to conduct rapid crop-status assessments and accelerate distribution of drought-tolerant seed varieties and fertiliser. Prioritise the roughly 73.1% of farming households outside irrigation coverage, as those households carry the highest exposure to the rising risk trajectory from 47.9 in April to 77.5 by September."
+    },
+    {
+     "dept": "ZINWA (Zimbabwe National Water Authority) & DDF (District Development Fund)",
+     "action": "With irrigation coverage at 26.9%, ZINWA and DDF should jointly audit all functional and non-functional irrigation infrastructure in Murehwa and submit a rehabilitation schedule to the Ministry of Lands and Agriculture by end-February 2026. Even marginal gains in irrigated area could reduce reliance on the current 20.8mm/month rainfall, which is critically below the ~100mm threshold."
+    },
+    {
+     "dept": "Ministry of Lands and Agriculture / GMB (Grain Marketing Board)",
+     "action": "Given the risk score is forecast to reach 73.6 in August and 77.5 in September, pre-position strategic grain reserves through GMB depots accessible to Murehwa by June 2026 at the latest. The modelled support-package intervention reduces September risk only to 68.1, meaning a residual high-risk condition persists; physical grain stocks provide a non-negotiable buffer. Confirm depot capacity and offtake logistics with Rural District Council now."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "With 12 recorded pest incidents already compounding a vegetation index of 0.27, consider triggering early enrolment reviews for existing social-protection caseloads in Murehwa, targeting households in wards with confirmed crop loss. The risk score crosses 50 in May 2026; social-welfare pre-registration of vulnerable households should be completed before that threshold to avoid processing backlogs during the acute phase."
+    }
+   ],
+   "note": "The risk trajectory for Murehwa is steep and accelerating — rising from 5.7 in January to a forecast 77.5 by September 2026 — and even full application of the modelled support package reduces September risk only to 68.1, leaving the district in a high-risk state; planners should note that this forecast cannot account for mid-season pest outbreak escalation beyond the current 12 incidents, sudden input supply shocks, or changes in household purchasing power."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yekunaya kwemvura inofanira kuburitswa ichiratidza kuti Murehwa iri kuwana 20.8mm pамwedzi bedzi, asi zvirimwa zvine basa zvinoda ~100mm. Mashoko aya afanira kusvika kumakosi eAgritex uye veRural District Council musati mapera mwedzi waJanuari 2026 kuitira kuti kurongeka kwakanaka kuquite nguva."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Nekuti vegetation index iri pa0.27 kusvika pa~0.70 yepfuma, uye zvikwangwani zviri pa61.2/100, vaExtension vanofanira kuenda kumisha yose muMurehwa nekukurumidza kuongorora munda uye kugovera mbeu dzinokwikwidza nenzara nemifusho. Dzimba dzinopfuura 73.1% dzisina mvura yekudiridza ndidzo dzine njodzi yakakura sezvo score inokwira kubva pa47.9 muna Kubvumbi kusvika pa77.5 muna Gunyana."
+    },
+    {
+     "dept": "ZINWA neDDF",
+     "action": "Nekuti chete 26.9% yenyika ine kudiridza, ZINWA neDDF vanofanira kuongorora pamwechete zvishandiso zvekudiridza zviripo uye zvakaora muMurehwa, voisa chirongwa chekugadzirisa kuna Ministri yeZvimiro neZvirimo musati mapera Kukadzi 2026. Kuwedzera kudiridza kunogona kubatsira nekusimudza goho kunyange mvura yoramba iri pasi pe100mm."
+    },
+    {
+     "dept": "Ministri yeZvimiro neZvirimo / GMB",
+     "action": "Score inofanotarisirwa kukwira kusvika pa73.6 muna Nyamavhuvhu uye pa77.5 muna Gunyana, saka GMB inofanira kuisa zvikamu zvekudya muzvitoro zvinobatikana neMurehwa musati mapera Chikumi 2026. Kunyange chirongwa chese chibatsiro chichibatsira, score inoramba iri pa68.1 muna Gunyana — kuratidza kuti njodzi haiendi zvachose uye zvikoro zvekudya zviri vatsi hazvishayike."
+    },
+    {
+     "dept": "Ministri yePublic Service, Labour neSocial Welfare",
+     "action": "Nekuda kwezvirwere zvezvokudya zvapinda 12 uye vegetation index iri pasi, kunyorwa kwemhuri dzine njodzi muMurehwa kunofanira kupedzwa score isati yasvika pa50 muna Chivabvu 2026. Izvi zvichadzivirira kunonoka mukati menguva yakaoma yemwaka."
+    }
+   ],
+   "note": "Njodzi muMurehwa inokwira nekukurumidza — kubva pa5.7 muna Januali kusvika pa77.5 muna Gunyana 2026 — uye chirongwa chose chibatsiro chinogona kuderedza score kusvika pa68.1 chete muna Gunyana; chirongwa ichi hachigoni kutaura nezvekuwedzera kwezvirwere muchirimwa, kushomeka kwezvinhu kubva kunze, kana kuchinja kweuchengeti hwemhuri."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issuani i-outlook yesigaba esithile yeMurehwa esikhombisa ukuthi izimvula zimi ku-20.8mm ngenyanga kuphela, kanti izitshalo eziyisidingo zidinga ~100mm. Lolu lwazi kumele lufinyelele izikhulu ze-Agritex kanye nezinto ze-Rural District Council ungakapheli uJanuwari 2026 ukuze amalungiselelo enziwe ngesikhathi."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Nge-vegetation index engama-0.27 kuya ku-~0.70 ezinzile, kanye nokufumaneka kwezifakelo oku-61.2/100 kuphela, izinduna ze-extension kumele zihanjiselele kuwo wonke amagceke eMurehwa ukuhlola isimo sezitshalo futhi zisabalalise imbewu eqinile kanye nomanyolo ngokushesha. Izindlu ezingaphezu kwama-73.1% ezingaphansi kwenhlelo yokunisela zithwele ingozi enkulu njengoba isikali sonyaka senyuka kusuka ku-47.9 ngo-Ephreli kuya ku-77.5 ngoSepthemba."
+    },
+    {
+     "dept": "ZINWA neDDF",
+     "action": "Njengoba inhlelo yokunisela ikhona ku-26.9% kuphela, i-ZINWA ne-DDF kumele zihlole ndawonye ingqalasizinda yokunisela eMurehwa futhi zikhiphe uhlelo lokuhlaziya lokufakwa kuNgqongqoshe Wezemhlabathi Nezolimo ngaphambi kokuphelela kukaFebhruwari 2026. Ukwengeza ukwenisela kunganciphisa ukuncika ezimvuleni ezingaphansi kwe-~100mm."
+    },
+    {
+     "dept": "UNgqongqoshe Wezemhlabathi Nezolimo / GMB",
+     "action": "Njengoba isikali sibikezelwa ukufinyelela ku-73.6 ngo-Agasti kanye no-77.5 ngoSepthemba, i-GMB kumele ibeke igciwane lezokudla emadipoleni afinyeleleka eMurehwa ngaphambi kukaNhlangulana 2026. Ngisho nokusetshenziswa kwephakheji lonke losizo kuphungula isikali ngoSepthemba kuya ku-68.1 kuphela — okukhombisa ukuthi ingozi isalele futhi izakhiwo zokudya ezibonakalayo zidingekile."
+    },
+    {
+     "dept": "UNgqongqoshe Wezenhlalakahle",
+     "action": "Ngezikhali eziyi-12 zokulimala kwezitshalo kanye ne-vegetation index ephansi, ukubhaliswa kwezindlu ezinosizi eMurehwa kumele kuqedwe isikali singakafiki ku-50 ngoMeyi 2026. Lokhu kuzavimbela ukubambezeleka ekusizeni ngesikhathi esinzima."
+    }
+   ],
+   "note": "Ingozi eMurehwa inyuka ngesivinini — kusuka ku-5.7 ngoJanuwari kuya ku-77.5 okubikezelwa ngoSepthemba 2026 — futhi ngisho nokusetshenziswa kwephakheji losizo kuphelele kuphungula isikali kuya ku-68.1 kuphela ngoSepthemba; lesi sibikelo asinakho ukubika ngokukhula kophela lwezinambuzane ngaphezu kwezigameko eziyi-12 ezikhona, ukuxhuga okuzumayo kwezifakelo, noma ukushintsha kwamandla okuthenga kwezindlu."
+  }
+ },
+ "Chinhoyi": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal sub-seasonal outlook for Chinhoyi specifically flagging the rainfall deficit (current 17.9 mm/month against a staple-crop requirement of ~100 mm/month) and communicate updated forecasts monthly to Agritex field officers and the Mashonaland West Provincial Administrator to anchor all downstream planning decisions."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers immediately to assess the 9 recorded pest incidents across affected wards and coordinate targeted pest-response before the high-risk window of July–September 2026 (forecast risk 62.4–73.1); prioritise fields outside the 33.9% irrigation coverage where vegetation index of 0.34 is well below the healthy benchmark of 0.70, indicating severe crop stress."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an emergency audit of irrigation infrastructure in Chinhoyi to identify feasible expansion pathways beyond the current 33.9% coverage; even a modest increase in irrigated area could materially reduce the September peak risk, which the support package projects falling from 73.1 to 64.9 with full intervention — irrigation expansion is a key component of that 8.2-point reduction."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves in Chinhoyi depots ahead of the June–September 2026 elevated-risk corridor (risk scores 49.6–73.1) to protect against supply disruption; the input availability score of 65.1/100 indicates existing supply-chain fragility that could worsen as the lean season deepens."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate vulnerability mapping for Chinhoyi households most exposed to the converging stressors — rainfall at 17.9 mm/month, vegetation index 0.34, and rising risk through September 2026 — and prepare caseload estimates for social protection scale-up no later than May 2026, before the risk score crosses 49.6 in June."
+    }
+   ],
+   "note": "The September risk trajectory (73.1, reduced to 64.9 with the support package) signals a serious but not yet catastrophic outlook; however, this forecast cannot account for sudden mid-season climate shocks, locust incursion escalation beyond the 9 incidents recorded, or macroeconomic shifts affecting input availability — human review and ground-truthing by Agritex officers is essential before resource commitments are finalised."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Buritsa chirevo chepamvura yakanangana neChinhoyi, ichiratidzira kuti mvura iri kuwa mwedzi nemwedzi ndiyo 17.9 mm chete, asi zvirimwa zvinoda anenge 100 mm. Mashoko aya atumirwe kuna vashandi veAgritex nePurovhinzi Administrator weMashonaland West zuva nezuva."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vashandi vemaruwa kuti vaongorore mamwe mapunha 9 ezvirimwa akuva nematambudziko ezviudzo, uye vagadzirire kurwisa matambudziko aya musati masvika nguva ine njodzi huru yaJuly kunaSeptember 2026 (njodzi 62.4 kusvika 73.1); tarisa zvakanyanya minda isiri mukati me33.9% yeirigeisheni, iro index yemiriwo iri pa0.34, yakaderera zvikuru kubva kune yemutsa ye0.70."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ita ongororo yekukurumidza yemidziyo yeirigeisheni muChinhoyi kuti uwane nzira dzekuwedzera kupfuura 33.9% iri zvino; kuwedzera kwirigeisheni kunobatsira zvikuru pakudzikisa njodzi yaSetember kubva pa73.1 kuenda pa64.9 sezvainoratidzwa nekirigeisheni yechirongwa chose cherutsigiro."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Isa zviyo zvekuchengetedza mumatare eChinhoyi musati masvika nguva ine njodzi kubva munaJune kunaSetember 2026 (njodzi 49.6 kusvika 73.1); score yekuwaneka kwemabhizinesi yezvikuva ndiyo 65.1/100, inoratidza kuti chain yokutengesa iri kukwara, uye inogona kuipa seizinga retsvina richienderera mberi."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kunyora mazita emhuri dzinoshungurudzwa zvikuru muChinhoyi — mvura iri pa17.9 mm/mwedzi, index yemiriwo iri pa0.34, uye njodzi ichikwira kusvika muSetember 2026 — uye gadzirira nhamba dzevanobatsirwa izvo zvisati zvasvika mwedzi waChivabvu 2026, pamberi njodzi isati yakwira kusvika pa49.6 munaChikumi."
+    }
+   ],
+   "note": "Nzira yenjodzi yaSetember (73.1, ichidzikiswa kusvika pa64.9 nechirongwa cherutsigiro) inoratidza mamiriro anokangamisa asi asati asvika pachidzitiro; zvisinei, chirongwa ichi hachigoni kutaura nezvekuChinja kwemamiriro ekunze kwekukurumidza, kuwanda kwezviudzo kupfuura pamunhu 9 akaonekwa, kana kuchinja kweupfumi — ongororo nevanhu vakachenjera, pamwe nevashandi veAgritex vari pasi, kunodiwa musati masimba akabetwa."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isaziso esisemthethweni selindiwe semvula eChinhoyi, sikhombe ukuthi izinga lemvula lamanje ngu-17.9 mm ngenyanga, kodwa izitshalo eziyisidingo zidinga imvula engaba ngu-100 mm. Lezi zilazelo mazithumelwe kubasebenzi be-Agritex kanye noMphathi wePhrovhinsi yase-Mashonaland West inyanga ngayinye."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela abasebenzi bezolimo ukuze bahlole izigameko eziyi-9 ezirekhodiwe zezifo nezinambuzane ezitsheni, futhi balungiselele ukuphendula ngaphambi kwesikhathi esiyingozi esiphakeme suka kuJuly kuya kuSeptember 2026 (ingozi engama-62.4 kuya ku-73.1); gxila emasimini angekho ngaphansi kwe-33.9% yobubinde, lapho i-vegetation index ingama-0.34, okuhambile kakhulu ohlelweni olwezempilo lwe-0.70."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Yenza uphenyo olusheshayo lwezakhiwo zokuqagelisa amanzi eChinhoyi ukuze uthole izindlela zokwandisa ukwedlula i-33.9% yamanje; ukukhula kwezindawo eziqagelelwa amanzi kuzosiza kakhulu ukwehlisa ingozi enkulu ngeSeptember, okutshengiswa ukuthi ingaxegeliswa kusuka ku-73.1 kuya ku-64.9 ngeqoqo eliphelele lokwelekelela."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Beka izimba ezibekiwe kwizitolo ze-GMB eChinhoyi ngaphambi kwesikhathi esiyingozi esisuka kuJune kuya kuSeptember 2026 (ingozi engu-49.6 kuya ku-73.1); inombolo yokutholakala kwezidingo ingama-65.1/100, ekhombisa ukuthi umgudu womkhiqizo usephakamela ukuwohloka njengoba isikhathi sobunzima sisondela."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukuhlonza imindeni esengozini enkulu eChinhoyi — imvula ingama-17.9 mm ngenyanga, i-vegetation index ingama-0.34, kanye nengozi ekhulayo kuya kuSeptember 2026 — ulungiselele ukwethulwa kokukhuliswa kwezinhlekelele ukuqala ngoMay 2026, ngaphambi kokuba ingozi yeqe u-49.6 ngoJune."
+    }
+   ],
+   "note": "Umkhondo wengozi weSeptember (73.1, wehliselwa ku-64.9 ngeqoqo lokwelekelela) ukhomba isimo esiqagelisayo kodwa esingakabi yinhlekelele; nokho, lesi sifiso asinakwazi ukukhuluma ngezinkinga ezikhawulayo zesimo sezulu, ukwanda kwezinambuzane ngaphezu kwezigameko eziyi-9, noma ukuguquka kwezomnotho — ukubuyekezwa ngabantu abanolwazi, kanye nabasebenzi be-Agritex basemhlabathini, kuyadingeka ngaphambi kokuphela kwezinqumo."
+  }
+ },
+ "Hurungwe": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal sub-seasonal outlook for Hurungwe covering May–September 2026, quantifying the probability of continued rainfall deficit below the 100mm/month crop threshold. Current observed rainfall of 12.8mm/month is 87.2mm below staple-crop requirement; planners need updated tercile probabilities before June budget commitments are finalised."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to all Hurungwe wards to assess the 3 recorded pest incidents and classify threat level before May, when risk crosses 60.4. The vegetation index of 0.26 against a healthy benchmark of 0.70 signals crop stress that can amplify pest damage; early scouting and farmer advisory notes should be prioritised within existing field schedules."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Audit current irrigation infrastructure in Hurungwe against the reported 30.2% coverage figure and identify which schemes can be rehabilitated or expanded within the May–July window. A 10-point risk reduction to 72.2 is modelled if the full support package is applied by September; irrigation expansion is the single highest-leverage physical intervention available given the 12.8mm/month rainfall figure."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves at Hurungwe district depots in anticipation of the August–September peak risk window (78.2 and 82.3 respectively). Input availability currently scoring 65.3/100 suggests partial but incomplete supply chains; GMB should confirm depot stock levels and transport contracts no later than end of June to avoid logistical bottlenecks during the high-risk months."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Begin targeting verification for cash or food-transfer scale-up in Hurungwe wards most affected by the vegetation index decline (0.26), scheduling transfers to reach beneficiaries before the July forecast risk of 72.1. Coordination with Hurungwe Rural District Council is advised to cross-reference beneficiary lists and avoid duplication with existing social protection registers."
+    }
+   ],
+   "note": "The September risk score of 82.3 — reducible to 72.2 with full package deployment — represents a high and time-sensitive alert, but the forecast cannot account for sudden shifts in El Niño/La Niña phase, crop-specific varietal performance, or informal cross-border grain flows that may materially alter household food access in Hurungwe."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yemvura yeHurungwe kubva Chivabvu kusvika Gunyana 2026 inofanira kuburitswa nekukurumidza, ichiratidzira zvakajeka kuti mvura inogona kuramba iri pasi pe-100mm pamwedzi — iyo chikero chinodikanwa nezvirimwa. Mvura iri kuonekwa iye zvino ndeye 12.8mm pamwedzi, zvinoreva kushaikwa kwe-87.2mm."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Vatariri vezveminda vafambire kunzvimbo dzose dzeHurungwe kuongorora matambudziko matatu emapashure akonyorwa, vasati vasvika Chivabvu apo njodzi inokwira kusvika pa-60.4. Index yemiti iri pa-0.26 — kana tichiyerekanya ne-0.70 yezvakaguta — inoratidzira kuti zvirimwa zvirwara, izvo zvinogona kuwedzera njodzi dzemapashure."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ongorora zvishandiswa zvekudiridza muHurungwe zvichienderana nechimiro che-30.2% yakubvumirwa, wobva waona zvipunha zvinogona kugadziridzwa kana kuwedzerwa pakati pe-Chivabvu naChikunguru. Dzikiso yenjodzi ye-10 inobva kumakumi manomwe nemaviri kusvika pa-72.2 inoratidzirwa kana chirongwa chose chishandiswe nguva yayo."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Tumira zviyo zvekuchengeta kudepo dzeHurungwe zvichitarisira nguva yepamusoro yenjodzi yaChikunguru–Gunyana (78.2 uye 82.3). Kuwanikwa kwezviumbiso kuri pa-65.3/100 kunoratidzira kuti mukuya wezvinhu hauna kukwana; GMB inofanira kusimbisa mitoro yedepo zvisati zvapera Chikunguru."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kutarisisa minda yeHurungwe yakakuvadzwa zvakanyanya, uchishandisa index yemiti ye-0.26, kugadzirira kuwedzera rubatsiro rwemari kana chikafu vasati vasvika Chikunguru apo njodzi inoratidzirwa pa-72.1. Hurungwe Rural District Council inofanira kushirikiana pakusimbisa mireji yevabatsirwa."
+    }
+   ],
+   "note": "Mwero wenjodzi waGunyana wa-82.3 — unogona kuderedzwa kusvika pa-72.2 kana chirongwa chose chishandiswa — unoratidzira njodzi huru uye inodikanya nguva, asi chirongwa ichi hachigoni kuziva nezveshanduko dzenyika dzedziva kana pfuma yezviyo inobva kunze kwemuganhu zvinogona kushandura mamiriro ezvinhu zvezvokudya muHurungwe."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Indlela yezulu eHurungwe kusukela ngoNhlaba kuze kube nguNgwengoma 2026 kufanele ikhishwe ngokushesha, ikhombisa ngezinombolo ukuthi izulu lingahlala lingaphansi kwe-100mm ngenyanga — isidingo sezilimo. Izulu elibonwa manje yi-12.8mm ngenyanga, okusho ukuthi kwehlula nge-87.2mm ukudingeka kwezilimo."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Izisebenzi zezolimo kufanele zihambe kuzo zonke izigodi zeHurungwe ukuhlola izigameko ezintathu zamalulwane ezirekhodiwe, ngaphambi kukaNhlaba lapho ingozi iyakhula iye ku-60.4. Inkomba yemithi ye-0.26 — uma iqhathaniswa ne-0.70 eyezempilo — ikhombisa ukucindezeleka kwezilimo okunganda ingozi yamalulwane."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Hlola ingqalasizinda yokusingelela amanzi eHurungwe ngokwedatha ye-30.2% evunyiwe, ubuke futhi ukuthi izinhlelo ezingasetshenzwa noma zinwetshwa phakati kukaNhlaba neyesiKhombisa. Ukwehla kwengozi ngamaphuzu ayi-10 kuya ku-72.2 kubikezelwa uma iphakheji yosizo ephelele isetshenziswile ngesikhathi sayo."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Beka izimpahla zokudla emazitolo eHurungwe ngaphambi kwesikhathi sengozi ephezulu ngeyesiKhombisa–Ngwengoma (78.2 kanye ne-82.3). Ukutholakala kwezakhi zezolimo ngezinga le-65.3/100 kukhombisa ukuthi umthambo wezimpahla awupheleli; iGMB kufanele iqinisekise amazinga estoko emizitolo ngaphambi kokugcina kukaNhlangulana."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukuhlonza izindawo zeHurungwe ezichaphazeleke kakhulu ngenkomba yemithi ye-0.26, ulungiselele ukukhulisa ukusizwa ngemali noma ngokudla ngaphambi kukaMfumfu lapho ingozi ibikezelwa ku-72.1. Ukuxhumana neHurungwe Rural District Council kuyanconywa ukuqinisekisa amalista abaholi bendlala."
+    }
+   ],
+   "note": "Inani lengozi yaNgwengoma eli-82.3 — elingancishiswa liye ku-72.2 ngokusetshenziswa kwephakheji yosizo ephelele — likhombisa isexwayiso esibalulekile nesidinga ukuphuthuma, kodwa lesi bikezelo alikwazi ukukhombisa izinguquko ezikhawulayo kwezeNi/iLa Niña, ukusebenza kwezinhlobo ezithile zezilimo, noma ukugeleza kukudla okuvela ngaphandle kwemingcele okungashintsha ngokuchazekayo ukutholakala kokudla eMusha weHurungwe."
+  }
+ },
+ "Masvingo": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level seasonal outlook update for Masvingo covering February–September 2026, highlighting the rainfall deficit of 14.5mm per month against the staple-crop requirement of approximately 100mm per month. This should be shared with Agritex field officers and Rural District Council planners by end of January 2026 to anchor all downstream decisions in verified forecast data."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Given a vegetation index of 0.31 against a healthy benchmark of 0.70 and input availability scored at only 54.6 out of 100, Agritex extension officers should conduct an immediate field assessment across Masvingo district to identify which wards face the sharpest input gaps. Prioritise redistribution or emergency procurement of seed and fertiliser to close the availability deficit before the March–April window, when risk scores are projected to reach 43.5 and 46.4 respectively."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "With irrigation coverage at 24.3 percent, ZINWA should audit existing irrigation infrastructure in Masvingo district and identify schemes that can be rehabilitated or expanded before the dry season peak. A targeted increase in irrigated area would directly support the modelled 9.9-point risk reduction achievable through the full support package, helping to lower the September forecast from 72.1 to 62.2."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves for Masvingo district ahead of the May–June period when risk scores are expected to reach 57.9 and 52.0. Given the trajectory toward a September risk of 72.1, GMB should coordinate with the Ministry of Lands and Agriculture to confirm buffer stock thresholds and trigger points for release, ensuring supply continuity during the highest-risk months of July through September (65.2, 69.4, and 72.1 respectively)."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "With the risk score rising steadily from 19.1 in January to a projected 72.1 by September 2026, the Ministry should review Masvingo district beneficiary lists under existing social protection programmes and assess whether caseload expansion or benefit top-ups are warranted from May onward. The two recorded pest incidents should also be factored into vulnerability mapping for the most food-insecure households."
+    }
+   ],
+   "note": "The risk trajectory for Masvingo is steep and consistent — rising 53 points over nine months — and the full support package, while meaningful, reduces the September peak only to 62.2, which remains an elevated risk level; the forecast cannot account for mid-season rainfall recovery, new pest outbreaks, or changes in household coping capacity."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yemvura muMasvingo iri pazasi kwazvo — 14.5mm pamwedzi ichienzaniswa ne 100mm inodikanwa nembeu dzechikafu. Meteorological Services Department inokurudzirwa kubvisa chirevo chepamwedzi chose kubva Kukadzi kusvika Gunyana 2026, ichi chigovaniswane naAgritex neRural District Council vasati vapedza Ndira 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Vegetation index iri pa 0.31 ichienzaniswa ne 0.70 inoratidzira utano, uye zvibatsiro zveminda zviri pa 54.6 pane 100 — Agritex inokurudzirwa kuita ongororo yepakurumidza mumaward ese eMasvingo kuti izive nzvimbo dzine kushayiwa kwakanyanya. Mbeu nemifananidzo yeminda inofanira kusvika kumurimo asati apera munaKurume-Kubvumbi, nguva yekuti njodzi ichadzika kusvika pa 43.5 ne 46.4."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Nekuti 24.3 muzana chete ndizo dzine mvura yekusakisa, ZINWA inokurudzirwa kuongorora zvivakwa zvekusakisa muMasvingo uye kutsvaga nzira dzekuwedzera nzvimbo dzinosakiswa mvura. Kuwedzera kusakisa kunogona kubatsira kukumbirisa njodzi ye Gunyana kubva pa 72.1 kusvika pa 62.2 sezvinoratidza muenzaniso wechishandiso chizere."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "GMB inokurudzirwa kuchengetedza pfuma yechikafu muMasvingo isati yauya nguva yeKukadzi-Chikumi, nguva yenjodzi ichikwira kusvika pa 57.9 ne 52.0. Nekuda kwemakwikwi anofungidzirwa kusvika pa 72.1 munaGunyana, GMB ifanire kubvumirana neMinistry of Lands and Agriculture nezvemiganho yekudyiwa kwezvinhu uye nguva dzekuburitsa zvikamu zvechechi."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "Njodzi ichikwira kubva pa 19.1 munaJanyuere kusvika pa 72.1 munaGunyana, Ministry inokurudzirwa kuongorora ruramisiro rwevashandi vemabhenefiiti eMasvingo kubva munaKukadzi. Zvitambi zviviri zvezvirimwa zvaakaonekwa zvifanire zvicherechedzwa pakuona imba dzinonyanya kushayiwa zvekudya."
+    }
+   ],
+   "note": "Njodzi yeMasvingo inokwira nekukurumidza — ichikwira mapoinzi makumi mashanu nematatu mune mwedzi mipfumbamwe — uye chishandiso chizere, kunyange chichitibatsira, chinodzosa njodzi yeGunyana pa 62.2 chete, iyo ichiri nzvimbo ine njodzi yakakura; muenzaniso haungagoni kufunga nezvekudzoka kwemvura pakati pegore, kurwara kweminda kutsva, kana kuchinja kwemanikidzo emhuri."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Izulu elizehliyo eMasvingo lilinganiselwa ku-14.5mm ngenyanga, okuyingaphansi kakhulu uma kuqhathaniswa nezidingo zemilimo yezokudla ezingama-100mm. Isigaba sezulu esihlangene esingabika ukusuka ngoFebruary kuya ngoSeptember 2026 siyacelwa sikhishwe ngeSikhungo seZezulu bese sabiwa nabasebenzi base-Agritex nabasebenzi beRural District Council phambi kokuphela kweNhlolanja 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Inkomba yemilimo ihlezi ku-0.31 uma kuqhathaniswa nesilinganiso esiphilile sika-0.70, kanti ukutholakala kwezinsiza kulinganiselwa ku-54.6 phezu kwe-100. I-Agritex icelwa ukuthi iqhube ukuhlola ngesantunti emagcemeni eMasvingo ukuze izithole izindawo eziswele kakhulu. Imbewu nezinsiza zomhlaba kumele zifike ngaphambi kweSikhathi sokuhlwanyela ngenyanga kaMashi-Ephreli, lapho inani lengozi libalwa ku-43.5 naku-46.4."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ngenxa yokuthi amaphesenti angama-24.3 kuphela avikiwe ngamanzi okuncela, i-ZINWA icelwa ukuthi ihlole izingqalasizinda zokwethula amanzi eMasvingo bese idinga izindlela zokwenyusa indawo enikwa amanzi. Ukwenyusa ukuvikwa ngamanzi kungasiza ukuwehlisa ingozi yangoSeptember kusuka ku-72.1 iye ku-62.2, njengoba imodeli yephakheji yosekelo eligcwele ibonisa."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "I-GMB icelwa ukubeka iziphatho zamazakha ezibalulekile eMasvingo ngaphambi kweMey-Juni, lapho amanani engozi alindele ukufinyelela ku-57.9 no-52.0. Njengoba ingozi yangoSeptember ibalwa ku-72.1, i-GMB kumele ibambisane neNyanga Yezelimo ukuqinisekisa imingcele yeziphatho ezidingekayo kanye neziqalo zokukhipha okudingekayo ezinyangeni ezinosizo kakhulu — uJulayi kuya kuSeptember."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "Njengoba ingozi inyuka ngokuqhubeka kusuka ku-19.1 ngoJanuary iye ku-72.1 ngoSeptember 2026, iNyanga icelwa ukuhlola uhlu lwabamukeli bohlelo lwezokuphila eMasvingo bese ibheka ukuthi ukwenyuswa kwezinzuzo kuyadingeka kusuka ngoMey. Izigameko ezimbili zemisindaphila nazo kufanele zihlanganiswe ekuhlonzweni kwezindlu eziswele kakhulu."
+    }
+   ],
+   "note": "Indlela engozi eMasvingo inyuka ngamandla — inyuka amaphuzu angama-53 ezinyangeni eziyisishiyagalolunye — futhi noma iphakheji yosekelo eligcwele inomthelela omuhle, iyehlisa inani langeSeptember kuya ku-62.2 kuphela, okusalinganiselwa njengengozi ephezulu; imodeli ayikwazi ukuqagela ukubuya kwezulu phakathi nesizini, ukuphuma kwezinambuzane ezintsha, noma ukushintsha kwamandla emigile yemindeni."
+  }
+ },
+ "Chiredzi": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue an extended seasonal outlook specifically for Chiredzi covering February–September 2026, emphasising the rainfall deficit already measured at 8.7 mm/month against a crop requirement of approximately 100 mm/month. Distribute this outlook to Agritex ward extension officers and the Rural District Council no later than end-January 2026 to anchor all downstream planning decisions."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Given a vegetation index of 0.265 against a healthy benchmark of 0.70, and input availability at only 47.4 out of 100, mobilise Agritex extension officers across all wards in Chiredzi to conduct an immediate crop-stand assessment and accelerate input distribution — prioritising drought-tolerant seed varieties and top-dressing fertiliser — before the April risk threshold of 55.3 is reached."
+    },
+    {
+     "dept": "ZINWA / District Development Fund",
+     "action": "With irrigation coverage at only 27% of the district, ZINWA and DDF should jointly audit existing irrigation infrastructure along the Runde and Mwenezi catchments, identify repair requirements, and prepare a prioritised rehabilitation schedule so that the remaining irrigable area can be brought into production before the June–September high-risk window, when the forecast risk index rises from 59.8 to 65."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves in or near Chiredzi depots in anticipation of the July–September forecast risk range of 61.6–65, which represents the highest sustained stress period in this timeline. Given that the support package is modelled to reduce September risk from 65 to 55.4 — a 9.6-point reduction — GMB's pre-positioning should be treated as a core component of that package rather than a contingency measure."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "With 8 recorded pest incidents already compounding the rainfall and vegetation stress, and risk climbing steadily from 55.3 in April to 65 by September, the Ministry should review the current social-protection caseload in Chiredzi and model a scale-up scenario for the June–September period, ensuring that the Harmonised Social Cash Transfer programme has sufficient headroom to expand coverage if staple-crop failure materialises."
+    }
+   ],
+   "note": "The upward risk trajectory from 47 in January to a forecast 65 by September 2026 warrants early action before April; however, the model cannot account for mid-season rainfall events, pest outbreak escalation beyond the 8 incidents recorded, or supply-chain disruptions that could alter input availability from its current index of 47.4."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yemvura iri pasi zvikuru — 8.7 mm pamwedzi chete, ipo mbeu dzichida anenge 100 mm — saka Meteorological Services Department inokurudzirwa kubuda nemashoko ekutarisira mamiriro ekunze kubva Kukadzi kusvika Gunyana 2026 owasvika kumabhuku eAgritex nevakuru veRural District Council pamberi pokupera kwaJanuary 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Index yemiti neminda iri pa 0.265 chete, ipo pfuma yezvinhu zvekurima iri pa 47.4 pane 100, saka vakuru veAgritex vanokurudzirwa kuita ongororo yezvirimwa mumaward ose eChiredzi nekukurumidza kuendesa mbeu dzinotsungirira zuva rokupisa nemvura shoma, vasati vasvika munguva yekutambudzika kwakakura muna April, index yacho iri pa 55.3."
+    },
+    {
+     "dept": "ZINWA / District Development Fund",
+     "action": "Nekuti ndima inoshandisa mvura yeruzivo iri pa 27% chete, ZINWA naDDF vanokurudzirwa kuongorora zvivakwa zvekudiridza nzizi dzeRunde neMwenezi, vabuditire pasi chikwereti chekugadzirisa, votanga basa iri pamberi pemwedzi yaJune kusvika Gunyana, nguva iyo forecast index ichimhanya kubva pa 59.8 kuenda ku 65."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "GMB inokurudzirwa kuchengetedza zviyo nenhumbi mumaguta eChiredzi nguva yino, iyo forecast risk index ichitarisirwa kukwira kubva pa 61.6 muna Chikunguru kusvika pa 65 muna Gunyana 2026. Pakuenzanisa, support package inogona kudzosa index yaGunyana kubva ku 65 kuenda ku 55.4 — kuderedzwa kwa 9.6 — saka kuisa zviyo pamberi kunofanira kuonekwa sechikamu chikuru chechirongwa ichi."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Vana 8 vemapest vatorwa, nokuwedzera matambudziko emvura uye minda isina kusvika, Ministri inokurudzirwa kuongorora rondedzero yevatambudziki muChiredzi uye kugadzirira kuwedzera nhamba yevanobatsirwa neHarmonised Social Cash Transfer pakati peJune naGunyana 2026, kana mbeu dzaparara."
+    }
+   ],
+   "note": "Kukwira kwerisk kubva pa 47 muna January kusvika pa forecast 65 muna Gunyana 2026 kunoratidza kuti zviito zvinofanira kutangwa pamberi paApril; asi chirongwa ichi hachigoni kuona mvura inogona kuuya pakati pemwaka, kuwedzera kwemapest kupfuura 8 akatorwa, kana matambudziko ekuendesa zvinhu zvekurima ainogona kushandura index ya 47.4."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Izinga lemvula seliphansi kakhulu — 8.7 mm ngenyanga kuphela, kanti izitshalo zidinga imvula engelanganiswa engu-100 mm — ngakho-ke iMeteorological Services Department ikhuthazwa ukukhipha isaziso sezimo zezulu esibhekiswe eChiredzi sisukela uNhlolanja kuya kuMandulo 2026, lesi saziso sifike kumaphisi eAgritex kanye leRural District Council ngaphambi kokuphela kweJanuary 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Inkomba yemithi yamadlelo ingama-0.265 kuphela, kanti izinto zokulima zitholakala ngo-47.4 phezu kwe-100, ngakho-ke iAgritex ikhuthazwa ukuthi iziphathimandla zayo emawadini eChiredzi zihlole isimo sezitshalo ziphinde zisheshise ukusakaza imbewu ejayelana lokushisa kanye lomquba, ngaphambi kokufika kwesigaba sengozi enkulu ngo-Apreli lapho inkomba yengozi imi ku-55.3."
+    },
+    {
+     "dept": "ZINWA / District Development Fund",
+     "action": "Njengoba ukusetshenziswa kwezinhlelo zokuncedisa imvula kumele kuphela ku-27% yesifunda, iZINWA kanye leDDF zikhuthazwa ukuthi zihlole ingqalasizinda yokunisela emifuleni iRunde loMwenezi, zilungiselele uhlelo lokubuyisela ingqalasizinda esimweni, zisize ukuthi izindawo ezisele ezikhona zingene emsebenzini ngaphambi kwesikhathi sengozi ephakemeyo esukela uJuni kuya kuMandulo, lapho inkomba yethi ikhuphuka kusukela ku-59.8 kuya ku-65."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Ikhuthazwa iGMB ukuthi ilungiselele ukukhonzela ukudla okuyisabelo eChiredzi njengamanje, njengoba inkomba yengozi iqagulwa ikhuphuke kusukela ku-61.7 ngoNtulikazi kuya ku-65 ngoMandulo 2026. Njengoba iphakheji yokusiza inganciphisa ingozi yaSeptember kusukela ku-65 iye ku-55.4 — ukwehla kwe-9.6 — ukulungiselela ukudla kuqala kufanele kubonwe njengesiqephu esibalulekileyo salo mhlahlandlela."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Ngezigameko ezi-8 ezirekhodiwe zamasimu aletha ingozi, ziwela phezu kokuswela imvula lezimo zemithi ezilusizi, iMinistra ikhuthazwa ukubheka uhlelo lwezinsizo eziseChiredzi futhi ilungiselele ukwanda kohlelo lwe-Harmonised Social Cash Transfer phakathi kukaJuni loMandulo 2026 ukuze kusizwe abantu uma izitshalo zingakhuli."
+    }
+   ],
+   "note": "Ukukhuphuka kwengozi kusukela ku-47 ngoJanuary kuya kwe-65 eqagelwayo ngoMandulo 2026 kukhombisa ukuthi izinyathelo zokusizana kufanele ziqalwe ngaphambi kukaApreli; kodwa-ke uhlelo lwe-Hozi alukwazi ukubona imvula engabuya phakathi kwesizini, ukwanda kwamasimu angaphezu kwezi-8 ezirekhodiwe, noma izinkinga zokuhlinzeka izinto ezinokulimaza inkomba ye-47.4 yezinto ezitholakala."
+  }
+ },
+ "Hwange": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department & Agritex",
+     "action": "Rainfall at 9.2 mm/month is 9% of the 100 mm/month staple-crop requirement. Meteorological Services Department should issue a formal sub-seasonal forecast update for Hwange by end-January 2026, and Agritex field officers should use this to advise farmers to shift to drought-tolerant varieties (e.g. sorghum, pearl millet) before the February planting window closes, given the risk score is already rising to 45.8 in February."
+    },
+    {
+     "dept": "ZINWA & Ministry of Lands and Agriculture",
+     "action": "Irrigation coverage of 19.4% leaves over 80% of cropland entirely dependent on the 9.2 mm/month rainfall currently recorded. ZINWA should audit all existing irrigation infrastructure in Hwange by February 2026 and prioritise repair of non-functional schemes, while the Ministry of Lands and Agriculture should fast-track water-use permit processing so that the irrigation coverage gap can be partially closed before the high-risk May–September window (scores 61.9–73.7)."
+    },
+    {
+     "dept": "Agritex & GMB (Grain Marketing Board)",
+     "action": "Input availability at 44.6 out of 100 is critically low for a district facing a July–September forecast risk of 68.4–73.7. Agritex should quantify the seed and fertiliser deficit at ward level and submit a formal requisition to GMB and the Ministry of Lands and Agriculture no later than end-February 2026 so that inputs reach farmers before the lean season peak. Delay beyond March reduces the intervention's projected 11.7-point risk reduction effect."
+    },
+    {
+     "dept": "DDF (District Development Fund) & Rural District Council",
+     "action": "With a vegetation index of 0.32 against a healthy benchmark of 0.70, rangeland and soil conditions in Hwange are severely degraded. DDF should coordinate with Hwange Rural District Council to mobilise labour-based cash-for-work programmes on soil-water conservation structures (contour ridges, check dams) starting March 2026, targeting the wards with the 13 recorded pest incidents, where vegetation stress is likely compounding crop losses."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "The forecast risk trajectory reaches 73.7 by September 2026 even without the support package, and only moderates to 62.0 with full package deployment — still an elevated risk level. The Ministry should review Hwange's Harmonised Social Cash Transfer caseload by April 2026 and model an emergency top-up for the most vulnerable households to bridge the August–September hunger gap, using the forecast scores as a trigger-threshold reference."
+    }
+   ],
+   "note": "The September risk score remains at 62.0 even with the full support package applied, indicating that early action is necessary but not sufficient; the forecast cannot account for sudden livestock disease outbreaks, localized flooding events, or political disruptions to supply chains that could worsen outcomes beyond the modelled range."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department & Agritex",
+     "action": "Mvura iri kunaya inongova 9.2 mm pamwedzi, asi mbesa dzinoda inenge 100 mm pamwedzi. Meteorological Services Department inofanira kuburitsa nhevedzano yemvura yeHwange pamberi paFebruary 2026, uye vashandi veAgritex vanofanira kubatsira varimi kushandura kurimwa kwavarimira zvirimu zvinokumira kuoma, sezvinonzi mapfunde nemagwere, mvura yerisk ichikwira kusvika 45.8 muna February."
+    },
+    {
+     "dept": "ZINWA & Ministry of Lands and Agriculture",
+     "action": "Kunoshanda kwemvura yekupomba (irrigation) kunongokwana 19.4%, kunosiira minda inopfuura 80% ichidependa pamvura inonaya 9.2 mm chete pamwedzi. ZINWA inofanira kuongorora zvese zvishandiso zvekupomba mvura muHwange pamberi paFebruary 2026, uye Ministry of Lands and Agriculture inofanira kukurumidza kupedza zvibvumirano zvekushandisa mvura kuti irrigation ikwanise kukura pamberi pemwedzi yehunyoro-nyoro uyo weMay kusvika September (risk scores 61.9–73.7)."
+    },
+    {
+     "dept": "Agritex & GMB (Grain Marketing Board)",
+     "action": "Zvikwaniso zvekurima zviri pasi chaizvo pa 44.6 pazvuru zana, mudhisitiriki rine risk yakaforestiwa ye 68.4 kusvika 73.7 muna July kusvika September. Agritex inofanira kunyora chiverengero chembeu nefetereza dzinodikanwa mumaward ese uye kutumira chikumbiro kuGMB nevaMinistrari veLands and Agriculture pamberi pakupera kwaFebruary 2026, kuitira kuti zvikwaniso zvisvike kuvarimi pamberi pemwedzi dzezvinonetsa. Kufamba zvishoma kusvika March kunoderedza mhedzisiro yekuderedzwa kwerisk yamapoindi 11.7."
+    },
+    {
+     "dept": "DDF (District Development Fund) & Rural District Council",
+     "action": "Vegetation index iri pa 0.32 pazasi pebenchmark yakakwana ye 0.70, ichiratidzira kuti ivhu nematanga eHwange akashata chaizvo. DDF inofanira kushanda naHwange Rural District Council kuti ivake mapurogiramu ekubhadhara vanhu vashande pakugadzira mhino dzeivhu (contour ridges, check dams) kubva muna March 2026, ichifocusa maward ane nhamba 13 yezvitambi zvezvirimwa, uko kushata kweminda kunotowedzera kurasikirwa kwemhuri."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "Risk yaSeptember inokwira kusvika 73.7 pasina chikwaniso, uye inongoderedza kusvika 62.0 chete kana chikwaniso chakakwana chikashandiswa — risk ichiriko pane yakakwirira. Ministrari inofanira kuongorora nhamba yemhuri dzinogamuchira mari yeHarmonised Social Cash Transfer muHwange pamberi paApril 2026 uye kugadzira kurongeka kwekuwedzera rubatsiro kumhuri dzinonetsa, ichishandisa manhamba erisk senhanho yekusimbisa zvisarudzo."
+    }
+   ],
+   "note": "Risk yaSeptember inoramba iri pa 62.0 kunyangwe chikwaniso chakakwana chakashandiswa, zvichiratidza kuti kuita zvinhu nekukurumidza kunodiwa asi hakwanisi kugadzirisa zvinhu zvese; forecast haikwanisi kuziva nezveurwere hwemombe hungazoburuka, mafashamo anogona kuitika, kana zvirambadzo zvemitambo yepolitiki zvingakonzera dambudziko guru kupfuura zvatakasvika nazo mumodel."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department & Agritex",
+     "action": "Izulu lina 9.2 mm ngenyanga, kodwa izitshalo ezikhona njengezabelo zesintu zidinga ama-100 mm ngenyanga. I-Meteorological Services Department kufanele ikhuphe isiboniso sezulu esihlaziyiwe seHwange ngaphambi kokuphela kweJanuary 2026, futhi abasebenzi be-Agritex kufanele baxwayise abalimi ukuthi bashintshele ezikhuthazayo ezingakuluma ukoma (umoba wempuphu, umabele) ngaphambi kokuthi isikhathi sokuhlanyela seFebruary siphele, njengoba inani lesengozi selikhula liye ku-45.8 ngoFebruary."
+    },
+    {
+     "dept": "ZINWA & Ministry of Lands and Agriculture",
+     "action": "Ukufakwa kwamanzi ngokunisela kufika ku-19.4% kuphela, okushiya ingxenye enkulu yomhlaba yokuthi incike ezulwini elina 9.2 mm ngenyanga. I-ZINWA kufanele ihlole konke amacebo anisela eHwange ngaphambi kweFebruary 2026, futhi iMinistra yezaMhlaba nokuLima kufanele isheshise ukuphothulwa kwezimvume zokusetshenziswa kwamanzi ukuze ukufakwa kwamanzi kunisele kukhule ngaphambi kwesikhathi esiyingozi esikhulu seMay kuya kuSeptember (amaranki e-61.9–73.7)."
+    },
+    {
+     "dept": "Agritex & GMB (Grain Marketing Board)",
+     "action": "Ukutholakala kwezinsiza zokutshalwa kuphakathi ku-44.6 ku-100 okuphansi kakhulu, esifundeni esinezinombolo zengozi eziragiweyo ze-68.4 kuya ku-73.7 ngo-July kuya ku-September. I-Agritex kufanele ibalile ukusweleka kwezihlanyelo nezinhlanyelo zomfino ezidingekayo ezigcemeni ngalinye bese ifaka isicelo esisemthethweni ku-GMB naseMinistra ngaphambi kokuphela kweFebruary 2026, ukuze izinsiza zifinyelele abalimi ngaphambi kwesikhathi sendlala. Ukubamb' isikhathi kuze kufike uMarch kunciphisa umthelela wokuhlela owokwehlisa amaranki e-11.7."
+    },
+    {
+     "dept": "DDF (District Development Fund) & Rural District Council",
+     "action": "Inkomba yemifula nezitshalo imi ku-0.32 uma iqhathaniswa nebenchmark ezinzile engu-0.70, okubonisa ukuthi umhlaba nezindawo zamahlathi eHwange kunobungcuphe obukhulu. I-DDF kufanele isebenzisane neHwange Rural District Council ukuze yethule izinhlelo zomsebenzi okhokhelwa ngemali eqondiswe ekuvikeleni umhlaba (izintambela zokulungisa umhlaba, izisekelo zamanzi) kusukela ngoMarch 2026, igxile ezigcemeni ezilandelwa ngezigameko ezingu-13 zentuthuko yezinambuzane, lapho ukufa kwemifula kunengezela khona ukulahlekelwa emasimini."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour and Social Welfare",
+     "action": "Inombolo yengozi kaSeptember ifinyelela ku-73.7 ngaphandle kwesikhwama sosekelo, futhi iyehlela ku-62.0 kuphela nxa isikhwama esigcwele sesisebenziwe — ingozi isaqhubeka iphakeme. IMinista kufanele ihlole uhlu lwemindeni etholakala usizo lwe-Harmonised Social Cash Transfer eHwange ngaphambi kweApril 2026 futhi ihlele ukwengeziwa kosizo lwephuthumayo kwemindeni edinga kakhulu, isebenzisa amaranki engozi njengezinkomba zokufaka izinqumo."
+    }
+   ],
+   "note": "Inombolo yengozi kaSeptember ihlala iku-62.0 ngisho isikhwama esigcwele sesisebenziwe, okubonisa ukuthi ukuqala ngesikhathi kuyadingeka kodwa akwaneli; isiboniso asinakho ukwazi ngezigulo ezingaqhamuka emfuyweni, izikhukhula ezikhethekile, noma izithiyo zezombusazwe ezingenza ukuthi isimo sibi ukwedlula okwezinombolo esizibonile."
+  }
+ },
+ "Lupane": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level rainfall advisory for Lupane covering February–September 2026, reflecting the observed 8.9 mm/month average against the ~100 mm crop requirement. This advisory should anchor seasonal planning assumptions for all line ministries operating in the district and be updated monthly as forecast risk climbs from 51.5 in February toward a projected 79.5 by September."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Given that input availability stands at only 45.9/100 and vegetation index is 0.31 against a healthy benchmark of 0.70, Agritex field officers in Lupane should prioritise distribution of drought-tolerant seed varieties and soil-moisture conservation materials before the risk inflection point in May (risk score 65.8). Officers should also register and monitor the 4 recorded pest incidents to prevent secondary crop losses compounding moisture stress."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "With irrigation coverage at 28.6%, ZINWA should audit existing irrigation infrastructure in Lupane and identify wards where coverage expansion is technically feasible ahead of the June–September high-risk window (scores 55.4–79.5). Even marginal increases in irrigated area will help reduce the district's near-total dependence on the current 8.9 mm/month rainfall."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves within Lupane district by end of April 2026, before the risk score surpasses 65.8 in May and logistics become more constrained. Reserve levels should be calibrated to cover a supply gap scenario, noting that a full support package is modelled to reduce September risk only to 67.9, meaning residual food-access stress will remain even under intervention."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Initiate lean-season social-protection case-load review for Lupane by March 2026, when risk crosses 47.3. Escalation planning should account for the forecast risk trajectory reaching 79.5 by September and the modelled ceiling of 67.9 even with the full support package applied, ensuring that the most vulnerable households are enrolled in assistance programmes before peak stress months of August and September."
+    }
+   ],
+   "note": "The escalating risk trajectory for Lupane—rising from 14.3 in January to a projected 79.5 in September 2026—warrants early inter-agency coordination no later than February; however, the forecast cannot account for sudden livestock disease outbreaks, market price shocks, or mid-season policy changes that could materially worsen or improve food-security outcomes beyond what the modelled 11.6-point support-package reduction captures."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Buritai mashoko okuyambira pamusoro pemvura muLupane achishanda kubva munaFebruary kusvika September 2026, achiratidzira kuti mvura iri kunaya 8.9 mm pagore rimwe nerimwe kuenzaniswa nechikumbiro che~100 mm chinodiwa nembesa. Mashoko aya anofanira kushandiswa nawo mamesiti ese anoshanda mudunhu uye ashandurwe gore negore sezvo njodzi ichikwira kubva pa51.5 munaFebruary kusvikira pa79.5 munaSeptember."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Nekuti zvinhu zvekurima zviripo zvingori pa45.9/100 uye index yemashrubbery iri pa0.31 pane chinhu chakanaka che0.70, vashandi veAgritex muLupane vanofanira kutangira kupa mbeu dzinorwisana nenzara uye zvekuchengetedza mvura mumvura isati yasvika nguva yenjodzi munaKweyakwapiri (njodzi 65.8). Vashandi vanofanira zvakare kunyora nekuchengetedza matumbu mana akaonekwa ezvidudu kuti zvipingamupinyi zvechipiri zveshanduko zvemvura zvipedzwe."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Nekuti kusvikwa kwemvura yemiseve kuri pa28.6%, ZINWA inofanira kuongorora zvivakwa zvemvura muLupane uye kuona matunhu anogona kuwedzerwa mvura isati yasvika nguva yepamusoro yenjodzi munaChikumi–Gunyana (njodzi 55.4–79.5). Kuwedzera zvishoma kusvikwa kwemvura kunobatsira kuderedza kutendera kwedunhu kubva kumvura iri kunaya 8.9 mm chete pagore."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Isa zvigaro zvekakava zviri mudunhu reLupane pamberi kwaKweyakwapiri 2026, mvura njodzi isati yakwira pa65.5 munaKweyakwapiri uye migwagwa isiyo nyore kufamba. Zvigaro zvinofanira kurongwa kuti zvifukidze chinhu chekushaikwa kwekakava, zvichirangarira kuti mutemo wekubatsira wakafanira kuderedzera njodzi yaMwedzi Gunyana kusvika pa67.9 chete—zvichireva kuti njodzi ichiripo kunyange kubatsirwa."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tanga kuongorora vanhu vanofanira kubatsirwa muLupane munaMarch 2026, njodzi payakakwira pa47.3. Kuronga kwekupedzisira kunofanira kutarisa njodzi ichibuda kusvika pa79.5 munaSeptember uye zviiswi pa67.9 kunyange nebatsiro rose, kuti imba dzakaremedzeka zvisikiro muronga mukati memwedzi yepamusoro—Nyamavhuvhu naNyamavhuvhu."
+    }
+   ],
+   "note": "Kukwira kwenjodzi muLupane—kubva pa14.3 munaJanuari kusvika pa79.5 yakafanoziwa munaSeptember 2026—kunoda kubatana kwemaminesitiri pasina kutarisira nguva yaMurume; asi zvinorarama hazvigoni kuziva nezvezvigwere zvisingatarisirwe zvemfuyo, kusimuka kwemitengo yemusika, kana shanduko dzemitemo pakati pemwaka dzingawedzera kana kuderedza njodzi yekudya kunze kwezvakaratidzwa nederedzo re11.6 remutemo webatsiro."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isaziso sezulu eSigodini seLupane esibhekele isikhathi esisuka ngoFebruary kuya kuSeptember 2026, sibonisa ukuthi izulu liyana nge8.9 mm ngenyanga kuqhathaniswa nesidingo se~100 mm esilinyiwe. Lesi saziso kufanele sibe yisisekelo sezinhlelo zawo wonke amahhovisi kaDinomfi asebenza esigodini futhi kubuyekezwe njalo njengoba ingozi inyuka kusuka ku51.5 ngoFebruary iye ku79.5 ngoSeptember."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Ngoba izinto zokulima zikhona kuphela nge45.9/100 futhi inkomba yohlaza ingama0.31 kuqhathaniswa nomqondo wempilo we0.70, izisebenzi ze-Agritex eLupane kufanele zinike izinhlamvu ezimelana nokoma kanye nezinto zokugcina umanzi emhlabathini ngaphambi kweqembu lengozi ngoMay (inani lengozi eli65.8). Kufanele futhi zibhale futhi zilandle izifo ezine ezirekhodwa zamagciwane ukuvikela ukulahleka kwezilimo okwengeziwe."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ngenxa yokuthi ukwakhiwa kokulethwa kwamanzi kusemnini nge28.6%, i-ZINWA kufanele ihlole ingqalasizinda yokukhulisa amanzi eLupane bese ibona izifunda lapho ukukhuliswa kungenziwa khona ngaphambi kwesikhathi esiphezulu sengozi ngoJune–September (amanani e55.4–79.5). Nokukhulisa okuncane kwezikhungo zamanzi kuzosiza ukunciphisa ukuncika okuphelele kwesigodi ezulwini elinye le8.9 mm ngenyanga."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Beka izikhumulelo zokudla eLupane ngaphambi kokuphela kuka-April 2026, ngaphambi kokuba inani lengozi liweqe u65.8 ngoMay futhi izindlela zokuthutha zibenqindeka. Izinga lezindawo kufanele lilinganiswe ukuze lisibekele isimo sokushortage yokudla, kuqashelwa ukuthi iphakheji yesekelo egcwele iphrojektha ukunciphisa ingozi ka-September kuya ku67.9 kuphela, okusho ukuthi ingcindezi yokudla izosala noma ngaphansi kokungenelela."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukubuyekeza uhlu lwabantu abadinga usizo lwentuthuko yezentlalo eLupane ngoMarch 2026, lapho ingozi iweqa u47.3. Ukuhlelwa kokunqobela kufanele kubheke umjikelezo wengozi ofinyelela ku79.5 ngoSeptember kanye nesiyinqaba se67.9 nangaphakathi kweqembu lesekelo eligcwele, ukuqinisekisa ukuthi izindlu ezisengozini enkomba zihlonishwe egcwele munikelo izinyanga eziphezulu—Agasti noSepthemba."
+    }
+   ],
+   "note": "Ukuphakama okusheshayo kwengozi eLupane—kusuka ku14.3 ngoJanuary kuya ku79.5 okukhangelwe ngoSeptember 2026—kudinga ukubambisana kwamahhovisi ngokushesha kungemuva koFebruary; kodwa-ke, isibikezelo asikwazi ukubala izifo zezifuyo ezingalindelwe, ukushintsha kwezintengo zezimakethe, noma izinguquko zemigomo phakathi esikhathini esingagcina noma isinciphise ingozi yokudla ngaphandle kwalokho okukhombiswa yinciphiso elinganiselwe nge11.6 yamagatsha esekelo."
+  }
+ },
+ "Gwanda": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal sub-seasonal rainfall outlook for Gwanda covering February–September 2026, quantifying the probability that monthly rainfall will remain below the ~100 mm threshold that staple crops require. Current observed rainfall of 5.5 mm/month represents less than 6% of crop water needs; planners require verified trend data before committing irrigation and input budgets."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an emergency audit of all functional irrigation infrastructure within Gwanda's 24.8% coverage footprint and identify the fastest-expansion pathways to serve additional smallholder plots ahead of the July–September 2026 window, when forecast risk reaches 70.4–78.8. Prioritise schemes that can be rehabilitated or extended without major civil works, given the compressed timeline."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to all wards in Gwanda to promote drought-tolerant and short-season varieties suited to current vegetation-index conditions of 0.205 — less than 30% of a healthy reading of ~0.70. Target the 56.7/100 input-availability gap by coordinating with agro-dealers on priority restocking of certified seed and fertiliser before the February–March planting window closes."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position a strategic grain reserve in or near Gwanda sufficient to cover projected shortfalls from January through to at least September 2026, noting that the district's food-security risk index rises from 15.2 in January to a forecast 78.8 by September. Model drawdown rates against the scenario in which the full support package is applied, which projects a September risk of 67.4 — still elevated and indicative of continued supply pressure."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate early humanitarian-response planning for Gwanda, using the January risk score of 15.2 as the baseline and flagging the April threshold of 45.6 as the trigger point for scaling cash or food transfers. With 7 recorded pest incidents already compounding the rainfall and vegetation deficits, household-level vulnerability is likely understated by the aggregate index alone; field verification of the most exposed wards is advised before May 2026."
+    }
+   ],
+   "note": "The risk trajectory for Gwanda is steep and consistent across all nine months, and even full implementation of the modelled support package reduces the September peak by only 11.4 points to 67.4 — meaning significant food insecurity is probable regardless of intervention; what this forecast cannot determine is the precise pace of household asset depletion or whether additional pest, flood, or market-shock events will accelerate deterioration beyond these projections."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yekunaya kwemvura yemwedzi-nemwedzi inofanirwa kuburitswa kuti ishande kubva muna Kukadzi kusvika Gunyana 2026, ichisimbisa kuti mvura iri 5.5 mm pamwedzi — inopfuura zvishoma pane 6% yezvinodikwa nemirime — zviri pasi kwezvinodikanwa zva~100 mm. Varongi vanoda ruzivo rwakajikwa kuti vagadzire zvigadzirwa zvekudiridza nekupihwa kwezvinodikanwa."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ongororo yekukurumidza inofanira kuitwa pane zvese zvigadzirwa zvekudiridza zvirimo mukati meGwanda, uko kudiridza kunofukidza 24.8% yenzvimbo. Nzira dzekuwedzera kudiridza dzinofanira kuwanikwa nokukurumidza, zvichibatsira varimi vaduku vangosangana nenjodzi yechiratidzo cha70.4 kusvika 78.8 kubva muna Chikunguru kusvika Gunyana 2026."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Vatariri veminda vanofanira kutumirwa kumaward ese eGwanda kuti vadzidze varimi nezve mbeu dzinokura nyangwe pane dzakaoma, zvichienderana nechiro chemasora chiri pa0.205 — pasi pane 30% yechipimo chakanaka cha~0.70. Vanofanirawo kutsvaga nzira dzekuwanikwa kwezvigadzirwa, izvo zvinomiririra 56.7/100 chete, kuti zviwedzere musati mwaka wenango wekudyara wapera."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Zviyo zvekuchengeta zvinofanira kugadzirirwa munzvimbo yeGwanda kuti zvibatsire kubva Ndira kusvika Gunyana 2026, chiro chenjodzi chichikwira kubva pa15.2 muna Ndira kusvika pa78.8 muna Gunyana. Kana chirongwa chese chekubatsira chichashandiswa, chiro chinogona kuburuka kusvika pa67.4 — asi chichakaramba chiri pamusoro, saka kushomeka kwezvokudya kuchichiri kuverengerwa."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Kugadzirira kwekutanga kwekubatsira vanhu kunofanira kutangwa, uchishandisa chiro cha15.2 muna Ndira sezasi uye uchiona chiro cha45.6 muna Kubvumbi semutauro wekuita zvekupa chikafu kana mari. Zviitiko 7 zvepachisi zvakatanga, zvichiita kuti njodzi yemhuri iri yepasi kupfuura zvainoratidzwa nechibalo; ongororo yemunda inotsigirwa musati muna Chivabvu 2026."
+    }
+   ],
+   "note": "Nzira yenjodzi muGwanda inokwira nesimba mumwedzi yese mipfumbamwe, uye kunyangwe chirongwa chese chekubatsira chichashandiswa, chiro chaSeptember chinoderedza 11.4 zvete kusvika pa67.4 — zvichireva kuti kushomeka kwezvokudya kuchatoitika; chimwe chinhu chisingazikanwi nechibalo ichi ndechekukurumidza kwekupera kwepfuma yemhuri kana kuti zviitiko zvimwe zvepachisi, mvura yafashama, kana kusagadzikana kwenharaunda zvingaita kuti njodzi ikure kupfuura zvakaratidzwa pano."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Kukhishwa kwesiphrofetho sezulu ngesonto-ngesonto kusukela ngoFebruary kuze kufike ngoSeptember 2026 kuyadingeka, kuqinisekisa ukuthi izulu elingu-5.5 mm ngenyanga — okungaphansi kuka-6% waladingwa ngezitshalo — kusazala kakhulu phansi kwadingekayo elingu-~100 mm. Abahleli badinga ulwazi olwenqinelweyo ukuze balungiselele imikhakha yokuqhatshwa kanye nezimali zokulima."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ukuhlolwa ngokushesha kwawo wonke amasistimu okuncela abasebenza ngaphansi koHulumende weGwanda, lapho ukufakwa kwamanzi sekufika ku-24.8%, kuyadingeka. Izindlela zokwenabisa ukuncela kufanele zitholakale masinyane ukuze zisize abalimi abancane ngaphambi kwesikhathi soJuly–September 2026, lapho ingozi iqagulwa ukuthi izofinyelela ku-70.4 kuze kufike ku-78.8."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Izisebenzi zolwazi lokulima kufanele zithunyelwe kuwo wonke amaward eGwanda ukuze zifundise abalimi ngezinhlobo zezitshalo ezimelana nendlala yamanzi, ngenxa yokuthi i-indeksi yamagora ikhona ku-0.205 — engaphansi kuka-30% yezinga eliphilile elingu-~0.70. Isikhala sokutholakala kwezidingo sokulima, okungamela ku-56.7/100 kuphela, kufanele sibhekelelwe ngokufakwa kwezimpahla ezintsha ngaphambi kokuthi isikhathi sokuhlwanyela siphele."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Ukugcinwa kwezinkoloyi zokudla kufanele kulungiselelwe eduze noma ngaphakathi kweGwanda ukuze kusiwe isikhathi esisukela ngoJanuary kuze kufike okungenani ngoSeptember 2026, njengoba indeksi yengozi ikhuphuka kusukela ku-15.2 ngoJanuary iye ku-78.8 ngoSeptember. Uma uhlelo oluphelele lokusekela lusetshenziswa, ingozi yaSeptember ibonakala ingaya ku-67.4 — kodwa isiphakeme, okutshengisa ukuthi ukungabi nokwanele kokudla kusazoba khona."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Ukulungiselela kwamasu wokuphuthuma kwezokusiza abantu kufanele kuqaliswe, kusebenzisa isilinganiso sengozi sakaJanuary esingu-15.2 njengesisekelo kanye nesikali sakaApril esingu-45.6 njengesilinda sokwandisa ukusabela ngokudla noma ngokukhokha imali. Izikhalo ezingu-7 zezinambuzane ezirekhodwe zisondeza ingozi ngokwengeziwe ngaphezu kwale enqinelwe esilinganisweni; ukuhlolwa kwamaward athonya kakhulu kunconywa ngaphambi kukaJune 2026."
+    }
+   ],
+   "note": "Indlela ingozi ehamba ngayo eGwanda inyuka ngokuqinile kuwo wonke izinyanga eziyisishiyagalolunye, futhi ngisho nokusetshenziswa ngokuphelele kohlelo lokusekela okubonakaliswe kuphungula ingozi yaSeptember ngo-11.4 amaphuzu kuphela kufinyelele ku-67.4 — okutsho ukuthi indlala yokudla inokuqinisekiseka noma kuphi ngaphandle kokungenelela; okungazi le siphrofetho ukuthi yikuphi isimo sokuphela kwempahla yezindlu noma ukuthi izenzakalo ezifana nezinambuzane, izikhukhula, noma izimo zomnotho ezingahlelekile zingasheshe ziqinise ukuwohloka ngaphezu kwalokho okuboniswe lapha."
+  }
+ },
+ "Beitbridge": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a district-level rainfall deficit advisory for Beitbridge immediately, noting that current monthly rainfall of 6.8 mm is approximately 93% below the ~100 mm staple-crop requirement. Share updated seasonal outlook with Agritex and Ministry of Lands & Agriculture by end of January 2026 to inform planting and irrigation decisions ahead of the April–May risk escalation, where the index rises from 36.9 to 67.9."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Given the vegetation index of 0.24 against a healthy benchmark of ~0.70 and six recorded pest incidents, deploy extension officers to conduct rapid crop and rangeland assessments across Beitbridge ward clusters before April 2026. Prioritise households with no irrigation access — 64.5% of the district — and promote drought-tolerant variety adoption while input availability remains at 61.8/100, before the index reaches its projected peak of 71.8 in September."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "With irrigation coverage at only 35.5%, assess the operational status and expansion feasibility of existing irrigation schemes in Beitbridge. Prepare a water-allocation plan for the May–September 2026 dry-season window, when forecast risk scores range from 57.8 to 71.8, and coordinate with DDF on any infrastructure rehabilitation works required to increase coverage before the lean season peak."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position strategic grain reserves in Beitbridge ahead of May 2026, when the risk index crosses the 67.9 threshold. Model indicative off-take volumes based on the district's vulnerable population, noting that the modelled support package reduces the September risk score from 71.8 to 62.9 — a reduction of 8.9 points — suggesting that early commodity placement is a high-leverage action within that package."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Activate a review of existing social-protection caseloads in Beitbridge and consider scaling up cash or food-transfer programmes to coincide with the elevated risk window of July–September 2026 (forecast indices 66.4, 69.6, 71.8). Coordinate targeting criteria with Agritex field data and Rural District Council registers to reach households not covered by irrigation, as the full support package is projected to limit but not eliminate peak-season risk at 62.9 in September."
+    }
+   ],
+   "note": "The risk trajectory for Beitbridge is severe and accelerating from April 2026 onward, requiring coordinated pre-positioning by March 2026 at the latest; however, the forecast cannot account for sudden flood events, further pest outbreak escalation beyond the six incidents recorded, or changes in national import availability that could shift actual food-security outcomes materially."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Buritai zvirevo zvehupfu hwemvura mudunhu reBeitbridge nekukurumidza, zvichiratidzira kuti mvura iri kuwa iri pa 6.8 mm pamwedzi, inoshaiwa zvakanyanya kana tichienzanisa ne~100 mm inodikanwa pakukura kwechikafu. Gonesa mashoko aya kusvika kuAgritex neMinistry of Lands & Agriculture pamberi pekupera kwaJanuary 2026, kuti vagadzirire nguva inouya yaApril kunaMay apo index inokwira kubva pa 36.9 kuenda pa 67.9."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Nekuda kwekuti index yezvirimwa iri pa 0.24 panguva iyo inofanira kuva pa~0.70, uye kune matambudziko matanhatu epest akonyorwa, tumira maofisa ekupfuura kuti vaite ongororo dzakakurumidza mudunhu reBeitbridge pamberi paApril 2026. Tarisa nguva dzose mhuri dzisina mvura yekudiridza — 64.5% yedunhu — uye simudzira dzinza rezvirimwa zvinokwanisa kurwisa zuva, apo kuwanigwa kwezvinhu zvekurima kuchiri pa 61.8/100, asati asvika pa 71.8 munaSeptember."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Nekuti chete 35.5% yedunhu ine mvura yekudiridza, ongorora mamiriro uye kukwanisa kukura kwezvirongwa zvekudiridza muBeitbridge. Gadzirira hurongwa hwekushandisa mvura kubva munaMay kusvika munaSetember 2026, apo nhamba dzehungozi dzinofanotaurwa dziri pakati pa 57.8 na 71.8, ugadzikane neDDF pazviito zvekugadzirisa zvivakwa."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Isa zviyo zvehurumende muBeitbridge pamberi paMay 2026, apo index yehungozi inokwira kusvika pa 67.9. Ongorora huwandu hwezviyo zvinodikanwa zvichibva pakureba kwehupfumi hwemhuri dzine njodzi, uchiziva kuti chirongwa chekubatsira chinofanotaurwa chinoderedza nhamba yaSeptember kubva pa 71.8 kuenda pa 62.9 — kuderera kwa 8.9 — izvo zvinoratidza kuti kuisa zviyo pano nekukurumidza ndiko kushanda zvinobatsira."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Tangira kuongorora mirefu yevashandiri vebatsiro muBeitbridge uye fikiria kuwedzera mabasa ekupa mari kana chikafu munguva yeJuly kusvika September 2026 (index dzinofanotaurwa: 66.4, 69.6, 71.8). Bvumirana nzira dzekutsvaga vanobatsirwa nemaofisa eAgritex uye marejisita eRural District Council kuti vasvike mhuri dzisina mvura yekudiridza, achiziva kuti chirongwa chose chinogona kudzora asi hachidzimi nhamba yehungozi yeSeptember kune 62.9."
+    }
+   ],
+   "note": "Mwero wehungozi muBeitbridge unotyisa uye unokurumidza kubva munaApril 2026 zvichienda mberi, zvichirayira kuti zvirongwa zvisangane pamberi paMarch 2026; zvisinei, fanotauro haisviki kuona mafashama asingatarisirwi, kuwedzera kwepest kupfuura zvakatanyorwa, kana shanduko mukuwanigwa kwechikafu kubva kunze kwenyika zvinogona shandura zvakare mamiriro ehupfumi hwemhuri."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isixwayiso sokusweleka kwezimvula esigabeni saseBeitbridge ngokushesha, ubonise ukuthi izimvula zangomnyaka zimi ku-6.8 mm, okunciphile ngapha kwenani elicetshiwe lika-~100 mm edingwa yizitshalo. Yabelana ngolwazi olusha lezimvula lokulindela isikhathi sesizini loAgritex leMinistry of Lands & Agriculture phambi kokuphelela kukaStetemba 2026, ukuze balungiselele ukwenyuka kokungozi okwenzakala phakathi kukaApril loMay, lapho i-index ikhwela kusuka ku-36.9 iye ku-67.9."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Ngenxa yezinga lezitshalo eli-0.24 okwafanele libe ngamaDinga u-~0.70, kanye lezigameko eziyisithupha zezinambuzane, thumela abasebenzi bokukhulisa ukuze benze ukuhlolwa okusheshayo kwezitshalo kanye lamahlase eBeitbridge phambi kukaApril 2026. Gxila ezikhayeni ezingafikelwa izinhlelo zokuchelela — u-64.5% wesigaba — ukhuthaze ukusetsenziswa kwezinhlobo zezitshalo ezingesweli mvula eningi, ngesikhathi zinto zomkhiqizo zisesesimweni sika-61.8/100, ingakafiki impele yokungozi ku-71.8 ngoSeptember."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Njengoba kuphela u-35.5% wesigaba ochelwayo, hlola isimo kanye lokwenzeka kokwandulelwa kwezinhlelo zokuchelela eBeitbridge. Lungisa uhlelo lokwabela amanzi phakathi kukaMey loSeptember 2026, lapho izinombolo zokungozi ezibikezelwayo zimi phakathi kuka-57.8 lo-71.8, uhlanganyele leDDF ekuqiniseni ingqalasizinda edingekayo ukuze kwandiswe ukuchelela phambi kwesizini esinzima."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Beka izabelo zokudla okusemthethweni eBeitbridge phambi kukaMey 2026, lapho i-index yokungozi idlula u-67.9. Cacisa amakhodi emisebenzi asebenza khibhibhana okufanele ukuze axhasaniswa lemindeni esengozini, ubona ukuthi iphakheji yesekelo ebikezelwayo inciphisa inani leSeptember kusuka ku-71.8 liye ku-62.9 — ukuncipha kuka-8.9 — okukhombisa ukuthi ukubeka izabelo ngesikhathi kunesicoco esikhulu kuleso siphakamiso."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Qala ukuhlola uhlu lwabamukeli bezinhlelo zokuphana eBeitbridge uphinde ucabange ukwandisa izinhlelo zokuhlinzeka ngemali noma ngokudla ngesikhathi sokwenyuka kokungozi phakathi kukaJuly loSeptember 2026 (izinombolo ezibikezelwayo: 66.4, 69.6, 71.8). Xhumana lezibopho zokukhethwa kwabasizi bensimbi yokulanda loAgritex kanye lamarekhodi eRural District Council ukuze kufinyelelwe izindlu ezingachelwayo, wazi ukuthi iphakheji yesekelo ephelele ingalunga kodwa ayikwazi ukususa ngokuphelela ubungozi beSeptember ku-62.9."
+    }
+   ],
+   "note": "Umkhondo wokungozi eBeitbridge usesimweni esibi futhi uyandela kusuka ngoApril 2026 phambili, osifundisa ukuthi izinhlelo zomsebenzi kufanele zihlangane phambi kukaMarch 2026; kodwa-ke, ibikezelo alikwazi ukukhombisa izikhukhula ezingalindelekile, ukwanda kokuhlasela kwezinambuzane ngaphezu kwezigameko eziyisithupha ezirekhodiwayo, noma izinguquko ekufumanekeni kokudla kwangaphandle kwezwe okungashintsha imiphumela yenhlalo yokudla ngendlela ebalulekileyo."
+  }
+ },
+ "Gweru": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal seasonal outlook update for Gweru district by end of January 2026, highlighting the critical rainfall deficit of approximately 85mm below staple-crop requirements (current 15mm/month against a ~100mm threshold). This should inform Agritex field officers and Rural District Council planning cycles before the April risk threshold of 45.2 is reached."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to conduct a rapid crop-condition survey in Gweru, prioritising wards where the vegetation index of 0.267 — well below the healthy benchmark of 0.70 — signals advanced crop stress. Survey findings should feed directly into GMB pre-positioning decisions and input-distribution targeting, given that input availability stands at only 47.6 out of 100."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Begin pre-positioning strategic grain reserves within Gweru distribution points no later than March 2026, ahead of the risk score crossing 45.2 in April. With rainfall deficits persisting and vegetation index at 0.267, domestic production shortfalls are probable; reserve volumes should reflect the trajectory toward a September peak risk of 74.4 (or 65.7 if the full support package is applied)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an urgent audit of the 45.2% irrigation-coverage area in Gweru to identify non-functional or under-utilised schemes. Prioritise rehabilitation of any schemes that can be restored before June 2026, when the forecast risk score reaches 54.5, so that irrigated production can partially offset the staple-crop rainfall shortfall of ~85mm/month."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Review and expand social-protection caseloads in Gweru in alignment with the risk escalation from 45.2 in April to a projected 74.4 by September 2026. Modelling indicates the full support package reduces the September score by 8.7 points to 65.7; planners should ensure transfer values and beneficiary numbers reflect this mitigation potential while acknowledging the 9.7 active pest-incident rate as an additional household income threat."
+    }
+   ],
+   "note": "The forecast risk for Gweru escalates sharply from January (5) to September 2026 (74.4), driven by measurable rainfall deficits, a degraded vegetation index, and low input availability; however, the model cannot account for sudden policy shifts, off-season rainfall events, or the full spatial distribution of pest incidents across the district."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Budiriro yemvura yegore rino muGweru inofanira kuburitswa pamberi kwaMwedzi waNdira 2026, ichiratidzira kuti mvura iri pasi pemamiriro akanaka nemamita emvura anenge 85mm pazasi pezvinodikanwa nezvirimwa (15mm pagore pane 100mm inodiwa). Mashoko aya anofanira kusvika kumaofisi eAgritex neRural District Council."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Vatariri vezvirimwa vanofanira kuenda kumapoka evarimi muGweru nechekukurumidza, vachitarisa nzvimbo dzine vegetation index ye0.267 — pasi zvikuru pe0.70 inoratidza zvirimwa zvinobudirira — kuitira kuti mashoko iwayo ashandiswe naGMB nekuvakidzana nekugovera zvipfeko, zvichizivikanwa kuti zvipfeko zviri pasi ne47.6/100."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Kuronga kuisa zviyo zvekuchengetedza muGweru kusati kwapera Kurume 2026, mvura ichisahwira uye vegetation index iri pasi, kukuridzira magumo akanoreva kuti zvirimwa zvinganyanye kushaya. Huwandu hwezviyo hunofanira kutarisa kuti mwedzi waSeptember unogona kusvika pa74.4 (kana 65.7 kana rubatsiro rwose rwuchishandiswa)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ongorora mashandiro emapirirani ekusesa mvura (irrigation) ari mu45.2% yeGweru nechekukurumidza, uchitsvaga mashandiro anoita kuti agadziriswe musati mwasvika Chikumi 2026, riini risk score inenge yasvika pa54.5, kuti chirimwa chekusesa chinganetseredza kushaikwa kwemvura ye~85mm pagore."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Ongorora uye kuwedzera nhamba yevanhu vanogamuchira rubatsiro rwezvemagariro muGweru, uchitarisa kukwira kwehuwandu hwenjodzi kubva pa45.2 (April) kusvika pa74.4 (September 2026). Rubatsiro rwose rwunogona kudzikisa risk ye8.7 kusvika pa65.7, uye nhamba yezviitiko zvezvidutu (9.7) inofanirawo kutariswa semhaka inorwadza mhuri."
+    }
+   ],
+   "note": "Njodzi yeGweru inokwira zvakanyanya kubva pa5 (Ndira) kusvika pa74.4 (Gunyana 2026) nekuda kwekushaikwa kwemvura, vegetation index iri pasi, uye kushaikwa kwezvirimwa; asi modeli haikwanisi kutarisira shanduko dzikuru mune zvirongwa zvehurumende, mvura dzingauya nguva dzisiridziri, kana nzvimbo dzakasiyana-siyana dzezvidutu mumusha."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issuwa isexwayiso esisemthethweni sezulu seGweru ngaphambi kokuphela kukaNhlolanja 2026, sibonisa ukuthi izimvula zisaphansi ngamamitha ayizi-85mm kunezidingo zezitshalo (15mm ngenyanga ngokwamanje endaweni edinga ~100mm). Lezi zilwazi kumele zifinyelele abasebenzi beAgritex kanye neRural District Council ngaphambi kokuba ingozi ifinyelele ku-45.2 ngo-April."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela abasebenzi bokukhuthaza ezimfundweni zezitshalo eGweru ngokushesha, baqondise izigodi lapho i-vegetation index ingama-0.267 khona — phansi kakhulu kunesi-0.70 esibonisa izitshalo eziphilile — ukuze ulwazi lufakwe ezinqumweni ze-GMB nokuklanyelwa kwamathuluzi, njengoba ukutholakala kwamathuluzi kumi ku-47.6 kwama-100."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Qala ukuqondisa izinhlaka zokugcina amazambane eGweru ngaphambi kukaMashi 2026, ngaphambi kokuba isikali sengozi sidlule ku-45.2 ngo-April. Ngezimvula ezikhona kanye ne-vegetation index ephansi, ukuntuleka kokukhiqizwa komabo kuyalindeleka; ubuningi bezolimo obubekiwe kumele bubonise umkhakha obheke esikali sengozi sika-September esingu-74.4 (noma u-65.7 uma uhlelo lokusekela oluphelele lufakwa)."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Yenza ukuhlolwa okuphuthumayo kwezindawo zokusetha amanzi (irrigation) ezimboza u-45.2% eGweru ukuze uthole izinhlelo ezingasebenzi noma ezikhiqiza kancane. Qondisa ukuphucuzwa kwezinhlelo nganoma yini ezingaqedwa ngaphambi kukaNhlangula 2026, lapho i-forecast risk score ifinyelela ku-54.5, ukuze ukukhiqizwa kwesinqandamathe kwesize ukuntuleka kwezimvula ezingama-~85mm ngenyanga."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Buyekeza futhi wandise uhlu lwabantu abamukela usizo lokuvikela eGweru ngokuvumelana nokwenyuka kwengozi kusukela ku-45.2 ngo-April kuya ku-74.4 ngo-September 2026. Ukwethulwa kwesekelo eliphelele kunciphisa isikali sika-September ngo-8.7 kuya ku-65.7; abasebenzi bokuceba kumele baqinisekise ukuthi imali yokudluliselwa kanye nenombolo yabasukelwa ibonisa amandla lawa okunciphisa, njengoba izinhlolo zezinambuzane ezingu-9.7 zibuye zikhona njengesisongelo esongezekile."
+    }
+   ],
+   "note": "Ingozi yeGweru inyuka kakhulu kusukela ku-5 (Nhlolanja) kuya ku-74.4 (Mfumfu 2026), iqhutshwa ukuntuleka kwezimvula okubonakayo, i-vegetation index ephansi kanye nokuntuleka kwamathuluzi; kodwa imodeli ayikwazi ukuqagela izinguquko ezizayo zenqubomgomo, izimvula ezingalindelekile ngaphandle kwesizini, noma ukusabalala okuphelele kwezinhlolo zezinambuzane ezigcwele isifunda."
+  }
+ },
+ "Kwekwe": {
+  "en": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Issue a formal dry-spell advisory for Kwekwe District, flagging that current monthly rainfall of 15.8 mm is 84% below the ~100 mm staple-crop requirement. Update sub-seasonal forecasts fortnightly through September 2026 to guide planting and irrigation scheduling decisions by Agritex field officers."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Conduct an urgent audit of irrigation infrastructure serving Kwekwe's 45.4% coverage area to identify capacity gaps. Prioritise water allocation to smallholder plots where vegetation index has fallen to 0.27 against a healthy benchmark of ~0.70, with the goal of sustaining crop survival through the July–September high-risk window (forecast risk: 64.2–75.0)."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Deploy extension officers to assess the 7.3 recorded pest incidents per reporting unit and co-ordinate targeted response with input suppliers. With input availability scored at only 56.8/100, officers should map supply gaps at ward level and escalate to the Ministry of Lands & Agriculture no later than end of February 2026 to allow procurement lead time before the April–May risk acceleration (43.5–48.2)."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Pre-position a strategic grain reserve allocation for Kwekwe District in anticipation of the September 2026 risk peak of 75.0, noting that timely support-package deployment is modelled to reduce that figure to 66.9. Confirm depot storage capacity and transport logistics by end of March 2026 to avoid bottlenecks during the June–September deterioration phase."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Review social-protection case loads in Kwekwe's most vegetation-stressed wards (NDVI 0.27) and consider scaling up Harmonised Social Cash Transfer payments ahead of the June risk threshold of 51.9. Coordinate with the Rural District Council to identify households not yet captured in existing registries, ensuring that the 8.1-point risk reduction from the full support package is matched by equivalent beneficiary coverage."
+    }
+   ],
+   "note": "Urgency is high given the unbroken upward risk trajectory from April through September 2026; however, this forecast cannot account for sudden mid-season rainfall recovery, changes in national input subsidy policy, or localised pest outbreaks that may alter conditions faster than the modelled timeline."
+  },
+  "sn": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Buritai yemvura yekuora inoburitsa zvakajeka kuti mvura yari kuwa mwedzi neumwedzi muKwekwe ndeye 15.8 mm chete, iri pasi zvakanyanya pa~100 mm inodikanwa nembeu dzechikafu. Shandurai maforesiti emvura kamwe pane mavhiki maviri kusvika Gunyana 2026 kuti vashandi veAgritex vagone kurongedza mazano ekudyara uye ekunyurudza."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Ongai nekukurumidza zvivakwa zvekunyurudza munzvimbo dzikwekwe dzinosvika 45.4% kuitira kuziva pakashaikwa. Ipa mvura yakawanda kumapurazi ediki kwakakosha nekuti index yemiti yakaderera kusvika 0.27 pane chimiro chakanaka che~0.70, unobatsira kuchengetedza mbeu mumazuva echipikirwa ane njodzi yakakura munaChikunguru–Gunyana (njodzi: 64.2–75.0)."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Tumira vashandi vekudzidzisa kuti vanyatsoongorora nyaya 7.3 dzezvipembenene zvakaonekwa uye vashandire pamwe nevatengi vezvinhu zvekulima. Nekuti zvinhu zviri pasi, zvakagadziridzwa pane 56.8/100, mapurisa anofanira kunyora zvichireva nzvimbo dzisina zvinhu uye kukurumidza kuudza Minisitri yeNyika neMurimo mukupera kwaFebruary 2026 kuitira kugadzirirwa mberi kwenguva yekuwedzera njodzi munaKubvumbi–Chivabvu (43.5–48.2)."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Gadzirira chirango chechikafu muKwekwe kugadzirira nguva ine njodzi yakakura munaGunyana 2026 (75.0), uchiziva kuti kana rubatsiro rwakaunzwa, njodzi inoderedzwa kusvika 66.9. Simbisa kuti nzvimbo dzekuchengetedza chikafu uye nzira dzekuendesa zvine nguva dzinoshanda mukupera kwaKurume 2026."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Ongorora miremusoro yekubatsirwa kwevanhu munzvimbo dzine NDVI yepasi muKwekwe (0.27) uye funga kuwedzera mabhadharo eHarmonised Social Cash Transfer mberi kwenguva yenjodzi munaChikumi (51.9). Shanda pamwe neRural District Council kuona mhuri dzisati dzanyorwa kuitira kuti kuderedzwa kwenjodzi kwe8.1 kwakafanoongororwa kuve kunoenderana nenhamba yerubatsiro rwakaunzwa."
+    }
+   ],
+   "note": "Kuomesa kuri kukurumidza sezvo njodzi ichikwira zvisina kupinda munaKubvumbi kusvika Gunyana 2026; asi chipikirwa ichi hachigoni kuziva kana mvura yakauya zvakasimba pakati pemwaka, kana shanduko dzemutemo wenyika pazvinhu zvekubatsira, kana kushambadzika kwezvirimwa zvakaputika kunogona shandura mamiriro ekukurumidza kupfuura nguva yakafanopikirwa."
+  },
+  "nd": {
+   "bullets": [
+    {
+     "dept": "Meteorological Services Department",
+     "action": "Khipha isaziso esisemthethweni sokomiswa kwemvula esibonisa ukuthi imvula yenyanga ngenyanga eKwekwe ikhona nje ngo-15.8 mm, okuyinto ephansi kakhulu kungo-~100 mm okudingekayo yizitshalo. Buyekeza imibikezelo yemvula njalo ngeviki ezimbili kuze kufike uSepthemba 2026 ukuze izikhulu ze-Agritex zihlele izinhlelo zokuhlanyela lokufaka amanzi."
+    },
+    {
+     "dept": "ZINWA",
+     "action": "Yenza ukuhlolisisa okuphuthumayo kwezakhiwo zokufaka amanzi ezisebenzela indawo engama-45.4% eKwekwe ukuthola lapho kusweleka khona amandla. Nika amanzi kuqala amasimu amancane lapho i-index yemithi iwele kuye ku-0.27 uma ibe ngo-~0.70 ngokwempilo, ukuze izitshalo zisinde esikhathini esiyingozi esiphakeme ngoJulayi–Septhemba (ingozi: 64.2–75.0)."
+    },
+    {
+     "dept": "Agritex",
+     "action": "Thumela izisebenzi zokufundisa ukuze zihlole izigameko ezingu-7.3 ezirekhodiwe zezinambuzane futhi zisebenzisane nalabo abathengisa izinto zokulima. Njengoba ukutholakala kwezinto kulinganiselwa ku-56.8/100, izisebenzi kufanele zihlonze izindawo eziswele izinto ngezindawo futhi zibike eMinisitri Yezomhlaba neLimu ekupheleni kukaFebruary 2026 ukuvumela isikhathi sokuhlinzekwa ngaphambi kokukhula kobungozi ngo-Ephreli–Meyi (43.5–48.2)."
+    },
+    {
+     "dept": "GMB (Grain Marketing Board)",
+     "action": "Lungisa ukuhlinzekwa kwestorage yezithelo zezikhala zeKwekwe ulindele ukufika kwesikhathi sobungozi obuphezulu ngoSepthemba 2026 (75.0), uphinde uqaphele ukuthi ukusebenziswa kwephakeji yokusekela kubalulekiwe ukwehlisa ingozi kuye ku-66.9. Qinisekisa ukuthi amakheli okugcina ukudla nezindlela zokuthutha zilungile ekupheleni kukaMashi 2026."
+    },
+    {
+     "dept": "Ministry of Public Service, Labour & Social Welfare",
+     "action": "Buyekeza izibalo zabantu abathola usizo emazingeni aphansi e-NDVI eKwekwe (0.27) futhi ucabange ukukhuphula imali ye-Harmonised Social Cash Transfer ngaphambi kokufika kwezinga lobungozi ngoJuni (51.9). Sebenzisana neRural District Council ukuthola imindeni engakabhalisiwe, ukuqinisekisa ukuthi ukwehliswa kobungozi kwe-8.1 okubikezelwe kuyahambelana nokufikelelwa kwabasukelwayo."
+    }
+   ],
+   "note": "Isimo siphuthumile njengoba ubungozi bukhula ngaphandle kokoma kusuka ngo-Ephreli kuye kuSepthemba 2026; kodwa-ke, lesi sibikezelo asikwazi ukuqagela ukuthi imvula ingabuya ngesikhathi esiphakathi, noma izinguquko emithethweni kazwelonke ngezinto zokusekela, noma ukuhlasela kwezinambuzane ngokuzumayo okunga shintsha isimo ngokushesha kunesikhathi esabikezelwa."
+  }
  }
 };
