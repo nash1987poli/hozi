@@ -33,7 +33,7 @@ Hybrid architecture — three components, each independently deployable:
 | n8n + engine | 2 GB cloud VPS (e.g., DigitalOcean / Hetzner), ~US$20–40/month | ZCHPC CCE containerised deployment |
 | Data outputs | Git repository + object storage for nightly JSON/CSV exports | ZCHPC object storage |
 
-**Container specification (for ZCHPC CCE handover):**
+**Container specification (ready for ZCHPC CCE handover if a hosting arrangement is agreed):**
 - Engine image: `python:3.12-slim` + `requirements.txt` (no GPU required)
 - Automation image: official `n8nio/n8n` Docker image
 - Smoke test on any environment:
@@ -51,8 +51,9 @@ Hybrid architecture — three components, each independently deployable:
 n8n workflow management, engine updates, and first-line support. Nash Barara is the named technical
 contact during the AI4I incubation period.
 
-**National scale (12+ months):** Handover to a designated government host — the natural candidates
+**National scale (12+ months):** Handover to a proposed government host — the natural candidates
 are the ZimVAC secretariat (food-security module) and Ministry of ICT (platform infrastructure).
+No handover agreement is in place; this is the documented design intent.
 Handover documentation, runbooks, and training sessions are a 90-day milestone deliverable.
 
 ---

@@ -34,7 +34,7 @@ from earlier, better-targeted anticipatory action.
 
 **Pilot phase:** Development partner programme funding. Natural candidates include WFP Zimbabwe
 resilience programmes, FAO country office, and UNDP. Under this model a development partner
-covers operating costs while the designated government institution (ZimVAC secretariat / Ministry
+covers operating costs while the proposed government institution (ZimVAC secretariat / Ministry
 of Agriculture) operates the system and retains full data sovereignty. No partnership commitment is
 claimed here; these are the logical candidates given their existing food-security mandates in Zimbabwe.
 
@@ -90,9 +90,9 @@ operator.
 **Budget envelope:**
 - 3-month pilot: approximately US$200–500 infrastructure + field onboarding costs (device checks,
   printed one-pagers, one training session per district cluster).
-- National scale: ZCHPC CCE hosting replaces the VPS, reducing cash cost and adding institutional
-  infrastructure partnership. The system is containerised (no GPU required) and designed to run on
-  existing national infrastructure.
+- National scale: ZCHPC CCE hosting would replace the VPS, reducing cash cost — subject to a
+  hosting arrangement being agreed. The system is containerised (no GPU required) and designed to
+  run on existing national infrastructure without modification.
 
 ---
 
@@ -102,7 +102,7 @@ operator.
 - CHIRPS / TAMSAT — open satellite rainfall data (scheduled API pull)
 - ZimVAC / IPC — ground-truth food-security outcome labels
 - Agritex / Ministry of Agriculture — crop, pest, and input data
-- Project Pangolin — national data platform; Hozi is designed as an analytics layer on top of it
+- Project Pangolin — national data platform; Hozi is designed to work as an analytics layer on top of it (integration agreement required; no arrangement is in place)
 
 **Deployment and hosting candidates (not yet formalised):**
 - ZCHPC CCE — national high-performance computing infrastructure for scale hosting
