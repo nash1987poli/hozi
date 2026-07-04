@@ -21,10 +21,14 @@ This is confirmed in `docs/DATASET-STATEMENT.md` §5:
 
 > "All inputs to Hozi are district-level aggregate statistics — no individual, household,
 > or personally identifiable information is collected, stored, or processed at any stage
-> of this pipeline. The system does not request, ingest, or retain names, identity
-> numbers, contact details, location traces, or any other personal data as defined under
-> Zimbabwe's Data Protection Act [Chapter 12:07]. Exposure under that Act is minimal by
-> design: the unit of analysis is the administrative district, not the person."
+> of this pipeline.
+>
+> The system does not request, ingest, or retain names, identity numbers, contact details,
+> location traces, or any other personal data as defined under Zimbabwe's Data Protection
+> Act [Chapter 12:07].
+>
+> Exposure under that Act is minimal by design: the unit of analysis is the administrative
+> district, not the person."
 
 Chapter 12:07 applies when personal data — defined as information relating to an
 identifiable natural person — is collected or processed. Because Hozi processes only
@@ -111,7 +115,15 @@ python -m unittest discover -s tests
 ```
 
 Run from the repository root. No dependencies to install; no test framework beyond Python's
-standard library. Expected output: `Ran 14 tests in 0.001s — OK`.
+standard library. Expected terminal output (non-verbose):
+
+```
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.001s
+
+OK
+```
 
 ### Validation evidence
 
