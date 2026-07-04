@@ -22,8 +22,12 @@ except Exception: pass
 # ---- paths ----
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)                      # .../Hozi
-SRC  = os.path.normpath(os.path.join(ROOT, "..", "Datasets",
-        "02_agriculture_climate_market_signals.csv"))
+_CANDIDATES = [
+    os.path.join(ROOT, "sample_data", "02_agriculture_climate_market_signals.csv"),
+    os.path.normpath(os.path.join(ROOT, "..", "Datasets",
+                     "02_agriculture_climate_market_signals.csv")),
+]
+SRC = next((p for p in _CANDIDATES if os.path.exists(p)), _CANDIDATES[0])
 OUT_APP  = os.path.join(ROOT, "app", "projections.json")
 OUT_DATA = os.path.join(ROOT, "data", "projections.json")
 

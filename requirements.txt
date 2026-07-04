@@ -1,0 +1,4 @@
+# Hozi engine: Python standard library ONLY - zero third-party dependencies.
+# This is deliberate: auditable line-by-line, runs anywhere Python 3.9+ runs,
+# including the ZCHPC CCE, with no supply-chain surface.
+# python_requires >= 3.9

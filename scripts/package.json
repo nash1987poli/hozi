@@ -1,0 +1,7 @@
+{
+  "name": "hozi-scripts",
+  "private": true,
+  "description": "Operational scripts: Claude brief generation, app smoke check. Node builtins only - no npm dependencies.",
+  "engines": { "node": ">=18" },
+  "dependencies": {}
+}
