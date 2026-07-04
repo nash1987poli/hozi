@@ -241,6 +241,7 @@ $('#askForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#askIn
 /* ---- story panel ---- */
 function renderStory(){ $('#storyBody').innerHTML=
   `<h1>${t('h0','See the hunger coming — and act in time.')}</h1>
+   <p><em>${t('infraTag','One engine. Many decisions. National Foresight &amp; Decision Infrastructure — first module: food security.')}</em></p>
    <p>${t('p0','Hozi forecasts where food-security risk across Zimbabwe\'s crops is heading, district by district, then helps responders get the most from the resources they already have. Drag the timeline to watch the season unfold; use Planning Mode to see where early action protects the most people.')}</p>
    <h3>${t('honestT',"How it works & what it can't do (honesty first)")}</h3>
    <ul><li>${t('mt1','<b>Transparent model.</b> Risk is a clear, weighted blend of rainfall, vegetation, pests, irrigation and input access — no black box.')}</li>
@@ -249,6 +250,7 @@ function renderStory(){ $('#storyBody').innerHTML=
    <li>${t('mt4','<b>Sample data.</b> This prototype runs on POTRAZ synthetic challenge data. The engine is built to accept live rainfall, satellite and market feeds.')}</li></ul>
    <h3>${t('dph','Where the data comes from')}</h3>
    <p>${t('dpp','Hozi does not invent data — it reads trusted signals from the bodies that already own them, and each owner keeps control of its own data. <b>This prototype runs on POTRAZ sample data; the engine is built to plug live feeds straight in.</b>')}</p>
+   <p>${t('llmNote','The AI assistant never creates or changes the data. It only reads the finished numbers from institutional sources (ZimVAC, IPC, Met Services) and explains, checks and suggests — a human decides.')}</p>
    <p style="color:var(--mut);font-size:12px">Hozi — "${t('h0','Fill the granary before the drought.')}" · Curious Inq, Harare · POTRAZ AI4I 2026 · MIT open-source</p>`;}
 $('#storyTab').addEventListener('click',()=>{setRailActive('storyTab');$('#storyPanel').hidden=false; renderStory();});
 $('#infoBtn').addEventListener('click',()=>{setRailActive('storyTab');$('#storyPanel').hidden=false; renderStory();});
@@ -271,6 +273,7 @@ function applyLang(l){ window.HOZI_LANG=l; try{localStorage.setItem('hozi-lang',
    ['railWater','domWater','Water'],['railMarkets','domMarkets','Markets']]
     .forEach(([id,k,en])=>$('#'+id).title=t(k,en));
   $('#wTitle').textContent=t('h0','See the hunger coming — and act in time.');
+  $('#wTagline').textContent=t('infraTag','One engine. Many decisions. National Foresight & Decision Infrastructure — first module: food security.');
   $('#wIntro').textContent=t('p0','Hozi forecasts where food-security risk across Zimbabwe\'s crops is heading, district by district, then helps responders get the most from the resources they already have.');
   $('#wF1').innerHTML=t('wF1','<b>Foresight</b> — watch the season unfold, month by month, with an honest confidence band.');
   $('#wF2').innerHTML=t('wF2','<b>Planning Mode</b> — for the support you can reach this season, see where it protects the most people first.');
@@ -305,9 +308,9 @@ function readURL(){ const p=new URLSearchParams(location.search);
 /* ---- domain rail (platform roadmap) + welcome ---- */
 const DOMAINS={
   railFloods:{k:'domFloods',en:'Floods',dk:'domFloodsD',
-    den:'Reads rainfall intensity, river levels and terrain to help decide where to pre-position supplies and evacuate first.',st:'next'},
+    den:'Flood displacement foresight — the Cyclone Idai lesson: rainfall, river gauges and settlement data. Next module on the roadmap.',st:'next'},
   railDisease:{k:'domDisease',en:'Disease',dk:'domDiseaseD',
-    den:'Reads case reports, water & sanitation and mobility signals to help decide where to send health teams and supplies first.',st:'next'},
+    den:'Cholera & typhoid outbreak foresight — same engine: rainfall, water-point and case-report signals. Next module on the roadmap.',st:'next'},
   railWater:{k:'domWater',en:'Water',dk:'domWaterD',
     den:'Reads dam levels, rainfall, demand and borehole data to help decide where to ration, drill or truck water first.',st:'roadmap'},
   railMarkets:{k:'domMarkets',en:'Markets',dk:'domMarketsD',
