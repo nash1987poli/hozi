@@ -10,7 +10,8 @@ Baselines:
   2. persistence      : predict the district's own mean from other periods
                         (needs no rainfall data at all)
   3. rainfall-rule    : two-level rule on r3q (3-month rainfall anomaly);
-                        threshold + levels fitted on train fold only
+                        threshold chosen from sorted unique r3q values in the
+                        train fold (data-driven); levels fitted on train fold only
 Model:
   4. OLS on 4 rainfall features (train_real.ols) - the submitted model
 
@@ -56,10 +57,15 @@ def fit_rule(train):
     """Grid-search a two-level rainfall rule on the train fold only.
 
     Threshold candidates are the sorted unique r3q values observed in the
-    train fold.  The original fixed grid range(-30, 31, 2) was a spec bug:
-    every r3q value in the real panel is in [58, 254], so no fixed threshold
-    in [-30, 30] ever split the data — fit_rule always fell through to the
-    mean fallback, making the baseline identical to global-mean.
+    train fold; both the threshold and the two level predictions are derived
+    entirely from train-fold rows — no test-fold information is used.
+
+    Implementation note: the real panel's r3q values are in the range
+    ~[58, 254], so a fixed integer grid such as range(-30, 31, 2) would
+    never produce a split and fit_rule would fall through to the mean
+    fallback, making this baseline degenerate to global-mean.  The
+    data-driven candidate set avoids that pitfall regardless of the
+    panel's rainfall scale.
     """
     mean_y = sum(p["y"] for p in train) / len(train)
     candidates = sorted(set(p["x"][R3Q] for p in train))
