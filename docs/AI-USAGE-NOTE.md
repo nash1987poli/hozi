@@ -25,9 +25,9 @@ A Python engine (`engine/engine.py`, `engine/train_real.py`) that:
 
 Claude (claude-sonnet-4-6) operates only after Layer 1 has finished. It receives the completed district data as a read-only input and performs exactly three functions:
 
-1. **VALIDATES** — flags apparent contradictions (e.g., low model risk score alongside a known IPC Phase 3 classification) for human review before any action is taken.
-2. **REASONS** — produces plain-language driver explanations so a district planner can understand what is behind a risk score without reading raw numbers.
-3. **SUGGESTS** — generates ranked intervention playbooks in English (en), chiShona (sn), and isiNdebele (nd), grounded only in the supplied district inputs, and explicitly labelled as advisory.
+1. **REASONS** — produces plain-language driver explanations so a district planner can understand what is behind a risk score without reading raw numbers.
+2. **SUGGESTS** — generates ranked intervention playbooks in English (en), chiShona (sn), and isiNdebele (nd), grounded only in the supplied district inputs, and explicitly labelled as advisory.
+3. **VALIDATES (design intent — not yet shipped)** — the architecture designates a future validation pass in which the LLM will flag apparent contradictions (e.g., low model risk score alongside a known IPC Phase 3 classification) for human review before any action is taken. This pass is not present in the current `scripts/generate-briefs.mjs` prompt: IPC classification data is not yet supplied to the LLM and no contradiction-check instruction exists in the current system prompt. It is a documented next milestone, not a current capability.
 
 **Guardrails enforced by architecture:**
 
@@ -63,7 +63,7 @@ The concrete workload that justifies Claude:
 
 - **Scale:** 20 districts × 3 languages = 60 structured intervention playbooks, each grounded in that district's specific risk trajectory, driver values, and support-package modelling.
 - **Language quality:** Rule-based or template systems cannot produce usable chiShona and isiNdebele advisory text at acceptable quality or cost. A fixed-phrase template approach would produce either English with inserted numbers, or machine-transliterated text that field officers would not trust.
-- **Contradiction-flagging:** Detecting logical inconsistencies between Layer 1 outputs and external IPC classifications requires reading and comparing structured evidence — a task suited to an LLM, not a rule engine.
+- **Contradiction-flagging (planned):** Detecting logical inconsistencies between Layer 1 outputs and external IPC classifications requires reading and comparing structured evidence — a task suited to an LLM, not a rule engine. This capability is in the design architecture but is not implemented in the current generation script: IPC classification values are not yet passed into the LLM prompt. It is listed here as a concrete, implementable justification for retaining the LLM layer as the system matures, not as a description of current behaviour.
 
 **Cost reality:** Playbook generation is a batch operation run once per data update cycle, not per user request. The output is committed to `app/briefs.js` in the repository. At browse time, the app reads the static file — no API call, no latency, no per-visit cost. The Claude API cost for a full 20-district generation run is in the range of US $0.10–0.40 at current batch pricing. The pilot cost model estimates US $30–80/month for all LLM usage at operational frequency (see `docs/superpowers/specs/2026-07-03-ai4i-alignment-design.md` §4).
 
