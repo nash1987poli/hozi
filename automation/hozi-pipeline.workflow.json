@@ -126,7 +126,7 @@
       "parameters": {
         "fromEmail": "hozi-alerts@PLACEHOLDER.example",
         "toEmail": "district-officer@PLACEHOLDER.example",
-        "subject": "HOZI ALERT: {{ $json.highCount }} district(s) HIGH band — {{ $now.format('YYYY-MM-DD') }}",
+        "subject": "HOZI ALERT: {{ $json.highCount }} district(s) HIGH band — {{ $now.toFormat('yyyy-MM-dd') }}",
         "text": "={{ $json.alertText }}",
         "options": {}
       },
