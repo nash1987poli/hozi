@@ -61,7 +61,7 @@ def driver_risks(r):
     return rain, ndvi, pest, irr, inp
 
 def model_risk(r):
-    """Return composite food-security risk score 0..100 for row r."""
+    """Composite food-security risk for row r, clamped 0..100 (weights cap the practical max at 94)."""
     rain, ndvi, pest, irr, inp = driver_risks(r)
     raw = (W["rain"]*rain + W["ndvi"]*ndvi + W["pest"]*pest
            - W["irr"]*irr - W["inp"]*inp + W["bias"])
@@ -93,13 +93,13 @@ def band(v):
     return "High" if v >= 66 else ("Medium" if v >= 45 else "Low")
 
 def latest(d):
-    """Return the most recent known monthly risk value for district dict d."""
+    """Most recent known monthly risk in d['series'], scanning module-level MONTHS newest-first."""
     for m in reversed(MONTHS):
         if m in d["series"]: return d["series"][m]
     return None
 
 def sep_proj(d):
-    """Return the September forecast risk for district dict d, or None."""
+    """September ('2026-09') projected risk for district d, or None."""
     return d["forecast"].get("2026-09", {}).get("risk")
 
 
