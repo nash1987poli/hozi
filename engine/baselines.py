@@ -53,10 +53,18 @@ def metrics(pairs):
 
 
 def fit_rule(train):
-    """Grid-search a two-level rainfall rule on the train fold only."""
-    best = None
+    """Grid-search a two-level rainfall rule on the train fold only.
+
+    Threshold candidates are the sorted unique r3q values observed in the
+    train fold.  The original fixed grid range(-30, 31, 2) was a spec bug:
+    every r3q value in the real panel is in [58, 254], so no fixed threshold
+    in [-30, 30] ever split the data — fit_rule always fell through to the
+    mean fallback, making the baseline identical to global-mean.
+    """
     mean_y = sum(p["y"] for p in train) / len(train)
-    for q in range(-30, 31, 2):          # threshold on r3q anomaly
+    candidates = sorted(set(p["x"][R3Q] for p in train))
+    best = None
+    for q in candidates:
         wet = [p["y"] for p in train if p["x"][R3Q] >= q]
         dry = [p["y"] for p in train if p["x"][R3Q] < q]
         if not wet or not dry:
