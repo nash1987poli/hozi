@@ -1,0 +1,232 @@
+{
+  "name": "Hozi — Daily CHIRPS Ingest + Engine Run + High-Band Alert",
+  "nodes": [
+    {
+      "id": "1a2b3c4d-0001-0001-0001-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 6 * * *"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1a2b3c4d-0002-0002-0002-000000000002",
+      "name": "Download CHIRPS Rainfall CSV",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [460, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "https://data.humdata.org/dataset/zimbabwe-rainfall-subnational-chirps/resource/zwe-rainfall-adm2-full.csv",
+        "responseFormat": "text",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 5
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "notes": "URL is the documented HDX/WFP CHIRPS dataset page for Zimbabwe district rainfall. The direct resource link (CSV) must be confirmed and updated at import time — see automation/README.md. Dataset documented in docs/DATASET-STATEMENT.md: file zwe-rainfall-adm2-full.csv, source HDX/WFP, CC-BY licence."
+    },
+    {
+      "id": "1a2b3c4d-0003-0003-0003-000000000003",
+      "name": "Write CSV to data/raw",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $env.HOZI_REPO_ROOT }}/data/raw/zwe-rainfall-adm2-full.csv",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "notes": "Writes the downloaded CSV to data/raw/zwe-rainfall-adm2-full.csv under the repo root. HOZI_REPO_ROOT must be set as an environment variable on the n8n VPS instance (e.g. C:\\Users\\MSI\\Documents\\CLIENTS CURIOUS INQ\\P\\POTRAZ\\Hozi on Windows, or /opt/hozi on a Linux VPS). On Windows paths use backslashes; on Linux use forward slashes."
+    },
+    {
+      "id": "1a2b3c4d-0004-0004-0004-000000000004",
+      "name": "Run Engine",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "parameters": {
+        "command": "cd \"{{ $env.HOZI_REPO_ROOT }}\" && python engine/engine.py",
+        "options": {}
+      },
+      "notes": "Runs the Hozi Python risk engine from the repo root. Requires Python 3.12+ on PATH of the VPS user running n8n. engine.py reads sample_data/ (prototype) or data/raw/ (live) and writes data/projections.json and app/projections.json. On Windows, use 'python'; on Linux, use 'python3' if needed."
+    },
+    {
+      "id": "1a2b3c4d-0005-0005-0005-000000000005",
+      "name": "Read Projections JSON",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [1120, 300],
+      "parameters": {
+        "operation": "read",
+        "fileName": "={{ $env.HOZI_REPO_ROOT }}/data/projections.json",
+        "options": {}
+      },
+      "notes": "Reads the engine output from data/projections.json. This is the canonical machine-readable output defined in docs/ARCHITECTURE.md Layer 1. The file contains the 'watch' array with per-district band_sep fields used for threshold alerting."
+    },
+    {
+      "id": "1a2b3c4d-0006-0006-0006-000000000006",
+      "name": "Parse High-Band Districts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300],
+      "parameters": {
+        "jsCode": "// Parse projections.json read by the previous node.\n// The readWriteFile node returns file content in item.binary or item.data.\n// We handle both text and buffer forms.\nconst items = $input.all();\nconst raw = items[0].binary?.data\n  ? Buffer.from(items[0].binary.data, 'base64').toString('utf-8')\n  : (items[0].json?.data ?? items[0].json?.content ?? '');\n\nlet projections;\ntry {\n  projections = JSON.parse(raw);\n} catch (e) {\n  throw new Error('Failed to parse projections.json: ' + e.message);\n}\n\n// Filter districts where band_sep === 'High' (projected September risk >= 66).\n// Threshold defined in engine/engine.py: band() returns 'High' if v >= 66.\nconst APP_URL = $env.HOZI_APP_URL || 'https://YOUR-GITHUB-PAGES-URL';\n\nconst highDistricts = (projections.watch || []).filter(\n  d => d.band_sep === 'High'\n);\n\nif (highDistricts.length === 0) {\n  // No high-band districts — pass a sentinel so the IF node takes the false branch.\n  return [{ json: { highCount: 0, alertText: '', districts: [] } }];\n}\n\n// Format one alert text covering all high-band districts.\nconst lines = highDistricts.map(d =>\n  `  - ${d.district} (${d.province}): projected Sep risk ${d.projected_sep} — HIGH band. Playbook: ${APP_URL}#${d.district.toLowerCase().replace(/\\s+/g, '-')}`\n);\n\nconst alertText =\n  `HOZI ALERT — ${new Date().toISOString().slice(0, 10)}\\n` +\n  `${highDistricts.length} district(s) projected HIGH food-security risk for September 2026:\\n\\n` +\n  lines.join('\\n') +\n  `\\n\\nNational projected Sep mean risk: ${projections.national?.risk_sep ?? 'n/a'}.` +\n  `\\nReview the full dashboard and Response Planner at ${APP_URL}.` +\n  `\\n\\n-- Hozi automated alert (Layer 0, n8n). Threshold: band_sep=High (score >= 66).`;\n\nreturn [{ json: { highCount: highDistricts.length, alertText, districts: highDistricts } }];\n"
+      }
+    },
+    {
+      "id": "1a2b3c4d-0007-0007-0007-000000000007",
+      "name": "Any High Districts?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1560, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-001",
+              "leftValue": "={{ $json.highCount }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "1a2b3c4d-0008-0008-0008-000000000008",
+      "name": "Send Alert Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1780, 200],
+      "parameters": {
+        "fromEmail": "hozi-alerts@PLACEHOLDER.example",
+        "toEmail": "district-officer@PLACEHOLDER.example",
+        "subject": "HOZI ALERT: {{ $json.highCount }} district(s) HIGH band — {{ $now.format('YYYY-MM-DD') }}",
+        "text": "={{ $json.alertText }}",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": {
+          "id": "SMTP_CREDENTIAL_PLACEHOLDER",
+          "name": "Hozi SMTP (configure at import)"
+        }
+      },
+      "notes": "Demo alert channel: SMTP email. Configure the 'Hozi SMTP' credential in n8n with your mail server details after import. The pilot channel for district officers is WhatsApp Business API (see automation/README.md and docs/DEPLOYMENT-PLAN.md). Replace fromEmail and toEmail with real addresses before live operation. No credentials are stored in this JSON."
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Download CHIRPS Rainfall CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download CHIRPS Rainfall CSV": {
+      "main": [
+        [
+          {
+            "node": "Write CSV to data/raw",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write CSV to data/raw": {
+      "main": [
+        [
+          {
+            "node": "Run Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Engine": {
+      "main": [
+        [
+          {
+            "node": "Read Projections JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Projections JSON": {
+      "main": [
+        [
+          {
+            "node": "Parse High-Band Districts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse High-Band Districts": {
+      "main": [
+        [
+          {
+            "node": "Any High Districts?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any High Districts?": {
+      "main": [
+        [
+          {
+            "node": "Send Alert Email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "meta": {
+    "instanceId": "hozi-ai4i-2026-demo"
+  }
+}
