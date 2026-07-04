@@ -71,14 +71,13 @@ flowchart LR
   N2 --> N3
   N3 --> E1
   N3 --> E2
-  N3 --> C1
   N4 --> U1
 
   E1 --> E4
   E2 --> E4
   E3 --> E2
 
-  E4 --> C1
+  E4 -->|read-only input| C1
   C1 --> C2
 
   E4 --> A1
@@ -167,7 +166,7 @@ SECURITY & MONITORING (cross-cutting)
 | **generate-briefs.mjs + briefs.js** | Node.js ESM; Claude API (claude-sonnet-4-6) | Batch playbook generation: 20 districts x 3 languages (en/sn/nd); read-only LLM input; output committed to repo as auditable static file; no API calls at browse time | Shipped |
 | **index.html** | Vanilla HTML/CSS, Leaflet.js (vendored) | National district risk map; season time-slider (Jan–Sep); drill-down panel; domain rail for future health/climate modules; honesty panel | Shipped |
 | **cockpit.js** | Vanilla JS | Response Planner logic; district ranking by risk x irrigation x support-package effect; reads projections.js and briefs.js | Shipped |
-| **i18n.js** | Vanilla JS | English / chiShona / isiNdebele UI string switching | Shipped (en + sn); nd interface strings partial |
+| **i18n.js** | Vanilla JS | English / chiShona / isiNdebele UI string switching | Shipped (en + sn + nd); native-speaker verification of sn/nd drafts pending |
 | **tests/** | pytest | Unit tests for risk model, OLS forecaster, and Response Planner; run via `python -m unittest discover -s tests` | Shipped |
 | **Hosting: GitHub Pages demo** | GitHub Pages (static, free) | Public demo URL; zero build step; no server runtime required | Planned — repo public + Pages activation is a pre-submission milestone |
 | **Hosting: VPS pilot** | 2 GB cloud VPS (DigitalOcean / Hetzner) | Runs n8n + engine on schedule; ~US$20–40/month | Planned for pilot phase post-submission |
