@@ -29,10 +29,11 @@ District names in `data/outcome_labels.csv` are joined to CHIRPS rainfall rows v
 "Gokwenorth"            -> "Gokwe North"
 "Gokwesouth"            -> "Gokwe South"
 "Mhondoro-ngezi"        -> "Mhondoro-Ngezi"
+"Muzarabani"            -> "Muzarabani"   (identity — no-op passthrough, kept for explicitness)
 "Uzumbamarambapfungwe"  -> "Uzumba-Maramba-Pfungwe"
 ```
 
-Any label row whose name (after aliasing) does not match a pcode is silently dropped and the drop count is printed at runtime. No manual overrides beyond the four aliases above.
+Any label row whose name (after aliasing) does not match a pcode is silently dropped and the drop count is printed at runtime. No manual overrides beyond the five entries above (one of which is a no-op identity mapping).
 
 ### Feature construction
 
