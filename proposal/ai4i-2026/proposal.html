@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hozi — AI4I 2026 Development Track Proposal</title>
+<style>
+  @page {
+    size: A4;
+    margin: 1in;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.15;
+    color: #16130F;
+    background: #fff;
+  }
+  h1 { font-size: 15pt; color: #1E6B4F; margin-bottom: 4pt; }
+  h2 { font-size: 13pt; color: #1E6B4F; margin-top: 10pt; margin-bottom: 4pt; border-bottom: 1.5pt solid #1E6B4F; padding-bottom: 2pt; }
+  h3 { font-size: 11.5pt; color: #16130F; margin-top: 7pt; margin-bottom: 3pt; }
+  p { margin-bottom: 4pt; text-align: justify; }
+  ul, ol { margin-left: 16pt; margin-bottom: 4pt; }
+  li { margin-bottom: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 6pt; font-size: 10pt; }
+  th, td { border: 1px solid #ccc; padding: 3pt 5pt; text-align: left; vertical-align: top; }
+  th { background: #1E6B4F; color: #fff; font-weight: bold; }
+  .accent { color: #D89B2E; }
+  .small { font-size: 9pt; color: #666; }
+  .note { background: #f8f6f0; border-left: 3pt solid #D89B2E; padding: 4pt 8pt; margin: 4pt 0; font-size: 10pt; }
+  strong { font-weight: bold; }
+
+  /* Cover page */
+  .cover {
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  .cover h1 { font-size: 28pt; margin-bottom: 10pt; border: none; }
+  .cover .subtitle { font-size: 14pt; color: #16130F; margin-bottom: 30pt; font-style: italic; }
+  .cover .meta { font-size: 11pt; line-height: 1.6; }
+  .cover .meta strong { color: #1E6B4F; }
+  .cover .tagline { font-size: 12pt; color: #D89B2E; margin-top: 24pt; font-style: italic; }
+
+  /* Page breaks */
+  .page-break { page-break-before: always; }
+
+  /* Architecture diagram */
+  .arch-diagram {
+    border: 2px solid #1E6B4F;
+    padding: 6pt;
+    margin: 4pt 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 8pt;
+    line-height: 1.2;
+    white-space: pre;
+    background: #fafaf8;
+    overflow: hidden;
+  }
+
+  /* Team box */
+  .team-box {
+    border: 1.5pt solid #1E6B4F;
+    padding: 6pt 10pt;
+    margin: 6pt 0;
+    background: #f4faf7;
+  }
+  .team-box h3 { margin-top: 0; color: #1E6B4F; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER PAGE (not counted towards 10-page limit)                -->
+<!-- ============================================================ -->
+<div class="cover">
+  <h1>Hozi</h1>
+  <div style="font-size:13pt; color:#1E6B4F; margin-bottom:6pt;">National Foresight &amp; Decision Infrastructure</div>
+  <div class="subtitle">First module: Food Security</div>
+  <div style="font-size:11pt; margin-bottom:30pt;">"Fill the granary before the drought."</div>
+
+  <div class="meta">
+    <strong>Track:</strong> Development (Track 3)<br>
+    <strong>Team:</strong> Curious Inq<br>
+    <strong>Lead Innovator:</strong> Nash Barara<br>
+    <strong>Date:</strong> 4 July 2026
+  </div>
+  <div class="tagline">Built in Zimbabwe. Open-source. Sovereign.</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: Problem Definition & Strategic Alignment (1-2 pp)  -->
+<!-- ============================================================ -->
+<h1>1. Problem Definition &amp; Strategic Alignment</h1>
+
+<h2>The Problem</h2>
+<p>Almost every year, parts of Zimbabwe slide into food shortage when the rains fail. The tragedy is rarely that no one saw it coming &mdash; it is that the warning arrives too late, buried in slow seasonal reports produced outside the country, after the moment for early action has passed. Planners are then left to stretch limited resources across many struggling districts with no quick, shared way to see where action would do the most good.</p>
+
+<p><strong>Prediction is a crowded field. Prescription is not.</strong> Global tools (WFP HungerMap, FEWS NET) tell you <em>what</em> will happen. None of them help our own planners decide <em>where to act first</em> &mdash; interactively, in local languages, and sovereign. Hozi closes that gap: <strong>earlier warning + a clear, shared picture + help deciding where each dollar protects the most people.</strong></p>
+
+<h2>Target Users and Beneficiaries</h2>
+<table>
+  <tr><th>Primary Users</th><th>Beneficiaries</th></tr>
+  <tr>
+    <td>
+      <ul>
+        <li>ZimVAC field members and secretariat staff</li>
+        <li>Ministry of Agriculture / Agritex district and provincial planners</li>
+        <li>District development officers</li>
+        <li>Department of Civil Protection duty officers</li>
+      </ul>
+    </td>
+    <td>
+      Rural populations in Zimbabwe's drought-prone districts &mdash; particularly the most food-insecure households in Matabeleland, Masvingo, Mashonaland East, and Manicaland provinces &mdash; who benefit from earlier, better-targeted anticipatory action.
+    </td>
+  </tr>
+</table>
+
+<h2>One Engine, Many Decisions</h2>
+<p>The pattern Hozi runs &mdash; <em>signals &rarr; risk score &rarr; forecast &rarr; response ranking &rarr; local-language playbooks</em> &mdash; is domain-agnostic. Food security is the proven first module: real-outcome training done, baselines beaten, trilingual playbooks shipped. The next two modules are already on the roadmap:</p>
+<ul>
+  <li><strong>Health:</strong> cholera/typhoid outbreak risk by district (rainfall + water points + case reports).</li>
+  <li><strong>Climate/disaster:</strong> flood displacement risk (Cyclone Idai lesson; CHIRPS + river gauges + settlements).</li>
+</ul>
+<p>Same engine, new signal set, new institutional customer. That is the infrastructure play.</p>
+
+<h2>Strategic Alignment</h2>
+
+<h3>National AI Strategy 2026&ndash;2030</h3>
+<p>Hozi is designed as the <strong>decision layer</strong> on top of <strong>Project Pangolin</strong> (Zimbabwe's national data platform, a National AI Strategy initiative). Pangolin owns the data; Hozi turns it into decisions. The system is built entirely on open-source tools (Python stdlib, n8n, MIT licence), aligns with the Strategy's goals of sovereign AI capacity, local language technology, and Zimbabwean ownership of analytical infrastructure.</p>
+
+<h3>AI4I Priority Sectors</h3>
+<table>
+  <tr><th>AI4I Priority Sector</th><th>Hozi Alignment</th></tr>
+  <tr><td>Agriculture / Food Systems</td><td>Core wedge module &mdash; district-level food-security foresight and response planning</td></tr>
+  <tr><td>Climate Resilience</td><td>Roadmap module &mdash; flood displacement foresight (same engine, climate signals)</td></tr>
+  <tr><td>Health</td><td>Roadmap module &mdash; cholera/typhoid outbreak risk (same engine, health signals)</td></tr>
+  <tr><td>Local Language Technologies</td><td>Trilingual interface and playbooks: English, chiShona, isiNdebele (60 district briefs shipped)</td></tr>
+  <tr><td>Public Service Delivery</td><td>Response Planner ranks where limited support protects the most people &mdash; decision support for public resource allocation</td></tr>
+</table>
+
+<h3>National Development Strategy</h3>
+<p>Hozi directly supports NDS priorities in food security, climate adaptation, and digital transformation. The open-source, sovereign design ensures no dependence on foreign agency access or proprietary data pipelines.</p>
+
+<div class="team-box">
+  <h3>Team: Curious Inq (2 members)</h3>
+  <p><strong>Nash Barara</strong> &mdash; Product &amp; design lead. 11+ years in advertising, 3D design, and motion graphics. AI-assisted build (fully disclosed).</p>
+  <p><strong>Chipo</strong> &mdash; Strategy &amp; copywriting.</p>
+  <p class="small">Built with AI assistance: Claude served as pair developer throughout &mdash; writing engine code, tests, and documentation from specifications authored by the team. Fully disclosed in <code>docs/AI-USAGE-NOTE.md</code>. The AI4I Development Track ToR explicitly permits AI-assisted coding provided the team can explain and defend the system.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: Technical Design & Product Logic (2-3 pp)          -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h1>2. Technical Design &amp; Product Logic</h1>
+
+<h2>System Architecture: Four Layers</h2>
+
+<div class="arch-diagram">
++--------------------------------------------------------------------------+
+|  INSTITUTIONAL DATA SOURCES                                              |
+|  ZimVAC/IPC outcomes - CHIRPS/Met rainfall - Agritex crops+pests         |
+|  NASA/Copernicus NDVI - GMB/ZMX market prices                            |
++-----------------------------------+--------------------------------------+
+                                    | CSV uploads + scheduled API pulls
++-----------------------------------v--------------------------------------+
+|  LAYER 0 - AUTOMATION  (n8n, self-hosted VPS)               [PLANNED]   |
+|  Scheduled CHIRPS/NDVI pulls - ZimVAC/Agritex inbox watch               |
+|  Orchestrator: new data -> engine run -> LLM pass -> app refresh        |
+|  Alert dispatcher: threshold breach -> WhatsApp / SMS / email           |
++-----------------------------------+--------------------------------------+
+                                    | triggers engine run
++-----------------------------------v--------------------------------------+
+|  LAYER 1 - NUMBERS  (Python engine, stdlib only)            [SHIPPED]   |
+|  engine.py     - transparent weighted risk model + Response Planner     |
+|  train_real.py - OLS forecaster, 232 real district-seasons (LODO)       |
+|  baselines.py  - persistence + rainfall-rule baselines for comparison   |
+|  OUTPUT -> projections.json / projections.js (all district data)        |
++------------------+-------------------------------------------------------+
+                   | read-only input
++------------------v-------------------------------------------------------+
+|  LAYER 2 - REASONING  (Claude API, batch, read-only)        [SHIPPED]   |
+|  generate-briefs.mjs - 20 districts x 3 languages (en/sn/nd)           |
+|  OUTPUT -> briefs.js (pre-generated advisory text, version-controlled)  |
++------------------+-------------------------------------------------------+
+                   | static JS files read by browser
++------------------v-------------------------------------------------------+
+|  LAYER 3 - INTERFACE  (static app, GitHub Pages)            [SHIPPED]   |
+|  index.html  - national risk map, time-slider, drill-down               |
+|  cockpit.js  - Response Planner, district ranking                       |
+|  i18n.js     - English / chiShona / isiNdebele switching                |
+|  No build step - No server runtime - No user data collected             |
++------------------+-------------------------------------------------------+
+                   | browser + WhatsApp/SMS alerts (Layer 0)
++------------------v-------------------------------------------------------+
+|  USERS: District officers - ZimVAC staff - Ministry planners - Public   |
++--------------------------------------------------------------------------+
+</div>
+
+<h2>Component Table</h2>
+<table>
+  <tr><th>Component</th><th>Technology</th><th>Responsibility</th><th>Status</th></tr>
+  <tr><td>Layer 0: n8n automation</td><td>n8n (open-source, Docker)</td><td>Scheduled ingestion; orchestrates engine + LLM runs; WhatsApp/SMS/email alerts</td><td>Planned</td></tr>
+  <tr><td>engine.py</td><td>Python 3.12, stdlib only</td><td>Transparent weighted risk model; Response Planner ranking</td><td>Shipped</td></tr>
+  <tr><td>train_real.py</td><td>Python 3.12, stdlib only</td><td>OLS forecaster on 232 real IPC &times; CHIRPS observations; LODO validation</td><td>Shipped</td></tr>
+  <tr><td>baselines.py</td><td>Python 3.12, stdlib only</td><td>Persistence + rainfall-rule baselines for comparison</td><td>Shipped</td></tr>
+  <tr><td>generate-briefs.mjs</td><td>Node.js ESM; Claude API (claude-sonnet-4-6)</td><td>Batch playbook generation: 20 districts &times; 3 languages</td><td>Shipped</td></tr>
+  <tr><td>Static app</td><td>Vanilla HTML/CSS/JS, Leaflet.js</td><td>Risk map, time-slider, drill-down, Response Planner, honesty panel</td><td>Shipped</td></tr>
+</table>
+
+<h2>Two-Layer AI Design</h2>
+
+<h3>Layer 1: Deterministic Numbers (Classical ML)</h3>
+<p>The Python engine computes every number in the app through traceable arithmetic. The OLS forecaster is trained on a real panel of 232 district-season observations (IPC Phase 3+ outcomes &times; CHIRPS dekadal rainfall), validated leave-one-district-out (LODO). <strong>The LLM never generates, edits, or imputes any data point.</strong></p>
+
+<p><strong>Baseline comparison</strong> (LODO, real IPC &times; CHIRPS panel, 232 obs, 58 districts):</p>
+<table>
+  <tr><th>Method</th><th>r</th><th>MAE (pp)</th></tr>
+  <tr><td>Global-mean</td><td>&minus;0.557</td><td>10.2</td></tr>
+  <tr><td>Persistence (prior-season own district)</td><td>0.129</td><td>11.0</td></tr>
+  <tr><td>Rainfall-rule (threshold heuristic)</td><td>&minus;0.179</td><td>10.7</td></tr>
+  <tr><td><strong>OLS model (Hozi)</strong></td><td><strong>0.484</strong></td><td><strong>8.5</strong></td></tr>
+</table>
+<p>Every simpler method loses on both metrics. r = 0.484 is moderate &mdash; honest, not high-confidence. This is foresight, not fortune-telling. The model uses rainfall as its sole feature; adding NDVI, market prices, and a longer label time-series (15+ years of ZimVAC assessments are digitisable) is the documented next step.</p>
+
+<h3>Layer 2: Read-Only LLM (Claude claude-sonnet-4-6)</h3>
+<p>Claude operates <strong>only after</strong> Layer 1 has finished. It receives completed district data as read-only input and performs three functions:</p>
+<ol>
+  <li><strong>REASONS</strong> &mdash; plain-language driver explanations for each district's risk score.</li>
+  <li><strong>SUGGESTS</strong> &mdash; ranked intervention playbooks in en/sn/nd (60 playbooks shipped), grounded only in supplied inputs, labelled advisory.</li>
+  <li><strong>VALIDATES</strong> (design intent) &mdash; contradiction-flagging between model output and IPC classifications. Documented architecture; not yet in the current generation script.</li>
+</ol>
+<p><strong>Guardrails:</strong> Advisory-only output. Never feeds back into Layer 1 scores. Outputs committed to repo as auditable <code>briefs.js</code>. Zero API calls at browse time. Human review required before action. ZimVAC/ministry retains decision authority.</p>
+
+<h2>Data Schemas, API Layer &amp; Connectivity</h2>
+<p><strong>Input panel CSV:</strong> <code>district, period, r1h, r3h, rfq, r3q, food_insecurity_pct</code> (IPC Phase 3+ %). 232 obs, 58 districts, 4 periods (2019&ndash;2020). <strong>Output:</strong> <code>projections.json</code> &mdash; per-district object with risk series (0&ndash;100, observed/forecast flag), drivers, forecast slope+band, support-package effect, Response Planner rank. Documented, machine-readable JSON consumed by app and <code>generate-briefs.mjs</code>. HTTP REST wrapper is a pilot milestone. Integration with Project Pangolin requires only feed credentials and n8n connector configuration.</p>
+<p><strong>Low-connectivity:</strong> n8n dispatches WhatsApp/SMS alerts on threshold breaches (2G-capable, no app install). Static app is pre-computed; zero runtime API calls from browser.</p>
+<p class="note"><strong>Edge deployment: N/A.</strong> Server-side processing + static web delivery. No on-device inference.</p>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: Deliverables & CCE Implementation Roadmap (2 pp)   -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h1>3. Deliverables &amp; CCE Implementation Roadmap</h1>
+
+<h2>Development Timeline</h2>
+<table>
+  <tr><th>Phase</th><th>Days</th><th>Deliverables</th></tr>
+  <tr><td>Repo hardening &amp; baselines</td><td>1&ndash;2</td><td>Unit tests (14 stdlib tests); dependency manifests; secrets audit; baseline experiment (LODO comparison)</td></tr>
+  <tr><td>Proposal &amp; dataset statement</td><td>3&ndash;5</td><td>10-page proposal PDF; dataset provenance statement; AI usage note</td></tr>
+  <tr><td>Business &amp; deployment pack</td><td>6&ndash;7</td><td>Business model one-pager; deployment plan; demo hosting; n8n workflow</td></tr>
+  <tr><td>Pitch &amp; evidence</td><td>8&ndash;9</td><td>Pitch deck; testing evidence capture; ToR self-assessment checklist</td></tr>
+  <tr><td>Review &amp; submit</td><td>10&ndash;11</td><td>Chipo review pass; PDF formatting; portal registration; submission with buffer</td></tr>
+</table>
+
+<h2>Post-Submission Milestones</h2>
+<table>
+  <tr><th>Phase</th><th>Milestone</th><th>Deliverable</th></tr>
+  <tr>
+    <td><strong>Days 0&ndash;30</strong><br>(Post-submission)</td>
+    <td>Foundation</td>
+    <td>
+      <ul>
+        <li>Incorporate judge and shortlist feedback</li>
+        <li>Complete security and compliance checklist (DPA review, .env audit)</li>
+        <li>Sign pilot MOU with at least one ZimVAC/ministry stakeholder</li>
+        <li>Deploy public demo URL on GitHub Pages</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Days 31&ndash;60</strong><br>(Live pilot)</td>
+    <td>Pilot launch</td>
+    <td>
+      <ul>
+        <li>Live pilot in Matabeleland South (Beitbridge, Gwanda, Mangwe)</li>
+        <li>n8n automation running: CHIRPS pull &rarr; engine run &rarr; WhatsApp alerts</li>
+        <li>Collect alert delivery receipts and officer feedback</li>
+        <li>Web-based role gating for admin views</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Days 61&ndash;90</strong><br>(Evidence &amp; scale)</td>
+    <td>Adoption case</td>
+    <td>
+      <ul>
+        <li>Measure warning lead-time vs ZimVAC seasonal assessment cycle</li>
+        <li>Complete adoption case study (districts covered, alerts delivered, officer feedback)</li>
+        <li>Draft provincial scale proposal</li>
+        <li>Publish refined model with expanded ZimVAC/IPC training labels</li>
+        <li>Government handover runbook and operator documentation</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<h2>Compute Requirements</h2>
+<table>
+  <tr><th>Requirement</th><th>Specification</th></tr>
+  <tr><td>GPU</td><td>None required. All computation is CPU-only (OLS linear algebra, weighted arithmetic).</td></tr>
+  <tr><td>Python runtime</td><td>Python 3.9+ (stdlib only). Containerisable as <code>python:3.12-slim</code>.</td></tr>
+  <tr><td>Node.js</td><td>Node.js &ge;18 (for <code>generate-briefs.mjs</code> only). Zero npm dependencies.</td></tr>
+  <tr><td>Automation</td><td><code>n8nio/n8n</code> official Docker image. Self-hosted on 2 GB VPS.</td></tr>
+  <tr><td>External API</td><td>Claude API (claude-sonnet-4-6) for batch playbook generation. ~US$0.10&ndash;0.40 per full run.</td></tr>
+</table>
+
+<h2>Dependency-Locked Manifests</h2>
+<table>
+  <tr><th>Manifest</th><th>Content</th></tr>
+  <tr><td><code>requirements.txt</code></td><td>Zero third-party packages. Engine uses Python stdlib only (<code>csv</code>, <code>json</code>, <code>math</code>, <code>os</code>, <code>statistics</code>, <code>sys</code>). Eliminates supply-chain risk entirely.</td></tr>
+  <tr><td><code>scripts/package.json</code></td><td><code>"dependencies": {}</code>. Node.js built-ins only (<code>fs</code>, <code>https</code>). Zero <code>node_modules</code>.</td></tr>
+</table>
+
+<h2>ZCHPC CCE Deploy &amp; Test Plan</h2>
+<p>The system is containerised and ready for handover to ZCHPC CCE if a hosting arrangement is agreed. No hosting agreement is in place; this is the documented scale pathway.</p>
+<p><strong>Smoke test on any environment (including CCE):</strong></p>
+<ol>
+  <li>Engine run: <code>python engine/engine.py</code> &mdash; produces <code>projections.json</code> for all districts.</li>
+  <li>Unit tests: <code>python -m unittest discover -s tests</code> &mdash; 14 tests, all pass in &lt;1 second.</li>
+  <li>One n8n workflow execution: scheduled CHIRPS pull &rarr; engine trigger &rarr; alert message.</li>
+</ol>
+<p><strong>Container images:</strong> <code>python:3.12-slim</code> (engine) + <code>n8nio/n8n</code> (automation). No GPU. No proprietary runtime.</p>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: Compliance & Risk Mitigation (1-2 pp)              -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h1>4. Compliance &amp; Risk Mitigation</h1>
+
+<h2>Data Protection Act [Chapter 12:07] Compliance</h2>
+<p><strong>Current prototype:</strong> No personal data is processed at any stage. All inputs are district-level aggregate statistics &mdash; published IPC Phase 3+ percentages, CHIRPS dekadal rainfall averages, ZimVAC seasonal assessment figures, and POTRAZ synthetic challenge data. The unit of analysis is the administrative district, not the individual. Exposure under Chapter 12:07 is minimal by design.</p>
+
+<h3>Pilot: Consent Checkbox Implementation (Designed, Not Yet Shipped)</h3>
+<p>The pilot roadmap includes a district-officer ground-truth reporting channel. Because officer submissions could constitute personal data, the following DPA safeguards are designed:</p>
+<table>
+  <tr><th>DPA Requirement</th><th>Implementation</th></tr>
+  <tr><td>Informed consent</td><td>Required, <strong>unticked-by-default</strong> checkbox on the report form. Text: "I consent to Hozi storing this submission &mdash; district, indicator, date, and my officer ID &mdash; for food-security monitoring. I can request deletion by contacting [contact address]." Form cannot submit without checking.</td></tr>
+  <tr><td>Timestamped consent record</td><td>Each submission stores: officer ID (not full name), district, indicator, value, timestamp, and <code>consent_given: true / timestamp</code>. Consent record stored alongside submission.</td></tr>
+  <tr><td>Data minimisation</td><td>Three fields only: district, indicator type+value, date. No full name, home address, or phone number beyond minimum officer ID.</td></tr>
+  <tr><td>Right to erasure</td><td>Named contact address in consent notice. Deletion within five working days, confirmed by reply.</td></tr>
+  <tr><td>Retention limit</td><td>Pilot duration + 12 months, then purged unless incorporated into anonymised aggregate data.</td></tr>
+</table>
+
+<h2>Ethical Safeguards &amp; Responsible AI</h2>
+<table>
+  <tr><th>Risk</th><th>Mitigation</th></tr>
+  <tr>
+    <td><strong>Over-trust in forecasts</strong><br>Planners treat risk scores as precise measurements</td>
+    <td>Confidence band widens with forecast horizon. Forecast months shown with dashed lines and band shading. Mandatory closing note on urgency and limits in every playbook. In-app honesty panel states "Foresight, not fortune-telling." Known limitations listed in README.</td>
+  </tr>
+  <tr>
+    <td><strong>LLM hallucination</strong><br>Claude invents figures or programmes not in district data</td>
+    <td>Read-only two-layer architecture: LLM output never feeds back into Layer 1. System prompt: "Ground EVERY statement in the numbers provided. Never invent figures, places, or programmes." Outputs version-controlled in <code>briefs.js</code>. In-app label: "Drafted by AI from the engine's risk data &mdash; for planner review, not instruction."</td>
+  </tr>
+  <tr>
+    <td><strong>Bias / underserved districts</strong><br>Districts with sparse data silently scored</td>
+    <td>LODO cross-validation across all 58 districts. Districts with fewer than 3 observed months receive no forecast and are excluded from Response Planner ranking &mdash; not silently scored.</td>
+  </tr>
+  <tr>
+    <td><strong>Misuse as budget authority</strong><br>Planner output misread as allocation instruction</td>
+    <td>Explicit framing throughout: "Hozi never sets budgets &mdash; it helps stretch the ones that exist." Response Planner is a prioritisation aid, not an instruction. ZimVAC/ministry retains full decision authority.</td>
+  </tr>
+</table>
+
+<h2>Cybersecurity Protections</h2>
+<table>
+  <tr><th>Control</th><th>Status</th></tr>
+  <tr><td>No secrets in repository</td><td>Implemented. Git history audited 2026-07-03. API key loaded from gitignored file; <code>.env.example</code> committed.</td></tr>
+  <tr><td>Zero-dependency supply chain</td><td>Implemented. Python: stdlib only. Node.js: <code>"dependencies": {}</code>. No <code>node_modules</code>. Eliminates supply-chain attack surface.</td></tr>
+  <tr><td>Static frontend, minimal attack surface</td><td>Implemented. No server-side code, no user input stored, no cookies, no runtime API calls at browse time.</td></tr>
+  <tr><td>Pilot VPS hardening</td><td>Planned. SSH-key-only access, UFW firewall (ports 22/80/443), unattended security upgrades, n8n behind reverse-proxy auth.</td></tr>
+  <tr><td>HTTPS</td><td>Implemented (GitHub Pages). Planned (pilot VPS via Let's Encrypt).</td></tr>
+</table>
+
+<h2>Model Unit Testing</h2>
+<p><strong>14 unit tests</strong> across two test files, all Python stdlib <code>unittest</code>, zero external dependencies:</p>
+<ul>
+  <li><strong>test_engine.py</strong> (12 tests): clamp bounds, risk model (healthy &lt;10, drought &gt;80, irrigation mitigates monotonically, output bounded 0&ndash;100), Pearson r (perfect positive/negative/constant), OLS linfit + band thresholds.</li>
+  <li><strong>test_train_real.py</strong> (2 tests): OLS solver recovers known coefficients to 6 decimal places; <code>predict()</code> matches manual dot-product.</li>
+</ul>
+<p>Run: <code>python -m unittest discover -s tests</code>. Expected: 14 pass in &lt;1 second. Validation beyond unit tests: LODO baseline experiment (rerunnable via <code>python engine/baselines.py</code>).</p>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: Sustainability & Future Adoption (1 page)          -->
+<!-- ============================================================ -->
+<div class="page-break"></div>
+<h1>5. Sustainability &amp; Future Adoption</h1>
+
+<h2>Cost Projections</h2>
+<table>
+  <tr><th>Item</th><th>Est. Monthly (US$)</th></tr>
+  <tr><td>VPS &mdash; n8n automation + Python engine (2 GB cloud server)</td><td>20&ndash;40</td></tr>
+  <tr><td>Static app hosting (GitHub Pages)</td><td>0</td></tr>
+  <tr><td>Claude API &mdash; reasoning + playbook generation (~20 districts/month)</td><td>30&ndash;80</td></tr>
+  <tr><td>WhatsApp/SMS alert delivery (pilot volume)</td><td>10&ndash;30</td></tr>
+  <tr><td>Domain name + automated backups</td><td>5</td></tr>
+  <tr><td><strong>Total (pilot)</strong></td><td><strong>65&ndash;155</strong></td></tr>
+</table>
+<p><strong>3-month pilot:</strong> approximately US$200&ndash;500 infrastructure + field onboarding costs. <strong>National scale:</strong> ZCHPC CCE hosting replaces the VPS, reducing cash cost &mdash; subject to hosting arrangement being agreed.</p>
+
+<h2>Operational Business Model</h2>
+<table>
+  <tr><th>Phase</th><th>Mechanism</th></tr>
+  <tr><td>Pilot (0&ndash;12 months)</td><td>Development partner programme grant (WFP/FAO/UNDP). Government operates; partner funds.</td></tr>
+  <tr><td>Scale (12+ months)</td><td>Per-domain institutional licence. Health module &rarr; Ministry of Health. Climate module &rarr; Dept. of Civil Protection. Each new domain = new institutional customer on the same infrastructure.</td></tr>
+  <tr><td>Long-term</td><td>Government line-item adoption + ZCHPC national hosting. Operating cost moves off grants onto National AI Strategy budget lines.</td></tr>
+</table>
+<p>The open-source MIT engine lowers adoption barriers and supports trust-building with conservative institutions. Curious Inq provides design, integration, and deployment expertise as the incubation operator; the explicit goal is government handover at national scale.</p>
+
+<h2>Licensing Registry</h2>
+<table>
+  <tr><th>Asset</th><th>Licence</th></tr>
+  <tr><td>Hozi engine + app code</td><td>MIT (free to use, extend, build upon)</td></tr>
+  <tr><td>CHIRPS rainfall data</td><td>Creative Commons (open)</td></tr>
+  <tr><td>IPC / ZimVAC outcome labels</td><td>Public government and UN agency reports</td></tr>
+  <tr><td>POTRAZ programme dataset</td><td>Programme terms (challenge-provided; not for redistribution)</td></tr>
+  <tr><td>n8n automation</td><td>Sustainable Use License (open-source, self-hostable)</td></tr>
+  <tr><td>Claude API</td><td>Anthropic commercial API terms</td></tr>
+</table>
+
+<h2>Scaling Pathways</h2>
+<table>
+  <tr><th>Stage</th><th>Scope</th><th>Trigger</th></tr>
+  <tr><td>Pilot</td><td>1 district cluster (~3 districts, 10&ndash;20 users)</td><td>MOU signed; infrastructure deployed</td></tr>
+  <tr><td>Provincial</td><td>10&ndash;20 districts, one province</td><td>Pilot adoption case study complete</td></tr>
+  <tr><td>National</td><td>All ~60 districts, multiple ministries</td><td>ZCHPC CCE handover; government operating budget</td></tr>
+  <tr><td>Multi-domain</td><td>Health, climate/disaster, water modules</td><td>Each new institutional customer signs module agreement</td></tr>
+</table>
+
+<p style="margin-top: 14pt;"><strong>Live demo:</strong> https://nashbarara.github.io/hozi (activation in progress)<br>
+<strong>GitHub:</strong> https://github.com/nashbarara/hozi</p>
+
+<p style="margin-top: 14pt; text-align: center; font-style: italic; color: #1E6B4F;">"Fill the granary before the drought."</p>
+
+</body>
+</html>
