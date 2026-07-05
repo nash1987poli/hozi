@@ -11,7 +11,7 @@
 *See the hunger coming — and act in time.*
 
 ![status](https://img.shields.io/badge/status-working%20prototype-1E6B4F)
-![consistency check (synthetic)](https://img.shields.io/badge/consistency%20check%20(synthetic)-r%3D0.81-D89B2E)
+![consistency check (synthetic)](https://img.shields.io/badge/consistency%20check%20%28synthetic%29-r%3D0.81-D89B2E)
 ![real-outcome LODO](https://img.shields.io/badge/real--outcome%20LODO-r%3D0.48-1E6B4F)
 ![stack](https://img.shields.io/badge/stack-python%20%2B%20vanilla%20JS-16130F)
 ![license](https://img.shields.io/badge/license-MIT-1E6B4F)
