@@ -25,7 +25,7 @@ This document covers (1) the ToR §16 submission-readiness checklist, (2) the An
 | 11 | Privacy, security, consent, and responsible-AI addressed | **Yes** | `docs/RISK-COMPLIANCE.md` — Data Protection Act [Ch.12:07] position; no personal data; human-in-the-loop design; responsible AI framing; `docs/AI-USAGE-NOTE.md` §Responsible AI |
 | 12 | Secrets removed from repo | **Yes (git clean)** | Audited 2026-07-04: `git log --all -S "sk-ant-api" --oneline` returns empty; `.env.example` present (placeholder only); `CLAUDE_API_KEY` loaded from environment at runtime, never hardcoded; `scripts/anthropic-key.txt` is gitignored (never committed) but contains a live key on disk — **rotate before public repo deployment** |
 | 13 | Main flow tested and bugs recorded | **Yes** | `docs/TESTING-EVIDENCE.md` — 14/14 unit tests pass; engine diagnostics; `node scripts/check-app.mjs` → OK; `CHANGELOG.md` — defect log |
-| 14 | Demo script and screenshots present; live URL | **Yes / In progress** | `docs/DEMO-SCRIPT.md` — shot-by-shot film script + live walkthrough; `docs/TESTING-EVIDENCE.md` — engine output screenshots; `docs/screenshot.jpg`; **live URL: In progress** — pending GitHub Pages deployment (Task 14 checkpoint with Nash) |
+| 14 | Demo script and screenshots present; live URL | **Yes** | `docs/DEMO-SCRIPT.md` — shot-by-shot film script + live walkthrough; `docs/TESTING-EVIDENCE.md` — engine output screenshots; `docs/screenshot.jpg`; **live URL: https://nash1987poli.github.io/hozi/** |
 | 15 | 30/60/90-day plan | **Yes** | `docs/DEPLOYMENT-PLAN.md` §Milestones — Day 0–30, 31–60, 61–90 one-liner targets; `docs/BUSINESS-MODEL.md` §Success metrics |
 
 ---
@@ -37,10 +37,10 @@ This document covers (1) the ToR §16 submission-readiness checklist, (2) the An
 | 1 | Written proposal submitted (PDF, correct filename convention) | **Ready** | `proposal/ai4i-2026/HOZI-TBD_AI4I_Proposal_Development.pdf` (11 pages); filename uses TBD placeholder — swap team number when assigned |
 | 2 | Business model document | **Ready** | `docs/BUSINESS-MODEL.md` |
 | 3 | Deployment plan | **Ready** | `docs/DEPLOYMENT-PLAN.md` |
-| 4 | Public repository link | **Ready** | Repo committed locally; GitHub Pages deployment pending Nash checkpoint (Task 14) |
+| 4 | Public repository link | **Ready** | https://github.com/nash1987poli/hozi (public); GitHub Pages live |
 | 5 | Architecture diagram | **Ready** | `docs/ARCHITECTURE.md` (Mermaid LR flowchart); reproduced in proposal §2 |
 | 6 | Dataset statement and AI usage note | **Ready** | `docs/DATASET-STATEMENT.md`; `docs/AI-USAGE-NOTE.md` |
-| 7 | Live demo URL | **Needs work — scheduled** | GitHub Pages URL not yet live; deployment is Task 14 (Nash checkpoint); `docs/DEMO-SCRIPT.md` covers fallback live walkthrough |
+| 7 | Live demo URL | **Ready** | https://nash1987poli.github.io/hozi/ (GitHub Pages, live) |
 | 8 | n8n automation execution screenshot | **Needs work — scheduled** | `automation/hozi-pipeline.workflow.json` committed; live execution screenshot pending first VPS run (Task 11 — Nash GUI step) |
 | 9 | Risk and compliance checklist | **Ready** | `docs/RISK-COMPLIANCE.md` |
 | 10 | Testing evidence | **Ready** | `docs/TESTING-EVIDENCE.md` — 14/14 tests; engine diagnostics; check-app OK |
@@ -113,10 +113,10 @@ node scripts/check-app.mjs
 | 1 | Written proposal | Done | `proposal/ai4i-2026/HOZI-TBD_AI4I_Proposal_Development.pdf` |
 | 2 | Business model | Done | `docs/BUSINESS-MODEL.md` |
 | 3 | Deployment plan | Done | `docs/DEPLOYMENT-PLAN.md` |
-| 4 | Repository | Done | git repo; GitHub Pages pending |
+| 4 | Repository | Done | git repo at https://github.com/nash1987poli/hozi; GitHub Pages live |
 | 5 | Architecture diagram | Done | `docs/ARCHITECTURE.md` |
 | 6 | Data and AI note | Done | `docs/DATASET-STATEMENT.md` + `docs/AI-USAGE-NOTE.md` |
-| 7 | Demo link | In progress | `docs/DEMO-SCRIPT.md` ready; live URL pending Task 14 (Nash checkpoint) |
+| 7 | Demo link | Done | https://nash1987poli.github.io/hozi/ (live); `docs/DEMO-SCRIPT.md` ready |
 | 8 | Pitch deck | Done | `proposal/ai4i-2026/hozi-pitch-deck.pdf` (11 slides) |
 | 9 | Risk and compliance checklist | Done | `docs/RISK-COMPLIANCE.md` |
 | 10 | Testing evidence | Done | `docs/TESTING-EVIDENCE.md` |

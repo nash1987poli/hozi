@@ -167,8 +167,8 @@ SECURITY & MONITORING (cross-cutting)
 | **index.html** | Vanilla HTML/CSS, Leaflet.js (vendored) | National district risk map; season time-slider (Jan–Sep); drill-down panel; domain rail for future health/climate modules; honesty panel | Shipped |
 | **cockpit.js** | Vanilla JS | Response Planner logic; district ranking by risk x irrigation x support-package effect; reads projections.js and briefs.js | Shipped |
 | **i18n.js** | Vanilla JS | English / chiShona / isiNdebele UI string switching | Shipped (en + sn + nd); native-speaker verification of sn/nd drafts pending |
-| **tests/** | pytest | Unit tests for risk model, OLS forecaster, and Response Planner; run via `python -m unittest discover -s tests` | Shipped |
-| **Hosting: GitHub Pages demo** | GitHub Pages (static, free) | Public demo URL; zero build step; no server runtime required | Planned — repo public + Pages activation is a pre-submission milestone |
+| **tests/** | Python stdlib `unittest` | Unit tests for risk model, OLS forecaster, and Response Planner; run via `python -m unittest discover -s tests` | Shipped |
+| **Hosting: GitHub Pages demo** | GitHub Pages (static, free) | Public demo URL: https://nash1987poli.github.io/hozi/; zero build step; no server runtime required | Shipped |
 | **Hosting: VPS pilot** | 2 GB cloud VPS (DigitalOcean / Hetzner) | Runs n8n + engine on schedule; ~US$20–40/month | Planned for pilot phase post-submission |
 | **Hosting: ZCHPC national** | ZCHPC CCE containerised deployment | National-scale deployment; `python:3.12-slim` + `n8nio/n8n` Docker images ready for handover | Planned — scale milestone, no hosting agreement in place |
 
