@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Hozi — AI4I 2026 Pitch Deck</title>
+<style>
+  @page { size: A4 landscape; margin: 0.5in; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  :root {
+    --green: #1E6B4F;
+    --green2: #14543E;
+    --amber: #D89B2E;
+    --ink: #16130F;
+    --cream: #FAFAF7;
+    --white: #FFFFFF;
+    --muted: #7A7469;
+    --line: #E0D9CC;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    font-size: 11pt;
+    background: #ccc;
+  }
+
+  /* ── SLIDE SHELL ─────────────────────────────────────── */
+  .slide {
+    width: 100%;
+    height: 183mm;
+    background: var(--white);
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 12px; /* screen-only gap */
+  }
+  .slide:last-child { page-break-after: avoid; break-after: avoid; margin-bottom: 0; }
+
+  /* accent bar top */
+  .slide::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, var(--green) 60%, var(--amber) 100%);
+    flex-shrink: 0;
+  }
+
+  .slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 28px 12px;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* slide number badge */
+  .slide-num {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  /* footer line */
+  .slide-foot {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  /* ── TYPOGRAPHY ──────────────────────────────────────── */
+  .eyebrow {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .headline {
+    font-size: 25pt;
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .headline.large { font-size: 30pt; }
+  .headline.green { color: var(--green); }
+  .sub-head {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .body-text {
+    font-size: 10pt;
+    line-height: 1.4;
+    color: #3A3530;
+    margin-bottom: 4px;
+  }
+  .tagline {
+    font-size: 17pt;
+    font-weight: 700;
+    color: var(--green);
+    font-style: italic;
+    margin-top: 10px;
+  }
+
+  /* ── BULLET LIST ─────────────────────────────────────── */
+  .bullets {
+    list-style: none;
+    margin: 6px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 10pt;
+    line-height: 1.32;
+    color: #2A2622;
+  }
+  .bullets li::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .bullets li b { color: var(--green); }
+
+  /* ── TWO-COL ─────────────────────────────────────────── */
+  .two-col {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .two-col > div { flex: 1; }
+
+  /* ── STAT STRIP ──────────────────────────────────────── */
+  .stats {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .stat {
+    flex: 1;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+  .stat .n {
+    font-size: 22pt;
+    font-weight: 900;
+    color: var(--green);
+    line-height: 1;
+    display: block;
+  }
+  .stat .l {
+    font-size: 7.5pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-top: 3px;
+    display: block;
+  }
+
+  /* ── CALLOUT BOX ─────────────────────────────────────── */
+  .callout {
+    background: var(--cream);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 9.5pt;
+    line-height: 1.38;
+  }
+  .callout.green-border { border-left-color: var(--green); }
+  .callout b { color: var(--ink); }
+
+  /* ── FLOW DIAGRAM ────────────────────────────────────── */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 10px 0 8px;
+    flex-wrap: nowrap;
+  }
+  .flow-box {
+    flex: 1;
+    background: var(--green);
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 8.5pt;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .flow-box.amber { background: var(--amber); color: var(--ink); }
+  .flow-arr {
+    font-size: 16pt;
+    color: var(--muted);
+    padding: 0 4px;
+    flex-shrink: 0;
+  }
+  .flow-sub {
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: rgba(255,255,255,.8);
+    display: block;
+    margin-top: 2px;
+  }
+  .flow-box.amber .flow-sub { color: rgba(0,0,0,.5); }
+
+  /* ── AI LAYER BOXES ──────────────────────────────────── */
+  .layer-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .layer {
+    flex: 1;
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .layer.numbers {
+    background: #EFF7F3;
+    border: 1.5px solid var(--green);
+  }
+  .layer.reason {
+    background: #FEF9F0;
+    border: 1.5px solid var(--amber);
+  }
+  .layer .layer-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    margin-bottom: 5px;
+  }
+  .layer.numbers .layer-label { color: var(--green); }
+  .layer.reason .layer-label { color: var(--amber); }
+  .layer .layer-title {
+    font-size: 11pt;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .layer p {
+    font-size: 9pt;
+    color: #3A3530;
+    line-height: 1.35;
+  }
+  .layer .rule {
+    margin-top: 6px;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .layer.numbers .rule { background: var(--green); color: #fff; }
+  .layer.reason .rule { background: var(--amber); color: var(--ink); }
+
+  /* ── BASELINE TABLE ──────────────────────────────────── */
+  table.base {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-top: 8px;
+  }
+  table.base th {
+    background: var(--green);
+    color: #fff;
+    padding: 5px 8px;
+    text-align: left;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  table.base td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--line);
+    color: #2A2622;
+  }
+  table.base tr:nth-child(even) td { background: var(--cream); }
+  table.base tr.highlight td { font-weight: 700; color: var(--green); background: #EFF7F3; }
+  table.base td.num { font-weight: 700; font-size: 11pt; }
+
+  /* ── ARCH BOXES ──────────────────────────────────────── */
+  .arch {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .arch-row {
+    display: flex;
+    align-items: stretch;
+    gap: 5px;
+  }
+  .arch-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    padding: 4px 0;
+    flex-shrink: 0;
+    width: 18px;
+    text-align: center;
+  }
+  .arch-items {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+  }
+  .arch-item {
+    flex: 1;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 7.5pt;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .arch-item b { color: var(--green); display: block; margin-bottom: 1px; font-size: 8pt; }
+  .arch-item.green-bg { background: #EFF7F3; border-color: var(--green); }
+  .arch-item.amber-bg { background: #FEF9F0; border-color: var(--amber); }
+
+  /* ── BIZ TABLE ───────────────────────────────────────── */
+  table.biz {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin-top: 8px;
+  }
+  table.biz th {
+    background: var(--ink);
+    color: #fff;
+    padding: 5px 8px;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: 700;
+  }
+  table.biz td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--line);
+    color: #2A2622;
+    font-size: 9pt;
+  }
+  table.biz tr:last-child td { font-weight: 700; background: var(--cream); border-top: 2px solid var(--ink); }
+
+  /* ── TEAM / ASK ──────────────────────────────────────── */
+  .team-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .team-card {
+    flex: 1;
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+  }
+  .team-card .name {
+    font-size: 11pt;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .team-card .role {
+    font-size: 7.5pt;
+    color: var(--green);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 4px;
+  }
+  .team-card .desc {
+    font-size: 8.5pt;
+    color: #3A3530;
+    line-height: 1.38;
+  }
+  .ask-box {
+    flex: 1;
+    background: var(--green);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .ask-box .label {
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 5px;
+  }
+  .ask-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .ask-box ul li {
+    font-size: 9.5pt;
+    line-height: 1.3;
+    color: #fff;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+  }
+  .ask-box ul li::before {
+    content: '→';
+    color: var(--amber);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── TITLE SLIDE SPECIAL ─────────────────────────────── */
+  .slide.title-slide {
+    background: var(--ink);
+  }
+  .slide.title-slide::before {
+    background: linear-gradient(90deg, var(--amber) 0%, var(--green) 100%);
+  }
+  .slide.title-slide .slide-body {
+    justify-content: center;
+    padding: 20px 40px 18px;
+  }
+  .slide.title-slide .wordmark {
+    font-size: 52pt;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.04em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .slide.title-slide .wordmark span { color: var(--amber); }
+  .slide.title-slide .mission {
+    font-size: 12pt;
+    color: rgba(255,255,255,.75);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .slide.title-slide .tagline-big {
+    font-size: 18pt;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--amber);
+    margin-bottom: 18px;
+  }
+  .slide.title-slide .team-block {
+    border-top: 1px solid rgba(255,255,255,.15);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .slide.title-slide .team-names {
+    font-size: 9pt;
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
+  }
+  .slide.title-slide .track-badge {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--amber);
+    text-align: right;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .slide.title-slide .slide-num { color: rgba(255,255,255,.3); }
+
+  /* ── CLOSE SLIDE ─────────────────────────────────────── */
+  .slide.close-slide { background: var(--green); }
+  .slide.close-slide::before { background: var(--amber); height: 5px; }
+  .slide.close-slide .slide-body { justify-content: center; text-align: center; padding: 20px 44px; }
+  .slide.close-slide .big-line {
+    font-size: 24pt;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .slide.close-slide .big-line em { color: var(--amber); font-style: normal; }
+  .slide.close-slide .links {
+    font-size: 10pt;
+    color: rgba(255,255,255,.65);
+    line-height: 2;
+  }
+  .slide.close-slide .links a { color: rgba(255,255,255,.9); text-decoration: none; }
+  .slide.close-slide .thanks {
+    margin-top: 20px;
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: .04em;
+  }
+  .slide.close-slide .slide-num { color: rgba(255,255,255,.3); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 1 — TITLE
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide title-slide">
+  <div class="slide-body">
+    <div class="wordmark">ho<span>zi</span></div>
+    <div class="mission">National Foresight &amp; Decision Infrastructure<br>— first module: <strong style="color:#fff">Food Security</strong></div>
+    <div class="tagline-big">"Fill the granary before the drought."</div>
+    <div class="team-block">
+      <div class="team-names">
+        <strong style="color:rgba(255,255,255,.85)">Nash Barara</strong> — Product &amp; Design<br>
+        <strong style="color:rgba(255,255,255,.85)">Chipo</strong> — Strategy &amp; Copy
+      </div>
+      <div class="track-badge">
+        POTRAZ AI4I 2026<br>
+        Development Track<br>
+        Environment, Climate &amp; Sustainability
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">01 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">The Problem</div>
+    <div class="headline">The warning arrives<br>too late. From outside.</div>
+
+    <div class="two-col" style="margin-top:16px;">
+      <div>
+        <ul class="bullets">
+          <li>Drought and hunger are <b>rarely a surprise</b> — the signs build for weeks. The report arrives after the season is lost.</li>
+          <li>Warnings come from <b>global agencies</b> — country-level, published outside the window for action.</li>
+          <li>Even when a district is flagged, planners have <b>no shared way</b> to see where limited resources do the most good.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="callout" style="margin-top:0;">
+          <b>19 of 20 districts</b> projected into high food-security risk by September — without early action.
+          <br><br>
+          <b>7× return</b> on timely, well-targeted anticipatory action (WFP).
+        </div>
+        <div class="callout" style="margin-top:10px; border-left-color: var(--green);">
+          The hard part is not knowing the drought is coming.<br>
+          The hard part is <b>acting early enough, in the right places.</b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">02 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 3 — WHAT HOZI DOES
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">What Hozi Does</div>
+    <div class="headline green">From early warning<br>to a ready plan.</div>
+
+    <div class="two-col" style="margin-top:14px;">
+      <div>
+        <ul class="bullets">
+          <li><b>District risk map</b> — ranked watch-list, updated automatically. See where the season is turning.</li>
+          <li><b>Time-slider forecast</b> — watch risk spread district by district, July through September.</li>
+          <li><b>Drill-down</b> — tap any district: rainfall, drying crops, trajectory. No black box.</li>
+          <li><b>Response Planner</b> — enter your available support; Hozi shows where it saves the most people, driest and least-served first.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="callout green-border" style="margin-top:0; font-size:12pt; font-weight:700; font-style:italic; color:var(--green); border-radius:8px; text-align:center; padding:20px;">
+          In English,<br>chiShona,<br>isiNdebele.
+        </div>
+        <div class="callout" style="margin-top:10px; font-size:9.5pt;">
+          WhatsApp and SMS alerts delivered to district officers on <b>2G</b> — no app install required.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">03 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 4 — THE WEDGE
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">The Platform Play</div>
+    <div class="headline">One engine. Many decisions.</div>
+
+    <div class="flow" style="margin-top:16px;">
+      <div class="flow-box">Signals<span class="flow-sub">rainfall · crops · markets · satellite</span></div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box">Risk Score<span class="flow-sub">transparent · district-level · 0–100</span></div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box">Forecast<span class="flow-sub">1–3 months ahead · honest uncertainty band</span></div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box amber">Ranked Response<span class="flow-sub">where each dollar saves the most</span></div>
+      <div class="flow-arr">→</div>
+      <div class="flow-box amber">Playbooks<span class="flow-sub">en · sn · nd · WhatsApp-ready</span></div>
+    </div>
+
+    <div class="body-text" style="margin-top:10px; font-size:10pt;">The pattern is always the same — build it once, apply it to every national risk:</div>
+
+    <div style="display:flex; gap:12px; margin-top:8px;">
+      <div class="arch-item green-bg" style="text-align:center; font-size:10pt;"><b>Food Security</b>Proven. Working now.</div>
+      <div class="arch-item amber-bg" style="text-align:center; font-size:10pt;"><b>Cholera / Disease</b>Next module — same engine</div>
+      <div class="arch-item amber-bg" style="text-align:center; font-size:10pt;"><b>Flood Displacement</b>Next module — same engine</div>
+      <div class="arch-item" style="text-align:center; font-size:10pt;"><b>Water Stress</b>Roadmap</div>
+      <div class="arch-item" style="text-align:center; font-size:10pt;"><b>Markets &amp; Prices</b>Roadmap</div>
+    </div>
+
+    <div class="callout" style="margin-top:12px; font-size:10pt;">
+      Prediction is a crowded field. <b>Prescription is not.</b> No global tool helps Zimbabwe's own planners decide where to act first — Hozi does.
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">04 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 5 — TWO-LAYER AI
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">How AI Is Used</div>
+    <div class="headline">We keep AI out of the math.<br>We put it into the language.</div>
+
+    <div class="layer-row">
+      <div class="layer numbers">
+        <div class="layer-label">Layer 1 — Numbers</div>
+        <div class="layer-title">Deterministic engine</div>
+        <p>Transparent, auditable, weighted risk model. Trained on <strong>232 real IPC × CHIRPS observations</strong> (58 districts, 2019–2020). Leave-one-district-out validation.</p>
+        <p style="margin-top:6px;">Every score is traceable arithmetic. No black box. No GPU required.</p>
+        <div class="rule">OLS · r = 0.484 · MAE 8.5pp vs 10.2pp global mean</div>
+      </div>
+      <div class="layer reason">
+        <div class="layer-label">Layer 2 — Reasoning</div>
+        <div class="layer-title">Claude API (read-only)</div>
+        <p>Receives only pre-computed numbers from the engine. Writes plain-language early-warning briefs in English, chiShona &amp; isiNdebele. Answers planners' natural-language questions.</p>
+        <p style="margin-top:6px;">Parses incoming field officer reports — turns messy text into clean signals.</p>
+        <div class="rule">Advisory only · never generates data · never touches the model</div>
+      </div>
+    </div>
+
+    <div class="callout green-border" style="margin-top:14px; font-size:11pt; font-weight:700; font-style:italic;">
+      "The AI never touches the data. The numbers layer is pure deterministic math — so a Minister can audit every score."
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">05 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 6 — THE HONESTY SLIDE
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">Validation — We Publish Our Baselines</div>
+    <div class="headline">Ask other teams<br>for theirs.</div>
+
+    <div class="body-text" style="margin-top:8px; font-size:10pt;">Leave-one-district-out validation · 232 real IPC × CHIRPS observations · 58 districts · 2019–2020</div>
+
+    <table class="base">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>r (Pearson)</th>
+          <th>MAE (pp)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Global-mean baseline</td>
+          <td class="num" style="color:#BC3B2A;">-0.557</td>
+          <td class="num">10.2</td>
+          <td style="font-size:9pt;">Naive: always predict the panel mean</td>
+        </tr>
+        <tr>
+          <td>Persistence baseline</td>
+          <td class="num">0.129</td>
+          <td class="num">11.0</td>
+          <td style="font-size:9pt;">Predict last season's outcome</td>
+        </tr>
+        <tr>
+          <td>Rainfall-rule baseline</td>
+          <td class="num" style="color:#BC3B2A;">-0.179</td>
+          <td class="num">10.7</td>
+          <td style="font-size:9pt;">Threshold on CHIRPS rainfall only</td>
+        </tr>
+        <tr class="highlight">
+          <td>OLS model (Hozi)</td>
+          <td class="num">0.484</td>
+          <td class="num">8.5</td>
+          <td style="font-size:9pt;">Beats all baselines · vegetation + market features next</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:12px; font-size:10pt;">
+      r = 0.81 is our <em>internal consistency check</em> (synthetic data). The table above is our <b>real validation</b> — on measured IPC outcomes the model never saw during training. We say what each number is and what it is not.
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">06 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 7 — ARCHITECTURE
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">Technical Architecture</div>
+    <div class="headline">Four layers. Every number traceable.</div>
+
+    <div class="arch" style="margin-top:10px;">
+      <div class="arch-row">
+        <div class="arch-label">Sources</div>
+        <div class="arch-items">
+          <div class="arch-item"><b>ZimVAC / IPC</b>Phase outcomes</div>
+          <div class="arch-item"><b>CHIRPS / TAMSAT</b>Rainfall dekads</div>
+          <div class="arch-item"><b>Agritex / Min. Agriculture</b>Crops · pests · inputs</div>
+          <div class="arch-item"><b>NASA / Copernicus</b>NDVI satellite</div>
+          <div class="arch-item"><b>GMB / ZMX</b>Market prices</div>
+        </div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-label">Layer 0</div>
+        <div class="arch-items">
+          <div class="arch-item amber-bg" style="flex:4;"><b>n8n Automation (planned for pilot)</b>Scheduled pulls → engine trigger → threshold alert → WhatsApp dispatch to district officers</div>
+        </div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-label">Layer 1</div>
+        <div class="arch-items">
+          <div class="arch-item green-bg" style="flex:3;"><b>Python engine (shipped)</b>Transparent risk model · Response Planner · OLS forecaster · LODO validation · baselines</div>
+          <div class="arch-item green-bg" style="flex:1; font-size:8pt;"><b>14 unit tests pass · zero third-party Python deps</b></div>
+        </div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-label">Layer 2</div>
+        <div class="arch-items">
+          <div class="arch-item amber-bg"><b>Claude API (shipped)</b>Read-only · advisory briefs en/sn/nd · no data generation</div>
+        </div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-label">Layer 3</div>
+        <div class="arch-items">
+          <div class="arch-item"><b>Static web app (shipped)</b>Vanilla HTML/CSS/JS · no build step · GitHub Pages · district map · time-slider · drill-down · Response Planner</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:8px; font-size:9pt;">
+      Zero third-party Python dependencies &nbsp;·&nbsp; 14 tests &nbsp;·&nbsp; every number traceable &nbsp;·&nbsp; no secrets in repo &nbsp;·&nbsp; MIT licensed
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">07 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 8 — BUSINESS MODEL
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">Business Model</div>
+    <div class="headline">Lean. Open-core.<br>Built to last without a big team.</div>
+
+    <div class="two-col" style="margin-top:14px; align-items:flex-start;">
+      <div>
+        <div class="sub-head" style="font-size:11pt; margin-bottom:8px;">Pilot monthly operating cost — 20 districts</div>
+        <table class="biz">
+          <thead><tr><th>Item</th><th>US$/mo</th></tr></thead>
+          <tbody>
+            <tr><td>VPS — n8n + Python engine (2 GB)</td><td>20–40</td></tr>
+            <tr><td>GitHub Pages hosting</td><td>0</td></tr>
+            <tr><td>Claude API (playbook generation)</td><td>30–80</td></tr>
+            <tr><td>WhatsApp/SMS alert delivery</td><td>10–30</td></tr>
+            <tr><td>Domain + automated backups</td><td>5</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>65–155</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <ul class="bullets" style="margin-top:0;">
+          <li><b>Phase 1 (0–12 mo):</b> Donor-funded pilot. Development partner covers operating costs; government operates and owns the data.</li>
+          <li><b>Phase 2 (12+ mo):</b> Per-domain institutional licensing. Each new module (health, climate/disaster) is a new institutional customer — same infrastructure.</li>
+          <li><b>Long-term:</b> Government line-item + ZCHPC national hosting. Operating cost moves off grants onto the National AI Strategy budget.</li>
+        </ul>
+        <div class="callout" style="margin-top:10px; font-size:9.5pt;">
+          Natural pilot funders: WFP Zimbabwe, FAO country office, UNDP. No partnership is claimed — these are the logical candidates.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">08 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 9 — DEPLOYMENT
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">Deployment Plan</div>
+    <div class="headline">Matabeleland South first.<br>Then everywhere.</div>
+
+    <div class="two-col" style="margin-top:14px; align-items:flex-start;">
+      <div>
+        <div class="sub-head" style="font-size:11pt; margin-bottom:6px;">Pilot cluster</div>
+        <ul class="bullets">
+          <li><b>Districts:</b> Beitbridge · Gwanda · Mangwe (Matabeleland South)</li>
+          <li><b>Rationale:</b> Consistently highest food-insecurity risk in ZimVAC data · active ZimVAC and Agritex field presence · isiNdebele alignment</li>
+          <li><b>Users:</b> 10–20 district officers and ZimVAC/Agritex staff</li>
+          <li><b>Delivery:</b> WhatsApp/SMS alerts on 2G · no app install · static web app</li>
+          <li><b>Automation:</b> n8n scheduled CHIRPS pull → engine run → alert dispatch</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub-head" style="font-size:11pt; margin-bottom:8px;">Milestones</div>
+        <div class="callout green-border" style="margin-top:0; padding:10px 14px;">
+          <div style="font-size:9.5pt; line-height:2;">
+            <strong>Day 30:</strong> MOU signed · demo URL live · compliance complete<br>
+            <strong>Day 60:</strong> Live pilot running · alerts delivered · officer feedback logged<br>
+            <strong>Day 90:</strong> Warning lead-time measured · adoption case study drafted · Fork A real-label model published · government handover runbook ready
+          </div>
+        </div>
+        <div class="callout" style="margin-top:8px; font-size:9pt;">
+          n8n automation keeps the pipeline running with minimal human intervention. Clone repo → install → run. Full restore under 2 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">09 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 10 — TEAM + ASK
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="slide-body">
+    <div class="eyebrow">Team &amp; The Ask</div>
+    <div class="headline">Two Zimbabweans.<br>AI-assisted. Fully disclosed.</div>
+
+    <div class="team-row">
+      <div class="team-card">
+        <div class="name">Nash Barara</div>
+        <div class="role">Product &amp; Design Lead</div>
+        <div class="desc">11-year advertising career · Blender, Adobe Suite, AI creative tools · product vision, UX, pitch, deployment design · Curious Inq founder</div>
+      </div>
+      <div class="team-card">
+        <div class="name">Chipo</div>
+        <div class="role">Strategy &amp; Copy Lead</div>
+        <div class="desc">Strategic framing · stakeholder narrative · policy alignment · ZimVAC &amp; sector context · language copy (en/sn/nd)</div>
+      </div>
+      <div class="ask-box">
+        <div class="label">What We Are Asking For</div>
+        <ul>
+          <li>Incubation support and structured mentorship</li>
+          <li>Introduction to pilot MOU with ZimVAC or Ministry of Agriculture</li>
+          <li>Technical mentorship — live data feed integration and ZCHPC hosting pathway</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:12px; font-size:10pt;">
+      <b>AI build disclosure:</b> Claude and Gemini were used throughout — engine validation, brief generation, document drafting. The architecture decisions, domain framing, and validation methodology are human-owned. We consider this the honest model for AI-assisted teams in 2026.
+    </div>
+  </div>
+  <div class="slide-foot">Hozi · AI4I 2026 Development Track</div>
+  <div class="slide-num">10 / 11</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 11 — CLOSE
+     ══════════════════════════════════════════════════════════ -->
+<section class="slide close-slide">
+  <div class="slide-body">
+    <div class="big-line">Prediction is a crowded field.<br><em>Prescription is not.</em></div>
+    <div class="links">
+      Demo &nbsp;·&nbsp; <a href="#">[Live URL — to be published on GitHub Pages]</a><br>
+      Repo &nbsp;·&nbsp; <a href="#">github.com/[handle]/hozi</a><br>
+      Proposal PDF &nbsp;·&nbsp; HOZI-TBD_AI4I_Proposal_Development.pdf (see /proposal/ai4i-2026/)
+    </div>
+    <div class="thanks">Tatenda. &nbsp; Siyabonga. &nbsp; Thank you.</div>
+  </div>
+  <div class="slide-num" style="color:rgba(255,255,255,.3);">11 / 11</div>
+</section>
+
+</body>
+</html>
