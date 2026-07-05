@@ -233,7 +233,7 @@
 <ol>
   <li><strong>REASONS</strong> &mdash; plain-language driver explanations for each district's risk score.</li>
   <li><strong>SUGGESTS</strong> &mdash; ranked intervention playbooks in en/sn/nd (60 playbooks shipped), grounded only in supplied inputs, labelled advisory.</li>
-  <li><strong>VALIDATES</strong> (design intent) &mdash; contradiction-flagging between model output and IPC classifications. Documented architecture; not yet in the current generation script.</li>
+  <li><strong>VALIDATES</strong> (shipped 2026-07-05) &mdash; each district's official IPC/ZimVAC Phase 3+ food-insecurity share is supplied to Claude alongside the model risk picture; Claude flags disagreements plainly in the brief&rsquo;s note field and recommends human review. Honest caveat: label assessments are dated 2019&ndash;2020; fresher rounds slot in without code changes.</li>
 </ol>
 <p><strong>Guardrails:</strong> Advisory-only output. Never feeds back into Layer 1 scores. Outputs committed to repo as auditable <code>briefs.js</code>. Zero API calls at browse time. Human review required before action. ZimVAC/ministry retains decision authority.</p>
 

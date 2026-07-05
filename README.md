@@ -193,7 +193,7 @@ existing decision-makers and processes (ZimVAC, ministries).
 - **4 seasons of labels** — the real training panel covers 2019–2020 (232 obs, 58 districts). ZimVAC assessments back to 2009 could expand this materially.
 - **Rainfall-only features** — the real OLS model uses CHIRPS rainfall only. NDVI, market prices, pest pressure, and input availability are conceptually in the demo engine but not yet in the real training panel.
 - **Demo runs on synthetic challenge data** — the app and offline engine run on POTRAZ's synthetic CSV. Real-data training is documented separately (see `docs/DATASET-STATEMENT.md` and `data/real_training_panel.csv`).
-- **LLM contradiction-flagging is design-intent, not shipped** — the architecture reserves a Layer 2 validation pass to flag low model risk vs known IPC Phase 3. Not present in the current generation script.
+- **LLM contradiction-flagging is now shipped** — the official IPC/ZimVAC Phase 3+ share (2019–2020 assessments) is supplied per district to Claude, which flags disagreements between the model's risk picture and the official figure in each brief's note field. 16 of 20 demo districts matched a label entry; the 4 urban districts receive a no-official-data disclosure. Fresher ZimVAC/IPC rounds slot in without code changes. Honest caveat: assessments are dated 2019–2020; the demo model runs on synthetic current data.
 - **sn/nd native-speaker review pending** — chiShona and isiNdebele translations in `app/briefs.js` and `app/i18n.js` are AI-generated drafts; professional verification before operational use is the documented next step.
 
 ## Roadmap
