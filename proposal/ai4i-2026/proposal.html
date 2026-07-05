@@ -228,7 +228,7 @@
 </table>
 <p>Every simpler method loses on both metrics. r = 0.484 is moderate &mdash; honest, not high-confidence. This is foresight, not fortune-telling. The model uses rainfall as its sole feature; adding NDVI, market prices, and a longer label time-series (15+ years of ZimVAC assessments are digitisable) is the documented next step.</p>
 
-<h3>Layer 2: Read-Only LLM (Claude claude-sonnet-4-6)</h3>
+<h3>Layer 2: Read-Only LLM (Claude API, claude-sonnet-4-6)</h3>
 <p>Claude operates <strong>only after</strong> Layer 1 has finished. It receives completed district data as read-only input and performs three functions:</p>
 <ol>
   <li><strong>REASONS</strong> &mdash; plain-language driver explanations for each district's risk score.</li>
