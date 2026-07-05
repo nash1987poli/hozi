@@ -3,7 +3,7 @@
 **Project:** Hozi — National Food-Security Foresight Engine
 **Submission:** POTRAZ AI for Impact (AI4I) 2026 — Development Track
 **Rubric reference:** C2 — AI integration justification (30 pts)
-**Last updated:** 2026-07-04
+**Last updated:** 2026-07-05
 
 ---
 
