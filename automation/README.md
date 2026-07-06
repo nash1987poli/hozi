@@ -1,6 +1,16 @@
-# automation/ — Layer 0: n8n Scheduled Pipeline
+# automation/ — Layer 0: n8n Workflows
 
-This directory contains the n8n automation workflow that implements **Layer 0** of the Hozi architecture: scheduled CHIRPS rainfall ingest, engine trigger, threshold check, and alert dispatch. See [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) for the full system design.
+This directory contains the n8n automation workflows that implement **Layer 0** of the Hozi architecture: scheduled data ingest, engine trigger, threshold check, and the two-way WhatsApp officer channel. See [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) for the full system design.
+
+## Workflows in this directory
+
+| File | Role | Trigger | Status |
+|---|---|---|---|
+| `hozi-pipeline.workflow.json` | Daily CHIRPS ingest → engine run → HIGH-band check → alert | Schedule (cron `0 6 * * *`) | Import-ready; first live run pending VPS |
+| `Hozi-WhatsApp-Bot.n8n.json` | **Inbound** officer channel: officer texts a district name → live brief, deadline, data, cost | Incoming WhatsApp message | Import-ready; logic tested against live app data |
+| `Hozi-WhatsApp-Alert.n8n.json` | **Outbound** push: daily HIGH-band check → WhatsApp alert to the officer | Schedule (cron `0 6 * * *`) | Import-ready; logic tested against live app data |
+
+Setup for the two WhatsApp workflows (free-tier Meta Cloud API + n8n, no coding) is in **[WHATSAPP-BOT-SETUP.md](WHATSAPP-BOT-SETUP.md)**. Both WhatsApp workflows read the **live** `projections.js` / `briefs.js` served by the public app, so the bot and the map always show the same numbers. No secrets are stored in any workflow file — credentials are configured in n8n at import.
 
 ---
 
@@ -31,9 +41,14 @@ This is Layer 0 as designed in the architecture. The workflow is authored, struc
 
 The documented source for `zwe-rainfall-adm2-full.csv` is HDX/WFP (Humanitarian Data Exchange). The URL in node 2 targets the expected resource path on the HDX CHIRPS Zimbabwe dataset. HDX resource URLs can change when datasets are updated; **verify the direct download URL on the HDX dataset page before first live execution** and update the HTTP Request node. The dataset and file name are documented in `docs/DATASET-STATEMENT.md`.
 
-### WhatsApp Business API (pilot channel)
+### WhatsApp Business API (pilot channel — now built)
 
-Email is the demo alert channel. The pilot channel designed for field district officers is the **WhatsApp Business API**: officers receive a brief alert message on 2G-capable phones without needing a browser. To switch, replace node 8 (`emailSend`) with an HTTP Request node calling the WhatsApp Business API send-message endpoint, using your Meta App credentials (configured as n8n credentials — not stored in this JSON). The alert text produced by node 6 is channel-agnostic and works for both.
+Email (node 8) is the demo alert channel for this pipeline. The pilot channel designed for field district officers is the **WhatsApp Business API**: officers receive a brief alert on a basic phone without needing a browser. This channel is **no longer just a design note — it is built as two import-ready workflows in this directory:**
+
+- **`Hozi-WhatsApp-Alert.n8n.json`** — the outbound push. It performs the same HIGH-band check as this pipeline (nodes 6–7) and dispatches the alert over the WhatsApp Business API using a `whatsApp` send node with Meta credentials configured in n8n (never stored in the JSON). To route *this* pipeline through WhatsApp instead of email, swap node 8 (`emailSend`) for that workflow's `Send WhatsApp Alert` node — the alert text from node 6 is channel-agnostic and works for both.
+- **`Hozi-WhatsApp-Bot.n8n.json`** — the inbound side the pipeline alone does not cover: an officer texts a district name and receives the live brief, decision deadline, data check, or cost, read straight from the app's `projections.js`/`briefs.js`.
+
+Setup for both (free-tier Meta Cloud API + n8n, no coding) is in **[WHATSAPP-BOT-SETUP.md](WHATSAPP-BOT-SETUP.md)**. Note the platform rule documented there: business-initiated (cold) WhatsApp messages must use a pre-approved message template; free text is allowed only within 24 hours of the officer's last message.
 
 ---
 

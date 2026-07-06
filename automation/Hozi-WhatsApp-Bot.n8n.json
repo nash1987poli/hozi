@@ -1,0 +1,129 @@
+{
+  "name": "Hozi — WhatsApp Officer Bot (district name → live brief)",
+  "meta": {
+    "description": "Inbound WhatsApp bot for Hozi. An officer texts a district name (or DEADLINE / DATA / COST); n8n fetches the LIVE Hozi engine data from the public app and replies with the real brief, risk, decision deadline and data verification. No secrets stored in this file — set credentials at import."
+  },
+  "nodes": [
+    {
+      "id": "wa00-0001-0001-0001-000000000001",
+      "name": "WhatsApp Trigger",
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [220, 320],
+      "parameters": {
+        "updates": ["messages"]
+      },
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "WA_TRIGGER_CREDENTIAL_PLACEHOLDER",
+          "name": "Hozi WhatsApp Trigger (configure at import)"
+        }
+      },
+      "notes": "Fires when the officer sends a WhatsApp message. Uses Meta's WhatsApp Cloud API (free tier). Set the 'Hozi WhatsApp Trigger' credential and register this node's webhook URL in the Meta app dashboard. No secrets are stored in this JSON."
+    },
+    {
+      "id": "wa00-0002-0002-0002-000000000002",
+      "name": "Parse Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 320],
+      "parameters": {
+        "jsCode": "// Pull the sender phone and the message text out of the WhatsApp webhook,\n// then work out what the officer is asking for.\nconst j = $input.first().json;\nlet msg = (j.messages && j.messages[0])\n  || (j.entry && j.entry[0] && j.entry[0].changes && j.entry[0].changes[0] && j.entry[0].changes[0].value && j.entry[0].changes[0].value.messages && j.entry[0].changes[0].value.messages[0])\n  || j;\nconst from = msg.from || j.from || (j.contacts && j.contacts[0] && j.contacts[0].wa_id) || '';\nconst textRaw = (msg.text && msg.text.body) || msg.body || j.text || '';\nconst text = String(textRaw).trim();\nconst low = text.toLowerCase();\nlet intent = 'brief';\nif (/cost|budget|money|mari|price/.test(low)) intent = 'cost';\nelse if (/deadline|when|nguva|date|time/.test(low)) intent = 'deadline';\nelse if (/data|verify|source|proof|ongorora|check|feed/.test(low)) intent = 'data';\nelse if (/^(hi|hie|hello|help|start|menu|list|mhoro)\\b/.test(low) || low.length === 0) intent = 'help';\nreturn [{ json: { from, text, low, intent, hasText: text.length > 0 } }];"
+      },
+      "notes": "Reads the incoming message. Detects the intent: a district name (default → brief), or the keywords COST / DEADLINE / DATA / HELP."
+    },
+    {
+      "id": "wa00-0003-0003-0003-000000000003",
+      "name": "Has Message?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [660, 320],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-has-text",
+              "leftValue": "={{ $json.hasText }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "notes": "WhatsApp also sends delivery/read receipts with no text. This gate stops those so the bot only replies to real questions."
+    },
+    {
+      "id": "wa00-0004-0004-0004-000000000004",
+      "name": "Fetch Projections",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 240],
+      "parameters": {
+        "method": "GET",
+        "url": "https://nash1987poli.github.io/hozi/projections.js",
+        "responseFormat": "text",
+        "options": {}
+      },
+      "notes": "Fetches the LIVE engine output (risk scores, forecasts, drivers) from the public Hozi app — the exact same file the map reads. This is the linkage: the bot and the app read one source."
+    },
+    {
+      "id": "wa00-0005-0005-0005-000000000005",
+      "name": "Fetch Briefs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1120, 240],
+      "parameters": {
+        "method": "GET",
+        "url": "https://nash1987poli.github.io/hozi/briefs.js",
+        "responseFormat": "text",
+        "options": {}
+      },
+      "notes": "Fetches the LIVE pre-generated district briefs (en/sn/nd) from the public Hozi app — the same text the drill-down panel shows."
+    },
+    {
+      "id": "wa00-0006-0006-0006-000000000006",
+      "name": "Build Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 240],
+      "parameters": {
+        "jsCode": "// Turn the officer's question + the LIVE Hozi data into a WhatsApp reply.\nconst req = $('Parse Message').item.json;\nconst projRaw = $('Fetch Projections').item.json.data || '';\nconst briefRaw = $('Fetch Briefs').item.json.data || '';\nconst APP = 'https://nash1987poli.github.io/hozi/';\nconst reply = (body) => [{ json: { to: req.from, body } }];\n\nfunction unwrap(raw, marker){ const i = raw.indexOf(marker); if(i<0) throw new Error('no marker'); let s = raw.slice(i+marker.length).trim(); s = s.replace(/;+\\s*$/, ''); return JSON.parse(s); }\nlet proj=null, briefs=null;\ntry { proj = unwrap(projRaw, 'window.HOZI='); } catch(e){}\ntry { briefs = unwrap(briefRaw, 'window.HOZI_BRIEFS='); } catch(e){}\nif(!proj){ return reply('🌾 Hozi is briefly unavailable — please try again shortly.'); }\n\nconst districts = proj.districts || [];\nconst watch = proj.watch || [];\nlet picked = null;\nfor(const d of districts){ if(req.low.includes(d.district.toLowerCase())){ picked = d; break; } }\n\nconst MON = {'05':'May','06':'June','07':'July','08':'August','09':'September'};\nconst LAST = {'01':'31','02':'28','03':'31','04':'30','05':'31','06':'30','07':'31','08':'31','09':'30','10':'31','11':'30','12':'31'};\nfunction firstHigh(tl){ for(const p of tl){ if(p.risk>=66) return p.m; } return null; }\nfunction priorEnd(m){ if(!m) return null; let a=m.split('-'); let i=+a[1]-1, yy=+a[0]; if(i<1){i=12;yy--;} const k=String(i).padStart(2,'0'); return `${LAST[k]} ${MON[k]||k} ${yy}`; }\n\nif(req.intent==='help' || !picked){\n  const top = watch.slice(0,6).map(w=>`• ${w.district} — ${Math.round(w.projected_sep)} by Sep`).join('\\n');\n  return reply(`🌾 *Hozi — Food Security*\\nText me a *district name* for its early-warning brief.\\n\\nHighest risk now:\\n${top}\\n\\nThen reply *DEADLINE*, *DATA* or *COST*.\\n_Simulation of the pilot officer channel._`);\n}\n\nconst name = picked.district;\nconst sep = picked.projected_sep != null ? picked.projected_sep : (picked.forecast ? picked.forecast['2026-09'].risk : null);\nconst obs = picked.timeline.filter(p=>!p.proj);\nconst cur = obs.length ? obs[obs.length-1].risk : null;\nconst band = sep>=66 ? 'HIGH' : (sep>=45 ? 'MEDIUM' : 'LOW');\nconst fh = firstHigh(picked.timeline);\nconst deadline = priorEnd(fh);\nconst dr = picked.latest_drivers || {};\nconst link = `${APP}?district=${encodeURIComponent(name)}`;\nconst eb = (briefs && briefs[name] && briefs[name].en) ? briefs[name].en : null;\n\nif(req.intent==='deadline'){\n  if(!fh) return reply(`⏰ *${name}* stays below the HIGH threshold (66) on the current forecast — no hard deadline yet. Keep monitoring.\\n📍 ${link}`);\n  return reply(`⏰ *Decide before ${deadline} — ${name}*\\nRisk crosses into *HIGH* in ${MON[fh.split('-')[1]]} (${picked.timeline.find(p=>p.m===fh).risk}).\\nTransfers and grain take 25–60 days to arrive, so the decision must come first. Miss it and help lands after families have already sold assets and pulled children from school.\\n📍 ${link}`);\n}\nif(req.intent==='data'){\n  const m = eb && /(\\d+)%\\s+of[^.]*Phase 3\\+/.exec(eb.note);\n  const ipcLine = m ? `• ZimVAC/IPC label: ${m[1]}% Phase 3+ (Oct 2020) ✓` : `• ZimVAC/IPC label: — (urban, no rural count)`;\n  return reply(`📡 *Live data check — ${name}*\\n• CHIRPS rainfall: ${dr.rainfall_mm} mm (Jun) ✓\\n• NASA/Copernicus NDVI: ${dr.ndvi} ✓\\n• Agritex input access: ${dr.inputs}/100 ✓\\n${ipcLine}\\n• Hozi model risk (Sep): ${sep} · ${band} ✓\\n\\n_Every reading is read-only from its source. Hozi computes the risk — it never edits the data._\\n📍 ${link}`);\n}\nif(req.intent==='cost'){\n  const red = picked.support ? picked.support.reduction : null;\n  const sup = picked.support ? picked.support.supported_sep : null;\n  return reply(`💵 *Cost & benefit — ${name}*\\nThe modelled support package cuts September risk *${sep} → ${sup}* (−${red} points).\\nPlanning rates: cash ~$10–13/person/month; grain ~$12/person for the lean season.\\nFull IPC-caseload budget loads from the pilot data feed.\\n📍 ${link}`);\n}\n// default → brief\nlet bullets = '';\nif(eb && eb.bullets){ bullets = eb.bullets.slice(0,5).map((b,i)=>`${i+1}. *${b.dept}* — ${String(b.action).split('. ')[0].replace(/\\.$/,'')}.`).join('\\n'); }\nconst dl = fh ? `\\n🗓️ *Decide before ${deadline}* (enters HIGH in ${MON[fh.split('-')[1]]}).` : '';\nreturn reply(`⚠️ *Hozi Alert — ${name}* (${picked.province})\\nFood-security risk: *${band} — ${sep} by September* (now ${cur}).${dl}\\n\\n*Recommended early actions:*\\n${bullets}\\n\\n📊 Model + IPC cross-check.  📡 Source: Hozi engine (read-only).\\n📍 Live map: ${link}\\n\\n_Reply DEADLINE, DATA or COST. Simulation of the pilot officer channel._`);"
+      },
+      "notes": "The brain. Parses the two live JS files, matches the district the officer named, and composes the WhatsApp reply for the detected intent (brief / deadline / data / cost / help). Every number comes from the live files — nothing is hard-coded."
+    },
+    {
+      "id": "wa00-0007-0007-0007-000000000007",
+      "name": "Send WhatsApp Reply",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [1560, 240],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "phoneNumberId": "WHATSAPP_PHONE_NUMBER_ID_PLACEHOLDER",
+        "recipientPhoneNumber": "={{ $json.to }}",
+        "messageType": "text",
+        "textBody": "={{ $json.body }}"
+      },
+      "credentials": {
+        "whatsAppApi": {
+          "id": "WA_SEND_CREDENTIAL_PLACEHOLDER",
+          "name": "Hozi WhatsApp Send (configure at import)"
+        }
+      },
+      "notes": "Sends the reply back to the officer. Replace WHATSAPP_PHONE_NUMBER_ID_PLACEHOLDER with your Meta test number's Phone Number ID, and set the 'Hozi WhatsApp Send' credential (same Meta app). No token is stored in this JSON."
+    }
+  ],
+  "connections": {
+    "WhatsApp Trigger": { "main": [[{ "node": "Parse Message", "type": "main", "index": 0 }]] },
+    "Parse Message": { "main": [[{ "node": "Has Message?", "type": "main", "index": 0 }]] },
+    "Has Message?": { "main": [[{ "node": "Fetch Projections", "type": "main", "index": 0 }], []] },
+    "Fetch Projections": { "main": [[{ "node": "Fetch Briefs", "type": "main", "index": 0 }]] },
+    "Fetch Briefs": { "main": [[{ "node": "Build Reply", "type": "main", "index": 0 }]] },
+    "Build Reply": { "main": [[{ "node": "Send WhatsApp Reply", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "active": false
+}

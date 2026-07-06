@@ -1,0 +1,96 @@
+{
+  "name": "Hozi — WhatsApp HIGH-band Alert (outbound push)",
+  "meta": {
+    "description": "Outbound alert. On a daily schedule, Hozi checks the LIVE engine output; if any district is projected HIGH (score >= 66) for September, it pushes a WhatsApp alert to the officer. This is the PUSH trigger — Hozi starts the conversation, unlike the inbound bot where the officer does. No secrets stored; set credentials at import."
+  },
+  "nodes": [
+    {
+      "id": "al00-0001-0001-0001-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [220, 320],
+      "parameters": {
+        "rule": { "interval": [ { "field": "cronExpression", "expression": "0 6 * * *" } ] }
+      },
+      "notes": "Runs every morning at 06:00. This is the PUSH trigger: Hozi initiates. Change the cron expression to alter the schedule, or swap this node for the full engine pipeline (Hozi/automation/hozi-pipeline.workflow.json) once live feeds are wired."
+    },
+    {
+      "id": "al00-0002-0002-0002-000000000002",
+      "name": "Fetch Projections",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [460, 320],
+      "parameters": {
+        "method": "GET",
+        "url": "https://nash1987poli.github.io/hozi/projections.js",
+        "responseFormat": "text",
+        "options": {}
+      },
+      "notes": "Reads the LIVE engine output from the public Hozi app — the same file the map uses. This keeps the alert and the app in lockstep. In the VPS pilot this can instead read the freshly-computed data/projections.json from disk."
+    },
+    {
+      "id": "al00-0003-0003-0003-000000000003",
+      "name": "Find HIGH Districts + Build Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 320],
+      "parameters": {
+        "jsCode": "// Read the live projections, find districts projected into the HIGH band,\n// and compose one WhatsApp alert. Threshold: band_sep === 'High' (score >= 66, per engine.py).\nconst raw = $('Fetch Projections').item.json.data || '';\nfunction unwrap(r, marker){ const i = r.indexOf(marker); if(i<0) throw new Error('no marker'); let s = r.slice(i+marker.length).trim(); s = s.replace(/;+\\s*$/, ''); return JSON.parse(s); }\nlet proj = null;\ntry { proj = unwrap(raw, 'window.HOZI='); } catch(e){}\nif(!proj){ return [{ json: { highCount: 0 } }]; }\n\nconst APP = 'https://nash1987poli.github.io/hozi/';\nconst date = new Date().toISOString().slice(0,10);\nconst high = (proj.watch || []).filter(d => d.band_sep === 'High');\nif(high.length === 0){ return [{ json: { highCount: 0 } }]; }\n\nconst top = high.slice(0, 8).map(d => `• *${d.district}* — ${Math.round(d.projected_sep)} by Sep  ${APP}?district=${encodeURIComponent(d.district)}`).join('\\n');\nconst natl = (proj.national && proj.national.risk_sep != null) ? proj.national.risk_sep : 'n/a';\nconst body = `⚠️ *HOZI ALERT — ${date}*\\n*${high.length} districts* projected *HIGH* food-security risk by September (score \\u2265 66):\\n\\n${top}\\n\\nNational projected Sep risk: *${natl}*.\\nAct before the July window opens — grain and transfers take 25\\u201360 days.\\n📍 Full map & Response Planner: ${APP}\\n\\n_Automated Layer-0 alert. In the pilot each officer receives only their own district._`;\n\nconst to = ($env && $env.HOZI_OFFICER_NUMBER) ? $env.HOZI_OFFICER_NUMBER : 'OFFICER_WHATSAPP_NUMBER_PLACEHOLDER';\nreturn [{ json: { highCount: high.length, to, body } }];"
+      },
+      "notes": "Finds every HIGH-band district from the live data and builds one WhatsApp alert. Set the officer's number as the n8n environment variable HOZI_OFFICER_NUMBER (E.164 digits, e.g. 263771234567), or edit the placeholder here."
+    },
+    {
+      "id": "al00-0004-0004-0004-000000000004",
+      "name": "Any HIGH Districts?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [940, 320],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-high",
+              "leftValue": "={{ $json.highCount }}",
+              "rightValue": 0,
+              "operator": { "type": "number", "operation": "gt" }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "notes": "Only sends when at least one district is HIGH. On a quiet day the flow ends here — no alert, no noise."
+    },
+    {
+      "id": "al00-0005-0005-0005-000000000005",
+      "name": "Send WhatsApp Alert",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [1180, 240],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "phoneNumberId": "WHATSAPP_PHONE_NUMBER_ID_PLACEHOLDER",
+        "recipientPhoneNumber": "={{ $json.to }}",
+        "messageType": "text",
+        "textBody": "={{ $json.body }}"
+      },
+      "credentials": {
+        "whatsAppApi": {
+          "id": "WA_SEND_CREDENTIAL_PLACEHOLDER",
+          "name": "Hozi WhatsApp Send (configure at import)"
+        }
+      },
+      "notes": "Sends the alert. Reuses the SAME WhatsApp Send credential and Phone Number ID as the inbound bot. IMPORTANT — WhatsApp rule: a business-INITIATED message outside the 24-hour customer-service window must use a pre-approved MESSAGE TEMPLATE, not free text. For the demo: have the officer message the bot first (opens the 24h window) and free text works. For the pilot: create an approved template (e.g. 'hozi_alert') and switch this node's operation to 'send template'. See SETUP guide."
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": { "main": [[{ "node": "Fetch Projections", "type": "main", "index": 0 }]] },
+    "Fetch Projections": { "main": [[{ "node": "Find HIGH Districts + Build Alert", "type": "main", "index": 0 }]] },
+    "Find HIGH Districts + Build Alert": { "main": [[{ "node": "Any HIGH Districts?", "type": "main", "index": 0 }]] },
+    "Any HIGH Districts?": { "main": [[{ "node": "Send WhatsApp Alert", "type": "main", "index": 0 }], []] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "active": false
+}
