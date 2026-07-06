@@ -108,6 +108,7 @@ function selectDistrict(name){ const d=byName[name]; if(!d)return; selected=name
   if(tgt) map.flyToBounds(tgt.getBounds(),{padding:[60,60],duration:.8});
   else map.flyTo([d.lat,d.lon],9,{duration:.8});
   $('#dName').textContent=d.district; $('#dProv').textContent=d.province;
+  $('#dDemo').innerHTML=`<span style="display:inline-flex;align-items:center;gap:5px;background:#f6e9c8;color:#7a5a12;border:1px solid #e3c778;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.03em">&#9888; ${t('demoBadge','DEMO DATA')}</span> <small style="color:var(--mut);font-size:11px">${t('demoNote','POTRAZ synthetic sample — not live field readings; IPC caseload is real (2020)')}</small>`;
   const sepR=riskAt(d,8);
   $('#dSpark').innerHTML=`<span style="background:${bandCol(sepR)};color:#fff;border-radius:12px;padding:2px 10px;font-size:12px">${band(sepR)} ${t('ddTail','risk by September ·')} ${Math.round(sepR)}</span>`+sparkline(d.timeline);
   const dr=d.latest_drivers||{};
@@ -124,8 +125,29 @@ function selectDistrict(name){ const d=byName[name]; if(!d)return; selected=name
   $('#dPlaybook').innerHTML=br?`<h3 style="margin:14px 0 6px">${t('ivT','Recommended early actions')}</h3>`+
     br.bullets.map(b=>`<div class="row"><b style="width:96px;flex:none;font-size:12px">${b.dept}</b><small>${b.action}</small></div>`).join('')+
     `<p style="color:var(--mut);font-size:11px;font-style:italic;margin:6px 0 0">${br.note} · ${t('ivBy','Drafted by AI from the engine\'s risk data — for planner review, not instruction.')}</p>`:'';
+  $('#dFramework').innerHTML=pbFramework(name);
   $('#dSrc').textContent=`${D.meta.source} · Jan–Jun ${t('observed','observed')}, Jul–Sep ${t('forecast','forecast')}`;
   $('#drill').hidden=false; syncURL();
+}
+/* decision framework: cost, deadline, confidence, opportunity cost (from playbooks.js) */
+function pbFramework(name){
+  const p=window.HOZI_PLAYBOOKS&&window.HOZI_PLAYBOOKS[name]; if(!p)return'';
+  const mon=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const fmtDate=s=>{ if(!s)return''; const a=s.split('-'); return +a[2]+' '+mon[+a[1]-1]+' '+a[0]; };
+  const confLbl=p.conf>=60?t('confHi','act, verify in parallel'):p.conf>=45?t('confMid','act, verify first'):t('confLo','investigate first');
+  const lab=l=>`<small style="width:112px;flex:none;color:var(--mut)">${l}</small>`;
+  let rows='';
+  if(p.deadline)rows+=`<div class="row">${lab(t('fwDecide','Decide before'))}<small><b>${fmtDate(p.deadline)}</b> · ${t('fwHighIn','HIGH in')} ${p.cross||''}</small></div>`;
+  rows+=`<div class="row">${lab(t('fwConf','Confidence'))}<small><b>${p.conf}%</b> · ${confLbl}</small></div>`;
+  if(p.below)rows+=`<div class="row">${lab(t('fwOpp','If you fund this'))}<small>${p.below} ${t('fwWaits','waits')}</small></div>`;
+  const head=`<h3 style="margin:14px 0 6px">${t('fwTitle','Decision framework')}</h3>`;
+  if(p.caseload){
+    const gk=Math.round(p.grain/1000), cm=(p.cash/1e6).toFixed(1);
+    const cost=`<div class="row">${lab(t('fwCost','Cost to act'))}<small><b>~$${gk}k</b> · ${p.caseload.toLocaleString()} ${t('fwCrisis','in crisis')} · ~$${p.perPerson}${t('fwPerson','/person in grain')}</small></div>`;
+    const note=`<p style="color:var(--mut);font-size:11px;font-style:italic;margin:6px 0 0">${t('fwPlan','planning-grade estimate — real caseload × published rate, not a budget')}. $${p.valHa}/ha ${p.crop}. ~$${cm}M cash alt.</p>`;
+    return head+cost+rows+note;
+  }
+  return head+rows+`<p style="color:var(--mut);font-size:11px;font-style:italic;margin:6px 0 0">${t('fwUncosted','No official IPC food-crisis count for this urban district — get a local caseload before costing.')}</p>`;
 }
 $('#drillClose').addEventListener('click',()=>{ $('#drill').hidden=true; selected=null;
   if(geoLayer) map.flyToBounds(geoLayer.getBounds(),{padding:[40,40],duration:.8}); syncURL(); });

@@ -60,7 +60,14 @@ window.HOZI_I18N = { en:{}, sn:{
  ivT:"Matanho ekutanga anokurudzirwa",
  ivBy:"Zvakanyorwa neAI kubva padata reinjini — zvekuongororwa nemuronga, kwete murairo.",
  infraTag:"Injini imwe. Sarudzo dzizhinji. Nzira Yekufanotarira Nekusarudza yeNyika — chikamu chekutanga: chikafu nekuchengeteka kwacho.", // TODO(native-speaker)
- llmNote:"Mubatsiri weAI haagadziri kana kushandura data. Inongoverenga nhamba dzakagadziriwa kubva kumasangano ane simba (ZimVAC, IPC, Met Services) ichidudzira, kuongonora nekukurudzira — munhu ndiye anosarudza." // TODO(native-speaker)
+ llmNote:"Mubatsiri weAI haagadziri kana kushandura data. Inongoverenga nhamba dzakagadziriwa kubva kumasangano ane simba (ZimVAC, IPC, Met Services) ichidudzira, kuongonora nekukurudzira — munhu ndiye anosarudza.", // TODO(native-speaker)
+ // NEW decision-framework labels (drafts) // TODO(native-speaker)
+ fwTitle:"Nzira yekusarudza", fwCost:"Mari yekuita", fwDecide:"Sarudza pasati", fwConf:"Chivimbo", fwOpp:"Kana ukabatsira uyu",
+ fwWaits:"achamirira", fwHighIn:"HURU muna", fwCrisis:"vari munjodzi", fwPerson:"/munhu nezviyo",
+ confHi:"ita, uchiongorora", confMid:"ita, asi ongorora kutanga", confLo:"ongorora kutanga",
+ fwUncosted:"Hapana chiverengero che IPC chedhorobha iri — wana chiverengero chedunhu usati waisa mari.",
+ fwPlan:"fungidziro yekuronga — kwete bhajeti chaiyo",
+ demoBadge:"DATA YEMUENZANISO", demoNote:"Data yePOTRAZ yemuenzaniso — kwete zvakaonekwa muminda; chiverengero che IPC ndechechokwadi (2020)"
 }, nd:{
  mast:"Injini Yokubona Phambili Kokudla Kwesizwe", k0:"POTRAZ AI4I 2026 · isibonelo esisebenzayo",
  h0:"Bona indlala isiza — uthathe isinyathelo ngesikhathi.",
@@ -121,7 +128,14 @@ window.HOZI_I18N = { en:{}, sn:{
  ivT:"Izinyathelo zokuqala ezinconywayo",
  ivBy:"Kubhalwe yi-AI kusukela kudatha yenjini — okokubuyekezwa ngumhleli, hatshi umlayo.",
  infraTag:"Injini eyodwa. Izinqumo eziningi. Inhlaka Yokubona Phambili Yokwenza Izinqumo Kwesizwe — isigaba sokuqala: ukudla lokuvikeleka kwakho.", // TODO(native-speaker)
- llmNote:"Umsizi we-AI akakhi futhi akashintshi idatha. Ufunda kuphela izinombolo ezisetshenzisiweyo ezivela emikhakheni emikhulu (ZimVAC, IPC, Met Services) echaza, ehlola futhi ephetha izincomo — umuntu nguye okhethayo." // TODO(native-speaker)
+ llmNote:"Umsizi we-AI akakhi futhi akashintshi idatha. Ufunda kuphela izinombolo ezisetshenzisiweyo ezivela emikhakheni emikhulu (ZimVAC, IPC, Met Services) echaza, ehlola futhi ephetha izincomo — umuntu nguye okhethayo.", // TODO(native-speaker)
+ // NEW decision-framework labels (drafts) // TODO(native-speaker)
+ fwTitle:"Indlela yokukhetha", fwCost:"Izindleko zokwenza", fwDecide:"Khetha ngaphambi", fwConf:"Ukuthemba", fwOpp:"Uma uxhasa lo",
+ fwWaits:"uzalinda", fwHighIn:"OKUKHULU ngo", fwCrisis:"abasengozini", fwPerson:"/umuntu ngokudla",
+ confHi:"yenza, uqinisekise", confMid:"yenza, kodwa qinisekisa kuqala", confLo:"phenya kuqala",
+ fwUncosted:"Akulanani lwe-IPC lwaledolobho — thola inani labantu ngaphambi kokubala izindleko.",
+ fwPlan:"isilinganiso sokuhlela — hatshi isabelomali",
+ demoBadge:"IDATHA YESIBONELO", demoNote:"Idatha yePOTRAZ yesibonelo — hatshi okubonwe emasimini; inani le-IPC ngeleqiniso (2020)"
 }};
 window.hoziT = function(k, en){ const s=window.HOZI_I18N[window.HOZI_LANG||'en'];
   return (s && s[k]!==undefined) ? s[k] : (en!==undefined?en:k); };
