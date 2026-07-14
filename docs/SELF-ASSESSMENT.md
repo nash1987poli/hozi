@@ -2,9 +2,9 @@
 
 **Project:** Hozi — National Food-Security Foresight Engine
 **Submission:** POTRAZ AI for Impact (AI4I) 2026 — Development Track
-**Last updated:** 2026-07-04
+**Last updated:** 2026-07-14
 
-This document covers (1) the ToR §16 submission-readiness checklist, (2) the Annex F demo-day checklist, and (3) the final compliance sweep results.
+This document covers (1) the ToR §16 submission-readiness checklist, (2) the Annex F demo-day checklist, (3) the final compliance sweep results, and (4) build updates since the first sweep.
 
 ---
 
@@ -41,7 +41,7 @@ This document covers (1) the ToR §16 submission-readiness checklist, (2) the An
 | 5 | Architecture diagram | **Ready** | `docs/ARCHITECTURE.md` (Mermaid LR flowchart); reproduced in proposal §2 |
 | 6 | Dataset statement and AI usage note | **Ready** | `docs/DATASET-STATEMENT.md`; `docs/AI-USAGE-NOTE.md` |
 | 7 | Live demo URL | **Ready** | https://hozi-xi.vercel.app/ (Vercel, live) |
-| 8 | n8n automation execution screenshot | **Needs work — scheduled** | `automation/hozi-pipeline.workflow.json` committed; live execution screenshot pending first VPS run (Task 11 — Nash GUI step) |
+| 8 | n8n automation execution screenshot | **Partial** | Three import-ready workflows committed: `automation/hozi-pipeline.workflow.json` (pipeline), `automation/Hozi-WhatsApp-Bot.n8n.json` (inbound officer bot), `automation/Hozi-WhatsApp-Alert.n8n.json` (outbound HIGH-band alert), plus `automation/WHATSAPP-BOT-SETUP.md`. Live-execution screenshot still pending first run (Nash GUI step). |
 | 9 | Risk and compliance checklist | **Ready** | `docs/RISK-COMPLIANCE.md` |
 | 10 | Testing evidence | **Ready** | `docs/TESTING-EVIDENCE.md` — 14/14 tests; engine diagnostics; check-app OK |
 | 11 | Pitch deck | **Ready** | `proposal/ai4i-2026/pitch-deck.html`; `proposal/ai4i-2026/hozi-pitch-deck.pdf` (11 slides) |
@@ -61,7 +61,7 @@ git log --all -S "sk-ant-api" --oneline
 
 `.env.example` is present at repo root with placeholder values only. `CLAUDE_API_KEY` is loaded from the runtime environment; it is never hardcoded in any source file.
 
-**Note on `scripts/anthropic-key.txt`:** This file exists on disk and contains a live API key. It is listed in `.gitignore` and has **never been committed to git** (confirmed: `git log --all -- scripts/anthropic-key.txt` returns empty). It does not appear in the git object store. However, it must be rotated before the repo is made public — Nash action required before GitHub Pages / public repo deployment.
+**Note on `scripts/anthropic-key.txt`:** This file exists on disk and contains a live API key. It is listed in `.gitignore` and has **never been committed to git** (confirmed: `git log --all -- scripts/anthropic-key.txt` returns empty). It does not appear in the git object store. The repo is now public and no key is present in it or its history, so the "secrets removed from repo" requirement is met. The on-disk key should still be rotated as hygiene (Nash action, console.anthropic.com).
 
 ### 3.2 Repo structure verification
 
@@ -76,7 +76,8 @@ git log --all -S "sk-ant-api" --oneline
 | scripts/ | Yes | `scripts/` — check-app.mjs, generate-briefs.mjs, package.json |
 | package.json | Yes | `scripts/package.json` (also root-level package.json) |
 | docs/ | Yes | `docs/` — all evidence documents |
-| automation/ | Yes | `automation/` — hozi-pipeline.workflow.json, README.md |
+| automation/ | Yes | `automation/` — hozi-pipeline.workflow.json, Hozi-WhatsApp-Bot.n8n.json, Hozi-WhatsApp-Alert.n8n.json, WHATSAPP-BOT-SETUP.md, README.md |
+| app/ playbooks | Yes | `app/playbooks.js` — per-district decision frameworks rendered in the app |
 
 ### 3.3 Python unit tests
 
@@ -123,4 +124,22 @@ node scripts/check-app.mjs
 
 ---
 
-*Self-assessment prepared by Curious Inq. All statuses verified against the repo state on 2026-07-04.*
+## Part 4 — Build Updates Since First Sweep (2026-07-14)
+
+Changes shipped after the 2026-07-04 sweep. All are committed and live.
+
+| Area | Update |
+|---|---|
+| **Live-demo hosting** | Moved from GitHub Pages to **Vercel** (`https://hozi-xi.vercel.app/`) after the GitHub Pages CDN (185.199.108–111.x) proved unreachable from Zimbabwean ISPs, where the judges are. The demo is deployed **from this GitHub repo** and auto-redeploys on every push; the repository is unchanged and remains the source of truth. GitHub Pages has since recovered and stands as a mirror. |
+| **In-app decision frameworks** | Each district drill-down now shows a costed decision framework — cost to act, decision deadline, confidence, and opportunity cost (which district waits) — from `app/playbooks.js`, grounded in real IPC caseloads, market prices, and model output. |
+| **Honesty badge** | Every district panel carries a "DEMO DATA" badge disclosing synthetic model data vs the real (2020) IPC caseload — the disclosure now sits on the numbers themselves, in EN/sn/nd. |
+| **WhatsApp officer channel** | Two import-ready n8n workflows added: an inbound bot (officer texts a district → live brief/deadline/data/cost) and an outbound HIGH-band alert. Both read the live app data; no secrets stored. Setup guide included. |
+| **Contradiction-flagging** | LLM cross-check of model risk against official IPC outcomes shipped; `docs/ARCHITECTURE.md` updated from "planned" to shipped. |
+| **Mobile layout** | Phone-only responsive block added so floating panels no longer overlap on small screens; desktop unchanged. |
+| **PDFs** | Proposal and pitch-deck PDFs regenerated with the Vercel URL; the "TBD" placeholder removed from the deck's closing slide. |
+
+**Open pre-submission actions:** (1) rename the proposal PDF `TBD` → assigned team number; (2) rotate the on-disk Claude API key; (3) capture an n8n live-execution screenshot (Annex F #8); (4) native-speaker verification of the chiShona/isiNdebele drafts.
+
+---
+
+*Self-assessment prepared by Curious Inq. Parts 1–3 verified against the repo on 2026-07-04; Part 4 and re-verification (14/14 tests pass, app check OK, secrets clean, demo live) on 2026-07-14.*
