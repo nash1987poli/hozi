@@ -198,7 +198,7 @@ existing decision-makers and processes (ZimVAC, ministries).
 
 ## Roadmap
 
-- **Now:** working engine + national map + Response Planner on sample data; 14 unit tests passing; real-outcome training done (LODO r=0.48, beats all baselines); trilingual playbooks (en/sn/nd) committed; n8n Layer 0 workflow authored; **live demo: [nash1987poli.github.io/hozi](https://nash1987poli.github.io/hozi/)**.
+- **Now:** working engine + national map + Response Planner on sample data; 14 unit tests passing; real-outcome training done (LODO r=0.48, beats all baselines); trilingual playbooks (en/sn/nd) committed; n8n Layer 0 workflow authored; **live demo: [hozi-xi.vercel.app](https://hozi-xi.vercel.app/)**.
 - **3 months:** live rainfall/satellite/market feeds, all staple crops, pilot with one ministry or NGO.
 - **12 months:** national roll-out, local-language alerts to district officers, multi-hazard expansion
   (floods, disease), integration with Project Pangolin.
