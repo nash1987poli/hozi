@@ -132,7 +132,7 @@ path.pulse{animation:hozipulse 1.7s ease-in-out infinite}
   .kpi{top:104px; left:56px; right:8px; width:auto; padding:10px}
   .kpi .big{font-size:26px}
   .left{top:210px; left:56px; right:8px; width:auto; bottom:118px}
-  .drill{top:104px; left:8px; right:8px; width:auto; bottom:70px}
+  .drill{top:104px; left:56px; right:8px; width:auto; bottom:70px}   /* clear the domain rail */
   .timebar{min-width:0; left:8px; right:8px; transform:none; bottom:10px; padding:8px 10px; gap:8px; justify-content:center}
   .timebar .month{font-size:15px; min-width:0}
   .legend{display:none}                     /* legend collides with timebar on phones */
